@@ -1,56 +1,157 @@
-<section class="hefa08">
-  <div class="hefa08-head">
-    <div class="hefa08-kicker">04 en adelante · Rutas tecnológicas HEFA</div>
-    <h2>El punto de entrada y el acondicionamiento cambian según la tecnología</h2>
-    <p>Las etapas 01–03 son comunes. A partir de ahí, Ecofining™, HydroFlex™ y Vegan® pueden requerir niveles de acondicionamiento distintos antes del reactor principal. Por eso ya no se muestra un único paso universal de pretratamiento.</p>
+<section class="board ecofining-board">
+  <div class="board-head">
+    <div class="process-kicker">Proceso 1 · Honeywell UOP / Eni</div>
+    <h2>Ecofining™ · De la grasa renderizada a la conversión HEFA</h2>
+    <p>La ruta se lee de izquierda a derecha. Los pasos muestran qué ocurre con la grasa; únicamente <strong>03b</strong> y <strong>05b</strong> funcionan como puntos formales de control de calidad para nuestra Matriz Madre.</p>
   </div>
-  <div class="hefa08-note"><strong>Cómo leerlo:</strong> cada fila avanza de izquierda a derecha. Las columnas están alineadas para que se vea qué tecnología entra antes o después en la cadena. Las variables técnicas se mantienen visibles por etapa; los límites cuantitativos deben alimentarse desde la Matriz Madre.</div>
-  <div class="route-scroll"><div class="route-canvas">
-    <div class="route-head"><div>Tecnología</div><div>Pretratamiento externo</div><div>Recepción / entrada</div><div>Protección / limpieza 1</div><div>Protección / limpieza 2</div><div>HDO / Hydrotreatment</div><div>Isomerización / Dewaxing</div><div>Producto</div></div>
 
-    <div class="route-row eco">
-      <div class="route-name"><div class="vendor">Honeywell UOP</div><h3>Ecofining™</h3><p>Hipótesis de trabajo: puede recibir el feedstock antes del acondicionamiento fino mostrado en su propia ruta.</p></div>
-      <div class="route-slot ghost"><div class="ghost-note"><b>No se asume pretratamiento externo universal.</b><br>La necesidad real depende de la calidad de alimentación y de la configuración contratada.</div></div>
-      <div class="route-slot active"><div class="stage-card entry"><span class="scope">Punto de entrada a evaluar</span><h4>Tanques / recepción</h4><p>La grasa llega y se almacena antes del acondicionamiento Ecofining.</p><div class="tech-vars"><div class="tech-var"><b>Calidad física:</b> T04 humedad · T05 impurezas · T06 sólidos · T08/T20 acidez.</div><div class="tech-var"><b>Contaminantes:</b> T10 P · T11 metales · T15 cloruros · T16 silicio · T17 jabones · T18 insaponificables · T21 plásticos · T23 orgánicos especiales.</div></div><div class="pending"><span>Por investigar / validar límites de recepción</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card protect"><span class="scope">Limpieza física / química</span><h4>Degumming</h4><p>Lavado + separación/centrifugación para reducir agua, gomas y sólidos.</p><div class="tech-vars"><div class="tech-var"><b>Monitorear:</b> T04 humedad · T05 impurezas · T06 sólidos · T10 fósforo.</div><div class="tech-var"><b>También revisar:</b> T17 jabones · T18 insaponificables.</div></div><div class="pending"><span>Definir entrada, salida y remoción</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card protect"><span class="scope">Adsorción / polishing</span><h4>Bleaching</h4><p>Adsorbentes reducen contaminantes críticos antes del reactor.</p><div class="tech-vars"><div class="tech-var"><b>Críticos:</b> T10 fósforo · T11 metales · T16 silicio.</div><div class="tech-var"><b>Residuales:</b> T05/T06 sólidos · T23 contaminantes especiales.</div></div><div class="pending"><span>Definir especificación a entrada HDO</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Reactor HDO</h4><p>Hidrógeno + catalizador remueven oxígeno y forman hidrocarburos parafínicos.</p><div class="tech-vars"><div class="tech-var"><b>Protección catalítica:</b> T10 · T11 · T12 · T13 · T15 · T16.</div><div class="tech-var"><b>Composición a convertir:</b> T08/T20 · T22.</div></div><div class="pending"><span>Validar límites exactos a reactor</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Isomerización</h4><p>Reacomoda parafinas para mejorar propiedades de frío y habilitar SAF.</p><div class="tech-vars"><div class="tech-var"><b>Caracterización relevante:</b> T02 perfil de ácidos grasos · T19 insaturación.</div></div><div class="pending"><span>Variables de producto/operación fuera de T01–T23</span></div></div></div>
-      <div class="route-slot final"><div class="stage-card product"><div class="saf-wrap"><div><div class="saf-pill">SAF / Jet Fuel</div><p>Producto objetivo</p></div></div></div></div>
-    </div>
+  <div class="checkpoint-legend">
+    <span class="checkpoint-chip commercial"><b>03b · Checkpoint comercial</b> ¿El lote entregado en Tula cumple lo que PEMEX acordó comprar?</span>
+    <span class="checkpoint-chip technical"><b>05b · Checkpoint técnico HEFA</b> ¿La grasa pretratada está suficientemente limpia para entrar al HDO?</span>
+  </div>
 
-    <div class="route-row hydro">
-      <div class="route-name"><div class="vendor">Topsoe</div><h3>HydroFlex™</h3><p>Hipótesis de trabajo: requiere pretratamiento previo y utiliza un guard bed como segunda línea de defensa.</p></div>
-      <div class="route-slot active"><div class="stage-card pre"><span class="scope out">Previo a HydroFlex</span><h4>Pretratamiento externo</h4><p>Reduce carga de agua, sólidos, fósforo, metales y otros contaminantes.</p><div class="tech-vars"><div class="tech-var"><b>Remover/controlar:</b> T04 · T05 · T06 · T10 · T11 · T15 · T16 · T17 · T18 · T21 · T23.</div><div class="tech-var"><b>Calidad global:</b> T08/T20 acidez · T09 estabilidad.</div></div><div class="pending"><span>Definir nivel mínimo de pretratamiento</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card entry"><span class="scope">Entrada HydroFlex</span><h4>Recepción / alimentación</h4><p>El feedstock ya pretratado entra a la ruta HydroFlex.</p><div class="tech-vars"><div class="tech-var"><b>Especificación crítica:</b> T04 · T05 · T06 · T10 · T11 · T15 · T16.</div><div class="tech-var"><b>Objetivo:</b> cuantificar cuánto puede aceptar antes del guard bed.</div></div><div class="pending"><span>Por investigar / validar límites de entrada</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card protect"><span class="scope">Segunda línea de defensa</span><h4>Guard bed</h4><p>Captura contaminantes antes del catalizador principal; su capacidad no es infinita.</p><div class="tech-vars"><div class="tech-var"><b>Críticos:</b> T10 fósforo · T11 metales · T15 cloruros · T16 silicio · T06 partículas.</div><div class="tech-var"><b>Impacto:</b> la carga condiciona saturación, vida útil y caída de presión.</div></div><div class="pending"><span>Validar capacidad y especificación de salida</span></div></div></div>
-      <div class="route-slot ghost"><div class="ghost-note">No se muestra una segunda etapa de limpieza independiente como universal. La configuración real puede integrar protecciones adicionales.</div></div>
-      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Lecho HDO</h4><p>Elimina oxígeno del feedstock y forma parafinas.</p><div class="tech-vars"><div class="tech-var"><b>Contaminantes residuales:</b> T10 · T11 · T12 · T13 · T15 · T16.</div><div class="tech-var"><b>Composición a convertir:</b> T08/T20 · T22.</div></div><div class="pending"><span>Validar límites al catalizador principal</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Isomerización / Dewaxing</h4><p>Ajusta propiedades de frío y desempeño del combustible.</p><div class="tech-vars"><div class="tech-var"><b>Caracterización relevante:</b> T02 · T19.</div></div><div class="pending"><span>Variables de producto/operación fuera de T01–T23</span></div></div></div>
-      <div class="route-slot final"><div class="stage-card product"><div class="saf-wrap"><div><div class="saf-pill">SAF / Jet Fuel</div><p>Producto objetivo</p></div></div></div></div>
-    </div>
+  <div class="scroll eco-scroll">
+    <div class="canvas eco-canvas">
+      <div class="eco-strip">
+        <article class="col type-proc">
+          <div class="step-no">01</div>
+          <h3>Rendering</h3>
+          <p class="desc">Los subproductos animales se procesan con calor y separación para recuperar la fracción grasa. El resultado es una <strong>grasa animal renderizada</strong>, que se convierte en el feedstock inicial de la cadena.</p>
+          <div class="type-tags"><span class="type-tag proc"><i></i>Procesamiento</span></div>
+        </article>
 
-    <div class="route-row vegan">
-      <div class="route-name"><div class="vendor">Axens</div><h3>Vegan®</h3><p>Hipótesis de trabajo: recibe el feedstock después de un acondicionamiento previo suficiente para proteger la sección catalítica.</p></div>
-      <div class="route-slot active"><div class="stage-card pre"><span class="scope out">Previo a Vegan</span><h4>Pretratamiento / acondicionamiento</h4><p>El feedstock alcanza la calidad requerida antes de ingresar al esquema Vegan.</p><div class="tech-vars"><div class="tech-var"><b>Remover/controlar:</b> T04 · T05 · T06 · T10 · T11 · T15 · T16 · T17 · T18 · T21 · T23.</div><div class="tech-var"><b>Calidad adicional:</b> T08/T20 acidez · T09 estabilidad.</div></div><div class="pending"><span>Ubicación, alcance y límites por confirmar</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card entry"><span class="scope">Entrada Vegan</span><h4>Recepción de grasa acondicionada</h4><p>Punto de aceptación antes de la sección principal de hidrotratamiento.</p><div class="tech-vars"><div class="tech-var"><b>Críticos:</b> T04 · T05/T06 · T10 · T11 · T15 · T16.</div><div class="tech-var"><b>Otros:</b> T17 · T18 · T20 · T21 · T23.</div></div><div class="pending"><span>Por investigar / validar límites de entrada</span></div></div></div>
-      <div class="route-slot ghost"><div class="ghost-note">No se asume un guard bed equivalente a HydroFlex como etapa universal del esquema Vegan. Confirmar configuración real.</div></div>
-      <div class="route-slot ghost"><div class="ghost-note">No se muestra una segunda etapa de limpieza independiente. Cualquier protección adicional debe documentarse.</div></div>
-      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Hydrotreatment / deoxigenación</h4><p>Con la alimentación acondicionada, remueve oxígeno y genera parafinas lineales.</p><div class="tech-vars"><div class="tech-var"><b>Protección catalítica:</b> T10 · T11 · T12 · T13 · T15 · T16.</div><div class="tech-var"><b>Composición a convertir:</b> T08/T20 · T22.</div></div><div class="pending"><span>Validar límites exactos a reactor</span></div></div></div>
-      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Hydroisomerisation</h4><p>Mejora propiedades de frío y ajusta la producción de SAF.</p><div class="tech-vars"><div class="tech-var"><b>Caracterización relevante:</b> T02 · T19.</div></div><div class="pending"><span>Variables de producto/operación fuera de T01–T23</span></div></div></div>
-      <div class="route-slot final"><div class="stage-card product"><div class="saf-wrap"><div><div class="saf-pill">SAF / Jet Fuel</div><p>Producto objetivo</p></div></div></div></div>
+        <article class="col type-sel">
+          <div class="step-no">02</div>
+          <h3>Filtro de selección del feedstock</h3>
+          <p class="desc">Se identifican las grasas que vale la pena considerar según su <strong>origen, tipo, disponibilidad, trazabilidad y características generales</strong>. Aquí se eliminan materiales claramente inadecuados antes de incurrir en más costos.</p>
+          <div class="type-tags"><span class="type-tag sel"><i></i>Selección</span></div>
+        </article>
+
+        <article class="col type-almtrans">
+          <div class="step-no">03</div>
+          <h3>Transporte y almacenamiento</h3>
+          <p class="desc">La grasa seleccionada se mueve hasta Tula y se conserva en condiciones que la mantengan <strong>bombeable, homogénea y sin contaminación adicional</strong>. Temperatura, tiempo y manejo deben evitar su deterioro.</p>
+          <div class="type-tags"><span class="type-tag trans"><i></i>Transporte</span><span class="type-tag alm"><i></i>Almacenamiento</span></div>
+        </article>
+
+        <article class="col checkpoint-col commercial-col">
+          <div class="step-no">03b</div>
+          <h3>Recepción y control de calidad en Tula</h3>
+          <p class="desc">Se toma una muestra de la grasa <strong>tal como llegó</strong> y se compara contra la especificación de compra. La decisión es comercial: aceptar, penalizar, mezclar/corregir o rechazar el lote.</p>
+          <div class="type-tags"><span class="type-tag checkpoint-commercial"><i></i>Checkpoint comercial</span></div>
+        </article>
+
+        <article class="col type-pre">
+          <div class="step-no">04</div>
+          <h3>Degumming</h3>
+          <p class="desc">La grasa se trata para separar <strong>fosfolípidos, gomas y compuestos asociados al fósforo</strong>. Es la primera limpieza específica para disminuir contaminantes que pueden afectar las etapas catalíticas posteriores.</p>
+          <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento</span></div>
+        </article>
+
+        <article class="col type-pre">
+          <div class="step-no">05</div>
+          <h3>Bleaching</h3>
+          <p class="desc">La grasa entra en contacto con adsorbentes, como <em>bleaching earth</em>, que capturan <strong>fósforo residual, metales, sólidos finos y otros contaminantes</strong>. Después, el adsorbente se retira mediante filtración.</p>
+          <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento</span></div>
+        </article>
+
+        <article class="col checkpoint-col technical-col">
+          <div class="step-no">05b</div>
+          <h3>Control técnico del feedstock acondicionado</h3>
+          <p class="desc">Después de Degumming + Bleaching se verifica si la grasa quedó <strong>suficientemente limpia para entrar al HDO</strong> sin generar un riesgo inaceptable de envenenamiento de catalizador, fouling o daño al equipo.</p>
+          <div class="type-tags"><span class="type-tag checkpoint-technical"><i></i>Checkpoint técnico HEFA</span></div>
+        </article>
+
+        <article class="col conversion-col">
+          <div class="step-no">06</div>
+          <h3>Hidrodesoxigenación (HDO)</h3>
+          <p class="desc">La grasa acondicionada reacciona con <strong>hidrógeno a alta temperatura y presión</strong>. Se elimina el oxígeno de triglicéridos y ácidos grasos y el feedstock comienza a convertirse en hidrocarburos.</p>
+          <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HEFA</span></div>
+        </article>
+
+        <article class="col conversion-col">
+          <div class="step-no">07</div>
+          <h3>Isomerización</h3>
+          <p class="desc">Los hidrocarburos se reorganizan para generar estructuras más ramificadas y mejorar sus propiedades, especialmente el <strong>comportamiento a bajas temperaturas</strong> requerido para aplicaciones de combustible de aviación.</p>
+          <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HEFA</span></div>
+        </article>
+      </div>
+
+      <div class="eco-strip2">
+        <section class="stage muted-stage">
+          <div class="panel-title">Punto de control</div>
+          <div class="stage-explain">Aquí se obtiene la materia prima. <strong>No se define todavía un límite de aceptación Ecofining.</strong></div>
+        </section>
+
+        <section class="stage muted-stage">
+          <div class="panel-title">Punto de control</div>
+          <div class="stage-explain">Filtro inicial de elegibilidad. Sirve para decidir qué materiales continúan, <strong>no para fijar límites de reactor</strong>.</div>
+        </section>
+
+        <section class="stage muted-stage">
+          <div class="panel-title">Punto de control</div>
+          <div class="stage-explain">Las condiciones aquí protegen la calidad durante el movimiento y la espera. Los criterios específicos se manejan en la dimensión logística.</div>
+        </section>
+
+        <section class="stage commercial-stage">
+          <div class="panel-title">Variables de recepción · calidad comercial</div>
+          <div class="varlist">
+            <div class="var sel"><strong>T01 · Contenido lipídico</strong>Cuánto del lote recibido es realmente grasa aprovechable.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+            <div class="var sel"><strong>T04 · Humedad</strong>Agua presente en la grasa tal como llega a Tula.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+            <div class="var sel"><strong>T05 · Impurezas generales</strong>Material no deseado distinto de la grasa.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+            <div class="var sel"><strong>T06 · Sólidos totales</strong>Partículas que pueden dificultar bombeo, filtración y manejo.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+            <div class="var sel"><strong>T07 · Cenizas y composición</strong>Indicador de contaminación inorgánica o mineral del lote.<div class="rangerow"><span class="valchip">Referencia comercial por validar</span></div></div>
+            <div class="var sel"><strong>T08 · Índice de acidez / FFA</strong>Proporción de ácidos grasos libres y señal de la condición de la grasa.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+            <div class="var sel"><strong>T09 · Oxidación / estabilidad</strong>Qué tan degradada está la grasa y qué tan estable será durante almacenamiento.<div class="rangerow"><span class="valchip">Método y referencia por validar</span></div></div>
+          </div>
+          <div class="checkpoint-decision commercial-decision"><b>Decisión:</b> aceptar · penalizar · mezclar/corregir · rechazar</div>
+        </section>
+
+        <section class="stage muted-stage">
+          <div class="panel-title">Qué se corrige</div>
+          <div class="stage-explain">Principalmente se reducen <strong>fosfolípidos, gomas y fósforo</strong>. El desempeño se evalúa por la calidad que logra el feedstock a la salida del pretratamiento.</div>
+        </section>
+
+        <section class="stage muted-stage">
+          <div class="panel-title">Qué se corrige</div>
+          <div class="stage-explain">Principalmente se reducen <strong>fósforo residual, metales, sólidos finos y contaminantes adsorbibles</strong> antes del control técnico.</div>
+        </section>
+
+        <section class="stage technical-stage">
+          <div class="panel-title">Variables de entrada · aptitud técnica HEFA</div>
+          <div class="varlist">
+            <div class="var proc"><strong>T10 · Fósforo</strong>Contaminante crítico que debe reducirse antes del HDO para proteger la sección catalítica.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T11 · Metales</strong>Na, K, Ca, Mg, Fe y otros metales relevantes; pueden causar depósitos y desactivación del catalizador.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T04 · Humedad residual</strong>Agua que permanece después del acondicionamiento y, cuando aplique, del secado.<div class="rangerow"><span class="valchip">Límite de entrada por validar</span></div></div>
+            <div class="var proc"><strong>T05 / T06 · Impurezas y sólidos residuales</strong>Partículas que todavía permanecen después de la limpieza y filtración final.<div class="rangerow"><span class="valchip">Límite de entrada por validar</span></div></div>
+            <div class="var proc"><strong>T08 · FFA</strong>Se confirma su condición a la salida del pretratamiento; no se asume que FFA sea automáticamente un contaminante HEFA.<div class="rangerow"><span class="valchip">Tratamiento Ecofining por validar</span></div></div>
+          </div>
+          <div class="checkpoint-decision technical-decision"><b>Decisión:</b> apto / no apto para alimentar la sección HDO</div>
+        </section>
+
+        <section class="stage muted-stage">
+          <div class="panel-title">Conversión química</div>
+          <div class="stage-explain">En este punto la grasa ya pasó el checkpoint técnico. <strong>No se define aquí una nueva especificación comercial del feedstock.</strong></div>
+        </section>
+
+        <section class="stage muted-stage">
+          <div class="panel-title">Conversión química</div>
+          <div class="stage-explain">La materia prima ya fue convertida en hidrocarburos; el foco cambia de calidad del feedstock a <strong>propiedades del combustible producido</strong>.</div>
+        </section>
+      </div>
     </div>
-  </div></div>
-  <div class="hefa08-foot"><strong>v15:</strong> se conserva el lenguaje visual del v13, pero las etapas 04–07 dejan de tratarse como universales. La Matriz Madre será la fuente para completar los límites por tecnología y por punto del proceso.</div>
+  </div>
+
+  <div class="foot"><strong>Proceso canónico Ecofining:</strong> esta secuencia es la referencia aprobada del proyecto. No debe reordenarse ni modificarse sin aprobación explícita. Los valores de 03b son comerciales/contractuales; los valores de 05b son técnicos y específicos de la tecnología.</div>
 </section>
+
 <script>
 (()=>{
-  document.title='Feedstock Process Dashboard BIARAI v15 — Rutas tecnológicas HEFA';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Arquitectura por tecnología · v15';
-  const h=document.querySelector('h1'); if(h)h.textContent='Proceso y variables técnicas de la grasa animal hacia SAF en Tula';
-  const s=document.querySelector('.subtitle'); if(s)s.innerHTML='Rendering → selección y caracterización → transporte/almacenamiento → <strong>rutas tecnológicas distintas según Ecofining, HydroFlex o Vegan</strong>. Las primeras etapas son comunes; el punto de entrada, el acondicionamiento y la protección cambian por tecnología.';
-  const bh=document.querySelector('.board-head h2'); if(bh)bh.textContent='Etapas comunes antes de la diferenciación tecnológica';
-  const bp=document.querySelector('.board-head p'); if(bp)bp.textContent='Rendering, selección/caracterización y logística se mantienen como bloque común. Desde el siguiente punto, la ruta depende de la tecnología HEFA seleccionada.';
-  const f=document.querySelector('.foot'); if(f)f.textContent='Versión v15 — etapas 01–03 comunes; a partir de ahí se comparan tres rutas tecnológicas. Los valores de entrada y salida por tecnología se completarán desde la Matriz Madre.';
+  document.title='Feedstock Process Dashboard BIARAI v16 — Proceso 1 Ecofining';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Procesos por tecnología · v16';
+  const h=document.querySelector('h1'); if(h)h.textContent='Procesos de la grasa animal hacia SAF en Tula';
+  const s=document.querySelector('.subtitle'); if(s)s.innerHTML='El dashboard se estructura en <strong>un proceso independiente por tecnología HEFA</strong>. El primer proceso aprobado es Ecofining™ y se muestra completo desde Rendering hasta Isomerización, con dos checkpoints claramente separados: recepción comercial en Tula y aptitud técnica antes del HDO.';
+  const legend=document.querySelector('.legend-top');
+  if(legend)legend.innerHTML='<span class="tag proc"><i></i>Procesamiento</span><span class="tag sel"><i></i>Selección / calidad comercial</span><span class="tag alm"><i></i>Almacenamiento</span><span class="tag trans"><i></i>Transporte</span><span class="tag pre"><i></i>Pretratamiento</span>';
 })();
 </script>
