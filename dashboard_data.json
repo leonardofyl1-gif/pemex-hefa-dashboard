@@ -1,0 +1,185 @@
+{
+  "meta": {
+    "source_title": "Feedstock Process Dashboard BIARAI v13 — Proceso y variables técnicas",
+    "heading": "Proceso y variables técnicas de la grasa animal hacia Tula",
+    "subtitle": "Rendering → primer filtro de selección (incluye categoría 1, 2 o 3) → transporte y almacenamiento a la planta de preproceso → pretratamiento (filtrado/deshidratación/neutralización) → segundo filtro de selección → transporte y almacenamiento a Tula → recepción. Los valores en verde son referencias de mercado o normas para grasas animales o biodiésel , con indicación de país/regulación; los textos \"Definir con...\" marcan lo que debe acordarse internamente con el tecnólogo HEFA de PEMEX y el proveedor de tecnología, o con operación Tula.",
+    "board_title": "Cadena de valor desde rendering hasta recepción en Tula",
+    "board_description": "La categoría de grasa (Cat. 1, Cat. 2 o Cat. 3) se asigna en el primer filtro de selección. Independientemente de la categoría, todas las grasas que lleguen a Tula deben cumplir los requisitos técnicos acordados con el tecnólogo HEFA de PEMEX y el proveedor de tecnología.",
+    "legend": [
+      {"type":"proc","label":"Procesamiento"},
+      {"type":"sel","label":"Filtro de selección"},
+      {"type":"alm","label":"Almacenamiento"},
+      {"type":"trans","label":"Transporte"},
+      {"type":"pre","label":"Pretratamiento"}
+    ],
+    "footer_note": "Versión v13 — proceso: rendering → primer filtro de selección (con categoría 1, 2 o 3) → transporte/almacenamiento a preproceso → pretratamiento → segundo filtro de selección → transporte/almacenamiento a Tula → recepción. Las referencias en verde indican normas o criterios de mercado de otros países/organismos; los valores internos de PEMEX se deben acordar con el tecnólogo HEFA y el proveedor de tecnología, y la operación de Tula en lo que aplique.",
+    "version_label": "v13",
+    "original_format": "html",
+    "converted_from": "feedstock-process-dashboard-v13.html",
+    "origin_thread": "e3b425b1-7d60-4f15-9239-68f2e0671346 (Hipótesis 1: Punto de inicio)",
+    "value_chip_legend": {
+      "referencia_externa": "Benchmark/norma de mercado externo (chip verde '✅' en el HTML original) — no es una regla PEMEX, es una referencia internacional o de otro proceso (p.ej. biodiésel).",
+      "pendiente_definir": "Campo aún sin valor fijado, pendiente de definirse con el tecnólogo HEFA de PEMEX, el proveedor de tecnología, o el operador de Tula (chip ámbar '⏳' en el HTML original).",
+      "no_go": "Condición estructural de rechazo del lote si no se puede corregir con pretratamiento."
+    }
+  },
+  "stages": [
+    {
+      "step_no":"01",
+      "title":"Rendering",
+      "process_description":"Transformación del subproducto animal en grasa. Punto de partida real del suministro para PEMEX.",
+      "type_tags":[{"type":"proc","label":"Procesamiento"}],
+      "variable_panels":[
+        {
+          "panel_title":"Variables de entrada (subproducto)",
+          "variables":[
+            {"variable":"Tipo y especie","category":"proc","description":"Origen animal del material antes de renderizarse.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX (especies aptas)"}]},
+            {"variable":"Frescura del subproducto","category":"proc","description":"Qué tan reciente llega el material a rendering.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX"}]}
+          ]
+        },
+        {
+          "panel_title":"Variables de salida (grasa obtenida)",
+          "variables":[
+            {"variable":"Contenido lipídico","category":"proc","description":"Porcentaje de grasa útil obtenida del proceso.","values":[{"type":"referencia_externa","text":"California, 3 CCR §2783 (EE.UU.): ≥85–90% ácidos grasos totales en grasas técnicas"},{"type":"pendiente_definir","text":"Validar criterio interno PEMEX con tecnólogo HEFA"}]},
+            {"variable":"Humedad","category":"proc","description":"Agua remanente tras el proceso térmico.","values":[{"type":"referencia_externa","text":"Codex STAN 211: materia volátil a 105°C ≤0.3% (FAO, internacional)"},{"type":"pendiente_definir","text":"Validar criterio interno PEMEX con tecnólogo HEFA"}]},
+            {"variable":"Impurezas y sólidos totales","category":"proc","description":"Partículas no separadas durante el rendering.","values":[{"type":"referencia_externa","text":"Codex STAN 211: impurezas insolubles ≤0.05% (FAO, internacional)"},{"type":"referencia_externa","text":"FDA 21 CFR 589.2000: impurezas insolubles ≤0.15% para tallow de rumiantes (EE.UU.)"},{"type":"pendiente_definir","text":"Validar criterio interno PEMEX con tecnólogo HEFA"}]},
+            {"variable":"Índice de acidez / FFA","category":"proc","description":"Nivel de descomposición de la grasa recién obtenida.","values":[{"type":"referencia_externa","text":"Mercado UE (grasas animales/tallow): FFA hasta 15%; <5% preferido para HVO"},{"type":"pendiente_definir","text":"Definir rango operable con tecnólogo HEFA y proveedor de tecnología"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "step_no":"02",
+      "title":"Primer filtro de selección",
+      "process_description":"Clasificación inicial de la grasa recién renderizada: tipo de grasa, categoría ABP (Cat. 1, Cat. 2 o Cat. 3), proveedor y trazabilidad básica.",
+      "type_tags":[{"type":"sel","label":"Selección"}],
+      "variable_panels":[
+        {
+          "panel_title":"Clasificación y categoría ABP",
+          "variables":[
+            {"variable":"Categoría ABP (Cat. 1, Cat. 2 o Cat. 3)","category":"sel","description":"Clasificación regulatoria oficial del lote (Reglamento CE 1069/2009, UE).","values":[{"type":"pendiente_definir","text":"Campo de captura obligatorio (no es valor numérico)"}]},
+            {"variable":"Tipo de grasa","category":"sel","description":"Especie/mezcla declarada por el proveedor.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX (especies aceptadas)"}]},
+            {"variable":"Trazabilidad y documentación","category":"sel","description":"Origen, lote, fecha y COA disponibles.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX"}]},
+            {"variable":"Homogeneidad del lote","category":"sel","description":"Si la muestra se ve uniforme o mezclada/inconsistente.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX"}]},
+            {"variable":"MIU (humedad + impurezas + insaponificables)","category":"sel","description":"Indicador combinado de qué tan limpia está la grasa.","values":[{"type":"referencia_externa","text":"Mercado UE (grasas animales): MIU total ≤2%"},{"type":"pendiente_definir","text":"Definir rango aceptable con tecnólogo HEFA y proveedor de tecnología"}]},
+            {"variable":"Perfil de ácidos grasos (primer corte)","category":"sel","description":"Verificación inicial de compatibilidad con HEFA.","values":[{"type":"pendiente_definir","text":"No existe límite normativo único; se define internamente con tecnólogo HEFA PEMEX"}]},
+            {"variable":"Cenizas y composición","category":"sel","description":"Residuo inorgánico como indicador de pureza.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "step_no":"03",
+      "title":"Transporte + almacenamiento a planta de preproceso",
+      "process_description":"La grasa se traslada y se guarda a la espera de recibir tratamiento adicional. Aquí solo se mueve y se espera, todavía no se le hace nada.",
+      "type_tags":[{"type":"trans","label":"Transporte"},{"type":"alm","label":"Almacenamiento"}],
+      "variable_panels":[
+        {
+          "panel_title":"Transporte",
+          "variables":[
+            {"variable":"Duración del trayecto","category":"trans","description":"Tiempo total hasta la planta de preproceso.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Control de temperatura en ruta","category":"trans","description":"Variación térmica durante el traslado.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Material del tanque","category":"trans","description":"Riesgo de introducir metales pesados.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]}
+          ]
+        },
+        {
+          "panel_title":"Almacenamiento",
+          "variables":[
+            {"variable":"Tiempo de resguardo","category":"alm","description":"Cuánto espera la grasa antes del pretratamiento.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Estabilidad oxidativa","category":"alm","description":"Qué tan rápido se degrada mientras espera.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX (criterio de estabilidad)"}]},
+            {"variable":"Variación de acidez/FFA","category":"alm","description":"Incremento de acidez durante la espera.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "step_no":"04",
+      "title":"Pretratamiento",
+      "process_description":"Aquí sí se interviene la grasa: filtrado, deshidratación y/o neutralización, según lo que necesite el lote.",
+      "type_tags":[{"type":"pre","label":"Pretratamiento"}],
+      "variable_panels":[
+        {"panel_title":"Filtrado","variables":[{"variable":"Sólidos e impurezas removidos","category":"pre","description":"Cuánta partícula sólida se logra eliminar con el filtrado.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX y proveedor de tecnología"}]}]},
+        {"panel_title":"Deshidratación","variables":[{"variable":"Humedad final","category":"pre","description":"Nivel de agua que debe quedar tras el secado.","values":[{"type":"referencia_externa","text":"EN 14214 (UE, biodiésel): agua ≤0.05% m/m (500 mg/kg)"},{"type":"referencia_externa","text":"AGQM (Alemania): valores observados ≈0.027–0.032% m/m"},{"type":"pendiente_definir","text":"Definir objetivo de feedstock con tecnólogo HEFA y proveedor"}]}]},
+        {"panel_title":"Neutralización","variables":[{"variable":"Acidez / FFA final","category":"pre","description":"Nivel de acidez que debe alcanzarse tras neutralizar.","values":[{"type":"referencia_externa","text":"EN 14214 (UE, biodiésel): valor ácido ≤0.50 mg KOH/g"},{"type":"pendiente_definir","text":"Definir objetivo de feedstock con tecnólogo HEFA y proveedor"}]}]},
+        {
+          "panel_title":"Otros contaminantes",
+          "variables":[
+            {"variable":"Metales e inhibidores removidos","category":"pre","description":"Reducción esperada de metales pesados y otros inhibidores.","values":[{"type":"referencia_externa","text":"EN 14538 / ASTM D6751 (EE.UU./UE): Ca+Mg y Na+K ≤5 ppm en biodiésel"},{"type":"pendiente_definir","text":"Definir objetivo de feedstock con tecnólogo HEFA y proveedor"}]},
+            {"variable":"Costo del pretratamiento","category":"pre","description":"Costo por tonelada asociado a estos tratamientos.","values":[{"type":"pendiente_definir","text":"Definir con operador PEMEX Tula"}]},
+            {"variable":"Condiciones NO-GO ligadas a fósforo, metales y cloro/plásticos","category":"nogo","description":"Si el lote trae fósforo, metales totales o cloro/plásticos en niveles que ni el pretratamiento puede bajar a rangos seguros, el lote se considera no apto para HEFA.","values":[{"type":"referencia_externa","text":"ASTM D6751 / EN 14214 limitan P en biodiésel a 4–10 ppm"},{"type":"pendiente_definir","text":"Definir límite interno de NO-GO con tecnólogo HEFA y proveedor"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "step_no":"05",
+      "title":"Segundo filtro de selección",
+      "process_description":"Nueva clasificación después del pretratamiento: se confirma si la grasa ya cumple los criterios técnicos para avanzar hacia Tula.",
+      "type_tags":[{"type":"sel","label":"Selección"}],
+      "variable_panels":[
+        {
+          "panel_title":"Confirmación técnica",
+          "variables":[
+            {"variable":"Índice de acidez / FFA (post-pretratamiento)","category":"sel","description":"Confirmar que el tratamiento corrigió la acidez.","values":[{"type":"referencia_externa","text":"EN 14214 (UE, biodiésel): valor ácido ≤0.50 mg KOH/g"},{"type":"pendiente_definir","text":"Definir umbral de feedstock con tecnólogo HEFA"}]},
+            {"variable":"Humedad (post-pretratamiento)","category":"sel","description":"Confirmar reducción de agua tras deshidratación.","values":[{"type":"referencia_externa","text":"EN 14214 (UE, biodiésel): agua ≤0.05% m/m"},{"type":"pendiente_definir","text":"Definir umbral de feedstock con tecnólogo HEFA"}]},
+            {"variable":"Sólidos e impurezas (post-pretratamiento)","category":"sel","description":"Confirmar limpieza tras filtrado.","values":[{"type":"referencia_externa","text":"Codex STAN 211: impurezas insolubles ≤0.05% (FAO)"},{"type":"pendiente_definir","text":"Definir umbral interno con tecnólogo HEFA"}]},
+            {"variable":"Perfil de ácidos grasos","category":"sel","description":"Confirmación final de compatibilidad con HEFA.","values":[{"type":"pendiente_definir","text":"No hay norma única; criterio interno con tecnólogo HEFA"}]},
+            {"variable":"Composición C/H/N/S","category":"sel","description":"Verificación elemental antes de continuar a Tula.","values":[{"type":"referencia_externa","text":"EN 14214 y ASTM D6751 limitan S a 10–15 ppm"},{"type":"pendiente_definir","text":"Definir límites internos de N/S con tecnólogo HEFA"}]},
+            {"variable":"Metales pesados","category":"sel","description":"Confirmar niveles seguros antes de continuar.","values":[{"type":"referencia_externa","text":"EN 14538 / ASTM D6751: Ca+Mg y Na+K ≤5 ppm; versión LM: Na+K+Ca+Mg ≤4 ppm"},{"type":"pendiente_definir","text":"Definir umbral de feedstock con tecnólogo HEFA y proveedor"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "step_no":"06",
+      "title":"Transporte + almacenamiento a Tula",
+      "process_description":"Traslado final y resguardo en Tula antes del ingreso a planta. Nuevo punto donde tiempo y temperatura pueden alterar la grasa.",
+      "type_tags":[{"type":"trans","label":"Transporte"},{"type":"alm","label":"Almacenamiento"}],
+      "variable_panels":[
+        {
+          "panel_title":"Transporte",
+          "variables":[
+            {"variable":"Duración del trayecto","category":"trans","description":"Tiempo total hasta la recepción en Tula.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Control de temperatura en ruta","category":"trans","description":"Variación térmica durante el traslado final.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Material del tanque","category":"trans","description":"Riesgo de contaminación por metales en el tramo final.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Estado físico en tránsito","category":"trans","description":"Si la grasa llega líquida o se solidifica en ruta.","values":[{"type":"pendiente_definir","text":"Definir con operador PEMEX Tula"}]}
+          ]
+        },
+        {
+          "panel_title":"Almacenamiento",
+          "variables":[
+            {"variable":"Tiempo de resguardo en Tula","category":"alm","description":"Espera antes de ingresar a HEFA.","values":[{"type":"pendiente_definir","text":"No hay valor normativo; definir con operador PEMEX Tula"}]},
+            {"variable":"Estabilidad oxidativa","category":"alm","description":"Degradación adicional mientras espera en Tula.","values":[{"type":"referencia_externa","text":"EN 14214 (UE): estabilidad oxidativa ≥4–6 h a 110°C"},{"type":"pendiente_definir","text":"Definir criterio de recepción con tecnólogo HEFA"}]},
+            {"variable":"Variación de acidez/FFA","category":"alm","description":"Cambio de acidez durante la espera final.","values":[{"type":"pendiente_definir","text":"Definir con tecnólogo HEFA PEMEX"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "step_no":"07",
+      "title":"Recepción en Tula",
+      "process_description":"Revisión final del lote: se decide si entra a HEFA tal cual, necesita corrección adicional, o se rechaza.",
+      "type_tags":[{"type":"proc","label":"Procesamiento"}],
+      "variable_panels":[
+        {
+          "panel_title":"Variables de aceptación final (recepción en Tula)",
+          "variables":[
+            {"variable":"Contenido lipídico / materia grasa total","category":"proc","description":"Pureza final de la grasa recibida (qué tanto es material útil).","values":[{"type":"referencia_externa","text":"California, 3 CCR §2783 (EE.UU.): ≥85–90% ácidos grasos totales en grasas técnicas"},{"type":"pendiente_definir","text":"Definir umbral de aceptación interna con tecnólogo HEFA"}]},
+            {"variable":"Perfil de ácidos grasos","category":"proc","description":"Composición que determina desempeño en HEFA.","values":[{"type":"pendiente_definir","text":"No hay norma única; se define perfil objetivo con tecnólogo HEFA"}]},
+            {"variable":"Humedad","category":"proc","description":"Agua presente en la grasa al momento de recibirla.","values":[{"type":"referencia_externa","text":"EN 14214 (UE, biodiésel): agua ≤0.05% m/m; Codex STAN 211: materia volátil ≤0.3%"},{"type":"pendiente_definir","text":"Definir rango de aceptación de feedstock con tecnólogo HEFA"}]},
+            {"variable":"Impurezas insolubles","category":"proc","description":"Partículas presentes al momento de la descarga.","values":[{"type":"referencia_externa","text":"Codex STAN 211 (FAO): impurezas insolubles ≤0.05%"},{"type":"referencia_externa","text":"FDA 21 CFR 589.2000 (EE.UU.): ≤0.15% para tallow de rumiantes"},{"type":"pendiente_definir","text":"Definir umbral de recepción con tecnólogo HEFA y operador"}]},
+            {"variable":"Sólidos totales","category":"proc","description":"Todo el material no lipídico que queda.","values":[{"type":"pendiente_definir","text":"No hay norma directa; derivar límite interno a partir de impurezas/cenizas con tecnólogo HEFA"}]},
+            {"variable":"Cenizas","category":"proc","description":"Residuo inorgánico final antes de procesar.","values":[{"type":"referencia_externa","text":"California, 3 CCR §2783 (EE.UU.): insaponificables ≤2.5%; impurezas ≤1%"},{"type":"pendiente_definir","text":"Definir límite interno de cenizas con tecnólogo HEFA"}]},
+            {"variable":"Índice de acidez / FFA","category":"proc","description":"Nivel de descomposición al llegar a planta.","values":[{"type":"referencia_externa","text":"EN 14214 (UE, biodiésel): valor ácido ≤0.50 mg KOH/g"},{"type":"referencia_externa","text":"Mercado UE (tallow): FFA <5% preferido para HVO"},{"type":"pendiente_definir","text":"Definir rango de aceptación con tecnólogo HEFA"}]},
+            {"variable":"Oxidación / estabilidad","category":"proc","description":"Qué tan estable es la grasa frente a degradación.","values":[{"type":"referencia_externa","text":"EN 14214 (UE): estabilidad oxidativa ≥4–6 h a 110°C"},{"type":"pendiente_definir","text":"Definir criterio de recepción con tecnólogo HEFA"}]},
+            {"variable":"Fósforo","category":"proc","description":"Contaminante crítico para el catalizador HEFA.","values":[{"type":"referencia_externa","text":"EN 14214 (UE): fósforo ≤4 mg/kg; ASTM D6751 (EE.UU.): fósforo ≤10 ppm"},{"type":"pendiente_definir","text":"Definir límite interno de feedstock con tecnólogo HEFA y proveedor"}]},
+            {"variable":"Metales traza / metales pesados","category":"proc","description":"Contaminación metálica acumulada en toda la cadena.","values":[{"type":"referencia_externa","text":"EN 14538 / ASTM D6751: Ca+Mg y Na+K ≤5 ppm; versión LM: Na+K+Ca+Mg ≤4 ppm"},{"type":"pendiente_definir","text":"Definir límite interno con tecnólogo HEFA y proveedor"}]},
+            {"variable":"Nitrógeno y azufre","category":"proc","description":"Elementos que afectan emisiones y desempeño del proceso.","values":[{"type":"referencia_externa","text":"EN 14214 / ASTM D6751: azufre ≤10–15 ppm en biodiésel"},{"type":"pendiente_definir","text":"Definir límites de N/S en feedstock con tecnólogo HEFA"}]},
+            {"variable":"Jabones / insaponificables / otras sustancias problemáticas","category":"proc","description":"Componentes que generan MIU y pueden formar depósitos o espumas.","values":[{"type":"referencia_externa","text":"California, 3 CCR §2783: insaponificables ≤2.5%"},{"type":"pendiente_definir","text":"Definir límite interno de MIU con tecnólogo HEFA"}]},
+            {"variable":"NO-GO estructurales","category":"nogo","description":"Si, incluso después de pretratamiento, el fósforo, los metales totales, el cloro/plásticos o cualquier otro contaminante crítico no pueden bajarse a los límites definidos, el lote se considera no apto para el proceso HEFA.","values":[{"type":"referencia_externa","text":"ASTM D6751 / EN 14214 fijan P máximo 4–10 ppm en biodiésel terminado"},{"type":"pendiente_definir","text":"Definir límites de NO-GO con tecnólogo HEFA y proveedor de tecnología"}]}
+          ]
+        }
+      ]
+    }
+  ]
+}
