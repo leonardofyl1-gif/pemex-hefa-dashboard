@@ -48,7 +48,7 @@
           <h3>Recepción y control de calidad en Tula</h3>
           <div class="desc dual-desc">
             <div class="desc-point"><b>Proceso físico:</b> Al llegar el lote se toma una muestra representativa y se realizan pruebas para conocer cómo llegó realmente la grasa. Con esos resultados se decide aceptar, penalizar, mezclar/corregir o rechazar el lote.</div>
-            <div class="desc-point"><b>Proceso químico:</b> No se modifica la grasa; se mide su composición y condición química, por ejemplo humedad, FFA, oxidación e impurezas, y se compara contra la especificación comercial acordada.</div>
+            <div class="desc-point"><b>Proceso químico:</b> No se modifica la grasa; se mide su composición y condición química, incluyendo humedad, FFA, oxidación, impurezas, azufre total y el paquete MIU, y se compara contra la especificación comercial acordada.</div>
           </div>
           <div class="type-tags"><span class="type-tag checkpoint-commercial"><i></i>Checkpoint comercial</span></div>
         </article>
@@ -78,7 +78,7 @@
           <h3>Control técnico del feedstock acondicionado</h3>
           <div class="desc dual-desc">
             <div class="desc-point"><b>Proceso físico:</b> Se vuelve a muestrear la grasa después de Degumming + Bleaching y se verifica que llegue limpia, filtrada y en condiciones adecuadas para alimentar la sección HDO.</div>
-            <div class="desc-point"><b>Proceso químico:</b> No se busca una nueva reacción; se confirma que contaminantes críticos como fósforo, metales, humedad y sólidos residuales hayan bajado a niveles compatibles con la protección del catalizador y los equipos.</div>
+            <div class="desc-point"><b>Proceso químico:</b> No se busca una nueva reacción; se confirma que fósforo, metales, humedad, sólidos y contaminantes específicos T15–T23 hayan quedado en niveles compatibles con la protección del catalizador y los equipos.</div>
           </div>
           <div class="type-tags"><span class="type-tag checkpoint-technical"><i></i>Checkpoint técnico HEFA</span></div>
         </article>
@@ -130,6 +130,8 @@
             <div class="var sel"><strong>T07 · Cenizas y composición</strong>Indicador de contaminación inorgánica o mineral del lote.<div class="rangerow"><span class="valchip">Referencia comercial por validar</span></div></div>
             <div class="var sel"><strong>T08 · Índice de acidez / FFA</strong>Proporción de ácidos grasos libres y señal de la condición de la grasa.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
             <div class="var sel"><strong>T09 · Oxidación / estabilidad</strong>Qué tan degradada está la grasa y qué tan estable será durante almacenamiento.<div class="rangerow"><span class="valchip">Método y referencia por validar</span></div></div>
+            <div class="var sel"><strong>T13 · Azufre total</strong>Contenido total de azufre del lote recibido; sirve para caracterizar su calidad y anticipar posibles cargas adicionales al acondicionamiento y procesamiento posterior.<div class="rangerow"><span class="valchip">Límite comercial por validar</span></div></div>
+            <div class="var sel"><strong>MIU · Paquete completo</strong>Medición conjunta de <em>Moisture, Insolubles &amp; Unsaponifiables</em> para tener una lectura comercial integral de agua, material insoluble y fracción no saponificable del lote.<div class="rangerow"><span class="valchip">Especificación contractual por definir</span></div></div>
           </div>
           <div class="checkpoint-decision commercial-decision"><b>Decisión:</b> aceptar · penalizar · mezclar/corregir · rechazar</div>
         </section>
@@ -152,6 +154,15 @@
             <div class="var proc"><strong>T04 · Humedad residual</strong>Agua que permanece después del acondicionamiento y, cuando aplique, del secado.<div class="rangerow"><span class="valchip">Límite de entrada por validar</span></div></div>
             <div class="var proc"><strong>T05 / T06 · Impurezas y sólidos residuales</strong>Partículas que todavía permanecen después de la limpieza y filtración final.<div class="rangerow"><span class="valchip">Límite de entrada por validar</span></div></div>
             <div class="var proc"><strong>T08 · FFA</strong>Se confirma su condición a la salida del pretratamiento; no se asume que FFA sea automáticamente un contaminante HEFA.<div class="rangerow"><span class="valchip">Tratamiento Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T15 · Cloruros / sales</strong>Sales y compuestos con cloro que pueden favorecer corrosión, depósitos y problemas operativos en la sección catalítica.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T16 · Silicio / siliconas</strong>Compuestos de silicio que pueden generar ensuciamiento, depósitos y afectación del catalizador.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T17 · Jabones</strong>Sales de ácidos grasos que pueden causar emulsiones, depósitos y complicaciones de separación o filtración.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T18 · Insaponificables</strong>Fracción del feedstock que no se convierte en jabón y puede concentrar compuestos no deseados o difíciles de remover.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T19 · Insaturación</strong>Grado de dobles enlaces presentes en la grasa; influye en la demanda de hidrógeno y en el comportamiento de la alimentación durante la conversión.<div class="rangerow"><span class="valchip">Referencia técnica por validar</span></div></div>
+            <div class="var proc"><strong>T20 · TAN</strong>Número de acidez total del feedstock acondicionado; ayuda a controlar corrosividad y condición química antes del reactor.<div class="rangerow"><span class="valchip">Límite Ecofining por validar</span></div></div>
+            <div class="var proc"><strong>T21 · Plásticos / polímeros</strong>Restos de materiales como polietileno que pueden formar depósitos, ensuciar equipos o afectar el flujo del proceso.<div class="rangerow"><span class="valchip">Presencia máxima por validar</span></div></div>
+            <div class="var proc"><strong>T22 · Oxígeno total / compuestos oxigenados</strong>Cantidad y tipo de compuestos con oxígeno que llegan a la sección HDO y determinan parte de la carga de desoxigenación.<div class="rangerow"><span class="valchip">Referencia técnica por validar</span></div></div>
+            <div class="var proc"><strong>T23 · Pesticidas / contaminantes orgánicos específicos</strong>Compuestos orgánicos traza que pueden introducir contaminantes no deseados o afectar el desempeño del proceso y del catalizador.<div class="rangerow"><span class="valchip">Presencia / límite por validar</span></div></div>
           </div>
           <div class="checkpoint-decision technical-decision"><b>Decisión:</b> apto / no apto para alimentar la sección HDO</div>
         </section>
@@ -174,8 +185,8 @@
 
 <script>
 (()=>{
-  document.title='Feedstock Process Dashboard BIARAI v17 — Proceso 1 Ecofining';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Procesos por tecnología · v17';
+  document.title='Feedstock Process Dashboard BIARAI v18 — Proceso 1 Ecofining';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Procesos por tecnología · v18';
   const h=document.querySelector('h1'); if(h)h.textContent='Procesos de la grasa animal hacia SAF en Tula';
   const s=document.querySelector('.subtitle'); if(s)s.innerHTML='El dashboard se estructura en <strong>un proceso independiente por tecnología HEFA</strong>. El primer proceso aprobado es Ecofining™ y se muestra completo desde Rendering hasta Isomerización, distinguiendo en cada etapa el proceso físico del proceso químico y manteniendo separados los checkpoints comercial y técnico.';
   const legend=document.querySelector('.legend-top');
