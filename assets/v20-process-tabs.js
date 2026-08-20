@@ -36,8 +36,15 @@
     .vegan-finish-col{background:linear-gradient(180deg,var(--surface),var(--blue-5) 290%)}
     .type-tag.finish{background:var(--blue-5);color:var(--blue-6)}
     .type-tag.finish i{display:inline-block;width:8px;height:8px;border-radius:999px;background:var(--blue-6)}
+    .flow-top-scroll-wrap{padding:0 22px;margin-top:12px;margin-bottom:-4px}
+    .flow-top-scroll{width:100%;height:22px;overflow-x:auto;overflow-y:hidden;scrollbar-gutter:stable;scrollbar-color:var(--blue-4) var(--surface-2)}
+    .flow-top-scroll-track{height:1px;pointer-events:none}
+    .flow-top-scroll::-webkit-scrollbar{height:12px}
+    .flow-top-scroll::-webkit-scrollbar-track{background:var(--surface-2);border-radius:999px}
+    .flow-top-scroll::-webkit-scrollbar-thumb{background:var(--blue-4);border-radius:999px;border:2px solid var(--surface-2)}
+    .flow-top-scroll::-webkit-scrollbar-thumb:hover{background:var(--blue-3)}
     @media(max-width:900px){.vegan-canvas{min-width:2870px}}
-    @media(max-width:700px){.process-tabs-wrap{display:grid;grid-template-columns:1fr}.process-tab{justify-content:center}}
+    @media(max-width:700px){.process-tabs-wrap{display:grid;grid-template-columns:1fr}.process-tab{justify-content:center}.flow-top-scroll-wrap{padding:0 12px}}
   `;
   document.head.appendChild(style);
 
@@ -84,6 +91,44 @@
   const panels=[eco,hydro,vegan];
   const valid=new Set(['ecofining','hydroflex','vegan']);
 
+  function ensureTopScroller(panel){
+    const flow=panel.querySelector('.scroll.eco-scroll');
+    if(!flow) return;
+
+    let wrap=flow.previousElementSibling;
+    if(!wrap || !wrap.classList.contains('flow-top-scroll-wrap')){
+      wrap=document.createElement('div');
+      wrap.className='flow-top-scroll-wrap';
+      wrap.innerHTML='<div class="flow-top-scroll" aria-label="Desplazamiento horizontal superior del proceso" role="region" tabindex="0"><div class="flow-top-scroll-track"></div></div>';
+      flow.insertAdjacentElement('beforebegin',wrap);
+    }
+
+    const top=wrap.querySelector('.flow-top-scroll');
+    const track=wrap.querySelector('.flow-top-scroll-track');
+
+    if(!wrap.dataset.bound){
+      let syncing=false;
+      top.addEventListener('scroll',()=>{
+        if(syncing) return;
+        syncing=true;
+        flow.scrollLeft=top.scrollLeft;
+        syncing=false;
+      });
+      flow.addEventListener('scroll',()=>{
+        if(syncing) return;
+        syncing=true;
+        top.scrollLeft=flow.scrollLeft;
+        syncing=false;
+      });
+      wrap.dataset.bound='true';
+    }
+
+    const canvas=flow.querySelector('.canvas')||flow.firstElementChild;
+    const contentWidth=Math.max(flow.scrollWidth,canvas?canvas.scrollWidth:0);
+    if(contentWidth>0) track.style.width=`${contentWidth}px`;
+    top.scrollLeft=flow.scrollLeft;
+  }
+
   function showProcess(name,updateHash=false){
     if(!valid.has(name)) name='ecofining';
     tabs.forEach(tab=>{
@@ -92,11 +137,17 @@
       tab.setAttribute('aria-selected',String(on));
     });
     panels.forEach(panel=>panel.classList.toggle('active',panel.dataset.process===name));
+    const activePanel=panels.find(panel=>panel.dataset.process===name);
+    requestAnimationFrame(()=>ensureTopScroller(activePanel));
     if(updateHash && location.hash!==`#${name}`) history.replaceState(null,'',`#${name}`);
   }
 
   tabs.forEach(tab=>tab.addEventListener('click',()=>showProcess(tab.dataset.target,true)));
   window.addEventListener('hashchange',()=>showProcess(location.hash.slice(1),false));
+  window.addEventListener('resize',()=>{
+    const active=panels.find(panel=>panel.classList.contains('active'));
+    if(active) requestAnimationFrame(()=>ensureTopScroller(active));
+  });
   showProcess(location.hash.slice(1)||'ecofining',false);
 
   const loadPanel=async(panel,path,label,processNo)=>{
@@ -122,6 +173,9 @@
     loadPanel(vegan,'./assets/processes/vegan.html','Vegan®','3 · Axens')
   ]);
 
-  document.title='Feedstock Process Dashboard BIARAI v22 — Procesos HEFA';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v22';
+  panels.forEach(panel=>ensureTopScroller(panel));
+  showProcess(location.hash.slice(1)||'ecofining',false);
+
+  document.title='Feedstock Process Dashboard BIARAI v23 — Procesos HEFA';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v23';
 })();
