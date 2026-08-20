@@ -1,44 +1,56 @@
 <section class="hefa08">
   <div class="hefa08-head">
-    <div class="hefa08-kicker">08 · Procesamiento interno en Tula</div>
-    <h2>Conversión HEFA según la tecnología seleccionada</h2>
-    <p>Después de la recepción y aceptación del feedstock en Tula comienza el procesamiento interno. Las tres tecnologías siguen una lógica común de hidroprocesamiento, pero la protección de la unidad, el arreglo catalítico y la configuración específica dependen del licenciante seleccionado.</p>
+    <div class="hefa08-kicker">04 en adelante · Rutas tecnológicas HEFA</div>
+    <h2>El punto de entrada y el acondicionamiento cambian según la tecnología</h2>
+    <p>Las etapas 01–03 son comunes. A partir de ahí, Ecofining™, HydroFlex™ y Vegan® pueden requerir niveles de acondicionamiento distintos antes del reactor principal. Por eso ya no se muestra un único paso universal de pretratamiento.</p>
   </div>
-  <div class="hefa08-body">
-    <div class="hefa08-note"><strong>Hipótesis de trabajo:</strong> el pretratamiento principal del feedstock ocurre antes de llegar a Tula. Por ello, cualquier limpieza adicional dentro de la refinería se interpreta aquí como protección o acondicionamiento interno de la unidad, no como repetición automática del pretratamiento externo.</div>
-    <div class="hefa08-common">
-      <div class="box"><strong>Recepción y aceptación</strong><span>El feedstock acondicionado entra a Tula y se confirma su compatibilidad con la tecnología HEFA seleccionada.</span></div>
-      <div class="box"><strong>Protección de la unidad</strong><span>Captura o remoción final de contaminantes cuando la configuración tecnológica lo requiera.</span></div>
-      <div class="box"><strong>Hidrodesoxigenación / hidrotratamiento</strong><span>Hidrógeno + catalizador remueven oxígeno y convierten los lípidos en hidrocarburos parafínicos.</span></div>
-      <div class="box"><strong>Hidroisomerización</strong><span>Se ajusta la estructura de las parafinas para cumplir propiedades de frío y habilitar SAF.</span></div>
+  <div class="hefa08-note"><strong>Cómo leerlo:</strong> cada fila avanza de izquierda a derecha. Las columnas están alineadas para que se vea qué tecnología entra antes o después en la cadena. Las variables técnicas se mantienen visibles por etapa; los límites cuantitativos deben alimentarse desde la Matriz Madre.</div>
+  <div class="route-scroll"><div class="route-canvas">
+    <div class="route-head"><div>Tecnología</div><div>Pretratamiento externo</div><div>Recepción / entrada</div><div>Protección / limpieza 1</div><div>Protección / limpieza 2</div><div>HDO / Hydrotreatment</div><div>Isomerización / Dewaxing</div><div>Producto</div></div>
+
+    <div class="route-row eco">
+      <div class="route-name"><div class="vendor">Honeywell UOP</div><h3>Ecofining™</h3><p>Hipótesis de trabajo: puede recibir el feedstock antes del acondicionamiento fino mostrado en su propia ruta.</p></div>
+      <div class="route-slot ghost"><div class="ghost-note"><b>No se asume pretratamiento externo universal.</b><br>La necesidad real depende de la calidad de alimentación y de la configuración contratada.</div></div>
+      <div class="route-slot active"><div class="stage-card entry"><span class="scope">Punto de entrada a evaluar</span><h4>Tanques / recepción</h4><p>La grasa llega y se almacena antes del acondicionamiento Ecofining.</p><div class="tech-vars"><div class="tech-var"><b>Calidad física:</b> T04 humedad · T05 impurezas · T06 sólidos · T08/T20 acidez.</div><div class="tech-var"><b>Contaminantes:</b> T10 P · T11 metales · T15 cloruros · T16 silicio · T17 jabones · T18 insaponificables · T21 plásticos · T23 orgánicos especiales.</div></div><div class="pending"><span>Por investigar / validar límites de recepción</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card protect"><span class="scope">Limpieza física / química</span><h4>Degumming</h4><p>Lavado + separación/centrifugación para reducir agua, gomas y sólidos.</p><div class="tech-vars"><div class="tech-var"><b>Monitorear:</b> T04 humedad · T05 impurezas · T06 sólidos · T10 fósforo.</div><div class="tech-var"><b>También revisar:</b> T17 jabones · T18 insaponificables.</div></div><div class="pending"><span>Definir entrada, salida y remoción</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card protect"><span class="scope">Adsorción / polishing</span><h4>Bleaching</h4><p>Adsorbentes reducen contaminantes críticos antes del reactor.</p><div class="tech-vars"><div class="tech-var"><b>Críticos:</b> T10 fósforo · T11 metales · T16 silicio.</div><div class="tech-var"><b>Residuales:</b> T05/T06 sólidos · T23 contaminantes especiales.</div></div><div class="pending"><span>Definir especificación a entrada HDO</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Reactor HDO</h4><p>Hidrógeno + catalizador remueven oxígeno y forman hidrocarburos parafínicos.</p><div class="tech-vars"><div class="tech-var"><b>Protección catalítica:</b> T10 · T11 · T12 · T13 · T15 · T16.</div><div class="tech-var"><b>Composición a convertir:</b> T08/T20 · T22.</div></div><div class="pending"><span>Validar límites exactos a reactor</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Isomerización</h4><p>Reacomoda parafinas para mejorar propiedades de frío y habilitar SAF.</p><div class="tech-vars"><div class="tech-var"><b>Caracterización relevante:</b> T02 perfil de ácidos grasos · T19 insaturación.</div></div><div class="pending"><span>Variables de producto/operación fuera de T01–T23</span></div></div></div>
+      <div class="route-slot final"><div class="stage-card product"><div class="saf-wrap"><div><div class="saf-pill">SAF / Jet Fuel</div><p>Producto objetivo</p></div></div></div></div>
     </div>
-    <div class="hefa08-label">Configuración por tecnología</div>
-    <div class="hefa08-techs">
-      <article class="hefa08-tech honeywell">
-        <div class="vendor">Honeywell UOP</div><h3>Ecofining™</h3>
-        <div class="hefa08-step"><strong>1. Protección / acondicionamiento previo</strong>Implementaciones comerciales como Eni documentan degumming, centrifugación y bleaching antes del proceso. Se considera una referencia de configuración, no una etapa universal obligatoria dentro de Tula.</div>
-        <div class="hefa08-step"><strong>2. Hidrodesoxigenación</strong>El feedstock limpio se hidroprocesa con hidrógeno para remover oxígeno y formar hidrocarburos parafínicos.</div>
-        <div class="hefa08-step"><strong>3. Isomerización</strong>Las n-parafinas se convierten en isoparafinas para mejorar propiedades de frío y habilitar producción de renewable jet / SAF.</div>
-        <div class="hefa08-detail">La configuración exacta y cualquier acondicionamiento adicional deben confirmarse con Honeywell UOP para el diseño seleccionado.</div>
-        <div class="hefa08-sources"><a href="https://uop.honeywell.com/en/industry-solutions/renewable-fuels/ecofining" target="_blank" rel="noopener">Honeywell UOP ↗</a><a href="https://www.eni.com/en-IT/actions/energy-transition-technologies/biofuels/biomass-ecofining.html" target="_blank" rel="noopener">Eni ↗</a></div>
-      </article>
-      <article class="hefa08-tech topsoe">
-        <div class="vendor">Topsoe</div><h3>HydroFlex™</h3>
-        <div class="hefa08-step"><strong>1. Guard beds / protección catalítica</strong>Capas catalíticas de protección capturan metales y otros contaminantes antes del lecho principal para reducir desactivación y caída de presión.</div>
-        <div class="hefa08-step"><strong>2. Hidrodesoxigenación (HDO)</strong>Catalizadores para combustibles renovables remueven oxígeno y convierten el feedstock lipídico en parafinas.</div>
-        <div class="hefa08-step"><strong>3. Isomerización / dewaxing</strong>El catalizador isomerizante ajusta propiedades de frío relevantes para combustibles renovables y SAF.</div>
-        <div class="hefa08-detail">La configuración final de guard beds y catalizadores depende de la calidad del feedstock y del diseño de la unidad.</div>
-        <div class="hefa08-sources"><a href="https://www.topsoe.com/knowledge-and-insights/expert-articles/catalysts-for-renewable-fuels-production" target="_blank" rel="noopener">Topsoe ↗</a></div>
-      </article>
-      <article class="hefa08-tech axens">
-        <div class="vendor">Axens</div><h3>Vegan®</h3>
-        <div class="hefa08-step"><strong>1. Protección / preparación de alimentación</strong>La preparación necesaria antes de la sección principal depende de la calidad del feedstock y de la configuración seleccionada; no se asume un pretratamiento universal adicional en Tula.</div>
-        <div class="hefa08-step"><strong>2. Hydrotreatment / deoxigenación</strong>La sección de hidrotratamiento remueve oxígeno y contaminantes de los lípidos renovables en presencia de hidrógeno, produciendo parafinas lineales.</div>
-        <div class="hefa08-step"><strong>3. Hydroisomerisation</strong>Convierte parafinas lineales en combustibles drop-in y permite ajustar la producción entre diésel renovable y SAF según el diseño.</div>
-        <div class="hefa08-detail">Axens presenta Vegan como una solución integrada de hidrotratamiento e hidroisomerización; la preparación exacta se define contra la especificación de alimentación del proyecto.</div>
-        <div class="hefa08-sources"><a href="https://www.axens.net/expertise/renewable-fuels-bio-based-chemicals/sustainable-aviation-fuel" target="_blank" rel="noopener">Axens ↗</a></div>
-      </article>
+
+    <div class="route-row hydro">
+      <div class="route-name"><div class="vendor">Topsoe</div><h3>HydroFlex™</h3><p>Hipótesis de trabajo: requiere pretratamiento previo y utiliza un guard bed como segunda línea de defensa.</p></div>
+      <div class="route-slot active"><div class="stage-card pre"><span class="scope out">Previo a HydroFlex</span><h4>Pretratamiento externo</h4><p>Reduce carga de agua, sólidos, fósforo, metales y otros contaminantes.</p><div class="tech-vars"><div class="tech-var"><b>Remover/controlar:</b> T04 · T05 · T06 · T10 · T11 · T15 · T16 · T17 · T18 · T21 · T23.</div><div class="tech-var"><b>Calidad global:</b> T08/T20 acidez · T09 estabilidad.</div></div><div class="pending"><span>Definir nivel mínimo de pretratamiento</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card entry"><span class="scope">Entrada HydroFlex</span><h4>Recepción / alimentación</h4><p>El feedstock ya pretratado entra a la ruta HydroFlex.</p><div class="tech-vars"><div class="tech-var"><b>Especificación crítica:</b> T04 · T05 · T06 · T10 · T11 · T15 · T16.</div><div class="tech-var"><b>Objetivo:</b> cuantificar cuánto puede aceptar antes del guard bed.</div></div><div class="pending"><span>Por investigar / validar límites de entrada</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card protect"><span class="scope">Segunda línea de defensa</span><h4>Guard bed</h4><p>Captura contaminantes antes del catalizador principal; su capacidad no es infinita.</p><div class="tech-vars"><div class="tech-var"><b>Críticos:</b> T10 fósforo · T11 metales · T15 cloruros · T16 silicio · T06 partículas.</div><div class="tech-var"><b>Impacto:</b> la carga condiciona saturación, vida útil y caída de presión.</div></div><div class="pending"><span>Validar capacidad y especificación de salida</span></div></div></div>
+      <div class="route-slot ghost"><div class="ghost-note">No se muestra una segunda etapa de limpieza independiente como universal. La configuración real puede integrar protecciones adicionales.</div></div>
+      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Lecho HDO</h4><p>Elimina oxígeno del feedstock y forma parafinas.</p><div class="tech-vars"><div class="tech-var"><b>Contaminantes residuales:</b> T10 · T11 · T12 · T13 · T15 · T16.</div><div class="tech-var"><b>Composición a convertir:</b> T08/T20 · T22.</div></div><div class="pending"><span>Validar límites al catalizador principal</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Isomerización / Dewaxing</h4><p>Ajusta propiedades de frío y desempeño del combustible.</p><div class="tech-vars"><div class="tech-var"><b>Caracterización relevante:</b> T02 · T19.</div></div><div class="pending"><span>Variables de producto/operación fuera de T01–T23</span></div></div></div>
+      <div class="route-slot final"><div class="stage-card product"><div class="saf-wrap"><div><div class="saf-pill">SAF / Jet Fuel</div><p>Producto objetivo</p></div></div></div></div>
     </div>
-    <div class="hefa08-converge"><div class="arrow">↓</div><div class="saf">SAF / Jet Fuel</div></div>
-  </div>
+
+    <div class="route-row vegan">
+      <div class="route-name"><div class="vendor">Axens</div><h3>Vegan®</h3><p>Hipótesis de trabajo: recibe el feedstock después de un acondicionamiento previo suficiente para proteger la sección catalítica.</p></div>
+      <div class="route-slot active"><div class="stage-card pre"><span class="scope out">Previo a Vegan</span><h4>Pretratamiento / acondicionamiento</h4><p>El feedstock alcanza la calidad requerida antes de ingresar al esquema Vegan.</p><div class="tech-vars"><div class="tech-var"><b>Remover/controlar:</b> T04 · T05 · T06 · T10 · T11 · T15 · T16 · T17 · T18 · T21 · T23.</div><div class="tech-var"><b>Calidad adicional:</b> T08/T20 acidez · T09 estabilidad.</div></div><div class="pending"><span>Ubicación, alcance y límites por confirmar</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card entry"><span class="scope">Entrada Vegan</span><h4>Recepción de grasa acondicionada</h4><p>Punto de aceptación antes de la sección principal de hidrotratamiento.</p><div class="tech-vars"><div class="tech-var"><b>Críticos:</b> T04 · T05/T06 · T10 · T11 · T15 · T16.</div><div class="tech-var"><b>Otros:</b> T17 · T18 · T20 · T21 · T23.</div></div><div class="pending"><span>Por investigar / validar límites de entrada</span></div></div></div>
+      <div class="route-slot ghost"><div class="ghost-note">No se asume un guard bed equivalente a HydroFlex como etapa universal del esquema Vegan. Confirmar configuración real.</div></div>
+      <div class="route-slot ghost"><div class="ghost-note">No se muestra una segunda etapa de limpieza independiente. Cualquier protección adicional debe documentarse.</div></div>
+      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Hydrotreatment / deoxigenación</h4><p>Con la alimentación acondicionada, remueve oxígeno y genera parafinas lineales.</p><div class="tech-vars"><div class="tech-var"><b>Protección catalítica:</b> T10 · T11 · T12 · T13 · T15 · T16.</div><div class="tech-var"><b>Composición a convertir:</b> T08/T20 · T22.</div></div><div class="pending"><span>Validar límites exactos a reactor</span></div></div></div>
+      <div class="route-slot active"><div class="stage-card react"><span class="scope">Conversión química</span><h4>Hydroisomerisation</h4><p>Mejora propiedades de frío y ajusta la producción de SAF.</p><div class="tech-vars"><div class="tech-var"><b>Caracterización relevante:</b> T02 · T19.</div></div><div class="pending"><span>Variables de producto/operación fuera de T01–T23</span></div></div></div>
+      <div class="route-slot final"><div class="stage-card product"><div class="saf-wrap"><div><div class="saf-pill">SAF / Jet Fuel</div><p>Producto objetivo</p></div></div></div></div>
+    </div>
+  </div></div>
+  <div class="hefa08-foot"><strong>v15:</strong> se conserva el lenguaje visual del v13, pero las etapas 04–07 dejan de tratarse como universales. La Matriz Madre será la fuente para completar los límites por tecnología y por punto del proceso.</div>
 </section>
+<script>
+(()=>{
+  document.title='Feedstock Process Dashboard BIARAI v15 — Rutas tecnológicas HEFA';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Arquitectura por tecnología · v15';
+  const h=document.querySelector('h1'); if(h)h.textContent='Proceso y variables técnicas de la grasa animal hacia SAF en Tula';
+  const s=document.querySelector('.subtitle'); if(s)s.innerHTML='Rendering → selección y caracterización → transporte/almacenamiento → <strong>rutas tecnológicas distintas según Ecofining, HydroFlex o Vegan</strong>. Las primeras etapas son comunes; el punto de entrada, el acondicionamiento y la protección cambian por tecnología.';
+  const bh=document.querySelector('.board-head h2'); if(bh)bh.textContent='Etapas comunes antes de la diferenciación tecnológica';
+  const bp=document.querySelector('.board-head p'); if(bp)bp.textContent='Rendering, selección/caracterización y logística se mantienen como bloque común. Desde el siguiente punto, la ruta depende de la tecnología HEFA seleccionada.';
+  const f=document.querySelector('.foot'); if(f)f.textContent='Versión v15 — etapas 01–03 comunes; a partir de ahí se comparan tres rutas tecnológicas. Los valores de entrada y salida por tecnología se completarán desde la Matriz Madre.';
+})();
+</script>
