@@ -17,10 +17,26 @@
     .process-placeholder-card h2{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-.03em;color:var(--blue-1);margin-bottom:10px}
     .process-placeholder-card p{color:var(--text-soft);max-width:65ch;margin:0 auto}
     .process-placeholder-card .pending-tab{display:inline-flex;margin-top:18px;padding:7px 12px;border-radius:999px;background:var(--pend-soft);color:var(--pend);font-size:var(--text-xs);font-weight:800}
-    .hydroflex-board .foot{border-top:1px solid var(--line);padding-top:16px}
-    .hydroflex-board .valchip::before{content:'⏳ '}
-    .hydro-boundary-note{margin-top:10px}
+    .hydroflex-board .foot,.vegan-board .foot{border-top:1px solid var(--line);padding-top:16px}
+    .hydroflex-board .valchip::before,.vegan-board .valchip::before{content:'⏳ '}
+    .hydro-boundary-note,.vegan-boundary-note{margin-top:10px}
     .hydro-guard-col{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 300%)}
+    .vegan-canvas{min-width:2870px}
+    .vegan-strip,.vegan-strip2{display:grid;grid-template-columns:repeat(7,minmax(410px,1fr))}
+    .vegan-strip2{border-top:1px solid var(--line)}
+    .vegan-strip .col .desc{min-height:170px;font-size:var(--text-xs);color:var(--text-soft);line-height:1.42}
+    .vegan-external-col{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 260%)}
+    .vegan-integrated-col{background:linear-gradient(180deg,var(--surface),#EEF8F4 260%);box-shadow:inset 0 5px 0 var(--sel)}
+    .checkpoint-chip.vegan-integrated{background:linear-gradient(90deg,#F1FAF5,#F2F9FC);border-color:var(--sel-soft)}
+    .type-tag.checkpoint-integrated{background:linear-gradient(90deg,var(--sel-soft),var(--proc-soft));color:var(--blue-1)}
+    .type-tag.checkpoint-integrated i{display:inline-block;width:8px;height:8px;border-radius:999px;background:var(--sel)}
+    .vegan-integrated-stage{background:linear-gradient(180deg,#FBFEFC,#F7FBFD);box-shadow:inset 0 4px 0 var(--sel)}
+    .vegan-tech-title{margin-top:18px!important;padding-top:14px;border-top:1px solid var(--line)}
+    .vegan-decision{background:linear-gradient(90deg,#F1FAF5,#F2F9FC);border-color:var(--sel-soft)}
+    .vegan-finish-col{background:linear-gradient(180deg,var(--surface),var(--blue-5) 290%)}
+    .type-tag.finish{background:var(--blue-5);color:var(--blue-6)}
+    .type-tag.finish i{display:inline-block;width:8px;height:8px;border-radius:999px;background:var(--blue-6)}
+    @media(max-width:900px){.vegan-canvas{min-width:2870px}}
     @media(max-width:700px){.process-tabs-wrap{display:grid;grid-template-columns:1fr}.process-tab{justify-content:center}}
   `;
   document.head.appendChild(style);
@@ -41,15 +57,14 @@
     </div>`;
 
   const vegan=document.createElement('section');
-  vegan.className='board process-panel';
+  vegan.className='board process-panel vegan-board';
   vegan.dataset.process='vegan';
   vegan.innerHTML=`
     <div class="process-placeholder">
       <div class="process-placeholder-card">
         <div class="process-kicker">Proceso 3 · Axens</div>
         <h2>Vegan®</h2>
-        <p>La pestaña está creada y separada de los procesos Ecofining e HydroFlex. Aquí se cargará únicamente el proceso Vegan aprobado.</p>
-        <span class="pending-tab">Pendiente de cargar proceso</span>
+        <p>Cargando proceso canónico Vegan…</p>
       </div>
     </div>`;
 
@@ -84,22 +99,29 @@
   window.addEventListener('hashchange',()=>showProcess(location.hash.slice(1),false));
   showProcess(location.hash.slice(1)||'ecofining',false);
 
-  try{
-    const hydroRes=await fetch('./assets/processes/hydroflex.html',{cache:'no-store'});
-    if(!hydroRes.ok) throw new Error('No fue posible cargar HydroFlex.');
-    hydro.innerHTML=await hydroRes.text();
-  }catch(err){
-    hydro.innerHTML=`
-      <div class="process-placeholder">
-        <div class="process-placeholder-card">
-          <div class="process-kicker">Proceso 2 · Topsoe</div>
-          <h2>HydroFlex™</h2>
-          <p>${String(err.message||err)}</p>
-          <span class="pending-tab">Error de carga</span>
-        </div>
-      </div>`;
-  }
+  const loadPanel=async(panel,path,label,processNo)=>{
+    try{
+      const res=await fetch(path,{cache:'no-store'});
+      if(!res.ok) throw new Error(`No fue posible cargar ${label}.`);
+      panel.innerHTML=await res.text();
+    }catch(err){
+      panel.innerHTML=`
+        <div class="process-placeholder">
+          <div class="process-placeholder-card">
+            <div class="process-kicker">Proceso ${processNo}</div>
+            <h2>${label}</h2>
+            <p>${String(err.message||err)}</p>
+            <span class="pending-tab">Error de carga</span>
+          </div>
+        </div>`;
+    }
+  };
 
-  document.title='Feedstock Process Dashboard BIARAI v21 — Procesos HEFA';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v21';
+  await Promise.all([
+    loadPanel(hydro,'./assets/processes/hydroflex.html','HydroFlex™','2 · Topsoe'),
+    loadPanel(vegan,'./assets/processes/vegan.html','Vegan®','3 · Axens')
+  ]);
+
+  document.title='Feedstock Process Dashboard BIARAI v22 — Procesos HEFA';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v22';
 })();
