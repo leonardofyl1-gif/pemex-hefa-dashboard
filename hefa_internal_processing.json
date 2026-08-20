@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "version": "v14",
+    "updated": "2026-08-20",
+    "title": "Procesamiento HEFA en Tula",
+    "assumption": "El pretratamiento principal del feedstock ocurre antes de la llegada a Tula. Dentro de Tula se muestran únicamente las etapas de protección/acondicionamiento interno que puedan requerirse por tecnología y el hidroprocesamiento HEFA.",
+    "status": "Referencia preliminar para discusión y validación con licenciante seleccionado"
+  },
+  "common_structure": [
+    {
+      "step": "Recepción y aceptación",
+      "description": "El lote acondicionado llega a Tula y se confirma que cumple la especificación de entrada definida para la tecnología seleccionada."
+    },
+    {
+      "step": "Protección / acondicionamiento interno",
+      "description": "Remoción o captura final de contaminantes cuando la configuración tecnológica lo requiera. No sustituye el pretratamiento externo asumido en la cadena de suministro."
+    },
+    {
+      "step": "Hidrodesoxigenación / hidrotratamiento",
+      "description": "Uso de hidrógeno y catalizadores para remover oxígeno y transformar los lípidos en hidrocarburos parafínicos."
+    },
+    {
+      "step": "Hidroisomerización / dewaxing",
+      "description": "Ajuste de la estructura de las parafinas para alcanzar propiedades de frío compatibles con SAF y otros combustibles renovables."
+    },
+    {
+      "step": "SAF / Jet Fuel",
+      "description": "Salida objetivo del proyecto; la configuración de la unidad puede permitir también producción de diésel renovable."
+    }
+  ],
+  "technologies": [
+    {
+      "name": "Honeywell UOP — Ecofining™",
+      "short_name": "Ecofining",
+      "accent": "honeywell",
+      "stages": [
+        {
+          "name": "Protección / acondicionamiento previo",
+          "description": "La limpieza física mediante degumming, centrifugación y bleaching está documentada en implementaciones comerciales como Eni. Para este dashboard se trata como acondicionamiento previo o protección adicional y no como una etapa universal obligatoria dentro de Tula."
+        },
+        {
+          "name": "Hidrodesoxigenación",
+          "description": "El feedstock limpio se hidroprocesa con hidrógeno para remover oxígeno y formar hidrocarburos parafínicos."
+        },
+        {
+          "name": "Isomerización",
+          "description": "Las n-parafinas se convierten en isoparafinas para mejorar propiedades de frío y habilitar producción de renewable jet / SAF según la configuración."
+        }
+      ],
+      "note": "Ecofining puede configurarse de distintas maneras; la secuencia exacta y la necesidad de acondicionamiento adicional deben confirmarse con Honeywell UOP para el diseño seleccionado.",
+      "sources": [
+        {
+          "label": "Honeywell UOP — Ecofining",
+          "url": "https://uop.honeywell.com/en/industry-solutions/renewable-fuels/ecofining"
+        },
+        {
+          "label": "Eni — Biomass and Ecofining implementation",
+          "url": "https://www.eni.com/en-IT/actions/energy-transition-technologies/biofuels/biomass-ecofining.html"
+        }
+      ]
+    },
+    {
+      "name": "Topsoe — HydroFlex™",
+      "short_name": "HydroFlex",
+      "accent": "topsoe",
+      "stages": [
+        {
+          "name": "Guard beds / protección catalítica",
+          "description": "Capas catalíticas de protección capturan metales y otros contaminantes antes de que alcancen el lecho principal, reduciendo riesgo de desactivación y caída de presión."
+        },
+        {
+          "name": "Hidrodesoxigenación (HDO)",
+          "description": "Catalizadores para combustibles renovables remueven oxígeno y transforman el feedstock lipídico en parafinas."
+        },
+        {
+          "name": "Isomerización / dewaxing",
+          "description": "Catalizador isomerizante ajusta propiedades de frío, incluyendo requisitos relevantes de cloud point y freeze point para combustibles renovables y SAF."
+        }
+      ],
+      "note": "HydroFlex integra una arquitectura catalítica específica para feedstocks renovables; la configuración final de guard beds y catalizadores depende de la calidad del feedstock y del diseño de la unidad.",
+      "sources": [
+        {
+          "label": "Topsoe — Catalysts for renewable fuels production",
+          "url": "https://www.topsoe.com/knowledge-and-insights/expert-articles/catalysts-for-renewable-fuels-production"
+        }
+      ]
+    },
+    {
+      "name": "Axens — Vegan®",
+      "short_name": "Vegan",
+      "accent": "axens",
+      "stages": [
+        {
+          "name": "Protección / preparación de alimentación",
+          "description": "La preparación requerida antes de la sección principal depende de la calidad del feedstock y de la configuración seleccionada. No se asume aquí un pretratamiento adicional universal dentro de Tula."
+        },
+        {
+          "name": "Hydrotreatment / deoxigenación",
+          "description": "La sección de hidrotratamiento remueve oxígeno y contaminantes de los lípidos renovables en presencia de hidrógeno, produciendo parafinas lineales."
+        },
+        {
+          "name": "Hydroisomerisation",
+          "description": "La sección de hidroisomerización convierte las parafinas lineales en combustibles drop-in y permite ajustar el slate de producción entre diésel renovable y SAF según el diseño."
+        }
+      ],
+      "note": "Axens presenta Vegan como una solución integrada de hidrotratamiento e hidroisomerización; el preacondicionamiento exacto debe definirse contra la especificación de alimentación del proyecto.",
+      "sources": [
+        {
+          "label": "Axens — Sustainable Aviation Fuel / Vegan",
+          "url": "https://www.axens.net/expertise/renewable-fuels-bio-based-chemicals/sustainable-aviation-fuel"
+        }
+      ]
+    }
+  ]
+}
