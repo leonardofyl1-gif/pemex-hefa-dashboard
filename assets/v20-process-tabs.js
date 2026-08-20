@@ -21,6 +21,17 @@
     .hydroflex-board .valchip::before,.vegan-board .valchip::before{content:'⏳ '}
     .hydro-boundary-note,.vegan-boundary-note{margin-top:10px}
     .hydro-guard-col{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 300%)}
+    .hydroflex-board .hydro-canvas{min-width:4920px}
+    .hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2,.hydroflex-board .hydro-conditioning-band{display:grid;grid-template-columns:repeat(12,minmax(410px,1fr))}
+    .hydroflex-board .hydro-strip2{border-top:1px solid var(--line)}
+    .hydro-conditioning-band{background:linear-gradient(90deg,var(--surface),var(--pre-soft),var(--surface));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .hydro-conditioning-group{grid-column:5/9;padding:10px 14px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+    .hydro-conditioning-group strong{font-family:var(--font-display);font-size:13px;color:var(--blue-1)}
+    .hydro-conditioning-group span{font-size:11px;color:var(--text-soft)}
+    .hydro-conditioning-col{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 260%);box-shadow:inset 0 4px 0 var(--pre)}
+    .macro-subtitle{display:inline-flex;margin-bottom:8px;padding:5px 8px;border-radius:999px;background:var(--pre-soft);color:var(--pre);font-size:10px;font-weight:800;letter-spacing:.03em}
+    .hydro-conditioning-stage{background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%)}
+    .hydro-scope-mini{margin-top:10px}
     .vegan-canvas{min-width:2870px}
     .vegan-strip,.vegan-strip2{display:grid;grid-template-columns:repeat(7,minmax(410px,1fr))}
     .vegan-strip2{border-top:1px solid var(--line)}
@@ -43,7 +54,7 @@
     .flow-top-scroll::-webkit-scrollbar-track{background:var(--surface-2);border-radius:999px}
     .flow-top-scroll::-webkit-scrollbar-thumb{background:var(--blue-4);border-radius:999px;border:2px solid var(--surface-2)}
     .flow-top-scroll::-webkit-scrollbar-thumb:hover{background:var(--blue-3)}
-    @media(max-width:900px){.vegan-canvas{min-width:2870px}}
+    @media(max-width:900px){.vegan-canvas{min-width:2870px}.hydroflex-board .hydro-canvas{min-width:4920px}}
     @media(max-width:700px){.process-tabs-wrap{display:grid;grid-template-columns:1fr}.process-tab{justify-content:center}.flow-top-scroll-wrap{padding:0 12px}}
   `;
   document.head.appendChild(style);
@@ -176,6 +187,6 @@
   panels.forEach(panel=>ensureTopScroller(panel));
   showProcess(location.hash.slice(1)||'ecofining',false);
 
-  document.title='Feedstock Process Dashboard BIARAI v23 — Procesos HEFA';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v23';
+  document.title='Feedstock Process Dashboard BIARAI v24 — Procesos HEFA';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v24';
 })();
