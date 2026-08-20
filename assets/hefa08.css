@@ -1,5 +1,5 @@
-/* v16 · Proceso 1 Ecofining canónico */
-/* Se conserva el lenguaje visual del dashboard base y se reemplaza el mapa comparativo por un proceso completo por tecnología. */
+/* v17 · Proceso 1 Ecofining canónico */
+/* Se conserva el lenguaje visual del dashboard base y cada etapa separa proceso físico de proceso químico. */
 section.board:not(.ecofining-board){display:none}
 .ecofining-board{background:var(--surface);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
 .process-kicker{font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--faint);text-transform:uppercase;margin-bottom:4px}
@@ -22,7 +22,10 @@ section.board:not(.ecofining-board){display:none}
 .type-tag.checkpoint-technical i{background:var(--proc)}
 .type-tag.conversion{background:var(--trans-soft);color:var(--trans)}
 .type-tag.conversion i{display:inline-block;width:8px;height:8px;border-radius:999px;background:var(--trans)}
-.eco-strip .col p.desc{min-height:82px}
+.eco-strip .col .desc{min-height:170px;font-size:var(--text-xs);color:var(--text-soft);line-height:1.42}
+.dual-desc{display:grid;gap:8px;align-content:start}
+.desc-point{padding:8px 9px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.72)}
+.desc-point b{display:block;color:var(--blue-1);font-size:11px;margin-bottom:2px}
 .eco-strip2 .stage{min-height:250px}
 .muted-stage{background:linear-gradient(180deg,#FBFDFE,#F5F9FB)}
 .commercial-stage{background:#FBFEFC;box-shadow:inset 0 4px 0 var(--sel)}
