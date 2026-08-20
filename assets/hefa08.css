@@ -1,0 +1,32 @@
+/* v14 · Etapa 08: Procesamiento HEFA en Tula */
+.hefa08{background:var(--surface);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
+.hefa08-head{padding:22px;border-bottom:1px solid var(--line)}
+.hefa08-kicker{font-size:var(--text-xs);font-weight:800;letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+.hefa08-head h2{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-.03em;color:var(--blue-1);margin-top:4px}
+.hefa08-head p{color:var(--text-soft);margin-top:6px;max-width:105ch}
+.hefa08-body{padding:20px 22px 24px;display:grid;gap:18px}
+.hefa08-note{padding:12px 14px;border-radius:14px;background:var(--blue-5);border:1px solid var(--line);color:var(--text-soft);font-size:var(--text-sm)}
+.hefa08-note strong{color:var(--blue-1)}
+.hefa08-common{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:10px}
+.hefa08-common .box{position:relative;padding:13px 14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}
+.hefa08-common .box:not(:last-child)::after{content:'→';position:absolute;right:-13px;top:50%;transform:translateY(-50%);z-index:2;color:var(--blue-6);font-family:var(--font-display);font-weight:800;background:var(--surface);padding:0 3px}
+.hefa08-common strong{display:block;font-family:var(--font-display);font-size:var(--text-sm);color:var(--blue-1)}
+.hefa08-common span{display:block;margin-top:3px;color:var(--text-soft);font-size:var(--text-xs)}
+.hefa08-label{font-family:var(--font-display);font-size:var(--text-sm);font-weight:800;color:var(--blue-1);margin-top:2px}
+.hefa08-techs{display:grid;grid-template-columns:repeat(3,minmax(300px,1fr));gap:14px}
+.hefa08-tech{border:1px solid var(--line);border-radius:18px;padding:16px;background:linear-gradient(180deg,var(--surface),var(--proc-soft) 280%);display:grid;gap:10px}
+.hefa08-tech.topsoe{background:linear-gradient(180deg,var(--surface),var(--sel-soft) 280%)}
+.hefa08-tech.axens{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 280%)}
+.hefa08-tech .vendor{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint)}
+.hefa08-tech h3{font-family:var(--font-display);font-size:var(--text-lg);letter-spacing:-.03em;color:var(--blue-1)}
+.hefa08-step{padding:10px 11px;border-radius:12px;background:rgba(255,255,255,.78);border:1px solid var(--line);font-size:var(--text-xs);color:var(--text-soft)}
+.hefa08-step strong{display:block;color:var(--blue-1);font-size:var(--text-sm);margin-bottom:3px}
+.hefa08-detail{font-size:var(--text-xs);color:var(--text-soft);padding-top:2px}
+.hefa08-sources{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.hefa08-sources a{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:var(--blue-5);border:1px solid var(--line);color:var(--blue-6);font-weight:800;font-size:10px;text-decoration:none}
+.hefa08-sources a:hover{text-decoration:underline}
+.hefa08-converge{text-align:center;padding-top:2px}
+.hefa08-converge .arrow{font-size:1.5rem;color:var(--blue-6);line-height:1}
+.hefa08-converge .saf{display:inline-flex;margin-top:7px;padding:11px 18px;border-radius:14px;background:linear-gradient(180deg,var(--blue-2),var(--blue-1));color:#fff;font-family:var(--font-display);font-weight:800;letter-spacing:.02em}
+@media(max-width:1100px){.hefa08-techs{grid-template-columns:1fr}.hefa08-common{grid-template-columns:1fr 1fr}.hefa08-common .box::after{display:none}}
+@media(max-width:650px){.hefa08-common{grid-template-columns:1fr}}
