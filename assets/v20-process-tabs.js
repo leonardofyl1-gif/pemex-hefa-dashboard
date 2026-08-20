@@ -1,4 +1,4 @@
-(()=>{
+(async()=>{
   const eco=document.querySelector('.ecofining-board');
   if(!eco) return;
 
@@ -17,6 +17,10 @@
     .process-placeholder-card h2{font-family:var(--font-display);font-size:var(--text-xl);letter-spacing:-.03em;color:var(--blue-1);margin-bottom:10px}
     .process-placeholder-card p{color:var(--text-soft);max-width:65ch;margin:0 auto}
     .process-placeholder-card .pending-tab{display:inline-flex;margin-top:18px;padding:7px 12px;border-radius:999px;background:var(--pend-soft);color:var(--pend);font-size:var(--text-xs);font-weight:800}
+    .hydroflex-board .foot{border-top:1px solid var(--line);padding-top:16px}
+    .hydroflex-board .valchip::before{content:'⏳ '}
+    .hydro-boundary-note{margin-top:10px}
+    .hydro-guard-col{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 300%)}
     @media(max-width:700px){.process-tabs-wrap{display:grid;grid-template-columns:1fr}.process-tab{justify-content:center}}
   `;
   document.head.appendChild(style);
@@ -25,15 +29,14 @@
   eco.dataset.process='ecofining';
 
   const hydro=document.createElement('section');
-  hydro.className='board process-panel';
+  hydro.className='board process-panel hydroflex-board';
   hydro.dataset.process='hydroflex';
   hydro.innerHTML=`
     <div class="process-placeholder">
       <div class="process-placeholder-card">
         <div class="process-kicker">Proceso 2 · Topsoe</div>
         <h2>HydroFlex™</h2>
-        <p>La pestaña está creada y separada del proceso Ecofining. Aquí se cargará únicamente el proceso HydroFlex aprobado, manteniendo su propia secuencia, checkpoints y variables.</p>
-        <span class="pending-tab">Pendiente de cargar proceso</span>
+        <p>Cargando proceso canónico HydroFlex…</p>
       </div>
     </div>`;
 
@@ -45,7 +48,7 @@
       <div class="process-placeholder-card">
         <div class="process-kicker">Proceso 3 · Axens</div>
         <h2>Vegan®</h2>
-        <p>La pestaña está creada y separada del proceso Ecofining. Aquí se cargará únicamente el proceso Vegan aprobado, manteniendo su propia secuencia, checkpoints y variables.</p>
+        <p>La pestaña está creada y separada de los procesos Ecofining e HydroFlex. Aquí se cargará únicamente el proceso Vegan aprobado.</p>
         <span class="pending-tab">Pendiente de cargar proceso</span>
       </div>
     </div>`;
@@ -81,6 +84,22 @@
   window.addEventListener('hashchange',()=>showProcess(location.hash.slice(1),false));
   showProcess(location.hash.slice(1)||'ecofining',false);
 
-  document.title='Feedstock Process Dashboard BIARAI v20 — Procesos HEFA';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v20';
+  try{
+    const hydroRes=await fetch('./assets/processes/hydroflex.html',{cache:'no-store'});
+    if(!hydroRes.ok) throw new Error('No fue posible cargar HydroFlex.');
+    hydro.innerHTML=await hydroRes.text();
+  }catch(err){
+    hydro.innerHTML=`
+      <div class="process-placeholder">
+        <div class="process-placeholder-card">
+          <div class="process-kicker">Proceso 2 · Topsoe</div>
+          <h2>HydroFlex™</h2>
+          <p>${String(err.message||err)}</p>
+          <span class="pending-tab">Error de carga</span>
+        </div>
+      </div>`;
+  }
+
+  document.title='Feedstock Process Dashboard BIARAI v21 — Procesos HEFA';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v21';
 })();
