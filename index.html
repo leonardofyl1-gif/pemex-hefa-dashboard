@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Feedstock Process Dashboard BIARAI v48</title>
+<title>Feedstock Process Dashboard BIARAI v49</title>
 <style>body{font-family:system-ui,sans-serif;padding:40px;color:#1A3A46;background:#F6FAFC}.load{max-width:760px;margin:auto}</style>
 </head>
 <body>
@@ -20,11 +20,11 @@
     let html=await baseRes.text();
     const css=await cssRes.text();
     const stage=await stageRes.text();
-    html=html.replace('Feedstock Process Dashboard BIARAI v13 — Proceso y variables técnicas','Feedstock Process Dashboard BIARAI v48 — Procesos HEFA');
+    html=html.replace('Feedstock Process Dashboard BIARAI v13 — Proceso y variables técnicas','Feedstock Process Dashboard BIARAI v49 — Procesos HEFA');
     html=html.replace('</style>',css+'\n</style>');
     const closing='\n</div>\n</div>\n</body>';
     if(!html.includes(closing)) throw new Error('No se encontró el punto de inserción del bloque Ecofining.');
-    html=html.replace(closing,'\n'+stage+'\n<script src="./assets/v19-split-t05-t06.js?v=19"><\/script>\n<script src="./assets/v25-ecofining-variable-placement.js?v=25"><\/script>\n<script src="./assets/v26-ecofining-step02-pretreatment.js?v=26"><\/script>\n<script src="./assets/v20-process-tabs.js?v=24"><\/script>\n<script src="./assets/v28-safe-terminology-standard.js?v=28"><\/script>\n<script src="./assets/v29-ecofining-pretreatment-substeps.js?v=29"><\/script>\n<script src="./assets/v35-technology-descriptions.js?v=35"><\/script>\n<script src="./assets/v37-ecofining-separation-fractionation.js?v=37"><\/script>\n<script src="./assets/v38-ecofining-stage-labels.js?v=38"><\/script>\n<script src="./assets/v39-ecofining-hdo-balance-text.js?v=39"><\/script>\n<script src="./assets/v40-ecofining-stage2-physical-header.js?v=40"><\/script>\n<script src="./assets/v41-vegan-stage-labels-product-balance.js?v=41"><\/script>\n<script src="./assets/v42-final-product-labels.js?v=42"><\/script>\n<script src="./assets/v45-ecofining-commercial-priority-semaphore.js?v=45"><\/script>\n<script src="./assets/v46-ecofining-technical-aptitude-scope.js?v=46"><\/script>\n<script src="./assets/v47-ecofining-commercial-priority-order-legend.js?v=47"><\/script>\n<script src="./assets/v48-hydroflex-commercial-priority-legend.js?v=48"><\/script>\n\n</div>\n</div>\n</body>');
+    html=html.replace(closing,'\n'+stage+'\n<script src="./assets/v19-split-t05-t06.js?v=19"><\/script>\n<script src="./assets/v25-ecofining-variable-placement.js?v=25"><\/script>\n<script src="./assets/v26-ecofining-step02-pretreatment.js?v=26"><\/script>\n<script src="./assets/v20-process-tabs.js?v=24"><\/script>\n<script src="./assets/v28-safe-terminology-standard.js?v=28"><\/script>\n<script src="./assets/v29-ecofining-pretreatment-substeps.js?v=29"><\/script>\n<script src="./assets/v35-technology-descriptions.js?v=35"><\/script>\n<script src="./assets/v37-ecofining-separation-fractionation.js?v=37"><\/script>\n<script src="./assets/v38-ecofining-stage-labels.js?v=38"><\/script>\n<script src="./assets/v39-ecofining-hdo-balance-text.js?v=39"><\/script>\n<script src="./assets/v40-ecofining-stage2-physical-header.js?v=40"><\/script>\n<script src="./assets/v41-vegan-stage-labels-product-balance.js?v=41"><\/script>\n<script src="./assets/v42-final-product-labels.js?v=42"><\/script>\n<script src="./assets/v45-ecofining-commercial-priority-semaphore.js?v=45"><\/script>\n<script src="./assets/v46-ecofining-technical-aptitude-scope.js?v=46"><\/script>\n<script src="./assets/v47-ecofining-commercial-priority-order-legend.js?v=47"><\/script>\n<script src="./assets/v48-hydroflex-commercial-priority-legend.js?v=48"><\/script>\n<script src="./assets/v49-vegan-priority-legend.js?v=49"><\/script>\n\n</div>\n</div>\n</body>');
     document.open();document.write(html);document.close();
   }catch(err){document.body.innerHTML='<div class="load"><h1>Error al cargar el dashboard</h1><p>'+String(err.message||err)+'</p></div>'}
 })();
