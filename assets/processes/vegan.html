@@ -12,6 +12,15 @@
 .vegan-pretreatment-subgrid .col{min-width:0;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 310%);box-shadow:inset 0 4px 0 var(--pre)}
 .vegan-pretreatment-subgrid .col:not(:last-child){border-right:1px solid var(--line)}
 .vegan-pretreatment-control{grid-column:span 4;background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%)}
+.vegan-variable-scope{margin-bottom:12px}
+.vegan-board .vegan-priority-chip{display:inline-flex;align-items:center;gap:5px;margin-left:7px;padding:2px 7px;border:1px solid;border-radius:999px;font-size:10px;font-weight:800;line-height:1.25;vertical-align:1px;white-space:nowrap;letter-spacing:.01em}
+.vegan-board .vegan-priority-chip i{width:7px;height:7px;border-radius:50%;display:inline-block;flex:0 0 7px}
+.vegan-board .vegan-priority-critical{background:#FDECEC;border-color:#F1BBBB;color:#8B2525}
+.vegan-board .vegan-priority-critical i{background:#D74444}
+.vegan-board .vegan-priority-important{background:#FFF7D8;border-color:#EAD38B;color:#765B08}
+.vegan-board .vegan-priority-important i{background:#D3A516}
+.vegan-board .vegan-priority-control{background:#EAF6EE;border-color:#B8DEC6;color:#286140}
+.vegan-board .vegan-priority-control i{background:#469B67}
 @media(max-width:900px){.vegan-board .vegan-canvas{min-width:4100px!important}}
 </style>
 
@@ -167,30 +176,31 @@
       </section>
 
       <section class="stage vegan-integrated-stage">
+        <div class="stage-explain vegan-variable-scope">En Vegan, este checkpoint integra <strong>calidad comercial del lote y compatibilidad con catalizadores</strong>, porque el pretreatment específico puede ocurrir antes de la recepción en Tula y el mapa Vegan no muestra guard beds internos separados como Ecofining/HydroFlex.</div>
         <div class="panel-title">A · Calidad general del lote</div>
         <div class="varlist">
-          <div class="var sel"><strong>T01 · Contenido lipídico</strong>Proporción de materia grasa aprovechable del lote.<div class="rangerow"><span class="valchip">Criterio de recepción por definir</span></div></div>
-          <div class="var sel"><strong>T04 · Humedad</strong>Agua residual presente en el feedstock acondicionado.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
-          <div class="var sel"><strong>T05 · Impurezas generales</strong>Material no deseado distinto de la grasa.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
-          <div class="var sel"><strong>T06 · Sólidos totales</strong>Partículas residuales relevantes para bombeo, filtración y ensuciamiento.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
-          <div class="var sel"><strong>T07 · Cenizas</strong>Indicador de contaminación inorgánica o mineral.<div class="rangerow"><span class="valchip">Referencia por validar</span></div></div>
-          <div class="var sel"><strong>T08 · FFA / índice de acidez</strong>Condición de acidez y nivel de ácidos grasos libres.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
-          <div class="var sel"><strong>T09 · Oxidación / POV</strong>Medida de degradación oxidativa y estabilidad.<div class="rangerow"><span class="valchip">Método y referencia por validar</span></div></div>
-          <div class="var sel"><strong>T13 · Azufre total</strong>Caracteriza el lote y ayuda a anticipar carga de contaminantes en procesamiento posterior.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
-          <div class="var sel"><strong>MIU · Paquete completo</strong><em>Moisture, Insoluble impurities, Unsaponifiables</em> como lectura integral de calidad comercial.<div class="rangerow"><span class="valchip">Especificación por definir</span></div></div>
+          <div class="var sel"><strong>T01 · Contenido lipídico <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Proporción de materia grasa aprovechable del lote.<div class="rangerow"><span class="valchip">Criterio de recepción por definir</span></div></div>
+          <div class="var sel"><strong>T08 · FFA / índice de acidez <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Condición de acidez y nivel de ácidos grasos libres.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
+          <div class="var sel"><strong>T24 · MIU (Moisture, Insoluble impurities &amp; Unsaponifiables) <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Moisture, Insoluble impurities &amp; Unsaponifiables como lectura integral de calidad comercial (agua, impurezas insolubles y fracción insaponificable del lote).<div class="rangerow"><span class="valchip">Especificación por definir</span></div></div>
+          <div class="var sel"><strong>T13 · Azufre total <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Caracteriza el lote y ayuda a anticipar carga de contaminantes en procesamiento posterior.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
+          <div class="var sel"><strong>T04 · Humedad <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Agua residual presente en el feedstock acondicionado.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
+          <div class="var sel"><strong>T05 · Impurezas generales <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Material no deseado distinto de la grasa.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
+          <div class="var sel"><strong>T06 · Sólidos totales <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Partículas residuales relevantes para bombeo, filtración y ensuciamiento.<div class="rangerow"><span class="valchip">Límite por validar</span></div></div>
+          <div class="var sel"><strong>T09 · Oxidación / POV <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Medida de degradación oxidativa y estabilidad.<div class="rangerow"><span class="valchip">Método y referencia por validar</span></div></div>
+          <div class="var sel"><strong>T07 · Cenizas <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Indicador de contaminación inorgánica o mineral.<div class="rangerow"><span class="valchip">Referencia por validar</span></div></div>
         </div>
 
         <div class="panel-title vegan-tech-title">B · Compatibilidad con catalizadores Vegan</div>
         <div class="varlist">
-          <div class="var proc"><strong>T10 · Fósforo</strong>Contaminante crítico para protección catalítica.<div class="rangerow"><span class="valchip">≈≤3 ppm · referencia industrial preliminar</span></div></div>
-          <div class="var proc"><strong>T11 · Metales</strong>Na, K, Ca, Mg, Fe y otros metales relevantes.<div class="rangerow"><span class="valchip">≈≤7 ppm agregados · referencia preliminar</span></div></div>
-          <div class="var proc"><strong>T15 · Cloruros / sales</strong>Potencial de corrosión, depósitos y problemas operativos.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
-          <div class="var proc"><strong>T16 · Silicio / siliconas</strong>Pueden generar ensuciamiento y afectar desempeño catalítico.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
-          <div class="var proc"><strong>T17 · Jabones</strong>Pueden complicar bombeo, separación, filtración y operación.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
-          <div class="var proc"><strong>T18 · Insaponificables</strong>Fracción orgánica que no forma jabones y también integra MIU.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
-          <div class="var proc"><strong>T20 · TAN</strong>Número total de acidez del feedstock acondicionado.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
-          <div class="var proc"><strong>T22 · Oxígeno total / compuestos oxigenados</strong>Indicador de carga de compuestos oxigenados hacia hydrotreatment.<div class="rangerow"><span class="valchip">Referencia técnica por validar</span></div></div>
-          <div class="var proc"><strong>T23 · Pesticidas / contaminantes orgánicos especiales</strong>Compuestos traza potencialmente relevantes para operación o regulación.<div class="rangerow"><span class="valchip">Presencia / límite por validar</span></div></div>
+          <div class="var proc"><strong>T10 · Fósforo <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Contaminante crítico para protección catalítica.<div class="rangerow"><span class="valchip">≈≤3 ppm · referencia industrial preliminar</span></div></div>
+          <div class="var proc"><strong>T11 · Metales <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Na, K, Ca, Mg, Fe y otros metales relevantes.<div class="rangerow"><span class="valchip">≈≤7 ppm agregados · referencia preliminar</span></div></div>
+          <div class="var proc"><strong>T15 · Cloruros / sales <span class="vegan-priority-chip vegan-priority-critical"><i></i>Crítica</span></strong>Potencial de corrosión, depósitos y problemas operativos.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
+          <div class="var proc"><strong>T16 · Silicio / siliconas <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Pueden generar ensuciamiento y afectar desempeño catalítico.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
+          <div class="var proc"><strong>T17 · Jabones <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Pueden complicar bombeo, separación, filtración y operación.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
+          <div class="var proc"><strong>T18 · Insaponificables <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Fracción orgánica que no forma jabones y también integra MIU.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
+          <div class="var proc"><strong>T20 · TAN <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Número total de acidez del feedstock acondicionado.<div class="rangerow"><span class="valchip">Límite Vegan por validar</span></div></div>
+          <div class="var proc"><strong>T22 · Oxígeno total / compuestos oxigenados <span class="vegan-priority-chip vegan-priority-important"><i></i>Importante</span></strong>Indicador de carga de compuestos oxigenados hacia hydrotreatment.<div class="rangerow"><span class="valchip">Referencia técnica por validar</span></div></div>
+          <div class="var proc"><strong>T23 · Pesticidas / contaminantes orgánicos especiales <span class="vegan-priority-chip vegan-priority-control"><i></i>Control</span></strong>Compuestos traza potencialmente relevantes para operación o regulación.<div class="rangerow"><span class="valchip">Presencia / límite por validar</span></div></div>
         </div>
         <div class="checkpoint-decision vegan-decision"><b>Decisión:</b> apto para Vegan · mezcla/corrección · rechazo</div>
       </section>
