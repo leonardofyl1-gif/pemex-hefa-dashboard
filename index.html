@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Feedstock Process Dashboard BIARAI v42</title>
+<title>Feedstock Process Dashboard BIARAI v43</title>
 <style>body{font-family:system-ui,sans-serif;padding:40px;color:#1A3A46;background:#F6FAFC}.load{max-width:760px;margin:auto}</style>
 </head>
 <body>
@@ -20,7 +20,7 @@
     let html=await baseRes.text();
     const css=await cssRes.text();
     const stage=await stageRes.text();
-    html=html.replace('Feedstock Process Dashboard BIARAI v13 — Proceso y variables técnicas','Feedstock Process Dashboard BIARAI v42 — Procesos HEFA');
+    html=html.replace('Feedstock Process Dashboard BIARAI v13 — Proceso y variables técnicas','Feedstock Process Dashboard BIARAI v43 — Procesos HEFA');
     html=html.replace('</style>',css+'\n</style>');
     const closing='\n</div>\n</div>\n</body>';
     if(!html.includes(closing)) throw new Error('No se encontró el punto de inserción del bloque Ecofining.');
