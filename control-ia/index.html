@@ -16,7 +16,7 @@
     .wrap{max-width:1680px;margin:0 auto;padding:28px}
     .top{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:18px}
     h1{margin:0 0 7px;font-size:30px;letter-spacing:-.02em}.subtitle{color:var(--muted);margin:0;max-width:850px;line-height:1.45}
-    .stamp{color:var(--muted);font-size:12px;text-align:right;line-height:1.45}
+    .top-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px}.back-btn{display:inline-flex;align-items:center;gap:7px;background:var(--navy);color:white;text-decoration:none;border-radius:10px;padding:10px 14px;font-size:13px;font-weight:800;box-shadow:0 2px 8px rgba(24,34,51,.08)}.back-btn:hover{opacity:.92}.stamp{color:var(--muted);font-size:12px;text-align:right;line-height:1.45}
     .rule{background:linear-gradient(135deg,#eef5ff,#f7f1ff);border:1px solid #dce5f4;border-radius:14px;padding:13px 16px;margin:14px 0 18px;display:flex;gap:12px;align-items:flex-start}
     .rule .emoji{font-size:21px}.rule b{color:var(--navy)}.rule small{display:block;color:var(--muted);margin-top:3px;line-height:1.4}
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:11px;margin:0 0 18px}
@@ -34,7 +34,7 @@
     .status-Vigente{background:var(--green);color:#21673c}.status-En-construcción{background:var(--blue);color:#245b91}.status-Revisar,.status-Pendiente-de-clasificar{background:var(--yellow);color:#775a00}.status-Desactualizado{background:var(--red);color:#972f2a}.status-Histórico{background:var(--gray);color:#5f6873}.status-Eliminar{background:#f9dcdc;color:#881d1d}
     .truth{font-weight:700}.empty{padding:25px;color:var(--muted);background:white;border:1px solid var(--line);border-radius:12px}.warning{background:var(--yellow);border:1px solid #efd69c;border-radius:11px;padding:11px 13px;margin-bottom:10px}
     .legend{display:flex;gap:8px;flex-wrap:wrap;margin:-3px 0 15px}.legend span{font-size:11px;color:var(--muted)}
-    @media(max-width:700px){.wrap{padding:16px}.top{display:block}.stamp{text-align:left;margin-top:8px}h1{font-size:25px}.toolbar input{min-width:100%}}
+    @media(max-width:700px){.wrap{padding:16px}.top{display:block}.top-actions{align-items:flex-start;margin-top:12px}.stamp{text-align:left}h1{font-size:25px}.toolbar input{min-width:100%}}
   </style>
 </head>
 <body>
@@ -44,7 +44,10 @@
       <h1>🧭 Control IA — PEMEX HEFA</h1>
       <p class="subtitle">Tu mapa del proyecto: aquí puedes ver <b>todo lo que existe en GitHub</b>, entender para qué sirve sin acordarte del nombre técnico y saber qué está vigente, qué debemos revisar y qué podemos eliminar.</p>
     </div>
-    <div class="stamp" id="stamp">⏳ Cargando inventario…</div>
+    <div class="top-actions">
+      <a class="back-btn" href="../">← Volver a Procesos</a>
+      <div class="stamp" id="stamp">⏳ Cargando inventario…</div>
+    </div>
   </div>
 
   <div class="rule">
