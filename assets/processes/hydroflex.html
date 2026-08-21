@@ -1,23 +1,43 @@
+<style>
+.hydroflex-board .hydro-canvas{min-width:6150px!important}
+.hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{display:grid;grid-template-columns:repeat(15,minmax(410px,1fr))!important}
+.hydroflex-board .hydro-strip2{border-top:1px solid var(--line)}
+.hydro-pretreatment-group{grid-column:span 4;display:grid;grid-template-rows:auto 1fr;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 260%);box-shadow:inset 0 4px 0 var(--pre);border-right:1px solid var(--line)}
+.hydro-pretreatment-parent,.hydro-guard-parent{padding:14px 16px 13px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--surface),var(--pre-soft),var(--surface))}
+.hydro-pretreatment-parent .parent-head,.hydro-guard-parent .parent-head{display:flex;align-items:flex-start;gap:12px}
+.hydro-pretreatment-parent .parent-no,.hydro-guard-parent .parent-no{font-family:var(--font-display);font-size:13px;font-weight:900;color:var(--pre);padding:5px 8px;border-radius:999px;background:var(--pre-soft);white-space:nowrap}
+.hydro-pretreatment-parent h3,.hydro-guard-parent h3{font-family:var(--font-display);font-size:16px;line-height:1.2;color:var(--blue-1);margin:2px 0 6px}
+.hydro-pretreatment-parent p,.hydro-guard-parent p{font-size:var(--text-xs);line-height:1.45;color:var(--text-soft);margin:0;max-width:120ch}
+.hydro-pretreatment-subgrid{display:grid;grid-template-columns:repeat(4,minmax(410px,1fr))}
+.hydro-pretreatment-subgrid .col,.hydro-guard-subgrid .col{min-width:0;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 310%);box-shadow:inset 0 4px 0 var(--pre)}
+.hydro-pretreatment-subgrid .col:not(:last-child),.hydro-guard-subgrid .col:not(:last-child){border-right:1px solid var(--line)}
+.hydro-pretreatment-control{grid-column:span 4;background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%)}
+.hydro-degumming-single{background:linear-gradient(180deg,var(--surface),var(--pre-soft) 290%);box-shadow:inset 0 4px 0 var(--pre)}
+.hydro-guard-group{grid-column:span 3;display:grid;grid-template-rows:auto 1fr;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 260%);box-shadow:inset 0 4px 0 var(--pre);border-right:1px solid var(--line)}
+.hydro-guard-subgrid{display:grid;grid-template-columns:repeat(3,minmax(410px,1fr))}
+.hydro-guard-control{grid-column:span 3;background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%)}
+.hydro-contaminants{margin-top:2px;padding:8px 9px;border:1px dashed var(--line);border-radius:10px;background:rgba(255,255,255,.62);font-size:11px;color:var(--text-soft);line-height:1.4}
+.hydro-contaminants b{color:var(--blue-1)}
+.guard-monitor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.guard-monitor-card{padding:10px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.72);font-size:var(--text-xs);line-height:1.42;color:var(--text-soft)}
+.guard-monitor-card strong{display:block;color:var(--blue-1);margin-bottom:5px}
+.guard-monitor-card .monitor-var{margin-top:7px;padding-top:7px;border-top:1px solid var(--line);font-weight:700;color:var(--pre)}
+@media(max-width:900px){.hydroflex-board .hydro-canvas{min-width:6150px!important}}
+</style>
+
 <div class="board-head">
   <div class="process-kicker">Proceso 2 · Topsoe</div>
   <h2>HydroFlex™ · De la grasa renderizada a la conversión HEFA</h2>
-  <p>La ruta se lee de izquierda a derecha y respeta el proceso canónico aprobado. El <strong>04 · Acondicionamiento del feedstock</strong> se muestra como un macroproceso dividido en cuatro subetapas consecutivas dentro del flujo: Degumming, Bleaching, Secado y Filtración de pulido.</p>
+  <p>La ruta se lee de izquierda a derecha. El <strong>02 · Pretratamiento HVO/HEFA</strong> ocurre fuera de Tula; después de la recepción, <strong>04 · Degumming (desgomado)</strong> se mantiene como operación aislada y <strong>05 · Acondicionamiento interno</strong> agrupa los guard beds HydroFlex antes del catalizador principal.</p>
 </div>
 
 <div class="checkpoint-legend">
   <span class="checkpoint-chip commercial"><b>03b · Checkpoint comercial</b> ¿El lote entregado en Tula cumple lo que PEMEX acordó comprar?</span>
-  <span class="checkpoint-chip technical"><b>06 · Control técnico HydroFlex</b> ¿La alimentación acondicionada cumple la calidad requerida para proteger la sección catalítica?</span>
+  <span class="checkpoint-chip technical"><b>06 · Checkpoint técnico HydroFlex</b> ¿La corriente que sale del acondicionamiento interno está suficientemente limpia para llegar al catalizador principal?</span>
 </div>
 
 <div class="scroll eco-scroll">
   <div class="canvas eco-canvas hydro-canvas">
-    <div class="hydro-conditioning-band">
-      <div class="hydro-conditioning-group">
-        <strong>04 · Acondicionamiento del feedstock</strong>
-        <span>Macroproceso dividido en 4 operaciones consecutivas</span>
-      </div>
-    </div>
-
     <div class="eco-strip hydro-strip">
       <article class="col type-proc">
         <div class="step-no">01</div>
@@ -29,207 +49,105 @@
         <div class="type-tags"><span class="type-tag proc"><i></i>Procesamiento</span></div>
       </article>
 
-      <article class="col type-sel">
-        <div class="step-no">02</div>
-        <h3>Filtro de selección del feedstock</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Se identifica, muestrea y clasifica la grasa por origen, calidad, composición, contaminación, disponibilidad y trazabilidad para decidir qué lotes continúan.</div>
-          <div class="desc-point"><b>Proceso químico:</b> No ocurre una reacción química. Se caracteriza la composición para detectar propiedades o contaminantes que puedan volver el material inaceptable para renewable fuels.</div>
+      <div class="hydro-pretreatment-group">
+        <div class="hydro-pretreatment-parent">
+          <div class="parent-head"><span class="parent-no">02</span><div>
+            <h3>Pretratamiento HVO/HEFA del feedstock (fuera de Tula)</h3>
+            <p>Este bloque agrupa el <strong>pretratamiento HVO/HEFA del feedstock</strong> asociado al proyecto HydroFlex. Incluye desgomado, blanqueo con tierras, secado y filtración de pulido para reducir gomas, fósforo, metales, agua y sólidos antes del transporte a Tula.</p>
+          </div></div>
         </div>
-        <div class="type-tags"><span class="type-tag sel"><i></i>Selección</span></div>
-      </article>
+        <div class="hydro-pretreatment-subgrid">
+          <article class="col type-pre"><div class="macro-subtitle">02 · Pretratamiento HVO/HEFA</div><div class="step-no">02.1</div><h3>Degumming (desgomado)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> La grasa se mezcla con agua y/o ácidos suaves y después pasa por separación o centrifugación para retirar una fase que concentra gomas y fosfolípidos.</div><div class="desc-point"><b>Proceso químico:</b> Los fosfolípidos se hidratan o acondicionan para facilitar su separación, reduciendo gomas, fosfolípidos y parte del fósforo.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento · 1/4</span></div></article>
+          <article class="col type-pre"><div class="macro-subtitle">02 · Pretratamiento HVO/HEFA</div><div class="step-no">02.2</div><h3>Bleaching (blanqueo) / Advanced filtration (filtración avanzada)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> La grasa entra en contacto con tierras o arcillas activadas y después el adsorbente cargado de contaminantes se retira mediante filtración.</div><div class="desc-point"><b>Proceso químico:</b> Predomina la adsorción de fósforo residual, metales y otros contaminantes sobre la superficie del adsorbente.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento · 2/4</span></div></article>
+          <article class="col type-pre"><div class="macro-subtitle">02 · Pretratamiento HVO/HEFA</div><div class="step-no">02.3</div><h3>Drying (secado)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> Se reduce la humedad residual del feedstock mediante secado, pudiendo utilizar temperatura, vacío u otra configuración de ingeniería.</div><div class="desc-point"><b>Proceso químico:</b> No se busca una reacción química; el objetivo es retirar agua para entregar una corriente más seca y estable.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento · 3/4</span></div></article>
+          <article class="col type-pre"><div class="macro-subtitle">02 · Pretratamiento HVO/HEFA</div><div class="step-no">02.4</div><h3>Polishing filtration (filtración de pulido)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> El feedstock atraviesa una filtración fina final para retirar partículas muy pequeñas y finos residuales.</div><div class="desc-point"><b>Proceso químico:</b> No se busca una reacción química; la función es física y consiste en reducir al mínimo los sólidos residuales.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento · 4/4</span></div></article>
+        </div>
+      </div>
 
       <article class="col type-almtrans">
-        <div class="step-no">03</div>
-        <h3>Transporte y almacenamiento</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> La grasa se carga en tanques o autotanques, se transporta y se mantiene a temperatura suficiente para conservarla líquida y bombeable, evitando contaminación adicional.</div>
-          <div class="desc-point"><b>Proceso químico:</b> No se desea una reacción. El objetivo es limitar oxidación, hidrólisis y degradación durante traslado y almacenamiento para conservar la calidad del lote.</div>
-        </div>
+        <div class="step-no">03</div><h3>Transporte y almacenamiento</h3>
+        <div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> La grasa se carga en tanques o autotanques, se transporta y se mantiene a temperatura suficiente para conservarla líquida y bombeable, evitando contaminación adicional.</div><div class="desc-point"><b>Proceso químico:</b> No se desea una reacción. El objetivo es limitar oxidación, hidrólisis y degradación durante traslado y almacenamiento para conservar la calidad del lote.</div></div>
         <div class="type-tags"><span class="type-tag trans"><i></i>Transporte</span><span class="type-tag alm"><i></i>Almacenamiento</span></div>
       </article>
 
       <article class="col checkpoint-col commercial-col">
-        <div class="step-no">03b</div>
-        <h3>Recepción y control de calidad en Tula</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Se toma una muestra representativa del lote tal como llega a Tula y se realizan pruebas para decidir aceptar, penalizar, mezclar/corregir o rechazar.</div>
-          <div class="desc-point"><b>Proceso químico:</b> La grasa no se modifica; se mide su composición y condición —humedad, FFA, oxidación, impurezas, azufre total y MIU— contra la especificación comercial acordada.</div>
-        </div>
+        <div class="step-no">03b</div><h3>Recepción y control de calidad en Tula</h3>
+        <div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> Se toma una muestra representativa del lote tal como llega a Tula y se realizan pruebas para decidir aceptar, penalizar, mezclar/corregir o rechazar.</div><div class="desc-point"><b>Proceso químico:</b> La grasa no se modifica; se mide su composición y condición —humedad, FFA, oxidación, impurezas, azufre total y MIU— contra la especificación comercial acordada.</div></div>
         <div class="type-tags"><span class="type-tag checkpoint-commercial"><i></i>Checkpoint comercial</span></div>
       </article>
 
-      <article class="col type-pre hydro-conditioning-col">
-        <div class="macro-subtitle">04 · Acondicionamiento del feedstock</div>
-        <div class="step-no">04.1</div>
-        <h3>Degumming / desgomado</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> La grasa se mezcla con agua y/o ácidos suaves y después pasa por separación o centrifugación para retirar una fase que concentra gomas y fosfolípidos.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Los fosfolípidos se hidratan o acondicionan para facilitar su separación, reduciendo gomas y parte del fósforo.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento · 1/4</span></div>
+      <article class="col type-pre hydro-degumming-single">
+        <div class="step-no">04</div><h3>Degumming (desgomado)</h3>
+        <div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> La grasa se mezcla con agua y/o ácidos suaves y después pasa por separación o centrifugación para retirar una fase que concentra gomas y fosfolípidos.</div><div class="desc-point"><b>Proceso químico:</b> Los fosfolípidos se hidratan o acondicionan para facilitar su separación, reduciendo fosfolípidos, gomas y parte del fósforo.</div></div>
+        <div class="type-tags"><span class="type-tag pre"><i></i>Degumming (desgomado)</span></div>
       </article>
 
-      <article class="col type-pre hydro-conditioning-col">
-        <div class="macro-subtitle">04 · Acondicionamiento del feedstock</div>
-        <div class="step-no">04.2</div>
-        <h3>Bleaching / filtración avanzada</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> La grasa entra en contacto con tierras o arcillas activadas; después, el adsorbente cargado de contaminantes se retira mediante filtración.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Predomina la adsorción de fósforo residual, metales y otros compuestos sobre la superficie del adsorbente.</div>
+      <div class="hydro-guard-group">
+        <div class="hydro-guard-parent"><div class="parent-head"><span class="parent-no">05</span><div><h3>Acondicionamiento interno del feedstock (guard beds HydroFlex)</h3><p>Los guard beds forman parte del esquema de protección catalítica HydroFlex y capturan contaminantes residuales antes de que alcancen el catalizador principal.</p></div></div></div>
+        <div class="hydro-guard-subgrid">
+          <article class="col type-pre"><div class="macro-subtitle">05 · Acondicionamiento interno</div><div class="step-no">05.1</div><h3>Guard bed de fósforo (PhosTrap™)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> El feedstock pretratado pasa a través de un lecho sólido diseñado para retener compuestos que contienen fósforo.</div><div class="desc-point"><b>Proceso químico:</b> Un material tipo <strong>PhosTrap™</strong> o equivalente fija el fósforo residual sobre el sólido de guarda, reduciendo su llegada al catalizador principal.</div><div class="hydro-contaminants"><b>Contaminantes objetivo:</b> fósforo total (P), fosfolípidos residuales y compuestos organofosforados.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento interno – captura de fósforo</span></div></article>
+          <article class="col type-pre"><div class="macro-subtitle">05 · Acondicionamiento interno</div><div class="step-no">05.2</div><h3>Guard beds de metales alcalinos y alcalinotérreos</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> El aceite fluye a través de uno o más lechos porosos que atrapan sales y especies metálicas residuales.</div><div class="desc-point"><b>Proceso químico:</b> Los materiales de guarda capturan principalmente <strong>Na, K, Ca y Mg</strong>, evitando que estas especies lleguen al catalizador principal.</div><div class="hydro-contaminants"><b>Contaminantes objetivo:</b> Na, K, Ca, Mg y sus sales asociadas.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento interno – captura de Na, K, Ca, Mg</span></div></article>
+          <article class="col type-pre"><div class="macro-subtitle">05 · Acondicionamiento interno</div><div class="step-no">05.3</div><h3>Guard beds de metales pesados y otros venenos</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> Un tercer lecho puede emplear materiales específicos para metales pesados y otros venenos antes del catalizador principal de hydrotreating.</div><div class="desc-point"><b>Proceso químico:</b> Los materiales de guarda capturan <strong>Fe, Ni, V</strong> y, según el diseño, especies con <strong>Si</strong> u otros elementos traza, reduciendo fouling y pérdida de actividad.</div><div class="hydro-contaminants"><b>Contaminantes objetivo:</b> Fe, Ni, V y, según diseño, Si y otros metales pesados o venenos traza.</div></div><div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento interno – captura de Fe, Ni, V y otros venenos</span></div></article>
         </div>
-        <div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento · 2/4</span></div>
-      </article>
-
-      <article class="col type-pre hydro-conditioning-col">
-        <div class="macro-subtitle">04 · Acondicionamiento del feedstock</div>
-        <div class="step-no">04.3</div>
-        <h3>Secado / drying</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Se reduce la humedad residual del feedstock mediante secado, pudiendo utilizar vacío según la configuración de ingeniería.</div>
-          <div class="desc-point"><b>Proceso químico:</b> No se busca una reacción química; el objetivo es retirar agua para entregar una corriente más seca y estable.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento · 3/4</span></div>
-      </article>
-
-      <article class="col type-pre hydro-conditioning-col">
-        <div class="macro-subtitle">04 · Acondicionamiento del feedstock</div>
-        <div class="step-no">04.4</div>
-        <h3>Filtración de pulido / polishing</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> El feedstock atraviesa una filtración fina final para retirar partículas muy pequeñas que hayan permanecido después de las operaciones anteriores.</div>
-          <div class="desc-point"><b>Proceso químico:</b> No se busca una reacción química; la función es física y consiste en reducir sólidos residuales antes de la sección catalítica.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag pre"><i></i>Acondicionamiento · 4/4</span></div>
-      </article>
-
-      <article class="col type-pre hydro-guard-col">
-        <div class="step-no">05</div>
-        <h3>Guard bed y lecho graduado</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> La alimentación atraviesa capas de guard bed y lechos graduados colocados antes del catalizador principal. Estas capas retienen partículas y funcionan como primera barrera interna de protección.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Los materiales de guardia capturan o fijan contaminantes como fósforo y metales antes de que lleguen al catalizador HDO, reduciendo envenenamiento y desactivación.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag pre"><i></i>Protección catalítica interna</span></div>
-      </article>
+      </div>
 
       <article class="col checkpoint-col technical-col">
-        <div class="step-no">06</div>
-        <h3>Control técnico del feedstock acondicionado</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Se verifica analíticamente la calidad de la alimentación acondicionada que debe proteger la sección catalítica HydroFlex. El muestreo operativo debe realizarse sobre una corriente representativa antes del reactor/guard bed, salvo definición distinta de Topsoe.</div>
-          <div class="desc-point"><b>Proceso químico:</b> No se busca una nueva reacción; se confirma que fósforo, metales, sales y contaminantes específicos estén en niveles compatibles con la protección del catalizador principal.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag checkpoint-technical"><i></i>Control técnico HydroFlex</span></div>
+        <div class="step-no">06</div><h3>Control técnico del feedstock acondicionado</h3>
+        <div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> Se toma una muestra representativa de la corriente que sale del acondicionamiento interno y se verifica su calidad inmediatamente antes del catalizador principal. La ubicación exacta del punto de muestreo debe confirmarse con la ingeniería Topsoe.</div><div class="desc-point"><b>Proceso químico:</b> No ocurre una nueva reacción; se confirma que el fósforo, los metales, el silicio y otros contaminantes residuales estén en niveles compatibles con la protección del catalizador principal HydroFlex.</div></div>
+        <div class="type-tags"><span class="type-tag checkpoint-technical"><i></i>Checkpoint técnico HydroFlex</span></div>
       </article>
 
-      <article class="col conversion-col">
-        <div class="step-no">07</div>
-        <h3>Hidrodesoxigenación (HDO)</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> El feedstock acondicionado entra al lecho catalítico principal junto con hidrógeno, bajo temperatura y presión elevadas, y fluye a través del reactor.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Los triglicéridos y ácidos grasos reaccionan con hidrógeno; se elimina oxígeno como agua y mediante rutas que producen CO/CO₂, generando principalmente parafinas lineales.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HydroFlex</span></div>
-      </article>
-
-      <article class="col conversion-col">
-        <div class="step-no">08</div>
-        <h3>Isomerización / dewaxing</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Los hidrocarburos pasan por una sección catalítica adicional bajo condiciones controladas para ajustar el desempeño del combustible a bajas temperaturas.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Parte de las parafinas lineales se transforma en iso-parafinas ramificadas, mejorando cloud point, freezing point y otras propiedades requeridas para renewable diesel y SAF.</div>
-        </div>
-        <div class="type-tags"><span class="type-tag conversion"><i></i>Isomerización / dewaxing</span></div>
-      </article>
+      <article class="col conversion-col"><div class="step-no">07</div><h3>Hydrodeoxygenation — HDO (hidrodesoxigenación)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> El feedstock acondicionado entra al lecho catalítico principal junto con hidrógeno, bajo temperatura y presión elevadas.</div><div class="desc-point"><b>Proceso químico:</b> Triglicéridos y ácidos grasos reaccionan con hidrógeno; se elimina oxígeno como agua y mediante rutas que producen CO/CO₂, generando principalmente parafinas lineales.</div></div><div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HydroFlex</span></div></article>
+      <article class="col conversion-col"><div class="step-no">08</div><h3>Hydroisomerization (hidroisomerización) / Dewaxing (desparafinado)</h3><div class="desc dual-desc"><div class="desc-point"><b>Proceso físico:</b> Los hidrocarburos pasan por una sección catalítica adicional bajo condiciones controladas para ajustar el desempeño a bajas temperaturas.</div><div class="desc-point"><b>Proceso químico:</b> Parte de las parafinas lineales se transforma en iso-parafinas ramificadas, mejorando cloud point, freezing point y otras propiedades.</div></div><div class="type-tags"><span class="type-tag conversion"><i></i>Hydroisomerization / Dewaxing</span></div></article>
     </div>
 
     <div class="eco-strip2 hydro-strip2">
-      <section class="stage muted-stage">
-        <div class="panel-title">Punto de control</div>
-        <div class="stage-explain">Aquí se obtiene la materia prima inicial. <strong>No se define todavía un límite específico de entrada HydroFlex.</strong></div>
-      </section>
+      <section class="stage muted-stage"><div class="panel-title">Resultado</div><div class="stage-explain">Se obtiene la <strong>grasa animal renderizada</strong> que alimentará el pretratamiento externo.</div></section>
 
-      <section class="stage muted-stage">
-        <div class="panel-title">Punto de control</div>
-        <div class="stage-explain">Filtro inicial de elegibilidad del feedstock. Determina qué materiales continúan, pero <strong>no sustituye la especificación técnica de entrada</strong>.</div>
-      </section>
+      <section class="stage muted-stage hydro-pretreatment-control"><div class="panel-title">Punto de control · bloque 02 completo</div><div class="stage-explain"><strong>Este tren de pretratamiento HVO/HEFA se diseña para el proyecto HydroFlex siguiendo el esquema estándar de la industria.</strong> Los detalles exactos se definen con el licenciante y los proveedores de pretreatment. El bloque ocurre fuera de Tula y prepara el feedstock antes del transporte.</div></section>
 
-      <section class="stage muted-stage">
-        <div class="panel-title">Punto de control</div>
-        <div class="stage-explain">Los criterios específicos de temperatura, almacenamiento y transferencia se gestionan en la dimensión logística y deben conservar la calidad del lote.</div>
-      </section>
+      <section class="stage muted-stage"><div class="panel-title">Punto de control logístico</div><div class="stage-explain">Los criterios específicos de temperatura, almacenamiento y transferencia se gestionan en la dimensión logística y deben conservar la calidad lograda en el pretratamiento.</div></section>
 
-      <section class="stage commercial-stage">
-        <div class="panel-title">Variables de recepción · calidad comercial</div>
-        <div class="varlist">
-          <div class="var sel"><strong>T01 · Contenido lipídico</strong>Proporción de materia grasa real frente a agua, sólidos y otros componentes.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
-          <div class="var sel"><strong>T04 · Humedad</strong>Agua presente en el lote recibido; forma parte del paquete MIU.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
-          <div class="var sel"><strong>T05 · Impurezas generales</strong>Material ajeno o no deseado presente en la grasa recibida.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
-          <div class="var sel"><strong>T06 · Sólidos totales</strong>Partículas que pueden afectar bombeo, filtración y manejo del lote.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
-          <div class="var sel"><strong>T07 · Cenizas y composición</strong>Indicador de contenido inorgánico y contaminación mineral.<div class="rangerow"><span class="valchip">Referencia comercial por validar</span></div></div>
-          <div class="var sel"><strong>T08 · Índice de acidez / FFA</strong>Nivel de ácidos grasos libres y condición de acidez/degradación del lote.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
-          <div class="var sel"><strong>T09 · Oxidación / estabilidad</strong>POV u otro método estándar para evaluar degradación y estabilidad.<div class="rangerow"><span class="valchip">Método y referencia por validar</span></div></div>
-          <div class="var sel"><strong>Azufre total</strong>Variable comercial adicional para caracterizar la calidad del feedstock.<div class="rangerow"><span class="valchip">Límite comercial por validar</span></div></div>
-          <div class="var sel"><strong>MIU · Paquete completo</strong><em>Moisture, Insoluble impurities &amp; Unsaponifiables</em>: lectura comercial integral de agua, insolubles e insaponificables.<div class="rangerow"><span class="valchip">Especificación contractual por definir</span></div></div>
+      <section class="stage commercial-stage"><div class="panel-title">Variables de recepción · calidad comercial</div><div class="varlist">
+        <div class="var sel"><strong>T01 · Contenido lipídico</strong>Proporción de materia grasa real frente a agua, sólidos y otros componentes.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+        <div class="var sel"><strong>T04 · Humedad</strong>Agua presente en el lote recibido; forma parte del paquete MIU.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+        <div class="var sel"><strong>T05 · Impurezas generales</strong>Material ajeno o no deseado presente en la grasa recibida.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+        <div class="var sel"><strong>T06 · Sólidos totales</strong>Partículas que pueden afectar bombeo, filtración y manejo del lote.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+        <div class="var sel"><strong>T07 · Cenizas y composición</strong>Indicador de contenido inorgánico y contaminación mineral.<div class="rangerow"><span class="valchip">Referencia comercial por validar</span></div></div>
+        <div class="var sel"><strong>T08 · Índice de acidez / FFA</strong>Nivel de ácidos grasos libres y condición de acidez/degradación del lote.<div class="rangerow"><span class="valchip">Límite contractual por definir</span></div></div>
+        <div class="var sel"><strong>T09 · Oxidación / estabilidad</strong>POV u otro método estándar para evaluar degradación y estabilidad.<div class="rangerow"><span class="valchip">Método y referencia por validar</span></div></div>
+        <div class="var sel"><strong>Azufre total</strong>Variable comercial adicional para caracterizar la calidad del feedstock.<div class="rangerow"><span class="valchip">Límite comercial por validar</span></div></div>
+        <div class="var sel"><strong>MIU · Paquete completo</strong><em>Moisture, Insoluble impurities &amp; Unsaponifiables</em>: lectura comercial integral de agua, insolubles e insaponificables.<div class="rangerow"><span class="valchip">Especificación contractual por definir</span></div></div>
+      </div><div class="checkpoint-decision commercial-decision"><b>Decisión:</b> aceptar · penalizar · mezclar/corregir · rechazar</div></section>
+
+      <section class="stage muted-stage"><div class="panel-title">04 · Degumming (desgomado)</div><div class="stage-explain"><strong>Qué se corrige:</strong> principalmente fosfolípidos, gomas y parte del fósforo mediante hidratación/acondicionamiento y separación. <strong>No es un macroproceso de cuatro etapas.</strong></div></section>
+
+      <section class="stage muted-stage hydro-guard-control"><div class="panel-title">05 · Punto de control de guard beds HydroFlex</div>
+        <div class="guard-monitor-grid">
+          <div class="guard-monitor-card"><strong>05.1 · Fósforo</strong>Seguimiento de concentración antes/después del guard bed y capacidad de captura del material de guarda.<div class="monitor-var">Variable vinculada: T10 · Fósforo</div></div>
+          <div class="guard-monitor-card"><strong>05.2 · Na, K, Ca, Mg</strong>Seguimiento de los metales ligeros y sus sales antes/después de los lechos de protección.<div class="monitor-var">Variable vinculada: T11 · Metales (Na, K, Ca, Mg)</div></div>
+          <div class="guard-monitor-card"><strong>05.3 · Fe, Ni, V, Si y trazas</strong>Seguimiento de metales pesados y otros venenos capturados por el último guard bed.<div class="monitor-var">Variables vinculadas: T11 · Metales (Fe, Ni, V) + T16 · Silicio/siliconas</div></div>
         </div>
-        <div class="checkpoint-decision commercial-decision"><b>Decisión:</b> aceptar · penalizar · mezclar/corregir · rechazar</div>
+        <div class="stage-explain" style="margin-top:10px"><strong>Desempeño operativo:</strong> además de las concentraciones de impurezas, se monitorean la caída de presión (ΔP), la saturación/capacidad del material de guarda y su vida útil. Estas son variables operativas del guard bed, no nuevas variables de la Master Matrix.</div>
+        <div class="checkpoint-decision technical-decision"><b>Función del 05:</b> demostrar que los guard beds están removiendo contaminantes. <strong>No sustituye el checkpoint técnico final de 06.</strong></div>
       </section>
 
-      <section class="stage muted-stage hydro-conditioning-stage">
-        <div class="panel-title">04.1 · Degumming</div>
-        <div class="stage-explain"><strong>Objetivo:</strong> remover fosfolípidos, gomas y parte del fósforo mediante hidratación/acondicionamiento y separación.</div>
-        <div class="stage-explain hydro-scope-mini"><strong>Macroproceso 04:</strong> para PEMEX–Tula se asume integrado al sitio; su inclusión en la licencia HydroFlex debe validarse.</div>
-      </section>
+      <section class="stage technical-stage hydro-technical-stage"><div class="panel-title">06 · Variables residuales hacia el catalizador principal</div><div class="varlist">
+        <div class="var proc"><strong>T10 · Fósforo residual</strong>Fósforo que permanece después del Degumming y de la captura en guard beds.<div class="rangerow"><span class="valchip">Referencia industrial preliminar ≈ ≤3 ppm · validar HydroFlex</span></div></div>
+        <div class="var proc"><strong>T11 · Metales residuales</strong>Na, K, Ca, Mg, Fe, Ni, V y otros metales relevantes que permanecen después del acondicionamiento interno.<div class="rangerow"><span class="valchip">Referencia industrial preliminar ≈ ≤7 ppm agregados · validar definición</span></div></div>
+        <div class="var proc"><strong>T15 · Cloruros / sales</strong>Contaminantes asociados con corrosión, depósitos y problemas operativos.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
+        <div class="var proc"><strong>T16 · Silicio / siliconas residual</strong>Silicio que permanece después de los lechos de protección y puede afectar el desempeño catalítico.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
+        <div class="var proc"><strong>T17 · Jabones</strong>Sales de ácidos grasos que pueden complicar operación y generar depósitos.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
+        <div class="var proc"><strong>T18 · Insaponificables</strong>Componentes orgánicos que no forman jabones y pueden permanecer en el feedstock acondicionado.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
+        <div class="var proc"><strong>T20 · TAN</strong>Número total de acidez de la corriente acondicionada antes del catalizador principal.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
+        <div class="var proc"><strong>T22 · Oxígeno total / compuestos oxigenados</strong>Indicador de la carga de compuestos oxigenados que entra a la sección catalítica principal.<div class="rangerow"><span class="valchip">Referencia técnica por validar</span></div></div>
+        <div class="var proc"><strong>T23 · Pesticidas / contaminantes orgánicos especiales</strong>Compuestos traza que podrían afectar la operación o requerir control específico.<div class="rangerow"><span class="valchip">Presencia / límite por validar</span></div></div>
+      </div><div class="checkpoint-decision technical-decision"><b>Decisión:</b> apto / no apto para llegar al catalizador principal HydroFlex</div><div class="stage-explain hydro-boundary-note"><strong>Frontera:</strong> 05 mide desempeño de remoción de los guard beds; 06 verifica la <strong>concentración residual</strong> en la corriente que alimentará el catalizador principal. El punto físico exacto de muestreo debe confirmarse con la ingeniería Topsoe.</div></section>
 
-      <section class="stage muted-stage hydro-conditioning-stage">
-        <div class="panel-title">04.2 · Bleaching</div>
-        <div class="stage-explain"><strong>Objetivo:</strong> reducir fósforo residual, metales y otros contaminantes adsorbibles mediante tierras/arcillas activadas y filtración.</div>
-      </section>
-
-      <section class="stage muted-stage hydro-conditioning-stage">
-        <div class="panel-title">04.3 · Secado</div>
-        <div class="stage-explain"><strong>Objetivo:</strong> bajar la humedad residual del feedstock, pudiendo utilizar secado al vacío según la ingeniería.</div>
-      </section>
-
-      <section class="stage muted-stage hydro-conditioning-stage">
-        <div class="panel-title">04.4 · Polishing</div>
-        <div class="stage-explain"><strong>Objetivo:</strong> eliminar partículas muy finas para proteger bombas, líneas, guard beds y la sección catalítica.</div>
-      </section>
-
-      <section class="stage muted-stage">
-        <div class="panel-title">Protección interna</div>
-        <div class="stage-explain">El <strong>guard bed y los lechos graduados</strong> son parte intrínseca de la protección catalítica HydroFlex. Capturan fósforo, metales y partículas antes del catalizador principal para reducir fouling, envenenamiento y desactivación.</div>
-      </section>
-
-      <section class="stage technical-stage hydro-technical-stage">
-        <div class="panel-title">Variables clave · aptitud técnica HydroFlex</div>
-        <div class="varlist">
-          <div class="var proc"><strong>T10 · Fósforo</strong>Contaminante crítico para protección catalítica.<div class="rangerow"><span class="valchip">Referencia industrial preliminar ≈ ≤3 ppm · validar HydroFlex</span></div></div>
-          <div class="var proc"><strong>T11 · Metales</strong>Na, K, Ca, Mg, Fe y otros metales relevantes.<div class="rangerow"><span class="valchip">Referencia industrial preliminar ≈ ≤7 ppm agregados · validar definición</span></div></div>
-          <div class="var proc"><strong>T15 · Cloruros / sales</strong>Contaminantes asociados con corrosión, depósitos y problemas operativos.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
-          <div class="var proc"><strong>T16 · Silicio / siliconas</strong>Contaminantes que pueden generar ensuciamiento y afectación catalítica.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
-          <div class="var proc"><strong>T17 · Jabones</strong>Sales de ácidos grasos que pueden complicar bombeo, separación, filtración y operación.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
-          <div class="var proc"><strong>T18 · Insaponificables</strong>Componentes orgánicos que no forman jabones; también forman parte del paquete MIU.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
-          <div class="var proc"><strong>T20 · TAN</strong>Número total de acidez del feedstock acondicionado.<div class="rangerow"><span class="valchip">Límite HydroFlex por validar</span></div></div>
-          <div class="var proc"><strong>T22 · Oxígeno total / compuestos oxigenados</strong>Indicador de la carga de compuestos oxigenados que entra a la sección catalítica.<div class="rangerow"><span class="valchip">Referencia técnica por validar</span></div></div>
-          <div class="var proc"><strong>T23 · Pesticidas / contaminantes orgánicos especiales</strong>Compuestos traza potencialmente relevantes para operación o regulación.<div class="rangerow"><span class="valchip">Presencia / límite por validar</span></div></div>
-        </div>
-        <div class="checkpoint-decision technical-decision"><b>Decisión:</b> apto / no apto para alimentar la sección catalítica HydroFlex</div>
-        <div class="stage-explain hydro-boundary-note"><strong>Nota de frontera:</strong> 06 aparece después de 05 en la narrativa para separar conceptos, pero no implica muestreo físico después del guard bed. La verificación operativa debe hacerse sobre una corriente representativa antes del reactor/guard bed, salvo definición distinta de Topsoe/ingeniería.</div>
-      </section>
-
-      <section class="stage muted-stage">
-        <div class="panel-title">Conversión química</div>
-        <div class="stage-explain">La alimentación ya debe cumplir la calidad técnica acordada. En HDO el foco cambia de limpieza del feedstock a su <strong>conversión química en hidrocarburos</strong>.</div>
-      </section>
-
-      <section class="stage muted-stage">
-        <div class="panel-title">Conversión química</div>
-        <div class="stage-explain">Después de HDO, el objetivo es ajustar la estructura de las parafinas para mejorar <strong>cloud point, freezing point y desempeño de frío</strong>.</div>
-      </section>
+      <section class="stage muted-stage"><div class="panel-title">Conversión química</div><div class="stage-explain">En HDO el foco cambia de limpieza del feedstock a su <strong>conversión química en hidrocarburos</strong>.</div></section>
+      <section class="stage muted-stage"><div class="panel-title">Conversión química</div><div class="stage-explain">Después de HDO se ajusta la estructura de las parafinas para mejorar <strong>cloud point, freezing point y desempeño de frío</strong>.</div></section>
     </div>
   </div>
 </div>
 
-<div class="foot"><strong>Proceso canónico HydroFlex:</strong> 04 sigue siendo un solo macroproceso de acondicionamiento, desplegado visualmente como 04.1 Degumming → 04.2 Bleaching → 04.3 Secado → 04.4 Polishing; después continúan 05 Guard bed, 06 Control técnico, 07 HDO y 08 Isomerización/dewaxing. Los valores numéricos mostrados como referencias preliminares no constituyen requisitos PEMEX.</div>
+<div class="foot"><strong>Proceso canónico HydroFlex:</strong> 02 es el pretratamiento HVO/HEFA externo; 04 es únicamente Degumming; 05 es el acondicionamiento interno mediante guard beds (05.1 fósforo, 05.2 Na/K/Ca/Mg, 05.3 Fe/Ni/V/Si); 06 verifica los contaminantes residuales antes del catalizador principal. Los valores numéricos mostrados siguen siendo referencias preliminares y no requisitos PEMEX confirmados.</div>
