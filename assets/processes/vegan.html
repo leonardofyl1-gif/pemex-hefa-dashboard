@@ -1,3 +1,20 @@
+<style>
+.vegan-board .vegan-canvas{min-width:4100px!important}
+.vegan-board .vegan-strip,.vegan-board .vegan-strip2{display:grid;grid-template-columns:repeat(10,minmax(410px,1fr))!important}
+.vegan-pretreatment-group{grid-column:span 4;display:grid;grid-template-rows:auto 1fr;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 280%);box-shadow:inset 0 4px 0 var(--pre);border-right:1px solid var(--line)}
+.vegan-pretreatment-parent{padding:14px 16px 13px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--surface),var(--pre-soft),var(--surface))}
+.vegan-pretreatment-parent .parent-head{display:flex;align-items:flex-start;gap:12px}
+.vegan-pretreatment-parent .parent-no{font-family:var(--font-display);font-size:13px;font-weight:900;color:var(--pre);padding:5px 8px;border-radius:999px;background:var(--pre-soft);white-space:nowrap}
+.vegan-pretreatment-parent h3{font-family:var(--font-display);font-size:16px;line-height:1.2;color:var(--blue-1);margin:2px 0 6px}
+.vegan-pretreatment-parent p{font-size:var(--text-xs);line-height:1.45;color:var(--text-soft);margin:0;max-width:120ch}
+.vegan-parent-tag{margin-top:10px}
+.vegan-pretreatment-subgrid{display:grid;grid-template-columns:repeat(4,minmax(410px,1fr))}
+.vegan-pretreatment-subgrid .col{min-width:0;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 310%);box-shadow:inset 0 4px 0 var(--pre)}
+.vegan-pretreatment-subgrid .col:not(:last-child){border-right:1px solid var(--line)}
+.vegan-pretreatment-control{grid-column:span 4;background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%)}
+@media(max-width:900px){.vegan-board .vegan-canvas{min-width:4100px!important}}
+</style>
+
 <div class="board-head">
   <div class="process-kicker">Proceso 3 · Axens</div>
   <h2>Vegan® · Feedstock pretratado fuera de Tula y conversión HEFA</h2>
@@ -21,15 +38,64 @@
         <div class="type-tags"><span class="type-tag proc"><i></i>Procesamiento</span></div>
       </article>
 
-      <article class="col type-pre vegan-external-col">
-        <div class="step-no">02</div>
-        <h3>Pretratamiento externo del feedstock</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Fuera de Tula, la grasa pasa por degumming, bleaching/filtración avanzada, secado y filtración fina. Se mezclan reactivos/adsorbentes, se separan fases, se filtra y se retira agua y material sólido.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Fosfolípidos se hidratan o acondicionan para separarse y contaminantes como fósforo residual y metales se adsorben sobre tierras/arcillas. No se busca convertir todavía los triglicéridos en hidrocarburos.</div>
+      <div class="vegan-pretreatment-group">
+        <div class="vegan-pretreatment-parent">
+          <div class="parent-head">
+            <span class="parent-no">02</span>
+            <div>
+              <h3>External feedstock pretreatment (pretratamiento externo del feedstock)</h3>
+              <p>Este bloque agrupa el <strong>pretratamiento HVO/HEFA externo del feedstock</strong> asociado al proyecto Vegan. Aquí se realizan las etapas típicas de desgomado (degumming), blanqueo con tierras (bleaching), secado (drying) y filtración de pulido (polishing filtration) para limpiar la grasa antes de entrar a Tula.</p>
+              <div class="type-tags vegan-parent-tag"><span class="type-tag pre"><i></i>Pretratamiento fuera de Tula</span></div>
+            </div>
+          </div>
         </div>
-        <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento fuera de Tula</span></div>
-      </article>
+
+        <div class="vegan-pretreatment-subgrid">
+          <article class="col type-pre vegan-external-col">
+            <div class="macro-subtitle">02 · External feedstock pretreatment</div>
+            <div class="step-no">02.1</div>
+            <h3>Degumming (desgomado)</h3>
+            <div class="desc dual-desc">
+              <div class="desc-point"><b>Proceso físico:</b> La grasa se mezcla con agua y/o ácidos suaves y después pasa por separación o centrifugación para retirar una fase que concentra <strong>gomas y fosfolípidos</strong>.</div>
+              <div class="desc-point"><b>Proceso químico:</b> En el <strong>degumming (desgomado)</strong>, los fosfolípidos se hidratan o se convierten en gomas que son más fáciles de separar del aceite. Así se reducen fosfolípidos, gomas y parte del fósforo y metales asociados.</div>
+            </div>
+            <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento 1/4</span></div>
+          </article>
+
+          <article class="col type-pre vegan-external-col">
+            <div class="macro-subtitle">02 · External feedstock pretreatment</div>
+            <div class="step-no">02.2</div>
+            <h3>Bleaching (blanqueo)</h3>
+            <div class="desc dual-desc">
+              <div class="desc-point"><b>Proceso físico:</b> La grasa entra en contacto con <strong>tierras o arcillas activadas</strong>; después, el adsorbente cargado de contaminantes se retira mediante filtración.</div>
+              <div class="desc-point"><b>Proceso químico:</b> En el <strong>bleaching (blanqueo)</strong>, predomina la <strong>adsorción de fósforo residual, metales y otros compuestos</strong> sobre la superficie del adsorbente. Esta etapa reduce contaminantes traza que podrían dañar la tecnología Vegan en etapas posteriores.</div>
+            </div>
+            <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento 2/4</span></div>
+          </article>
+
+          <article class="col type-pre vegan-external-col">
+            <div class="macro-subtitle">02 · External feedstock pretreatment</div>
+            <div class="step-no">02.3</div>
+            <h3>Drying (secado)</h3>
+            <div class="desc dual-desc">
+              <div class="desc-point"><b>Proceso físico:</b> Se reduce la <strong>humedad residual del feedstock</strong> mediante secado —por temperatura, vacío u otra configuración de ingeniería— para entregar una corriente más seca y estable.</div>
+              <div class="desc-point"><b>Proceso químico:</b> No se busca una reacción química; el objetivo es retirar agua libre y agua disuelta para que el feedstock sea estable y adecuado para la sección Vegan.</div>
+            </div>
+            <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento 3/4</span></div>
+          </article>
+
+          <article class="col type-pre vegan-external-col">
+            <div class="macro-subtitle">02 · External feedstock pretreatment</div>
+            <div class="step-no">02.4</div>
+            <h3>Polishing filtration (filtración de pulido)</h3>
+            <div class="desc dual-desc">
+              <div class="desc-point"><b>Proceso físico:</b> El feedstock atraviesa una <strong>filtración fina final</strong> para retirar partículas muy pequeñas —finos— que hayan permanecido después del desgomado, el blanqueo y el secado.</div>
+              <div class="desc-point"><b>Proceso químico:</b> No se busca una reacción química; la función es física y consiste en reducir al mínimo los sólidos residuales antes del transporte a Tula y de la sección catalítica Vegan.</div>
+            </div>
+            <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento 4/4</span></div>
+          </article>
+        </div>
+      </div>
 
       <article class="col type-almtrans">
         <div class="step-no">03</div>
@@ -88,9 +154,10 @@
         <div class="stage-explain">Se obtiene la <strong>grasa animal renderizada</strong> que alimentará el pretratamiento externo.</div>
       </section>
 
-      <section class="stage muted-stage">
-        <div class="panel-title">Qué se corrige fuera de Tula</div>
-        <div class="stage-explain"><strong>Degumming:</strong> fosfolípidos, gomas y parte del P.<br><br><strong>Bleaching:</strong> P residual, metales y contaminantes adsorbibles.<br><br><strong>Secado:</strong> humedad.<br><br><strong>Polishing:</strong> sólidos finos y partículas.</div>
+      <section class="stage muted-stage vegan-pretreatment-control">
+        <div class="panel-title">02 · Pretratamiento HVO/HEFA externo · punto de control del bloque completo</div>
+        <div class="stage-explain"><strong>02.1 Degumming:</strong> reduce fosfolípidos, gomas y parte del fósforo y metales asociados.<br><br><strong>02.2 Bleaching:</strong> reduce fósforo residual, metales y otros contaminantes adsorbibles.<br><br><strong>02.3 Drying:</strong> reduce humedad libre y disuelta.<br><br><strong>02.4 Polishing filtration:</strong> reduce sólidos finos y partículas residuales.</div>
+        <div class="checkpoint-decision vegan-boundary-note"><b>Nota de alcance:</b> Este tren de pretratamiento HVO/HEFA se diseña para el proyecto Vegan siguiendo el esquema estándar de pretreatment HVO descrito en la industria. Sus equipos concretos no forman parte de la unidad catalítica Vegan, sino de la solución de pretreatment asociada al complejo.</div>
         <div class="checkpoint-decision vegan-boundary-note"><b>Resultado:</b> feedstock lipídico acondicionado antes del transporte a Tula.</div>
       </section>
 
@@ -146,4 +213,4 @@
   </div>
 </div>
 
-<div class="foot"><strong>Proceso canónico Vegan®:</strong> el pretratamiento ocurre fuera de Tula y la etapa 04 es el único checkpoint integrado comercial + técnico. No insertar 03b/05b de Ecofining o HydroFlex. Las referencias ≈3 ppm P y ≈7 ppm metales son benchmarks industriales preliminares y requieren validación específica con Axens antes de tratarlas como requisitos tecnológicos.</div>
+<div class="foot"><strong>Proceso canónico Vegan®:</strong> 02 es un macroproceso de pretratamiento externo desplegado como 02.1 Degumming → 02.2 Bleaching → 02.3 Drying → 02.4 Polishing filtration; 04 sigue siendo el único checkpoint integrado comercial + técnico en Tula. No insertar 03b/05b de Ecofining o HydroFlex. Las referencias ≈3 ppm P y ≈7 ppm metales son benchmarks industriales preliminares y requieren validación específica con Axens antes de tratarlas como requisitos tecnológicos.</div>
