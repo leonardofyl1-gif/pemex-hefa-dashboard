@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T22:28:03.528543+00:00",
+  "generated_at": "2026-08-24T22:29:05.590334+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
-    "total_files": 69,
+    "total_files": 68,
     "by_repo": {
       "pemex-hefa-dashboard": 30,
-      "pemex-hefa-feedstock": 39
+      "pemex-hefa-feedstock": 38
     },
     "by_status": {
       "Histórico": 3,
@@ -15,7 +15,7 @@
       "Pendiente de clasificar": 9,
       "Desactualizado": 8,
       "Revisar": 10,
-      "Eliminar": 2
+      "Eliminar": 1
     },
     "by_function": {
       "Dashboard histórico": 2,
@@ -39,7 +39,6 @@
       "Research": 5,
       "Prueba": 1,
       "Skill — investigación": 1,
-      "Skill — dashboard legacy": 1,
       "Skill": 3,
       "Skill — sincronización": 1
     }
@@ -666,7 +665,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 48757,
-      "last_modified": "2026-08-24T22:22:34Z",
+      "last_modified": "2026-08-24T22:28:03Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -683,8 +682,8 @@
       "name": "metadata.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 12387,
-      "last_modified": "2026-08-24T16:07:50-06:00",
+      "size_bytes": 11960,
+      "last_modified": "2026-08-24T16:28:56-06:00",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -1043,8 +1042,8 @@
       "name": "README.md",
       "technical_type": "Markdown",
       "extension": "md",
-      "size_bytes": 5593,
-      "last_modified": "2026-08-24T16:07:50-06:00",
+      "size_bytes": 5483,
+      "last_modified": "2026-08-24T16:28:56-06:00",
       "purpose": "Explicar la arquitectura vigente, la jerarquía de fuentes y cómo navegar el repositorio.",
       "for_dummies": "Es la portada actualizada de GitHub: explica qué manda, qué hay y dónde encontrarlo.",
       "function": "Navegación",
@@ -1196,24 +1195,6 @@
       "used": "No",
       "source_of_truth": "No hasta actualización",
       "action": "Actualizar + renombrar"
-    },
-    {
-      "repo": "pemex-hefa-feedstock",
-      "path": "skills/feedstock-dashboard-manager/SKILL.md",
-      "folder": "skills",
-      "subfolder": "skills/feedstock-dashboard-manager",
-      "name": "SKILL.md",
-      "technical_type": "Skill",
-      "extension": "skill",
-      "size_bytes": 4228,
-      "last_modified": "2026-08-19T20:26:15-06:00",
-      "purpose": "Regenerar un dashboard con la lógica anterior de la Matriz Madre.",
-      "for_dummies": "Es un manual viejo que puede volver a meter una arquitectura que ya no queremos.",
-      "function": "Skill — dashboard legacy",
-      "status": "Eliminar",
-      "used": "No",
-      "source_of_truth": "No",
-      "action": "Eliminar"
     },
     {
       "repo": "pemex-hefa-feedstock",
