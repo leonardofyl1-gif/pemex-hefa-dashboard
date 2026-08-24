@@ -1,21 +1,20 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T22:29:05.590334+00:00",
+  "generated_at": "2026-08-24T22:35:56.351817+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
-    "total_files": 68,
+    "total_files": 67,
     "by_repo": {
       "pemex-hefa-dashboard": 30,
-      "pemex-hefa-feedstock": 38
+      "pemex-hefa-feedstock": 37
     },
     "by_status": {
       "Histórico": 3,
       "Vigente": 37,
       "Pendiente de clasificar": 9,
       "Desactualizado": 8,
-      "Revisar": 10,
-      "Eliminar": 1
+      "Revisar": 10
     },
     "by_function": {
       "Dashboard histórico": 2,
@@ -32,7 +31,6 @@
       "Datos": 1,
       "Datos — proveedores": 1,
       "Fuente": 3,
-      "Dashboard legacy": 1,
       "Markdown": 1,
       "Datos — Matriz Madre": 1,
       "Navegación": 1,
@@ -538,7 +536,7 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 48757,
+      "size_bytes": 48012,
       "last_modified": null,
       "purpose": "Archivo técnico del dashboard público.",
       "for_dummies": "Es una de las piezas que hacen funcionar el dashboard público.",
@@ -664,8 +662,8 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 48757,
-      "last_modified": "2026-08-24T22:28:03Z",
+      "size_bytes": 48012,
+      "last_modified": "2026-08-24T22:29:05Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -682,8 +680,8 @@
       "name": "metadata.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 11960,
-      "last_modified": "2026-08-24T16:28:56-06:00",
+      "size_bytes": 11604,
+      "last_modified": "2026-08-24T16:35:46-06:00",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -943,24 +941,6 @@
       "used": "Pendiente",
       "source_of_truth": "No definido",
       "action": "Revisar"
-    },
-    {
-      "repo": "pemex-hefa-feedstock",
-      "path": "feedstock-process-dashboard-v1.html",
-      "folder": "Raíz",
-      "subfolder": "",
-      "name": "feedstock-process-dashboard-v1.html",
-      "technical_type": "HTML",
-      "extension": "html",
-      "size_bytes": 0,
-      "last_modified": "2026-08-19T15:48:31-06:00",
-      "purpose": "Archivo inicial vacío de una versión temprana del dashboard.",
-      "for_dummies": "Es un cascarón viejo y vacío.",
-      "function": "Dashboard legacy",
-      "status": "Eliminar",
-      "used": "No",
-      "source_of_truth": "No",
-      "action": "Eliminar"
     },
     {
       "repo": "pemex-hefa-feedstock",
