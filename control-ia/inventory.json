@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-24T22:22:34.448896+00:00",
+  "generated_at": "2026-08-24T22:28:03.528543+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -666,7 +666,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 48757,
-      "last_modified": "2026-08-24T22:09:40Z",
+      "last_modified": "2026-08-24T22:22:34Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -1025,8 +1025,8 @@
       "name": "master_matrix.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 18097,
-      "last_modified": "2026-08-24T16:22:25-06:00",
+      "size_bytes": 74381,
+      "last_modified": "2026-08-24T16:27:53-06:00",
       "purpose": "Representación estructurada de la Matriz Madre para máquinas.",
       "for_dummies": "Es una copia de la Matriz Madre que las IAs pueden leer más fácilmente que el Excel.",
       "function": "Datos — Matriz Madre",
