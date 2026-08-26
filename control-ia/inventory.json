@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T05:38:06.639210+00:00",
+  "generated_at": "2026-08-26T05:51:14.814172+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
-    "total_files": 50,
+    "total_files": 51,
     "by_repo": {
       "pemex-hefa-dashboard": 12,
-      "pemex-hefa-feedstock": 38
+      "pemex-hefa-feedstock": 39
     },
     "by_status": {
       "Vigente": 20,
       "Pendiente de clasificar": 9,
       "Desactualizado": 8,
-      "Revisar": 11,
+      "Revisar": 12,
       "Histórico": 2
     },
     "by_function": {
@@ -36,7 +36,7 @@
       "Markdown": 1,
       "Datos — Matriz Madre": 1,
       "Navegación": 1,
-      "Research": 6,
+      "Research": 7,
       "Prueba": 1,
       "Skill — investigación": 1,
       "Skill": 3,
@@ -214,7 +214,7 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 35415,
+      "size_bytes": 35416,
       "last_modified": null,
       "purpose": "Archivo técnico del dashboard público.",
       "for_dummies": "Es una de las piezas que hacen funcionar el dashboard público.",
@@ -340,8 +340,8 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 35415,
-      "last_modified": "2026-08-26T05:26:45Z",
+      "size_bytes": 35416,
+      "last_modified": "2026-08-26T05:38:06Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -738,6 +738,24 @@
       "extension": "md",
       "size_bytes": 7941,
       "last_modified": "2026-08-19T19:46:20-06:00",
+      "purpose": "Guardar resultados y evidencia de investigación.",
+      "for_dummies": "Es la biblioteca de investigaciones que ya hicieron ChatGPT o Perplexity.",
+      "function": "Research",
+      "status": "Revisar",
+      "used": "Solo referencia",
+      "source_of_truth": "No",
+      "action": "Revisar"
+    },
+    {
+      "repo": "pemex-hefa-feedstock",
+      "path": "research/evidence/audited/T07_T27_evidence_audit_2026-08-26.json",
+      "folder": "research",
+      "subfolder": "research/evidence/audited",
+      "name": "T07_T27_evidence_audit_2026-08-26.json",
+      "technical_type": "JSON",
+      "extension": "json",
+      "size_bytes": 47859,
+      "last_modified": "2026-08-25T23:51:04-06:00",
       "purpose": "Guardar resultados y evidencia de investigación.",
       "for_dummies": "Es la biblioteca de investigaciones que ya hicieron ChatGPT o Perplexity.",
       "function": "Research",
