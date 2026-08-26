@@ -1,19 +1,19 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T03:38:30.377232+00:00",
+  "generated_at": "2026-08-26T05:25:36.815672+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
-    "total_files": 49,
+    "total_files": 50,
     "by_repo": {
       "pemex-hefa-dashboard": 12,
-      "pemex-hefa-feedstock": 37
+      "pemex-hefa-feedstock": 38
     },
     "by_status": {
       "Vigente": 20,
       "Pendiente de clasificar": 9,
       "Desactualizado": 8,
-      "Revisar": 10,
+      "Revisar": 11,
       "Histórico": 2
     },
     "by_function": {
@@ -36,7 +36,7 @@
       "Markdown": 1,
       "Datos — Matriz Madre": 1,
       "Navegación": 1,
-      "Research": 5,
+      "Research": 6,
       "Prueba": 1,
       "Skill — investigación": 1,
       "Skill": 3,
@@ -341,7 +341,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 34713,
-      "last_modified": "2026-08-26T02:35:25Z",
+      "last_modified": "2026-08-26T03:38:30Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -738,6 +738,24 @@
       "extension": "md",
       "size_bytes": 7941,
       "last_modified": "2026-08-19T19:46:20-06:00",
+      "purpose": "Guardar resultados y evidencia de investigación.",
+      "for_dummies": "Es la biblioteca de investigaciones que ya hicieron ChatGPT o Perplexity.",
+      "function": "Research",
+      "status": "Revisar",
+      "used": "Solo referencia",
+      "source_of_truth": "No",
+      "action": "Revisar"
+    },
+    {
+      "repo": "pemex-hefa-feedstock",
+      "path": "research/evidence/inbox/perplexity/T01_T05_evidence.json",
+      "folder": "research",
+      "subfolder": "research/evidence/inbox/perplexity",
+      "name": "T01_T05_evidence.json",
+      "technical_type": "JSON",
+      "extension": "json",
+      "size_bytes": 14774,
+      "last_modified": "2026-08-25T23:25:24-06:00",
       "purpose": "Guardar resultados y evidencia de investigación.",
       "for_dummies": "Es la biblioteca de investigaciones que ya hicieron ChatGPT o Perplexity.",
       "function": "Research",
