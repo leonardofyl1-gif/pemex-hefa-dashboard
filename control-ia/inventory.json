@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T05:54:09.078405+00:00",
+  "generated_at": "2026-08-26T05:55:44.543104+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -341,7 +341,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 36134,
-      "last_modified": "2026-08-26T05:51:14Z",
+      "last_modified": "2026-08-26T05:54:09Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -754,8 +754,8 @@
       "name": "T07_T27_evidence_audit_2026-08-26.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 51234,
-      "last_modified": "2026-08-25T23:54:00-06:00",
+      "size_bytes": 51250,
+      "last_modified": "2026-08-25T23:55:33-06:00",
       "purpose": "Guardar resultados y evidencia de investigación.",
       "for_dummies": "Es la biblioteca de investigaciones que ya hicieron ChatGPT o Perplexity.",
       "function": "Research",
