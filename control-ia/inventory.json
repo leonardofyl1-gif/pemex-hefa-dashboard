@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T20:41:45.726299+00:00",
+  "generated_at": "2026-08-26T20:42:47.246273+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
-    "total_files": 51,
+    "total_files": 52,
     "by_repo": {
       "pemex-hefa-dashboard": 12,
-      "pemex-hefa-feedstock": 39
+      "pemex-hefa-feedstock": 40
     },
     "by_status": {
       "Vigente": 20,
       "Pendiente de clasificar": 9,
-      "Desactualizado": 8,
+      "Desactualizado": 9,
       "Revisar": 12,
       "Histórico": 2
     },
@@ -39,7 +39,7 @@
       "Research": 7,
       "Prueba": 1,
       "Skill — investigación": 1,
-      "Skill": 3,
+      "Skill": 4,
       "Skill — sincronización": 1
     }
   },
@@ -214,7 +214,7 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 36134,
+      "size_bytes": 36135,
       "last_modified": null,
       "purpose": "Archivo técnico del dashboard público.",
       "for_dummies": "Es una de las piezas que hacen funcionar el dashboard público.",
@@ -340,8 +340,8 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 36134,
-      "last_modified": "2026-08-26T17:26:32Z",
+      "size_bytes": 36135,
+      "last_modified": "2026-08-26T20:41:45Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -900,6 +900,24 @@
       "extension": "md",
       "size_bytes": 10117,
       "last_modified": "2026-08-26T14:41:36-06:00",
+      "purpose": "Instrucciones operativas reutilizables para las IAs.",
+      "for_dummies": "Son manuales que le dicen a la IA exactamente cómo hacer una tarea.",
+      "function": "Skill",
+      "status": "Desactualizado",
+      "used": "No",
+      "source_of_truth": "No hasta actualización",
+      "action": "Revisar"
+    },
+    {
+      "repo": "pemex-hefa-feedstock",
+      "path": "skills/llenar-matriz-madre/REGISTRO_EVIDENCIA.md",
+      "folder": "skills",
+      "subfolder": "skills/llenar-matriz-madre",
+      "name": "REGISTRO_EVIDENCIA.md",
+      "technical_type": "Markdown",
+      "extension": "md",
+      "size_bytes": 10546,
+      "last_modified": "2026-08-26T14:42:38-06:00",
       "purpose": "Instrucciones operativas reutilizables para las IAs.",
       "for_dummies": "Son manuales que le dicen a la IA exactamente cómo hacer una tarea.",
       "function": "Skill",
