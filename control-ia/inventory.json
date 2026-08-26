@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-26T05:26:45.303817+00:00",
+  "generated_at": "2026-08-26T05:38:06.639210+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -341,7 +341,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 35415,
-      "last_modified": "2026-08-26T05:25:36Z",
+      "last_modified": "2026-08-26T05:26:45Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
@@ -862,8 +862,8 @@
       "name": "SKILL.md",
       "technical_type": "Skill",
       "extension": "skill",
-      "size_bytes": 9890,
-      "last_modified": "2026-08-20T17:15:06-06:00",
+      "size_bytes": 11760,
+      "last_modified": "2026-08-25T23:37:57-06:00",
       "purpose": "Investigar y evaluar evidencia para variables de la Matriz Madre.",
       "for_dummies": "Le enseña a la IA cómo buscar fuentes buenas sin inventar límites ni confundir proxies con HEFA.",
       "function": "Skill — investigación",
