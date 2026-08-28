@@ -653,3 +653,205 @@
   decision.insertAdjacentElement('beforebegin',details);
   eco.dataset.blendCriteriaV53='true';
 })();
+
+
+/* Preserved source: v54-vegan-hydroflex-controlled-blending.js */
+(function v54VeganHydroflexControlledBlending(){
+  const addStyles=()=>{
+    if(document.getElementById('controlled-blending-v54-styles')) return;
+    const style=document.createElement('style');
+    style.id='controlled-blending-v54-styles';
+    style.textContent=`
+      .vegan-board .vegan-canvas.blend-v54-canvas{min-width:4510px!important}
+      .vegan-board .vegan-strip.blend-v54-strip,
+      .vegan-board .vegan-strip2.blend-v54-strip2{grid-template-columns:repeat(11,minmax(410px,1fr))!important}
+      .hydroflex-board .hydro-canvas.blend-v54-canvas{min-width:6970px!important}
+      .hydroflex-board .hydro-strip.blend-v54-strip,
+      .hydroflex-board .hydro-strip2.blend-v54-strip2{grid-template-columns:repeat(17,minmax(410px,1fr))!important}
+      .vegan-board .process-controlled-blend-col,
+      .hydroflex-board .process-controlled-blend-col{background:linear-gradient(180deg,var(--surface),#FFF7E8 285%);box-shadow:inset 0 5px 0 #E6A23C}
+      .vegan-board .process-controlled-blend-stage,
+      .hydroflex-board .process-controlled-blend-stage{background:linear-gradient(180deg,#FFFCF6,#FFF7E8);box-shadow:inset 0 4px 0 #E6A23C}
+      .vegan-board .type-tag.controlled-blend,
+      .hydroflex-board .type-tag.controlled-blend{background:#FFF0D4;color:#9A5D00}
+      .vegan-board .type-tag.controlled-blend i,
+      .hydroflex-board .type-tag.controlled-blend i{display:inline-block;width:8px;height:8px;border-radius:999px;background:#E6A23C}
+      .vegan-board .checkpoint-chip.controlled-blend,
+      .hydroflex-board .checkpoint-chip.controlled-blend{background:#FFF7E8;border-color:#F1CD91}
+      .vegan-board .blend-decision,
+      .hydroflex-board .blend-decision{background:#FFF7E8;border-color:#F1CD91}
+      .vegan-board .blend-matrix-details,
+      .hydroflex-board .blend-matrix-details{margin-top:10px;border:1px solid #F1CD91;border-radius:11px;background:#FFFCF6;overflow:hidden}
+      .vegan-board .blend-matrix-details summary,
+      .hydroflex-board .blend-matrix-details summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;cursor:pointer;list-style:none;font-size:var(--text-xs);font-weight:800;color:var(--blue-1);background:#FFF7E8}
+      .vegan-board .blend-matrix-details summary::-webkit-details-marker,
+      .hydroflex-board .blend-matrix-details summary::-webkit-details-marker{display:none}
+      .vegan-board .blend-matrix-details summary::after,
+      .hydroflex-board .blend-matrix-details summary::after{content:'+';display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;border-radius:999px;background:#FFF0D4;color:#9A5D00;font-size:15px;line-height:1}
+      .vegan-board .blend-matrix-details[open] summary::after,
+      .hydroflex-board .blend-matrix-details[open] summary::after{content:'−'}
+      .vegan-board .blend-matrix-content,
+      .hydroflex-board .blend-matrix-content{padding:10px}
+      .vegan-board .blend-matrix-heading,
+      .hydroflex-board .blend-matrix-heading{margin:2px 0 6px;font-size:10px;line-height:1.3;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#9A5D00}
+      .vegan-board .blend-matrix-heading:not(:first-child),
+      .hydroflex-board .blend-matrix-heading:not(:first-child){margin-top:12px}
+      .vegan-board .blend-matrix-table,
+      .hydroflex-board .blend-matrix-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;font-size:10px;line-height:1.35;color:var(--text-soft)}
+      .vegan-board .blend-matrix-table th,
+      .hydroflex-board .blend-matrix-table th{padding:7px;background:#F5F9FB;color:var(--blue-1);font-weight:800;text-align:left;border-bottom:1px solid var(--line)}
+      .vegan-board .blend-matrix-table th:first-child,
+      .hydroflex-board .blend-matrix-table th:first-child{width:36%}
+      .vegan-board .blend-matrix-table td,
+      .hydroflex-board .blend-matrix-table td{padding:7px;vertical-align:top;border-bottom:1px solid var(--line)}
+      .vegan-board .blend-matrix-table td+td,
+      .vegan-board .blend-matrix-table th+th,
+      .hydroflex-board .blend-matrix-table td+td,
+      .hydroflex-board .blend-matrix-table th+th{border-left:1px solid var(--line)}
+      .vegan-board .blend-matrix-table tr:last-child td,
+      .hydroflex-board .blend-matrix-table tr:last-child td{border-bottom:0}
+      .vegan-board .blend-matrix-table strong,
+      .hydroflex-board .blend-matrix-table strong{color:var(--blue-1)}
+      .vegan-board .blend-formula,
+      .vegan-board .blend-source,
+      .hydroflex-board .blend-formula,
+      .hydroflex-board .blend-source{margin:8px 0 0;padding:8px 9px;border-radius:9px;font-size:10px;line-height:1.4;color:var(--text-soft)}
+      .vegan-board .blend-formula,
+      .hydroflex-board .blend-formula{background:#F2F9FC;border:1px solid var(--proc-soft)}
+      .vegan-board .blend-source,
+      .hydroflex-board .blend-source{background:#FFF7E8;border:1px solid #F1CD91}
+      .vegan-board .blend-source a,
+      .hydroflex-board .blend-source a{color:#7A4A00;font-weight:800}
+      @media(max-width:900px){
+        .vegan-board .vegan-canvas.blend-v54-canvas{min-width:4510px!important}
+        .hydroflex-board .hydro-canvas.blend-v54-canvas{min-width:6970px!important}
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const matrixMarkup=()=>`
+    <details open class="blend-matrix-details">
+      <summary>Ver matriz de mezcla · categorías y variables T01–T27</summary>
+      <div class="blend-matrix-content">
+        <div class="blend-matrix-heading">1 · Cómo se combinan las categorías</div>
+        <table class="blend-matrix-table" aria-label="Reglas de combinación por categoría">
+          <thead><tr><th>Combinación</th><th>Resultado y decisión</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Misma categoría</strong><br>Distintas especies</td><td>Permitida con condición: liberar cada lote, registrar origen y proporción, mezclar y analizar nuevamente el tanque.</td></tr>
+            <tr><td><strong>Cat. 2 + Cat. 3</strong></td><td>La mezcla completa se gestiona como <strong>Cat. 2</strong>. Para el proyecto se recomienda mantener las rutas segregadas.</td></tr>
+            <tr><td><strong>Cat. 1 + Cat. 2 o 3</strong></td><td>La mezcla completa se gestiona como <strong>Cat. 1</strong>. Para el proyecto se recomienda mantener las rutas segregadas.</td></tr>
+            <tr><td><strong>Origen/categoría desconocidos</strong><br>Contaminante prohibido</td><td><strong>No mezclar para corregir.</strong> Inmovilizar y decidir conforme al criterio regulatorio, contractual y técnico aplicable.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="blend-matrix-heading">2 · Qué variables cambian y cómo se liberan</div>
+        <table class="blend-matrix-table" aria-label="Comportamiento de las variables de la Matriz Maestra al mezclar">
+          <thead><tr><th>Variables</th><th>Comportamiento del blend</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Liberación comercial</strong><br>T01, T04–T09, T24</td><td>Contenido lipídico, humedad, impurezas, sólidos, cenizas, FFA y MIU pueden estimarse por balance de masa. <strong>T09 oxidación/estabilidad debe medirse en el blend final</strong>; no se acepta por promedio simple.</td></tr>
+            <tr><td><strong>Composición y operación</strong><br>T02, T03, T19, T22</td><td>El perfil de ácidos grasos, C/H, insaturación y oxígeno cambian con la receta. Influyen en fusión, viscosidad, estabilidad y demanda de hidrógeno; se calculan para diseñar la mezcla y se verifican según el plan analítico.</td></tr>
+            <tr><td><strong>Compatibilidad HEFA</strong><br>T10–T13, T15–T18, T20, T26–T27</td><td>Fósforo, metales, N, S, sales, silicio, jabones, insaponificables, TAN, Na+K y el umbral de N cambian con cada lote. La estimación sirve para formular; la especificación técnica aplicable define la liberación.</td></tr>
+            <tr><td><strong>No diluibles</strong><br>T14, T21, T23</td><td>Otros contaminantes, plásticos/polímeros y pesticidas no deben mezclarse para “pasar” un límite. Su presencia activa aislamiento, investigación o rechazo.</td></tr>
+            <tr><td><strong>No corresponde a esta mezcla</strong><br>T25</td><td>El porcentaje de coprocesamiento es la mezcla de feedstock renovable con corriente fósil dentro de un hidrotratador; no es la mezcla de grasas animales en recepción.</td></tr>
+          </tbody>
+        </table>
+
+        <p class="blend-formula"><strong>Estimación inicial para concentraciones:</strong> X<sub>blend</sub> ≈ Σ(w<sub>i</sub> × X<sub>i</sub>), usando fracciones másicas y resultados comparables —misma unidad, base y método—. El cálculo no sustituye el muestreo representativo del tanque.</p>
+        <p class="blend-source"><strong>Alcance sanitario:</strong> Cat. 1/2/3 se usa como referencia UE, no como equivalencia jurídica mexicana. En el alcance actual del estudio, Cat. 3 es la ruta candidata; Cat. 1 y 2 permanecen como exclusión, restricción o contexto hasta validación aplicable. Referencia: <a href="https://eur-lex.europa.eu/eli/reg/2009/1069/oj/eng" target="_blank" rel="noopener">Reglamento (CE) 1069/2009, arts. 8(g) y 9(g)</a>.</p>
+      </div>
+    </details>`;
+
+  const applyBoard=(cfg)=>{
+    const board=document.querySelector(cfg.board);
+    if(!board||board.dataset.controlledBlendingV54==='true') return !!board;
+    const strip=board.querySelector(cfg.strip);
+    const strip2=board.querySelector(cfg.strip2);
+    const canvas=board.querySelector(cfg.canvas);
+    if(!strip||!strip2||!canvas) return false;
+    const topLevel=[...strip.children];
+    if(topLevel.some(el=>el.querySelector?.('.step-no')?.textContent.trim()===cfg.step)){
+      board.dataset.controlledBlendingV54='true';
+      return true;
+    }
+    const topAnchor=topLevel.find(el=>el.querySelector?.('.step-no')?.textContent.trim()===cfg.anchorStep);
+    const lowerAnchor=strip2.querySelector(cfg.lowerAnchor);
+    if(!topAnchor||!lowerAnchor) return false;
+
+    const blend=document.createElement('article');
+    blend.className='col process-controlled-blend-col';
+    blend.innerHTML=`
+      <div class="step-no">${cfg.step}</div>
+      <h3>Controlled blending (mezcla controlada)</h3>
+      <div class="desc dual-desc">
+        <div class="desc-point"><b>Proceso físico:</b> ${cfg.physical}</div>
+        <div class="desc-point"><b>Efecto técnico:</b> La mezcla no crea una reacción nueva, pero sí modifica el perfil de ácidos grasos, punto de fusión, viscosidad, FFA, MIU, oxidación, fósforo y metales. Por eso el tanque final se muestrea y analiza antes de continuar.</div>
+      </div>
+      <div class="type-tags"><span class="type-tag controlled-blend"><i></i>Operación condicionada a liberación y trazabilidad</span></div>`;
+    topAnchor.insertAdjacentElement('afterend',blend);
+
+    const lowerBlend=document.createElement('section');
+    lowerBlend.className='stage process-controlled-blend-stage';
+    lowerBlend.innerHTML=`
+      <div class="panel-title">${cfg.step} · Regla de mezcla y liberación</div>
+      <div class="stage-explain">La mezcla se controla en dos niveles: <strong>la categoría sanitaria no se promedia</strong> y <strong>la composición técnica sí cambia con cada proporción</strong>. La receta sirve para estimar; la muestra del tanque final decide la liberación.</div>
+      ${matrixMarkup()}
+      <div class="checkpoint-decision blend-decision"><b>Secuencia de control:</b> ${cfg.sequence} No se permite mezclar para ocultar trazabilidad, diluir contaminación prohibida o reclasificar material.</div>`;
+    lowerAnchor.insertAdjacentElement('afterend',lowerBlend);
+
+    const legend=board.querySelector('.checkpoint-legend');
+    if(legend&&!legend.querySelector('.controlled-blend')){
+      const chip=document.createElement('span');
+      chip.className='checkpoint-chip controlled-blend';
+      chip.innerHTML=`<b>${cfg.step} · Mezcla controlada</b> lotes liberados + análisis del blend`;
+      legend.appendChild(chip);
+    }
+
+    canvas.classList.add('blend-v54-canvas');
+    strip.classList.add('blend-v54-strip');
+    strip2.classList.add('blend-v54-strip2');
+    board.dataset.controlledBlendingV54='true';
+
+    requestAnimationFrame(()=>{
+      const flow=board.querySelector('.scroll.eco-scroll');
+      const track=board.previousElementSibling?.querySelector?.('.flow-top-scroll-track')||board.querySelector('.flow-top-scroll-track');
+      if(flow&&track) track.style.width=`${flow.scrollWidth}px`;
+      window.dispatchEvent(new Event('resize'));
+    });
+    return true;
+  };
+
+  addStyles();
+  const apply=()=>{
+    const vegan=applyBoard({
+      board:'.vegan-board',
+      strip:'.vegan-strip',
+      strip2:'.vegan-strip2',
+      canvas:'.vegan-canvas',
+      anchorStep:'04',
+      lowerAnchor:'.vegan-integrated-stage',
+      step:'04b',
+      physical:'Después de liberar el checkpoint integrado 04, feedstocks pretratados de distintas especies pueden dosificarse y homogeneizarse en un tanque controlado. La regla operativa es mantener segregadas las categorías sanitarias; si se combinan excepcionalmente, el blend completo adopta la categoría de mayor riesgo.',
+      sequence:'liberar cada lote en 04 → definir receta de blend → mezclar → muestrear el tanque → verificar la especificación comercial y técnica del blend → liberar a Stage 1 Vegan.'
+    });
+    const hydro=applyBoard({
+      board:'.hydroflex-board',
+      strip:'.hydro-strip',
+      strip2:'.hydro-strip2',
+      canvas:'.hydro-canvas',
+      anchorStep:'03b',
+      lowerAnchor:'.commercial-stage',
+      step:'03c',
+      physical:'Después de liberar comercialmente cada lote en 03b, feedstocks pretratados de distintas especies pueden dosificarse y homogeneizarse en un tanque controlado. La regla operativa es mantener segregadas las categorías sanitarias; si se combinan excepcionalmente, el blend completo adopta la categoría de mayor riesgo.',
+      sequence:'liberar comercialmente cada lote en 03b → definir receta de blend → mezclar → muestrear el tanque → verificar la especificación del blend → liberar a 04 Degumming. El checkpoint técnico 06 continúa siendo obligatorio.'
+    });
+    return vegan&&hydro;
+  };
+
+  if(apply()) return;
+  let tries=0;
+  const timer=setInterval(()=>{
+    tries+=1;
+    if(apply()||tries>=240) clearInterval(timer);
+  },250);
+})();
