@@ -106,9 +106,12 @@ const statusEmoji={
 const folderEmoji=name=>({
   'Raíz':'🏠','skills':'🧠','research':'🔎','processes':'⚙️','methodology':'📚','governance':'🛡️','instructions':'🤖','_control_ia':'🧭','dashboard':'📊','.github':'⚡','assets':'🎨','archive':'🗄️'
 }[name]||'📁');
+const folderLabel=name=>({
+  'skills':'Protocolos y guías de IA'
+}[name]||name);
 const functionEmoji=f=>{
   const s=String(f||'').toLowerCase();
-  if(s.includes('skill'))return '🧠';if(s.includes('research'))return '🔎';if(s.includes('dashboard'))return '📊';if(s.includes('matriz'))return '📗';if(s.includes('governance'))return '🛡️';if(s.includes('fuente'))return '📚';if(s.includes('proceso'))return '⚙️';if(s.includes('automat'))return '⚡';if(s.includes('control ia'))return '🧭';if(s.includes('dato'))return '🗃️';if(s.includes('terminolog'))return '🗣️';return '🧩';
+  if(s.includes('skill')||s.includes('protocolo')||s.includes('guía')||s.includes('guia'))return '🧠';if(s.includes('research'))return '🔎';if(s.includes('dashboard'))return '📊';if(s.includes('matriz'))return '📗';if(s.includes('governance'))return '🛡️';if(s.includes('fuente'))return '📚';if(s.includes('proceso'))return '⚙️';if(s.includes('automat'))return '⚡';if(s.includes('control ia'))return '🧭';if(s.includes('dato'))return '🗃️';if(s.includes('terminolog'))return '🗣️';return '🧩';
 };
 const actionEmoji=a=>{
   const s=String(a||'').toLowerCase();
@@ -152,7 +155,7 @@ function render(){
     const repoLabel=repoName==='pemex-hefa-feedstock'?'Repositorio de trabajo':'Dashboard público';
     return `<details class="repo" open><summary>${repoIcon} ${repoLabel} · ${esc(repoName)} — ${Object.values(folders).flat().length} archivos</summary>
       ${Object.entries(folders).map(([folderName,rows])=>`<details class="folder" open>
-        <summary>${folderEmoji(folderName)} ${esc(folderName)} <span class="folder-count">${rows.length} archivo${rows.length===1?'':'s'}</span></summary>
+        <summary>${folderEmoji(folderName)} ${esc(folderLabel(folderName))} <span class="folder-count">${rows.length} archivo${rows.length===1?'':'s'}</span></summary>
         <div class="table-wrap"><table><thead><tr>
           <th>📄 Nombre</th><th>🧠 ¿Para qué sirve?</th><th>🧩 Función</th><th>🚦 Estado</th><th>👀 ¿Se usa?</th><th>👑 Fuente de verdad</th><th>🎯 Acción</th>
         </tr></thead><tbody>
