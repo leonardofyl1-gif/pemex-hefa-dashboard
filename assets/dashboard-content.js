@@ -578,3 +578,78 @@
     window.dispatchEvent(new Event('resize'));
   });
 })();
+
+/* Preserved source: v53-ecofining-blend-criteria-table.js */
+(()=>{
+  const eco=document.querySelector('.ecofining-board');
+  if(!eco||eco.dataset.blendCriteriaV53==='true') return;
+
+  const stage=eco.querySelector('.eco-controlled-blend-stage');
+  if(!stage) return;
+
+  const explain=stage.querySelector('.stage-explain');
+  const decision=stage.querySelector('.blend-decision');
+  if(!explain||!decision) return;
+
+  const style=document.createElement('style');
+  style.textContent=`
+    .ecofining-board .blend-matrix-details{margin-top:10px;border:1px solid #F1CD91;border-radius:11px;background:#FFFCF6;overflow:hidden}
+    .ecofining-board .blend-matrix-details summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;cursor:pointer;list-style:none;font-size:var(--text-xs);font-weight:800;color:var(--blue-1);background:#FFF7E8}
+    .ecofining-board .blend-matrix-details summary::-webkit-details-marker{display:none}
+    .ecofining-board .blend-matrix-details summary::after{content:'+';display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;border-radius:999px;background:#FFF0D4;color:#9A5D00;font-size:15px;line-height:1}
+    .ecofining-board .blend-matrix-details[open] summary::after{content:'−'}
+    .ecofining-board .blend-matrix-content{padding:10px}
+    .ecofining-board .blend-matrix-heading{margin:2px 0 6px;font-size:10px;line-height:1.3;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#9A5D00}
+    .ecofining-board .blend-matrix-heading:not(:first-child){margin-top:12px}
+    .ecofining-board .blend-matrix-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;font-size:10px;line-height:1.35;color:var(--text-soft)}
+    .ecofining-board .blend-matrix-table th{padding:7px;background:#F5F9FB;color:var(--blue-1);font-weight:800;text-align:left;border-bottom:1px solid var(--line)}
+    .ecofining-board .blend-matrix-table th:first-child{width:36%}
+    .ecofining-board .blend-matrix-table td{padding:7px;vertical-align:top;border-bottom:1px solid var(--line)}
+    .ecofining-board .blend-matrix-table td+td,.ecofining-board .blend-matrix-table th+th{border-left:1px solid var(--line)}
+    .ecofining-board .blend-matrix-table tr:last-child td{border-bottom:0}
+    .ecofining-board .blend-matrix-table strong{color:var(--blue-1)}
+    .ecofining-board .blend-formula,.ecofining-board .blend-source{margin:8px 0 0;padding:8px 9px;border-radius:9px;font-size:10px;line-height:1.4;color:var(--text-soft)}
+    .ecofining-board .blend-formula{background:#F2F9FC;border:1px solid var(--proc-soft)}
+    .ecofining-board .blend-source{background:#FFF7E8;border:1px solid #F1CD91}
+    .ecofining-board .blend-source a{color:#7A4A00;font-weight:800}
+  `;
+  document.head.appendChild(style);
+
+  explain.innerHTML='La mezcla se controla en dos niveles: <strong>la categoría sanitaria no se promedia</strong> y <strong>la composición técnica sí cambia con cada proporción</strong>. La receta sirve para estimar; la muestra del tanque final decide la liberación.';
+
+  const details=document.createElement('details');
+  details.open=true;
+  details.className='blend-matrix-details';
+  details.innerHTML=`
+    <summary>Ver matriz de mezcla · categorías y variables T01–T27</summary>
+    <div class="blend-matrix-content">
+      <div class="blend-matrix-heading">1 · Cómo se combinan las categorías</div>
+      <table class="blend-matrix-table" aria-label="Reglas de combinación por categoría">
+        <thead><tr><th>Combinación</th><th>Resultado y decisión</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Misma categoría</strong><br>Distintas especies</td><td>Permitida con condición: liberar cada lote, registrar origen y proporción, mezclar y analizar nuevamente el tanque.</td></tr>
+          <tr><td><strong>Cat. 2 + Cat. 3</strong></td><td>La mezcla completa se gestiona como <strong>Cat. 2</strong>. Para el proyecto se recomienda mantener las rutas segregadas.</td></tr>
+          <tr><td><strong>Cat. 1 + Cat. 2 o 3</strong></td><td>La mezcla completa se gestiona como <strong>Cat. 1</strong>. Para el proyecto se recomienda mantener las rutas segregadas.</td></tr>
+          <tr><td><strong>Origen/categoría desconocidos</strong><br>Contaminante prohibido</td><td><strong>No mezclar para corregir.</strong> Inmovilizar y decidir conforme al criterio regulatorio, contractual y técnico aplicable.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="blend-matrix-heading">2 · Qué variables cambian y cómo se liberan</div>
+      <table class="blend-matrix-table" aria-label="Comportamiento de las variables de la Matriz Maestra al mezclar">
+        <thead><tr><th>Variables</th><th>Comportamiento del blend</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Liberación comercial</strong><br>T01, T04–T09, T24</td><td>Contenido lipídico, humedad, impurezas, sólidos, cenizas, FFA y MIU pueden estimarse por balance de masa. <strong>T09 oxidación/estabilidad debe medirse en el blend final</strong>; no se acepta por promedio simple.</td></tr>
+          <tr><td><strong>Composición y operación</strong><br>T02, T03, T19, T22</td><td>El perfil de ácidos grasos, C/H, insaturación y oxígeno cambian con la receta. Influyen en fusión, viscosidad, estabilidad y demanda de hidrógeno; se calculan para diseñar la mezcla y se verifican según el plan analítico.</td></tr>
+          <tr><td><strong>Compatibilidad HEFA</strong><br>T10–T13, T15–T18, T20, T26–T27</td><td>Fósforo, metales, N, S, sales, silicio, jabones, insaponificables, TAN, Na+K y el umbral de N cambian con cada lote. La estimación sirve para formular; la especificación técnica aplicable define la liberación.</td></tr>
+          <tr><td><strong>No diluibles</strong><br>T14, T21, T23</td><td>Otros contaminantes, plásticos/polímeros y pesticidas no deben mezclarse para “pasar” un límite. Su presencia activa aislamiento, investigación o rechazo.</td></tr>
+          <tr><td><strong>No corresponde a 03c</strong><br>T25</td><td>El porcentaje de coprocesamiento es la mezcla de feedstock renovable con corriente fósil dentro de un hidrotratador; no es la mezcla de grasas animales en recepción.</td></tr>
+        </tbody>
+      </table>
+
+      <p class="blend-formula"><strong>Estimación inicial para concentraciones:</strong> X<sub>blend</sub> ≈ Σ(w<sub>i</sub> × X<sub>i</sub>), usando fracciones másicas y resultados comparables —misma unidad, base y método—. El cálculo no sustituye el muestreo representativo del tanque.</p>
+      <p class="blend-source"><strong>Alcance sanitario:</strong> Cat. 1/2/3 se usa como referencia UE, no como equivalencia jurídica mexicana. En el alcance actual del estudio, Cat. 3 es la ruta candidata; Cat. 1 y 2 permanecen como exclusión, restricción o contexto hasta validación aplicable. Referencia: <a href="https://eur-lex.europa.eu/eli/reg/2009/1069/oj/eng" target="_blank" rel="noopener">Reglamento (CE) 1069/2009, arts. 8(g) y 9(g)</a>.</p>
+    </div>`;
+
+  decision.insertAdjacentElement('beforebegin',details);
+  eco.dataset.blendCriteriaV53='true';
+})();
