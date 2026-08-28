@@ -554,7 +554,7 @@
   lowerBlend.className='stage eco-controlled-blend-stage';
   lowerBlend.innerHTML=`
     <div class="panel-title">Regla de mezcla y liberación</div>
-    <div class="stage-explain"><strong>Categoría sanitaria:</strong> mantener Cat. 1, 2 y 3 en circuitos o campañas segregadas. <strong>Especie animal:</strong> puede mezclarse después del rendering, siempre que cada lote sea elegible, trazable y haya sido liberado contra la especificación de compra.</div>
+    <div class="stage-explain"><strong>Categoría sanitaria:</strong> mantener Cat. 1, 2 y 3 en circuitos o campañas segregadas. <strong>Especie animal:</strong> puede mezclarse después del rendering, siempre que cada lote sea elegible, trazable y haya sido liberado contra la especificación de compra. La clasificación Cat. 1/2/3 funciona aquí como referencia sanitaria UE; no implica una equivalencia jurídica mexicana.</div>
     <div class="checkpoint-decision blend-decision"><b>Secuencia de control:</b> liberar cada lote → definir receta de blend → mezclar → muestrear el tanque → verificar la especificación del blend → liberar a pretratamiento. No se permite mezclar para ocultar trazabilidad, diluir contaminación prohibida o reclasificar material.</div>`;
   lower03b.insertAdjacentElement('afterend',lowerBlend);
 
