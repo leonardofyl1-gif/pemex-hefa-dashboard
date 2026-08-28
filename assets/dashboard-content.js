@@ -618,6 +618,7 @@
   explain.innerHTML='La mezcla se controla en dos niveles: <strong>la categoría sanitaria no se promedia</strong> y <strong>la composición técnica sí cambia con cada proporción</strong>. La receta sirve para estimar; la muestra del tanque final decide la liberación.';
 
   const details=document.createElement('details');
+  details.open=true;
   details.className='blend-matrix-details';
   details.innerHTML=`
     <summary>Ver matriz de mezcla · categorías y variables T01–T27</summary>
