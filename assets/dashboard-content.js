@@ -505,3 +505,76 @@
     if(applyVegan()||tries>=240) clearInterval(timer);
   },250);
 })();
+
+/* Preserved source: v52-ecofining-controlled-blending.js */
+(()=>{
+  const eco=document.querySelector('.ecofining-board');
+  if(!eco||eco.dataset.controlledBlendingV52==='true') return;
+
+  const strip=eco.querySelector('.eco-strip');
+  const strip2=eco.querySelector('.eco-strip2');
+  const canvas=eco.querySelector('.eco-canvas');
+  if(!strip||!strip2||!canvas) return;
+
+  const topLevel=[...strip.children];
+  if(topLevel.some(el=>el.querySelector?.('.step-no')?.textContent.trim()==='03c')) return;
+
+  const step03b=topLevel.find(el=>el.querySelector?.('.step-no')?.textContent.trim()==='03b');
+  const lower03b=strip2.querySelector('.commercial-stage');
+  if(!step03b||!lower03b) return;
+
+  const style=document.createElement('style');
+  style.textContent=`
+    .ecofining-board .eco-canvas.eco-v52-canvas{min-width:5740px}
+    .ecofining-board .eco-strip.eco-v52-strip,
+    .ecofining-board .eco-strip2.eco-v52-strip2{grid-template-columns:repeat(14,minmax(410px,1fr))}
+    .eco-controlled-blend-col{background:linear-gradient(180deg,var(--surface),#FFF7E8 285%);box-shadow:inset 0 5px 0 #E6A23C}
+    .eco-controlled-blend-stage{background:linear-gradient(180deg,#FFFCF6,#FFF7E8);box-shadow:inset 0 4px 0 #E6A23C}
+    .type-tag.controlled-blend{background:#FFF0D4;color:#9A5D00}
+    .type-tag.controlled-blend i{display:inline-block;width:8px;height:8px;border-radius:999px;background:#E6A23C}
+    .checkpoint-chip.controlled-blend{background:#FFF7E8;border-color:#F1CD91}
+    .blend-decision{background:#FFF7E8;border-color:#F1CD91}
+    @media(max-width:900px){.ecofining-board .eco-canvas.eco-v52-canvas{min-width:5740px}}
+  `;
+  document.head.appendChild(style);
+
+  const blend=document.createElement('article');
+  blend.className='col eco-controlled-blend-col';
+  blend.innerHTML=`
+    <div class="step-no">03c</div>
+    <h3>Controlled blending (mezcla controlada)</h3>
+    <div class="desc dual-desc">
+      <div class="desc-point"><b>Proceso físico:</b> Después de liberar cada lote en 03b, grasas renderizadas de distintas especies pueden dosificarse y homogeneizarse en un tanque controlado. Las categorías sanitarias se mantienen segregadas; una mezcla entre categorías adopta la categoría de mayor riesgo.</div>
+      <div class="desc-point"><b>Efecto técnico:</b> La mezcla no crea una reacción nueva, pero sí modifica la composición y el comportamiento del feedstock: perfil de ácidos grasos, punto de fusión, viscosidad, FFA, MIU, oxidación, fósforo y metales. Por eso el blend final se muestrea y analiza de nuevo antes del pretratamiento.</div>
+    </div>
+    <div class="type-tags"><span class="type-tag controlled-blend"><i></i>Operación condicionada a liberación y trazabilidad</span></div>`;
+  step03b.insertAdjacentElement('afterend',blend);
+
+  const lowerBlend=document.createElement('section');
+  lowerBlend.className='stage eco-controlled-blend-stage';
+  lowerBlend.innerHTML=`
+    <div class="panel-title">Regla de mezcla y liberación</div>
+    <div class="stage-explain"><strong>Categoría sanitaria:</strong> mantener Cat. 1, 2 y 3 en circuitos o campañas segregadas. <strong>Especie animal:</strong> puede mezclarse después del rendering, siempre que cada lote sea elegible, trazable y haya sido liberado contra la especificación de compra.</div>
+    <div class="checkpoint-decision blend-decision"><b>Secuencia de control:</b> liberar cada lote → definir receta de blend → mezclar → muestrear el tanque → verificar la especificación del blend → liberar a pretratamiento. No se permite mezclar para ocultar trazabilidad, diluir contaminación prohibida o reclasificar material.</div>`;
+  lower03b.insertAdjacentElement('afterend',lowerBlend);
+
+  const legend=eco.querySelector('.checkpoint-legend');
+  if(legend&&!legend.querySelector('.controlled-blend')){
+    const chip=document.createElement('div');
+    chip.className='checkpoint-chip controlled-blend';
+    chip.innerHTML='<b>03c · Mezcla controlada</b><span>lotes liberados + análisis del blend</span>';
+    legend.appendChild(chip);
+  }
+
+  canvas.classList.add('eco-v52-canvas');
+  strip.classList.add('eco-v52-strip');
+  strip2.classList.add('eco-v52-strip2');
+  eco.dataset.controlledBlendingV52='true';
+
+  requestAnimationFrame(()=>{
+    const flow=eco.querySelector('.scroll.eco-scroll');
+    const track=eco.previousElementSibling?.querySelector?.('.flow-top-scroll-track')||eco.querySelector('.flow-top-scroll-track');
+    if(flow&&track) track.style.width=`${flow.scrollWidth}px`;
+    window.dispatchEvent(new Event('resize'));
+  });
+})();
