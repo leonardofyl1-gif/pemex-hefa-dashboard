@@ -416,7 +416,7 @@
     ecofining:{
       T01:'critical',T08:'critical',T24:'critical',T13:'critical',T21:'critical',
       T04:'important',T05:'important',T06:'important',T07:'important',T19:'important',
-      T23:'control',T09:'unmapped'
+      T23:'control',T09:'important'
     },
     hydroflex:{
       T01:'critical',T08:'critical',T24:'critical',T13:'critical',

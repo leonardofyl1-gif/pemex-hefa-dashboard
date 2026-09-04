@@ -91,6 +91,9 @@
 
 /* Preserved source: v26-ecofining-step02-pretreatment.js */
 (()=>{
+  // v55: retired. Step 02 is the feedstock-selection filter in the approved
+  // Ecofining sequence; pretreatment remains at steps 04 and 05 in Tula.
+  return;
   const eco=document.querySelector('.ecofining-board');
   if(!eco) return;
 

@@ -41,7 +41,7 @@
   const normalizeEco=(panel)=>{
     if(panel.dataset.terminologyV28==='true') return;
     setTitle(panel,'01','Rendering (procesamiento de subproductos animales)');
-    setTitle(panel,'02','HVO/HEFA Pretreatment (pretratamiento HVO/HEFA) · fuera de Tula');
+    setTitle(panel,'02','Feedstock selection filter (filtro de selección del feedstock)');
     setTitle(panel,'04','Degumming (desgomado)');
     setTitle(panel,'05','Bleaching (blanqueo)');
     setTitle(panel,'06','Hydrodeoxygenation — HDO (hidrodesoxigenación)');
@@ -89,15 +89,17 @@
     const veganDone=vegan ? normalizeVegan(vegan) || vegan.dataset.terminologyV28==='true' : false;
     if((hydroDone&&veganDone)||attempts>=80){
       clearInterval(timer);
-      document.title='Feedstock Process Dashboard BIARAI v28 — Terminología estandarizada';
+      document.title='Feedstock Process Dashboard BIARAI v55 — Matriz Maestra sincronizada';
       const eyebrow=document.querySelector('.eyebrow');
-      if(eyebrow) eyebrow.textContent='Criterios técnicos · Terminología estandarizada · v28';
+      if(eyebrow) eyebrow.textContent='Criterios técnicos · Matriz Maestra sincronizada · v55';
     }
   },100);
 })();
 
 /* Preserved source: v29-ecofining-pretreatment-substeps.js */
 (()=>{
+  // v55: retired because it duplicated Degumming and Bleaching before Tula.
+  return;
   const eco=document.querySelector('.ecofining-board');
   if(!eco||eco.dataset.pretreatmentV29==='true') return;
 
@@ -831,7 +833,7 @@
       anchorStep:'04',
       lowerAnchor:'.vegan-integrated-stage',
       step:'04b',
-      physical:'Después de liberar el checkpoint integrado 04, feedstocks pretratados de distintas especies pueden dosificarse y homogeneizarse en un tanque controlado. La regla operativa es mantener segregadas las categorías sanitarias; si se combinan excepcionalmente, el blend completo adopta la categoría de mayor riesgo.',
+      physical:'Después de liberar el checkpoint integrado 04, feedstocks pretratados de distintas especies pueden dosificarse y homogeneizarse dentro de Tula en un tanque controlado. La regla operativa es mantener segregadas las categorías sanitarias; si se combinan excepcionalmente, el blend completo adopta la categoría de mayor riesgo.',
       sequence:'liberar cada lote en 04 → definir receta de blend → mezclar → muestrear el tanque → verificar la especificación comercial y técnica del blend → liberar a Stage 1 Vegan.'
     });
     const hydro=applyBoard({
@@ -842,7 +844,7 @@
       anchorStep:'03b',
       lowerAnchor:'.commercial-stage',
       step:'03c',
-      physical:'Después de liberar comercialmente cada lote en 03b, feedstocks pretratados de distintas especies pueden dosificarse y homogeneizarse en un tanque controlado. La regla operativa es mantener segregadas las categorías sanitarias; si se combinan excepcionalmente, el blend completo adopta la categoría de mayor riesgo.',
+      physical:'Después de liberar comercialmente cada lote en 03b, feedstocks pretratados de distintas especies pueden dosificarse y homogeneizarse dentro de Tula en un tanque controlado. La regla operativa es mantener segregadas las categorías sanitarias; si se combinan excepcionalmente, el blend completo adopta la categoría de mayor riesgo.',
       sequence:'liberar comercialmente cada lote en 03b → definir receta de blend → mezclar → muestrear el tanque → verificar la especificación del blend → liberar a 04 Degumming. El checkpoint técnico 06 continúa siendo obligatorio.'
     });
     return vegan&&hydro;
