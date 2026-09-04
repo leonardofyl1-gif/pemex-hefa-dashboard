@@ -219,6 +219,19 @@
       </div>
     </div>`;
 
+  const matrix=document.createElement('section');
+  matrix.className='board process-panel matrix-board';
+  matrix.dataset.process='matrix';
+  matrix.innerHTML=`
+    <div class="process-placeholder">
+      <div class="process-placeholder-card">
+        <div class="process-kicker">Vista inicial · 61 variables</div>
+        <h2>Matriz comparativa</h2>
+        <p>Cargando comparación por tecnología…</p>
+      </div>
+    </div>`;
+
+  eco.insertAdjacentElement('beforebegin',matrix);
   eco.insertAdjacentElement('afterend',hydro);
   hydro.insertAdjacentElement('afterend',vegan);
 
@@ -226,14 +239,15 @@
   nav.className='process-tabs-wrap';
   nav.setAttribute('aria-label','Procesos HEFA');
   nav.innerHTML=`
+    <button class="process-tab" type="button" data-target="matrix"><span class="tab-no">Vista inicial</span>Matriz comparativa</button>
     <button class="process-tab" type="button" data-target="ecofining"><span class="tab-no">Proceso 1</span>Ecofining™</button>
     <button class="process-tab" type="button" data-target="hydroflex"><span class="tab-no">Proceso 2</span>HydroFlex™</button>
     <button class="process-tab" type="button" data-target="vegan"><span class="tab-no">Proceso 3</span>Vegan®</button>`;
-  eco.parentNode.insertBefore(nav,eco);
+  matrix.parentNode.insertBefore(nav,matrix);
 
   const tabs=[...nav.querySelectorAll('.process-tab')];
-  const panels=[eco,hydro,vegan];
-  const valid=new Set(['ecofining','hydroflex','vegan']);
+  const panels=[matrix,eco,hydro,vegan];
+  const valid=new Set(['matrix','ecofining','hydroflex','vegan']);
 
   function ensureTopScroller(panel){
     const flow=panel.querySelector('.scroll.eco-scroll');
@@ -274,7 +288,7 @@
   }
 
   function showProcess(name,updateHash=false){
-    if(!valid.has(name)) name='ecofining';
+    if(!valid.has(name)) name='matrix';
     tabs.forEach(tab=>{
       const on=tab.dataset.target===name;
       tab.classList.toggle('active',on);
@@ -292,7 +306,7 @@
     const active=panels.find(panel=>panel.classList.contains('active'));
     if(active) requestAnimationFrame(()=>ensureTopScroller(active));
   });
-  showProcess(location.hash.slice(1)||'ecofining',false);
+  showProcess(location.hash.slice(1)||'matrix',false);
 
   const loadPanel=async(panel,path,label,processNo)=>{
     try{
@@ -318,8 +332,8 @@
   ]);
 
   panels.forEach(panel=>ensureTopScroller(panel));
-  showProcess(location.hash.slice(1)||'ecofining',false);
+  showProcess(location.hash.slice(1)||'matrix',false);
 
-  document.title='Feedstock Process Dashboard BIARAI v24 — Procesos HEFA';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Navegación por tecnología · v24';
+  document.title='Feedstock Process Dashboard BIARAI v56 — Matriz comparativa';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Comparación por tecnología · v56';
 })();

@@ -1,4 +1,4 @@
-/* v55 — Live Master Matrix synchronization (2026-09-04). */
+/* v56 — Comparative Master Matrix + live synchronization (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -44,9 +44,36 @@
       .matrix-evidence-gap{background:var(--pend-soft);color:var(--pend)}
       .matrix-evidence-unsupported{background:var(--nog-bg);color:var(--nog-red)}
       .matrix-evidence-reference{background:var(--blue-5);color:var(--blue-6)}
+      .matrix-board{padding-top:0!important}
+      .matrix-board .matrix-sync-hub{margin-top:0}
+      .matrix-legend{display:flex;gap:8px;flex-wrap:wrap}
+      .matrix-legend span,.matrix-tech-status{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800;line-height:1.25}
+      .matrix-status-value{background:var(--ref-bg);color:var(--ref-green)}
+      .matrix-status-partial{background:#FFF3D6;color:#966000}
+      .matrix-status-applies{background:var(--blue-5);color:var(--blue-6)}
+      .matrix-status-na{background:#EEF1F3;color:#63747B}
+      .matrix-table-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+      .matrix-table-tools .matrix-sync-search{flex:1 1 360px}
+      .matrix-filter{min-height:42px;border:1px solid var(--line);border-radius:12px;padding:8px 34px 8px 11px;background:#fff;color:var(--blue-1);font:700 13px/1.3 var(--font-body)}
+      .matrix-table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:#fff;max-height:72vh}
+      .matrix-compare-table{width:100%;min-width:980px;border-collapse:separate;border-spacing:0;font-size:12px}
+      .matrix-compare-table th{position:sticky;top:0;z-index:2;background:var(--blue-1);color:#fff;text-align:left;padding:11px 12px;border-right:1px solid rgba(255,255,255,.18)}
+      .matrix-compare-table th:first-child{left:0;z-index:3;min-width:270px}
+      .matrix-compare-table td{vertical-align:top;padding:10px 12px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);color:var(--text-soft);line-height:1.42}
+      .matrix-compare-table td:first-child{position:sticky;left:0;z-index:1;background:#fff;min-width:270px;color:var(--blue-1)}
+      .matrix-compare-table tr:hover td,.matrix-compare-table tr:hover td:first-child{background:#F5FAFC}
+      .matrix-variable-button{display:flex;width:100%;border:0;background:transparent;color:inherit;text-align:left;padding:0;cursor:pointer;font:800 12px/1.35 var(--font-body);gap:7px;align-items:flex-start}
+      .matrix-variable-id{flex:0 0 auto;color:var(--blue-6)}
+      .matrix-tech-copy{display:block;margin-top:6px;color:var(--text-soft)}
+      .matrix-detail-row[hidden],.matrix-data-row[hidden]{display:none}
+      .matrix-detail-row td{position:static!important;background:#F8FBFC!important;padding:0!important}
+      .matrix-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px}
+      .matrix-detail-grid .matrix-field{margin:0}
+      .matrix-group-row td{position:static!important;background:#EAF3F6!important;color:var(--blue-1)!important;font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 12px!important}
+      .matrix-count{font-size:12px;color:var(--text-soft);font-weight:700}
       .ecofining-board .eco-canvas.eco-v55-canvas{min-width:3690px!important}
       .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(9,minmax(410px,1fr))!important}
-      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}}
+      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
     `;
     document.head.appendChild(style);
   };
@@ -134,47 +161,158 @@
     return detail;
   };
 
+  const compactReference=value=>{
+    const cleaned=(value||'')
+      .replace(/^(EVIDENCIA VALIDADA(?:\s*\/\s*PARCIAL)?(?:\s*—[^:]+)?|EVIDENCIA PARCIAL(?:\s*\/\s*PROXY)?):\s*/i,'')
+      .replace(/^(NO SE IDENTIFICÓ|NO SUSTENTADA(?: EN FUENTE PÚBLICA)?):\s*/i,'')
+      .replace(/\s+/g,' ')
+      .trim();
+    if(cleaned.length<=210) return cleaned;
+    const shortened=cleaned.slice(0,210);
+    return `${shortened.slice(0,Math.max(shortened.lastIndexOf(' '),150))}…`;
+  };
+
+  const technologyStatus=(item,key)=>{
+    if(item.dimension!=='Técnico') return {kind:'applies',label:'✓ Transversal',copy:'Aplica al proceso completo; no depende del licenciante.'};
+    const raw=item[key]||'';
+    const upper=raw.toUpperCase();
+    if(upper.includes('EVIDENCIA VALIDADA')) return {kind:'value',label:'Criterio identificado',copy:compactReference(raw)};
+    if(upper.includes('EVIDENCIA PARCIAL')) return {kind:'partial',label:'Referencia parcial',copy:compactReference(raw)};
+    if(!raw||upper.trim()==='NO APLICA') return {kind:'na',label:'— No aplica',copy:''};
+    return {kind:'applies',label:'✓ Aplica',copy:'Sin límite público específico de la tecnología.'};
+  };
+
+  const technologyCell=(item,key)=>{
+    const status=technologyStatus(item,key);
+    const td=document.createElement('td');
+    const badge=document.createElement('span');
+    badge.className=`matrix-tech-status matrix-status-${status.kind}`;
+    badge.textContent=status.label;
+    td.appendChild(badge);
+    if(status.copy){
+      const copy=document.createElement('span');
+      copy.className='matrix-tech-copy';
+      copy.textContent=status.copy;
+      td.appendChild(copy);
+    }
+    return td;
+  };
+
+  const detailRow=item=>{
+    const row=document.createElement('tr');
+    row.className='matrix-detail-row';
+    row.hidden=true;
+    row.dataset.group=item.id[0];
+    row.dataset.search=Object.values(item).join(' ').toLocaleLowerCase('es');
+    const cell=document.createElement('td');
+    cell.colSpan=4;
+    const grid=document.createElement('div');
+    grid.className='matrix-detail-grid';
+    [
+      field('Qué es y por qué importa',item.meaning),
+      field('Cómo se verifica (F)',item.verification),
+      field('Unidad o evidencia (G)',item.unit),
+      field('Criterio vigente para la decisión (N)',item.independent_reference,'matrix-criterion'),
+      field('Clasificación',item.classification),
+      field('Validación pendiente',item.pending,'matrix-pending')
+    ].filter(Boolean).forEach(node=>grid.appendChild(node));
+    cell.appendChild(grid);
+    row.appendChild(cell);
+    return row;
+  };
+
   const addHub=(matrix,byId)=>{
     if(document.querySelector('.matrix-sync-hub')) return true;
-    const nav=document.querySelector('.process-tabs-wrap');
-    if(!nav) return false;
+    const panel=document.querySelector('[data-process="matrix"]');
+    if(!panel) return false;
+    panel.innerHTML='';
     const hub=document.createElement('section');
     hub.className='matrix-sync-hub';
     hub.innerHTML=`
       <div class="matrix-sync-head">
-        <div><div class="matrix-sync-title">Matriz Maestra sincronizada</div><p class="matrix-sync-copy">Consulta cómo se verifica cada variable, su unidad o evidencia y el criterio vigente para aceptar, condicionar o descartar. Una referencia independiente no se presenta como límite contractual cuando la Matriz todavía exige validación del tecnólogo, operación o autoridad.</p></div>
+        <div><div class="matrix-sync-title">Matriz comparativa de variables por tecnología</div><p class="matrix-sync-copy">Las 61 variables de la Matriz Maestra se comparan entre Ecofining, HydroFlex y Vegan. Un valor muestra evidencia pública localizada; ✓ indica que la variable aplica aunque no exista un límite público propio de la tecnología. Abre una variable para consultar método, unidad, criterio de decisión y validación pendiente.</p></div>
         <span class="matrix-sync-date">Sincronizada · ${matrix.meta.synced_on}</span>
+      </div>
+      <div class="matrix-legend" aria-label="Leyenda de la comparación">
+        <span class="matrix-status-value">Criterio identificado</span>
+        <span class="matrix-status-partial">Referencia parcial</span>
+        <span class="matrix-status-applies">✓ Aplica · sin límite público</span>
+        <span class="matrix-status-na">— No aplica</span>
       </div>`;
+    const tools=document.createElement('div');
+    tools.className='matrix-table-tools';
     const search=document.createElement('input');
     search.className='matrix-sync-search';
     search.type='search';
     search.placeholder='Buscar por ID, variable, NOM, criterio o evidencia…';
     search.setAttribute('aria-label','Buscar variables de la Matriz Maestra');
-    hub.appendChild(search);
-    const groups=document.createElement('div');
-    groups.className='matrix-sync-groups';
-    GROUPS.forEach((group,index)=>{
-      const details=document.createElement('details');
-      details.className='matrix-sync-group';
-      if(index===0) details.open=true;
-      const summary=document.createElement('summary');
-      summary.append(document.createTextNode(group.title));
-      const subtitle=document.createElement('span');
-      subtitle.textContent=group.subtitle;
-      summary.appendChild(subtitle);
-      const list=document.createElement('div');
-      list.className='matrix-sync-list';
-      matrix.variables.filter(item=>item.id.startsWith(group.prefix)).forEach(item=>list.appendChild(createVariableCard(item)));
-      details.append(summary,list);
-      groups.appendChild(details);
+    const filter=document.createElement('select');
+    filter.className='matrix-filter';
+    filter.setAttribute('aria-label','Filtrar por tipo de variable');
+    filter.innerHTML='<option value="all">Todas · 61</option><option value="T">Técnicas · 27</option><option value="L">Logísticas · 24</option><option value="R">Regulatorias · 10</option>';
+    const count=document.createElement('span');
+    count.className='matrix-count';
+    tools.append(search,filter,count);
+    hub.appendChild(tools);
+
+    const wrap=document.createElement('div');
+    wrap.className='matrix-table-wrap';
+    const table=document.createElement('table');
+    table.className='matrix-compare-table';
+    table.innerHTML='<thead><tr><th>Variable</th><th>Ecofining™</th><th>HydroFlex™</th><th>Vegan®</th></tr></thead>';
+    const body=document.createElement('tbody');
+    GROUPS.forEach(group=>{
+      const groupRow=document.createElement('tr');
+      groupRow.className='matrix-group-row';
+      groupRow.dataset.group=group.prefix;
+      groupRow.innerHTML=`<td colspan="4">${group.title} · ${group.subtitle}</td>`;
+      body.appendChild(groupRow);
+      matrix.variables.filter(item=>item.id.startsWith(group.prefix)).forEach(item=>{
+        const row=document.createElement('tr');
+        row.className='matrix-data-row';
+        row.dataset.group=group.prefix;
+        row.dataset.search=Object.values(item).join(' ').toLocaleLowerCase('es');
+        const variable=document.createElement('td');
+        const button=document.createElement('button');
+        button.type='button';
+        button.className='matrix-variable-button';
+        button.setAttribute('aria-expanded','false');
+        button.innerHTML=`<span class="matrix-variable-id">${item.id}</span><span>${item.criterion}</span>`;
+        variable.appendChild(button);
+        row.append(variable,technologyCell(item,'ecofining'),technologyCell(item,'hydroflex'),technologyCell(item,'vegan'));
+        const details=detailRow(item);
+        button.addEventListener('click',()=>{
+          const open=details.hidden;
+          details.hidden=!open;
+          button.setAttribute('aria-expanded',String(open));
+        });
+        body.append(row,details);
+      });
     });
-    hub.appendChild(groups);
-    nav.insertAdjacentElement('afterend',hub);
-    search.addEventListener('input',()=>{
+    table.appendChild(body);
+    wrap.appendChild(table);
+    hub.appendChild(wrap);
+    panel.appendChild(hub);
+
+    const applyFilters=()=>{
       const query=search.value.trim().toLocaleLowerCase('es');
-      hub.querySelectorAll('.matrix-variable-card').forEach(card=>{card.hidden=query&&!card.dataset.search.includes(query);});
-      if(query) hub.querySelectorAll('.matrix-sync-group').forEach(group=>{group.open=[...group.querySelectorAll('.matrix-variable-card')].some(card=>!card.hidden);});
-    });
+      const selected=filter.value;
+      let visible=0;
+      body.querySelectorAll('.matrix-data-row').forEach(row=>{
+        const show=(selected==='all'||row.dataset.group===selected)&&(!query||row.dataset.search.includes(query));
+        row.hidden=!show;
+        const details=row.nextElementSibling;
+        if(details?.classList.contains('matrix-detail-row')&&!show) details.hidden=true;
+        if(show) visible+=1;
+      });
+      body.querySelectorAll('.matrix-group-row').forEach(row=>{
+        row.hidden=![...body.querySelectorAll(`.matrix-data-row[data-group="${row.dataset.group}"]`)].some(item=>!item.hidden);
+      });
+      count.textContent=`${visible} variables visibles`;
+    };
+    search.addEventListener('input',applyFilters);
+    filter.addEventListener('change',applyFilters);
+    applyFilters();
     return true;
   };
 
@@ -224,9 +362,9 @@
             processCount+=1;
           }
         });
-        document.title='Feedstock Process Dashboard BIARAI v55 — Matriz Maestra sincronizada';
+        document.title='Feedstock Process Dashboard BIARAI v56 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v55';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v56';
         if((hubReady&&sequenceReady&&processCount===3)||attempts>=200) clearInterval(timer);
       },150);
     })
