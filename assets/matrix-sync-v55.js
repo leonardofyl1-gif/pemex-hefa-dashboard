@@ -561,9 +561,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v59 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v60 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v59';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v60';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
