@@ -1,4 +1,4 @@
-/* v56 — Comparative Master Matrix + live synchronization (2026-09-04). */
+/* v57 — Comparative Master Matrix + process-step mapping (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -52,6 +52,16 @@
       .matrix-status-partial{background:#FFF3D6;color:#966000}
       .matrix-status-applies{background:var(--blue-5);color:var(--blue-6)}
       .matrix-status-na{background:#EEF1F3;color:#63747B}
+      .matrix-process-use{margin-top:8px;padding-top:7px;border-top:1px dashed var(--line)}
+      .matrix-process-use-title{display:block;margin-bottom:6px;color:var(--blue-1);font-size:11px;font-weight:900}
+      .matrix-stage-list{display:flex;flex-wrap:wrap;gap:5px}
+      .matrix-stage-chip{display:inline-flex;align-items:center;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900;line-height:1.25;border:1px solid transparent}
+      .matrix-stage-chip.stage-sel{background:var(--sel-soft);color:var(--sel);border-color:var(--sel)}
+      .matrix-stage-chip.stage-proc{background:var(--proc-soft);color:var(--proc);border-color:var(--proc)}
+      .matrix-stage-chip.stage-pre{background:var(--pre-soft);color:var(--pre);border-color:var(--pre)}
+      .matrix-stage-chip.stage-alm{background:var(--alm-soft);color:var(--alm);border-color:var(--alm)}
+      .matrix-stage-chip.stage-trans{background:var(--trans-soft);color:var(--trans);border-color:var(--trans)}
+      .matrix-stage-chip.stage-unmapped{background:#EEF1F3;color:#63747B;border-color:#AEBBC1}
       .matrix-table-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
       .matrix-table-tools .matrix-sync-search{flex:1 1 360px}
       .matrix-filter{min-height:42px;border:1px solid var(--line);border-radius:12px;padding:8px 34px 8px 11px;background:#fff;color:var(--blue-1);font:700 13px/1.3 var(--font-body)}
@@ -173,18 +183,21 @@
   };
 
   const technologyStatus=(item,key)=>{
-    if(item.dimension!=='Técnico') return {kind:'applies',label:'✓ Transversal',copy:'Aplica al proceso completo; no depende del licenciante.'};
+    if(item.dimension!=='Técnico') return {kind:'applies',label:'✓ Criterio transversal',copy:'Aplica al proceso completo; la Matriz no lo asigna a un paso propio del licenciante.'};
     const raw=item[key]||'';
     const upper=raw.toUpperCase();
     if(upper.includes('EVIDENCIA VALIDADA')) return {kind:'value',label:'Criterio identificado',copy:compactReference(raw)};
     if(upper.includes('EVIDENCIA PARCIAL')) return {kind:'partial',label:'Referencia parcial',copy:compactReference(raw)};
     if(!raw||upper.trim()==='NO APLICA') return {kind:'na',label:'— No aplica',copy:''};
-    return {kind:'applies',label:'✓ Aplica',copy:'Sin límite público específico de la tecnología.'};
+    if(upper.includes('NO SUSTENTADA')) return {kind:'na',label:'Sin límite sustentado',copy:'La variable aplica, pero el límite citado no está respaldado públicamente.'};
+    return {kind:'na',label:'Sin límite público',copy:'La variable aplica, pero no se identificó un límite público propio de la tecnología.'};
   };
 
   const technologyCell=(item,key)=>{
     const status=technologyStatus(item,key);
     const td=document.createElement('td');
+    td.dataset.variableId=item.id;
+    td.dataset.technology=key;
     const badge=document.createElement('span');
     badge.className=`matrix-tech-status matrix-status-${status.kind}`;
     badge.textContent=status.label;
@@ -196,6 +209,87 @@
       td.appendChild(copy);
     }
     return td;
+  };
+
+  const stepKind=column=>{
+    if(!column) return 'unmapped';
+    if(column.classList.contains('type-sel')||column.classList.contains('commercial-col')||column.classList.contains('vegan-integrated-col')) return 'sel';
+    if(column.classList.contains('type-pre')||column.classList.contains('hydro-conditioning-col')) return 'pre';
+    if(column.classList.contains('type-almtrans')) return 'alm';
+    if(column.classList.contains('conversion-col')) return 'trans';
+    return 'proc';
+  };
+
+  const placementFromCard=card=>{
+    const stage=card.closest('.stage');
+    const strip2=stage?.parentElement;
+    const process=card.closest('[data-process]');
+    if(!stage||!strip2||!process) return null;
+    const stages=[...strip2.children].filter(node=>node.classList.contains('stage'));
+    const index=stages.indexOf(stage);
+    const strip=process.querySelector('.eco-strip,.hydro-strip,.vegan-strip');
+    const columns=strip?[...strip.children].filter(node=>node.matches('.col,.hydro-pretreatment-macro,.hydro-conditioning-macro,.vegan-external-macro')):[];
+    const column=columns[index];
+    const number=column?.querySelector(':scope > .step-no')?.textContent.trim()||column?.querySelector('.step-no')?.textContent.trim()||'';
+    const title=column?.querySelector(':scope > h3')?.textContent.trim()||column?.querySelector('h3')?.textContent.trim()||stage.querySelector('.panel-title')?.textContent.trim()||'Paso asignado';
+    return {number,title,kind:stepKind(column)};
+  };
+
+  const processPlacements=(panel,byId)=>{
+    const placements=new Map();
+    panel.querySelectorAll('.var').forEach(card=>{
+      const id=normalizeId(card);
+      if(!id||!byId.has(id)) return;
+      const placement=placementFromCard(card);
+      if(!placement) return;
+      const key=`${placement.number}|${placement.title}`;
+      if(!placements.has(id)) placements.set(id,new Map());
+      placements.get(id).set(key,placement);
+    });
+    return new Map([...placements].map(([id,items])=>[id,[...items.values()]]));
+  };
+
+  const renderProcessUse=(cell,item,placements)=>{
+    cell.querySelector('.matrix-process-use')?.remove();
+    if(item.dimension!=='Técnico') return;
+    const use=document.createElement('div');
+    use.className='matrix-process-use';
+    const title=document.createElement('span');
+    title.className='matrix-process-use-title';
+    const list=document.createElement('div');
+    list.className='matrix-stage-list';
+    if(placements.length){
+      title.textContent=`Aplica en ${placements.length} ${placements.length===1?'paso':'pasos'}`;
+      placements.forEach(placement=>{
+        const chip=document.createElement('span');
+        chip.className=`matrix-stage-chip stage-${placement.kind}`;
+        chip.textContent=`✓ ${placement.number?`${placement.number} · `:''}${placement.title}`;
+        list.appendChild(chip);
+      });
+    }else{
+      title.textContent='Aplica, pero falta ubicarla en el mapa';
+      const chip=document.createElement('span');
+      chip.className='matrix-stage-chip stage-unmapped';
+      chip.textContent='✓ Sin paso asignado';
+      list.appendChild(chip);
+    }
+    use.append(title,list);
+    cell.appendChild(use);
+  };
+
+  const updateComparisonPlacements=(matrix,byId)=>{
+    let mappedProcesses=0;
+    Object.keys(PROCESS_FIELD).forEach(process=>{
+      const panel=document.querySelector(`[data-process="${process}"]`);
+      if(!panel||!panel.querySelector('.var')) return;
+      const placements=processPlacements(panel,byId);
+      matrix.variables.forEach(item=>{
+        const cell=document.querySelector(`td[data-variable-id="${item.id}"][data-technology="${process}"]`);
+        if(cell) renderProcessUse(cell,item,placements.get(item.id)||[]);
+      });
+      mappedProcesses+=1;
+    });
+    return mappedProcesses;
   };
 
   const detailRow=item=>{
@@ -230,14 +324,16 @@
     hub.className='matrix-sync-hub';
     hub.innerHTML=`
       <div class="matrix-sync-head">
-        <div><div class="matrix-sync-title">Matriz comparativa de variables por tecnología</div><p class="matrix-sync-copy">Las 61 variables de la Matriz Maestra se comparan entre Ecofining, HydroFlex y Vegan. Un valor muestra evidencia pública localizada; ✓ indica que la variable aplica aunque no exista un límite público propio de la tecnología. Abre una variable para consultar método, unidad, criterio de decisión y validación pendiente.</p></div>
+        <div><div class="matrix-sync-title">Matriz comparativa de variables por tecnología</div><p class="matrix-sync-copy">Las 61 variables de la Matriz Maestra se comparan entre Ecofining, HydroFlex y Vegan. Cada celda indica en cuántos pasos se revisa la variable y utiliza el mismo color del bloque correspondiente en el mapa. El estatus de evidencia se muestra por separado.</p></div>
         <span class="matrix-sync-date">Sincronizada · ${matrix.meta.synced_on}</span>
       </div>
       <div class="matrix-legend" aria-label="Leyenda de la comparación">
-        <span class="matrix-status-value">Criterio identificado</span>
-        <span class="matrix-status-partial">Referencia parcial</span>
-        <span class="matrix-status-applies">✓ Aplica · sin límite público</span>
-        <span class="matrix-status-na">— No aplica</span>
+        <span class="matrix-status-value">Evidencia · criterio identificado</span>
+        <span class="matrix-status-partial">Evidencia · referencia parcial</span>
+        <span class="matrix-status-na">Evidencia · sin límite público</span>
+        <span class="matrix-stage-chip stage-sel">✓ Recepción / selección</span>
+        <span class="matrix-stage-chip stage-pre">✓ Pretratamiento</span>
+        <span class="matrix-stage-chip stage-proc">✓ Control técnico</span>
       </div>`;
     const tools=document.createElement('div');
     tools.className='matrix-table-tools';
@@ -362,10 +458,11 @@
             processCount+=1;
           }
         });
-        document.title='Feedstock Process Dashboard BIARAI v56 — Matriz comparativa';
+        const mappedProcesses=updateComparisonPlacements(matrix,byId);
+        document.title='Feedstock Process Dashboard BIARAI v57 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v56';
-        if((hubReady&&sequenceReady&&processCount===3)||attempts>=200) clearInterval(timer);
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v57';
+        if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
     .catch(error=>console.error(error));
