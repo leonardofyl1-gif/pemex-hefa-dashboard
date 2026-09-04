@@ -1,4 +1,4 @@
-/* v59 — Comparative Master Matrix + single-row Ecofining flow (2026-09-04). */
+/* v60 — T01 educational dropdown + Comparative Master Matrix (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -73,17 +73,49 @@
       .matrix-compare-table td:first-child{position:sticky;left:0;z-index:1;background:#fff;min-width:270px;color:var(--blue-1)}
       .matrix-compare-table tr:hover td,.matrix-compare-table tr:hover td:first-child{background:#F5FAFC}
       .matrix-variable-button{display:flex;width:100%;border:0;background:transparent;color:inherit;text-align:left;padding:0;cursor:pointer;font:800 12px/1.35 var(--font-body);gap:7px;align-items:flex-start}
+      .matrix-variable-button::after{content:'⌄';margin-left:auto;color:var(--blue-6);font-size:16px;line-height:1;transition:transform .18s ease;transform-origin:center}
+      .matrix-variable-button[aria-expanded="true"]::after{transform:rotate(180deg)}
       .matrix-variable-id{flex:0 0 auto;color:var(--blue-6)}
       .matrix-tech-copy{display:block;margin-top:6px;color:var(--text-soft)}
       .matrix-detail-row[hidden],.matrix-data-row[hidden]{display:none}
       .matrix-detail-row td{position:static!important;background:#F8FBFC!important;padding:0!important}
       .matrix-detail-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px}
       .matrix-detail-grid .matrix-field{margin:0}
+      .matrix-learning-card{margin:12px 12px 0;border:1px solid #B8D9E5;border-radius:16px;background:linear-gradient(145deg,#F2FAFC 0%,#FFFFFF 64%);overflow:hidden;color:var(--text-soft)}
+      .matrix-learning-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 16px;background:#E7F4F8;border-bottom:1px solid #C8E0E8}
+      .matrix-learning-head h3{margin:0;color:var(--blue-1);font-family:var(--font-display);font-size:17px;line-height:1.2}
+      .matrix-learning-head p{margin:4px 0 0;max-width:84ch;font-size:12px;line-height:1.45}
+      .matrix-learning-chip{flex:0 0 auto;padding:5px 9px;border-radius:999px;background:#fff;color:var(--blue-6);font-size:10px;font-weight:900;white-space:nowrap}
+      .matrix-learning-body{display:grid;gap:12px;padding:14px 16px}
+      .matrix-learning-body h4{margin:0 0 7px;color:var(--blue-1);font-size:12px;line-height:1.3;text-transform:uppercase;letter-spacing:.035em}
+      .matrix-lipid-layout{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(360px,1.35fr);gap:10px}
+      .matrix-molecule,.matrix-components,.matrix-equation,.matrix-decision{border:1px solid var(--line);border-radius:12px;background:#fff;padding:11px 12px}
+      .matrix-triglyceride{display:grid;grid-template-columns:120px 28px minmax(180px,1fr);align-items:center;gap:7px}
+      .matrix-glycerol{padding:13px 9px;border-radius:10px;background:#FFF1D9;border:1px solid #E9B75D;text-align:center;color:#845611;font-weight:900}
+      .matrix-glycerol code,.matrix-fatty-tail code,.matrix-equation code{display:block;margin-top:3px;color:inherit;font:800 11px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:normal}
+      .matrix-bonds{color:#D58A18;font-size:20px;font-weight:900;text-align:center}
+      .matrix-fatty-tails{display:grid;gap:5px}
+      .matrix-fatty-tail{padding:7px 9px;border-left:5px solid #4FA785;border-radius:7px;background:#EAF7F1;color:#246F58;font-size:11px;font-weight:800}
+      .matrix-component-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+      .matrix-component{padding:7px 8px;border-radius:8px;font-size:11px;line-height:1.35}
+      .matrix-component b{display:block;color:inherit;margin-bottom:2px}
+      .matrix-component.yes{background:#EAF7F1;color:#246F58}
+      .matrix-component.no{background:#FFF2ED;color:#9A4A2B}
+      .matrix-conversion{display:grid;grid-template-columns:repeat(5,minmax(125px,1fr));gap:7px;overflow-x:auto;padding-bottom:2px}
+      .matrix-flow-step{position:relative;min-height:70px;padding:9px 10px;border-radius:10px;background:var(--blue-5);border:1px solid #B8D9E5;color:var(--blue-1);font-size:11px;line-height:1.35}
+      .matrix-flow-step b{display:block;margin-bottom:3px;color:var(--blue-6)}
+      .matrix-flow-step:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:25px;z-index:1;color:var(--blue-6);font-size:16px;font-weight:900}
+      .matrix-learning-bottom{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(360px,1.2fr);gap:10px}
+      .matrix-equation{background:#F8FAFB}
+      .matrix-equation code{color:var(--blue-1);font-size:12px}
+      .matrix-equation p,.matrix-decision p{margin:5px 0 0;font-size:11px;line-height:1.45}
+      .matrix-decision{background:#FFF9EF;border-color:var(--alm-soft)}
+      .matrix-decision strong{color:var(--blue-1)}
       .matrix-group-row td{position:static!important;background:#EAF3F6!important;color:var(--blue-1)!important;font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 12px!important}
       .matrix-count{font-size:12px;color:var(--text-soft);font-weight:700}
       .ecofining-board .eco-canvas.eco-v55-canvas{min-width:4510px!important}
       .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(11,minmax(410px,1fr))!important}
-      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
+      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
     `;
     document.head.appendChild(style);
   };
@@ -303,6 +335,7 @@
     row.dataset.search=Object.values(item).join(' ').toLocaleLowerCase('es');
     const cell=document.createElement('td');
     cell.colSpan=4;
+    if(item.id==='T01') cell.appendChild(t01LearningCard());
     const grid=document.createElement('div');
     grid.className='matrix-detail-grid';
     [
@@ -316,6 +349,59 @@
     cell.appendChild(grid);
     row.appendChild(cell);
     return row;
+  };
+
+  const t01LearningCard=()=>{
+    const card=document.createElement('section');
+    card.className='matrix-learning-card';
+    card.setAttribute('aria-label','Explicación sencilla del contenido lipídico y su conversión a SAF');
+    card.innerHTML=`
+      <div class="matrix-learning-head">
+        <div><h3>T01 en sencillo · De la grasa al SAF</h3><p>El contenido lipídico indica qué proporción del lote es grasa que sí puede convertirse en combustible. En una frase: <strong>el carbono y el hidrógeno de la grasa forman el combustible; el oxígeno se retira durante HEFA.</strong></p></div>
+        <span class="matrix-learning-chip">Explicación visual</span>
+      </div>
+      <div class="matrix-learning-body">
+        <div class="matrix-lipid-layout">
+          <div class="matrix-molecule">
+            <h4>La “figurita” principal: un triglicérido</h4>
+            <div class="matrix-triglyceride">
+              <div class="matrix-glycerol">Cabeza: glicerol<code>C₃H₈O₃<br>HO–CH₂–CH(OH)–CH₂–OH</code></div>
+              <div class="matrix-bonds">＋</div>
+              <div class="matrix-fatty-tails">
+                <div class="matrix-fatty-tail">Cola 1 · ácido graso <code>R–COOH</code></div>
+                <div class="matrix-fatty-tail">Cola 2 · ácido graso <code>R–COOH</code></div>
+                <div class="matrix-fatty-tail">Cola 3 · ácido graso <code>R–COOH</code></div>
+              </div>
+            </div>
+          </div>
+          <div class="matrix-components">
+            <h4>¿Qué componentes del lote ayudan a producir SAF?</h4>
+            <div class="matrix-component-grid">
+              <div class="matrix-component yes"><b>✓ Triglicéridos</b>Son la mayor reserva de cadenas de carbono.</div>
+              <div class="matrix-component yes"><b>✓ Ácidos grasos libres (FFA)</b>También pueden convertirse, aunque elevan la acidez.</div>
+              <div class="matrix-component no"><b>✕ Agua</b>No se convierte en SAF y aumenta carga de manejo.</div>
+              <div class="matrix-component no"><b>✕ Sólidos, cenizas y minerales</b>No forman combustible; pueden ensuciar o afectar el proceso.</div>
+              <div class="matrix-component no"><b>△ Fosfolípidos</b>Aportan fósforo y gomas que deben retirarse.</div>
+              <div class="matrix-component no"><b>△ Proteínas</b>No son el objetivo y pueden aportar nitrógeno.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>Cómo se reconfigura en HEFA</h4>
+          <div class="matrix-conversion" aria-label="Ruta simplificada de grasa a SAF">
+            <div class="matrix-flow-step"><b>1 · Grasa</b>Cadenas con carbono, hidrógeno y oxígeno.</div>
+            <div class="matrix-flow-step"><b>2 · Hidrógeno + catalizador</b>Se agrega H₂ para acondicionar las moléculas.</div>
+            <div class="matrix-flow-step"><b>3 · Retiro de oxígeno</b>El O sale principalmente como agua; también puede salir como CO o CO₂.</div>
+            <div class="matrix-flow-step"><b>4 · Isomerización</b>Las cadenas lineales se ramifican para mejorar su comportamiento en frío.</div>
+            <div class="matrix-flow-step"><b>5 · Fraccionamiento</b>Se separa el corte con rango adecuado para SAF.</div>
+          </div>
+        </div>
+        <div class="matrix-learning-bottom">
+          <div class="matrix-equation"><h4>Ejemplo muy simplificado</h4><code>C₁₈H₃₆O₂ + 3 H₂ → C₁₈H₃₈ + 2 H₂O</code><p>Después, una parafina lineal puede convertirse en una parafina ramificada: conserva la fórmula, pero cambia su forma.</p></div>
+          <div class="matrix-decision"><h4>¿Qué significa para evaluar a un proveedor?</h4><p><strong>Más contenido lipídico suele significar más material convertible y menos agua o sólidos transportados.</strong> No basta por sí solo para aceptar el lote: también deben revisarse humedad, sólidos, FFA, fósforo, metales, trazabilidad y requisitos regulatorios. La especie animal cambia el perfil de ácidos grasos y propiedades como punto de fusión y viscosidad.</p></div>
+        </div>
+      </div>`;
+    return card;
   };
 
   const addHub=(matrix,byId)=>{
