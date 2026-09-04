@@ -469,3 +469,31 @@ section.board:not(.ecofining-board){display:none}
   background:#E7EEF2;
   color:#315664;
 }
+
+
+/* v71 · Resumen HDO uniforme con Degumming y Bleaching */
+.hdo-summary{display:grid;gap:9px}
+.hdo-summary-input{
+  background:linear-gradient(135deg,#FFF9E9,#FFFCF4);
+  border-color:#E8D5A4;
+  border-left:4px solid #D49A20;
+}
+.hdo-summary-input .correction-flow-icon{
+  background:#FCE9B7;
+  color:#8A5C00;
+}
+.hdo-summary-transform{
+  background:linear-gradient(135deg,#FFF1EE,#FFF8F5);
+  border-color:#F3C7BE;
+  border-left:4px solid #D45745;
+}
+.hdo-summary-transform .correction-flow-icon{
+  background:#FAD9D2;
+  color:#B63E2E;
+}
+.hdo-summary .explainer-detail{margin-top:1px}
+.hdo-detail-body{
+  padding:9px;
+  background:#F8FBFC;
+}
+.hdo-detail-body > .hdo-explainer{width:100%}
