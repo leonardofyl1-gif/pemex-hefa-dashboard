@@ -1,4 +1,4 @@
-/* v57 — Comparative Master Matrix + process-step mapping (2026-09-04). */
+/* v58 — Comparative Master Matrix + corrected process-step mapping (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -222,16 +222,19 @@
 
   const placementFromCard=card=>{
     const stage=card.closest('.stage');
-    const strip2=stage?.parentElement;
     const process=card.closest('[data-process]');
-    if(!stage||!strip2||!process) return null;
-    const stages=[...strip2.children].filter(node=>node.classList.contains('stage'));
-    const index=stages.indexOf(stage);
+    if(!stage||!process) return null;
+    const panelTitle=stage.querySelector('.panel-title')?.textContent.trim()||'';
+    const explicitNumber=panelTitle.match(/^(\d+(?:\.\d+|[a-z])?)(?=\s*·)/i)?.[1];
+    let fallbackNumber='';
+    if(process.dataset.process==='ecofining') fallbackNumber=stage.classList.contains('commercial-stage')?'03b':stage.classList.contains('technical-stage')?'05b':'';
+    if(process.dataset.process==='hydroflex') fallbackNumber=stage.classList.contains('commercial-stage')?'03b':stage.classList.contains('technical-stage')?'06':'';
+    if(process.dataset.process==='vegan'&&stage.querySelector('.varlist')) fallbackNumber='04';
+    const targetNumber=explicitNumber||fallbackNumber;
     const strip=process.querySelector('.eco-strip,.hydro-strip,.vegan-strip');
-    const columns=strip?[...strip.children].filter(node=>node.matches('.col,.hydro-pretreatment-macro,.hydro-conditioning-macro,.vegan-external-macro')):[];
-    const column=columns[index];
+    const column=strip?[...strip.querySelectorAll('.col')].find(node=>node.querySelector(':scope > .step-no')?.textContent.trim()===targetNumber):null;
     const number=column?.querySelector(':scope > .step-no')?.textContent.trim()||column?.querySelector('.step-no')?.textContent.trim()||'';
-    const title=column?.querySelector(':scope > h3')?.textContent.trim()||column?.querySelector('h3')?.textContent.trim()||stage.querySelector('.panel-title')?.textContent.trim()||'Paso asignado';
+    const title=column?.querySelector(':scope > h3')?.textContent.trim()||column?.querySelector('h3')?.textContent.trim()||panelTitle||'Paso asignado';
     return {number,title,kind:stepKind(column)};
   };
 
@@ -459,9 +462,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v57 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v58 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v57';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v58';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
