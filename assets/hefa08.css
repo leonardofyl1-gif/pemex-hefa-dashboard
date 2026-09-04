@@ -165,3 +165,104 @@ section.board:not(.ecofining-board){display:none}
   border-left:4px solid #94A3B8;
   background:#fff;
 }
+
+
+/* v68 · Flujo visual de contaminantes y grasa útil */
+.correction-card{
+  display:grid;
+  gap:6px;
+  padding:9px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  box-shadow:0 3px 9px rgba(30,70,82,.05);
+}
+.correction-remove{
+  background:linear-gradient(135deg,#FFF1EE,#FFF8F5);
+  border-color:#F3C7BE;
+  border-left:4px solid #D45745;
+}
+.correction-keep{
+  background:linear-gradient(135deg,#EAF9F2,#F6FCF9);
+  border-color:#BDE3D2;
+  border-left:4px solid #15936B;
+}
+.correction-card-title{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--blue-1);
+  font-size:11px;
+  line-height:1.25;
+}
+.correction-flow-icon{
+  display:grid;
+  place-items:center;
+  flex:0 0 21px;
+  width:21px;
+  height:21px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+}
+.correction-remove .correction-flow-icon{
+  background:#FAD9D2;
+  color:#B63E2E;
+}
+.correction-keep .correction-flow-icon{
+  background:#CDEEDF;
+  color:#087653;
+}
+.correction-list{
+  display:grid;
+  gap:3px;
+  margin:0;
+  padding-left:19px;
+  font-size:10px;
+  line-height:1.35;
+  color:var(--text-soft);
+}
+.correction-list li::marker{font-weight:900}
+.correction-remove .correction-list li::marker{color:#D45745}
+.correction-keep .correction-list li::marker{color:#15936B}
+.correction-destination{
+  margin-top:2px;
+  padding:7px 8px;
+  border-radius:8px;
+  background:#fff;
+  border:1px solid #CDE8DC;
+  color:#0B6047;
+  font-size:10px;
+  line-height:1.35;
+  font-weight:850;
+}
+.chem-group-label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  margin:1px 0 -3px;
+  color:#466875;
+  font-size:9px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.chem-group-label::before{
+  content:'';
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:#D45745;
+}
+.process-additive{
+  margin:0;
+  padding:8px 9px;
+  border:1px solid #E8D5A4;
+  border-left:4px solid #D49A20;
+  border-radius:9px;
+  background:#FFF9E9;
+  color:var(--text-soft);
+  font-size:10px;
+  line-height:1.4;
+}
+.process-additive strong{color:#79510A}
