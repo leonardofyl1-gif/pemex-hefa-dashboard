@@ -266,3 +266,151 @@ section.board:not(.ecofining-board){display:none}
   line-height:1.4;
 }
 .process-additive strong{color:#79510A}
+
+
+/* v69 · Explicación visual de Stage 1 HDO */
+.hdo-stage{background:linear-gradient(180deg,#F8FBFE,#F2F7FB)}
+.hdo-explainer{display:grid;gap:8px}
+.hdo-card{
+  display:grid;
+  gap:6px;
+  padding:9px 10px;
+  border:1px solid #D5E2E7;
+  border-left:4px solid #4B83A6;
+  border-radius:10px;
+  background:#fff;
+  box-shadow:0 3px 9px rgba(30,70,82,.05);
+  color:var(--text-soft);
+  font-size:10px;
+  line-height:1.4;
+}
+.hdo-card p{margin:0}
+.hdo-card-title{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:var(--blue-1);
+  font-size:11px;
+  font-weight:900;
+  line-height:1.25;
+}
+.hdo-number{
+  display:grid;
+  place-items:center;
+  flex:0 0 21px;
+  width:21px;
+  height:21px;
+  border-radius:999px;
+  background:#DCECF5;
+  color:#245E80;
+  font-size:10px;
+  font-weight:900;
+}
+.hdo-input{background:#F2F8FC;border-left-color:#3B82A0}
+.hdo-target{background:#FFF5F1;border-left-color:#D45745}
+.hdo-reactor{background:#FFF9E9;border-left-color:#D49A20}
+.hdo-molecule{background:#F5F1FF;border-left-color:#8B5CF6}
+.hdo-oxygen{background:#EEF7FF;border-left-color:#397CC1}
+.hdo-output{background:#F1FAF5;border-left-color:#15936B}
+.hdo-next{background:#F0F9F8;border-left-color:#0F8A83}
+.hdo-tag-row{display:flex;flex-wrap:wrap;gap:5px}
+.hdo-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:4px 7px;
+  border:1px solid #CFE0E6;
+  border-radius:999px;
+  background:#fff;
+  color:#365D6B;
+  font-size:9px;
+  font-weight:800;
+}
+.hdo-element{
+  display:inline-grid;
+  place-items:center;
+  min-width:20px;
+  height:20px;
+  padding:0 4px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:900;
+}
+.hdo-element.c{background:#E2E8F0;color:#334155}
+.hdo-element.h{background:#DBEAFE;color:#1D4ED8}
+.hdo-element.o{background:#FEE2E2;color:#B91C1C}
+.hdo-callout{
+  padding:7px 8px;
+  border-radius:8px;
+  border:1px solid #D7E4E9;
+  background:#fff;
+  color:var(--blue-1);
+  font-weight:850;
+}
+.hdo-equation{
+  display:grid;
+  gap:4px;
+  place-items:center;
+  padding:8px;
+  border:1px dashed #BACFD8;
+  border-radius:9px;
+  background:#fff;
+  color:var(--blue-1);
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:11px;
+  font-weight:850;
+  text-align:center;
+}
+.hdo-arrow{color:#B84A3D;font-family:system-ui,sans-serif;font-size:13px;font-weight:900}
+.hdo-molecule-line{
+  letter-spacing:.04em;
+  white-space:nowrap;
+  font-size:12px;
+  font-weight:900;
+}
+.hdo-oxygen-marks{color:#B91C1C;letter-spacing:.7em;font-weight:900}
+.hdo-caption{
+  color:#5A7580;
+  font-family:system-ui,sans-serif;
+  font-size:9px;
+  font-weight:800;
+}
+.hdo-streams{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.hdo-stream{
+  padding:7px 8px;
+  border:1px solid #CFE2DA;
+  border-radius:8px;
+  background:#fff;
+}
+.hdo-stream b{display:block;margin-bottom:3px;color:#0D674C}
+.hdo-stream ul{display:grid;gap:2px;margin:0;padding-left:15px}
+.hdo-stream li::marker{color:#15936B;font-weight:900}
+.hdo-next-flow{
+  display:grid;
+  gap:3px;
+  place-items:center;
+  padding:8px;
+  border:1px solid #BFDCD7;
+  border-radius:9px;
+  background:#fff;
+  color:#145A58;
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:10px;
+  font-weight:850;
+  text-align:center;
+}
+.hdo-key{
+  margin:0;
+  padding:10px 11px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#183E51,#235E70);
+  color:#fff;
+  font-size:10px;
+  line-height:1.4;
+  font-weight:850;
+  box-shadow:0 5px 13px rgba(24,62,81,.16);
+}
