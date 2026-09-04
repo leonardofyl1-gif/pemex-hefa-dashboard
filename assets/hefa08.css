@@ -414,3 +414,58 @@ section.board:not(.ecofining-board){display:none}
   font-weight:850;
   box-shadow:0 5px 13px rgba(24,62,81,.16);
 }
+
+
+/* v70 · Código visual compacto de pretratamiento */
+.pretreatment-key-row{
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  flex-wrap:nowrap;
+}
+.mini-color-key{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:3px 7px;
+  max-width:250px;
+  padding:6px 8px;
+  border:1px solid #D5E2E7;
+  border-radius:9px;
+  background:#fff;
+  box-shadow:0 3px 8px rgba(30,70,82,.05);
+}
+.mini-key-title{
+  flex:0 0 100%;
+  color:#5A7580;
+  font-size:8px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.mini-key-item{
+  display:inline-flex;
+  align-items:center;
+  gap:3px;
+  color:#466875;
+  font-size:8px;
+  line-height:1.15;
+  white-space:nowrap;
+}
+.mini-key-dot{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  border-radius:999px;
+}
+.mini-key-dot.remove{background:#D45745}
+.mini-key-dot.keep{background:#15936B}
+.mini-key-dot.add{background:#D49A20}
+.mini-key-dot.explain{background:#3B82F6}
+.mini-key-dot.guide{background:#0F8A83}
+/* Los símbolos químicos son neutros; su significado depende del recuadro que los contiene. */
+.chem-chip:nth-child(n) b{
+  background:#E7EEF2;
+  color:#315664;
+}
