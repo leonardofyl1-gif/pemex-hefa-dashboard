@@ -1,4 +1,4 @@
-/* v63 — Explicit T02 molecule diagrams + Comparative Master Matrix (2026-09-04). */
+/* v65 — Before/after T02 molecule properties + Comparative Master Matrix (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -164,7 +164,9 @@
       .matrix-reaction-arrow small{display:block;margin-bottom:6px;padding:8px 6px;border-radius:9px;background:#E7F4F8;font-size:11px;line-height:1.35;color:var(--text-soft)}
       .matrix-reaction-arrow small b{display:block;margin-bottom:3px;color:var(--blue-1)}
       .matrix-acid-meaning{padding:0 11px 11px;font-size:12px;line-height:1.45;color:var(--text-soft)}
-      .matrix-property-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0 11px 9px;padding:8px;border:1px solid #D5E1E6;border-radius:10px;background:#F8FAFB}
+      .matrix-property-box{display:grid;gap:6px;margin-top:2px;padding:8px;border:1px solid #D5E1E6;border-radius:10px;background:#fff}
+      .matrix-property-box.before{border-left:4px solid #6BA2B8}.matrix-property-box.after{border-left:4px solid #48A680}
+      .matrix-property-title{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.035em;color:var(--blue-6)}
       .matrix-property{display:grid;gap:2px;padding:7px 8px;border-radius:8px;background:#fff;font-size:11px;line-height:1.3;color:var(--text-soft)}
       .matrix-property b{color:var(--blue-1);font-size:11px}
       .matrix-property strong{font-size:12px}
@@ -181,7 +183,7 @@
       .matrix-count{font-size:12px;color:var(--text-soft);font-weight:700}
       .ecofining-board .eco-canvas.eco-v55-canvas{min-width:4510px!important}
       .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(11,minmax(410px,1fr))!important}
-      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom,.matrix-t02-intro,.matrix-carbon-note,.matrix-reading-key{grid-template-columns:1fr}.matrix-acid-grid{grid-template-columns:1fr}.matrix-profile-guide{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-acid-visual{grid-template-columns:1fr}.matrix-reaction-arrow{min-height:72px}.matrix-property-box{grid-template-columns:1fr}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
+      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom,.matrix-t02-intro,.matrix-carbon-note,.matrix-reading-key{grid-template-columns:1fr}.matrix-acid-grid{grid-template-columns:1fr}.matrix-profile-guide{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-acid-visual{grid-template-columns:1fr}.matrix-reaction-arrow{min-height:72px}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
     `;
     document.head.appendChild(style);
   };
@@ -502,6 +504,11 @@
   const acidStructureCard=({name,code,formula,structure,productStructure,product,kind,kindClass,meaning,doubleBonds=0,doublePositions=[],melting,oxidativeStability,physicalReading})=>{
     const carbonCount=code.match(/C(\d+):/)?.[1]||'';
     const bondLabel=doubleBonds===0?'ningún doble enlace':doubleBonds===1?'1 doble enlace C=C':`${doubleBonds} dobles enlaces C=C`;
+    const productReading={
+      14:{melting:'Bajo',text:'Puede permanecer líquido cerca de temperatura ambiente.'},
+      16:{melting:'Medio',text:'Se solidifica con mayor facilidad que el tetradecano.'},
+      18:{melting:'Alto',text:'Puede ser sólido cerca de temperatura ambiente.'}
+    }[Number(carbonCount)];
     return `<article class="matrix-acid-card">
       <div class="matrix-acid-card-head"><b>${name} · ${code}</b><span class="matrix-acid-kind ${kindClass}">${kind}</span></div>
       <div class="matrix-acid-visual">
@@ -510,6 +517,11 @@
           ${skeletalMolecule({carbons:Number(carbonCount),doublePositions,acid:true,name})}
           <div class="matrix-molecule-summary">${carbonCount} carbonos en total · ${bondLabel} · termina en COOH (parte con oxígeno)</div>
           <code>${structure}</code><code>Fórmula: ${formula}</code>
+          <div class="matrix-property-box before" aria-label="Propiedades antes del proceso de ${name}">
+            <span class="matrix-property-title">Propiedades antes · ácido graso</span>
+            <div class="matrix-property ${levelClass(melting)}"><b>Punto de fusión relativo (temperatura para derretirse)</b><strong>${melting}</strong><span>${physicalReading} Un nivel alto significa que necesita más calor para hacerse líquido.</span></div>
+            <div class="matrix-property ${levelClass(oxidativeStability)}"><b>Estabilidad oxidativa (resistencia a oxidarse)</b><strong>${oxidativeStability}</strong><span>Más enlaces dobles generalmente significan mayor facilidad de degradación.</span></div>
+          </div>
         </div>
         <div class="matrix-reaction-arrow"><div><small><b>PROCESO HEFA</b><br>Entra H₂<br>Sale O como<br>H₂O / CO / CO₂</small>→</div></div>
         <div class="matrix-molecule-side after">
@@ -517,11 +529,12 @@
           ${skeletalMolecule({carbons:Number(carbonCount),name:product})}
           <div class="matrix-molecule-summary">${carbonCount} carbonos en esta ruta · 0 dobles enlaces · 0 oxígenos</div>
           <code>${productStructure}</code><code>${product}</code>
+          <div class="matrix-property-box after" aria-label="Propiedades después del proceso de ${product}">
+            <span class="matrix-property-title">Propiedades después · parafina</span>
+            <div class="matrix-property ${levelClass(productReading.melting)}"><b>Punto de fusión relativo (temperatura para derretirse)</b><strong>${productReading.melting}</strong><span>${productReading.text} Una cadena más larga suele requerir más temperatura para derretirse.</span></div>
+            <div class="matrix-property high"><b>Estabilidad oxidativa (resistencia a oxidarse)</b><strong>Alta</strong><span>La parafina ya no tiene enlaces dobles ni el grupo COOH del ácido graso.</span></div>
+          </div>
         </div>
-      </div>
-      <div class="matrix-property-box" aria-label="Lectura práctica de ${name}">
-        <div class="matrix-property ${levelClass(melting)}"><b>Punto de fusión relativo</b><strong>${melting}</strong><span>${physicalReading}</span></div>
-        <div class="matrix-property ${levelClass(oxidativeStability)}"><b>Estabilidad oxidativa relativa</b><strong>${oxidativeStability}</strong><span>Más dobles enlaces = mayor facilidad de oxidación.</span></div>
       </div>
       <div class="matrix-acid-meaning">${meaning}</div>
     </article>`;
@@ -560,7 +573,7 @@
           </div>
         </div>
         <div class="matrix-bond-legend"><span class="matrix-bond-symbol" aria-hidden="true"></span><span><strong>¿Qué significan las dos líneas?</strong> La línea negra y la línea amarilla, juntas, representan un enlace doble <strong>C=C</strong>. Al agregar H₂ se convierte en enlace sencillo; por eso la parafina de la derecha ya no muestra líneas dobles.</span></div>
-        <div class="matrix-reading-key"><span><b>Esquina o extremo</b>Cada vértice de la figurita representa un átomo de carbono, aunque no aparezca la letra C.</span><span><b>COOH en rojo</b>Es el extremo ácido que contiene oxígeno y se transforma durante HEFA.</span><span><b>Recuadros de propiedades</b>Son comparaciones entre estos ácidos puros; la grasa real debe medirse porque contiene una mezcla.</span></div>
+        <div class="matrix-reading-key"><span><b>Esquina o extremo</b>Cada vértice de la figurita representa un átomo de carbono, aunque no aparezca la letra C.</span><span><b>COOH en rojo</b>Es el extremo ácido que contiene oxígeno y se transforma durante HEFA.</span><span><b>¿Qué significa “relativo”?</b>Alto, medio o bajo comparado con las demás moléculas mostradas. Izquierda = antes; derecha = después.</span></div>
         <div><h4>Estructura química antes y después de retirar el oxígeno</h4><div class="matrix-acid-groups">${acidGroups.map(group=>`<section class="matrix-acid-group"><div class="matrix-acid-group-head ${group.kindClass}"><b>${group.title}</b><span>${group.explanation}</span></div><div class="matrix-acid-grid">${acids.filter(acid=>acid.kindClass===group.kindClass).map(acidStructureCard).join('')}</div></section>`).join('')}</div></div>
         <div class="matrix-carbon-note">
           <div class="matrix-carbon-route"><b>Ruta 1 · Se conserva el carbono</b>Si el oxígeno se retira principalmente como agua, un ácido C18 puede convertirse en una parafina C18.</div>
@@ -728,9 +741,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v63 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v65 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v63';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v65';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
