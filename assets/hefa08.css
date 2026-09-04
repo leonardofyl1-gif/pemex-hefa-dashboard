@@ -41,7 +41,7 @@ section.board:not(.ecofining-board){display:none}
 @media(max-width:900px){.eco-canvas{min-width:4510px}}
 
 
-/* v66 · Explicadores for dummies de Degumming y Bleaching · Ecofining */
+/* v67 · Explicadores visuales de Degumming y Bleaching · Ecofining */
 .pretreatment-explainer{display:grid;gap:9px}
 .pretreatment-explainer .explainer-lead{margin:0}
 .explainer-detail{border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden}
@@ -64,3 +64,104 @@ section.board:not(.ecofining-board){display:none}
 .explainer-memory{background:var(--pre-soft);border:1px solid var(--line);color:var(--blue-1);font-weight:750}
 .explainer-source{background:#F5F9FB;border:1px solid var(--line)}
 .explainer-source a{color:var(--blue-6);font-weight:800}
+
+
+/* v67 · Jerarquía visual por definición, mecanismo, secuencia y resultado */
+.pretreatment-explainer{
+  gap:11px;
+  padding:2px;
+}
+.pretreatment-explainer .explainer-lead{
+  padding:10px 11px;
+  border-left:4px solid var(--pre);
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--pre-soft),#fff 78%);
+}
+.explainer-detail{
+  border-color:#BFDCD7;
+  box-shadow:0 5px 14px rgba(30,70,82,.08);
+}
+.explainer-detail summary{
+  padding:10px 11px;
+  background:linear-gradient(135deg,#E8F7F4,#F3F9FC);
+  color:#154E5A;
+}
+.explainer-detail summary::before{
+  content:'▸';
+  color:var(--pre);
+  font-size:13px;
+}
+.explainer-detail[open] summary::before{content:'▾'}
+.explainer-body{
+  gap:8px;
+  padding:10px;
+  background:#F8FBFC;
+}
+.explainer-section{
+  gap:6px;
+  padding:9px 10px;
+  border:1px solid #D9E7EA;
+  border-left:4px solid #3B82F6;
+  border-radius:10px;
+  background:#EFF6FF;
+}
+.explainer-section:nth-of-type(2){
+  border-left-color:#F59E0B;
+  background:#FFF8E8;
+}
+.explainer-section:nth-of-type(3){
+  border-left-color:#8B5CF6;
+  background:#F5F1FF;
+}
+.explainer-section:nth-of-type(4){
+  border-left-color:#10B981;
+  background:#ECFDF5;
+}
+.explainer-section h4{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#173D4A;
+  font-size:11px;
+}
+.explainer-section h4::before{
+  content:'●';
+  color:#3B82F6;
+  font-size:9px;
+}
+.explainer-section:nth-of-type(2) h4::before{color:#F59E0B}
+.explainer-section:nth-of-type(3) h4::before{color:#8B5CF6}
+.explainer-section:nth-of-type(4) h4::before{color:#10B981}
+.explainer-section ul,.explainer-section ol{
+  padding-left:20px;
+  gap:5px;
+}
+.explainer-section li{padding-left:2px}
+.explainer-section li::marker{
+  color:#0F766E;
+  font-weight:900;
+}
+.chem-chip{
+  border-color:#CDE1E4;
+  background:#fff;
+  box-shadow:0 2px 5px rgba(30,70,82,.05);
+}
+.chem-chip:nth-child(3n+1) b{background:#DBEAFE;color:#1D4ED8}
+.chem-chip:nth-child(3n+2) b{background:#FEF3C7;color:#B45309}
+.chem-chip:nth-child(3n) b{background:#D1FAE5;color:#047857}
+.molecule-card{
+  border-style:solid;
+  border-left:4px solid var(--blue-4);
+  background:#fff;
+}
+.explainer-note{
+  border-left:4px solid #F59E0B;
+}
+.explainer-memory{
+  border-left:4px solid var(--pre);
+  background:linear-gradient(90deg,var(--pre-soft),#fff);
+}
+.explainer-source{
+  border-left:4px solid #94A3B8;
+  background:#fff;
+}
