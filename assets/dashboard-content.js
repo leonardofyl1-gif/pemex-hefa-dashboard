@@ -595,11 +595,7 @@
 
   const style=document.createElement('style');
   style.textContent=`
-    .ecofining-board .blend-matrix-details{margin-top:10px;border:1px solid #F1CD91;border-radius:11px;background:#FFFCF6;overflow:hidden}
-    .ecofining-board .blend-matrix-details summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;cursor:pointer;list-style:none;font-size:var(--text-xs);font-weight:800;color:var(--blue-1);background:#FFF7E8}
-    .ecofining-board .blend-matrix-details summary::-webkit-details-marker{display:none}
-    .ecofining-board .blend-matrix-details summary::after{content:'+';display:grid;place-items:center;flex:0 0 20px;width:20px;height:20px;border-radius:999px;background:#FFF0D4;color:#9A5D00;font-size:15px;line-height:1}
-    .ecofining-board .blend-matrix-details[open] summary::after{content:'−'}
+    .ecofining-board .blend-matrix-details{margin-top:10px}
     .ecofining-board .blend-matrix-content{padding:10px}
     .ecofining-board .blend-matrix-heading{margin:2px 0 6px;font-size:10px;line-height:1.3;font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:#9A5D00}
     .ecofining-board .blend-matrix-heading:not(:first-child){margin-top:12px}
@@ -621,9 +617,9 @@
 
   const details=document.createElement('details');
   details.open=true;
-  details.className='blend-matrix-details';
+  details.className='blend-matrix-details explainer-detail';
   details.innerHTML=`
-    <summary>Ver matriz de mezcla · categorías y variables T01–T27</summary>
+    <summary>Ver explicación guiada · ¿cómo se controla la mezcla?</summary>
     <div class="blend-matrix-content">
       <div class="blend-matrix-heading">1 · Cómo se combinan las categorías</div>
       <table class="blend-matrix-table" aria-label="Reglas de combinación por categoría">
