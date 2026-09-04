@@ -334,6 +334,6 @@
   panels.forEach(panel=>ensureTopScroller(panel));
   showProcess(location.hash.slice(1)||'matrix',false);
 
-  document.title='Feedstock Process Dashboard BIARAI v62 — Matriz comparativa';
-  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Comparación por tecnología · v62';
+  document.title='Feedstock Process Dashboard BIARAI v63 — Matriz comparativa';
+  const e=document.querySelector('.eyebrow'); if(e)e.textContent='Criterios técnicos · Comparación por tecnología · v63';
 })();

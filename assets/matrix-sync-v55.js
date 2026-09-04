@@ -1,4 +1,4 @@
-/* v62 — Grouped T02 fatty-acid structures + Comparative Master Matrix (2026-09-04). */
+/* v63 — Explicit T02 molecule diagrams + Comparative Master Matrix (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -141,7 +141,7 @@
       .matrix-acid-kind.sat{background:#E8F1F6;color:#2B6880}
       .matrix-acid-kind.mono{background:#EAF7F1;color:#246F58}
       .matrix-acid-kind.poly{background:#FFF1D9;color:#845611}
-      .matrix-acid-visual{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);align-items:stretch;padding:10px;gap:7px}
+      .matrix-acid-visual{display:grid;grid-template-columns:minmax(0,1fr) 116px minmax(0,1fr);align-items:stretch;padding:10px;gap:9px}
       .matrix-molecule-side{display:grid;align-content:start;gap:6px;padding:9px;border-radius:10px;background:#F8FAFB;min-width:0}
       .matrix-molecule-side.after{background:#EAF7F1}
       .matrix-molecule-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.035em;color:var(--blue-6)}
@@ -150,9 +150,18 @@
       .matrix-chain-svg .double{fill:none;stroke:#E29A2D;stroke-width:3;stroke-linecap:round}
       .matrix-chain-svg .oxygen{fill:#B6412E;font:900 12px/1 var(--font-body)}
       .matrix-chain-svg .terminal{fill:#1A3A46;font:800 10px/1 var(--font-body)}
+      .matrix-formula-chain{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-height:48px;padding:7px 0}
+      .matrix-formula-token{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:6px 8px;border:1px solid #AFC7D1;border-radius:8px;background:#fff;color:#1A3A46;font:900 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace}
+      .matrix-formula-token:not(:last-child)::after{content:'—';position:absolute;left:calc(100% + 2px);color:#63808C;font-weight:900}
+      .matrix-formula-token.double{border-color:#E29A2D;background:#FFF4D9;color:#845611}
+      .matrix-formula-token.oxygen{border-color:#D98470;background:#FFF0EC;color:#A43825}
+      .matrix-formula-token.end{background:#E8F1F6;color:#2B6880}
+      .matrix-molecule-summary{padding:6px 8px;border-radius:7px;background:#EAF3F6;color:#315E6E;font-size:11px;font-weight:800;line-height:1.35}
+      .matrix-molecule-side.after .matrix-molecule-summary{background:#DDF2E9;color:#246F58}
       .matrix-molecule-side code{display:block;overflow-wrap:anywhere;color:var(--blue-1);font:800 12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace}
       .matrix-reaction-arrow{display:grid;place-content:center;text-align:center;color:var(--blue-6);font-size:18px;font-weight:900}
-      .matrix-reaction-arrow small{display:block;margin-bottom:3px;font-size:10px;line-height:1.25;color:var(--text-soft)}
+      .matrix-reaction-arrow small{display:block;margin-bottom:6px;padding:8px 6px;border-radius:9px;background:#E7F4F8;font-size:11px;line-height:1.35;color:var(--text-soft)}
+      .matrix-reaction-arrow small b{display:block;margin-bottom:3px;color:var(--blue-1)}
       .matrix-acid-meaning{padding:0 11px 11px;font-size:12px;line-height:1.45;color:var(--text-soft)}
       .matrix-carbon-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;background:#FFF9EF;border-color:var(--alm-soft)}
       .matrix-carbon-route{padding:9px;border-radius:9px;background:#fff;font-size:12px;line-height:1.45}
@@ -453,26 +462,28 @@
     return card;
   };
 
+  const formulaChain=value=>value.split('–').map((token,index,all)=>{
+    const tokenClass=token.includes('COOH')?'oxygen':token.includes('=')?'double':(index===0||index===all.length-1)?'end':'';
+    return `<span class="matrix-formula-token ${tokenClass}">${token}</span>`;
+  }).join('');
+
   const acidStructureCard=({name,code,formula,structure,productStructure,product,kind,kindClass,meaning,doubleBonds=0})=>{
-    const doubleLines=doubleBonds>=1?'<path class="double" d="M66 37 L84 17"/>':'';
-    const secondDouble=doubleBonds>=2?'<path class="double" d="M104 37 L122 17"/>':'';
-    const thirdDouble=doubleBonds>=3?'<path class="double" d="M28 31 L46 19"/>':'';
+    const carbonCount=code.match(/C(\d+):/)?.[1]||'';
+    const bondLabel=doubleBonds===0?'ningún doble enlace':doubleBonds===1?'1 doble enlace C=C':`${doubleBonds} dobles enlaces C=C`;
     return `<article class="matrix-acid-card">
       <div class="matrix-acid-card-head"><b>${name} · ${code}</b><span class="matrix-acid-kind ${kindClass}">${kind}</span></div>
       <div class="matrix-acid-visual">
         <div class="matrix-molecule-side">
           <span class="matrix-molecule-label">Antes · ácido graso</span>
-          <svg class="matrix-chain-svg" viewBox="0 0 190 52" role="img" aria-label="Estructura simplificada de ${name}">
-            <text class="terminal" x="1" y="31">CH₃</text><polyline class="chain" points="25,27 44,15 63,37 82,15 101,37 120,15 139,37 154,27"/>${doubleLines}${secondDouble}${thirdDouble}<text class="oxygen" x="158" y="31">COOH</text>
-          </svg>
+          <div class="matrix-formula-chain" role="img" aria-label="Estructura condensada de ${name}">${formulaChain(structure)}</div>
+          <div class="matrix-molecule-summary">${carbonCount} carbonos en total · ${bondLabel} · termina en COOH (parte con oxígeno)</div>
           <code>${structure}</code><code>Fórmula: ${formula}</code>
         </div>
-        <div class="matrix-reaction-arrow"><div><small>+ H₂<br>− oxígeno</small>→</div></div>
+        <div class="matrix-reaction-arrow"><div><small><b>PROCESO HEFA</b><br>Entra H₂<br>Sale O como<br>H₂O / CO / CO₂</small>→</div></div>
         <div class="matrix-molecule-side after">
           <span class="matrix-molecule-label">Después · parafina</span>
-          <svg class="matrix-chain-svg" viewBox="0 0 190 52" role="img" aria-label="Estructura simplificada de ${product}">
-            <text class="terminal" x="1" y="31">CH₃</text><polyline class="chain" points="25,27 44,15 63,37 82,15 101,37 120,15 139,37 158,27"/><text class="terminal" x="162" y="31">CH₃</text>
-          </svg>
+          <div class="matrix-formula-chain" role="img" aria-label="Estructura condensada de ${product}">${formulaChain(productStructure)}</div>
+          <div class="matrix-molecule-summary">${carbonCount} carbonos en esta ruta · 0 dobles enlaces · 0 oxígenos</div>
           <code>${productStructure}</code><code>${product}</code>
         </div>
       </div>
@@ -680,9 +691,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v62 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v63 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v62';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v63';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
