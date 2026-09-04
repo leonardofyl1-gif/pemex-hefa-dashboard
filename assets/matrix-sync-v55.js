@@ -1,4 +1,4 @@
-/* v61 — T01–T02 educational dropdowns + Comparative Master Matrix (2026-09-04). */
+/* v62 — Grouped T02 fatty-acid structures + Comparative Master Matrix (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -120,6 +120,20 @@
       .matrix-profile-species b{display:block;color:var(--blue-1);margin-bottom:3px}
       .matrix-profile-species span{display:block;color:var(--text-soft)}
       .matrix-acid-grid{display:grid;grid-template-columns:repeat(2,minmax(380px,1fr));gap:9px}
+      .matrix-bond-legend{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid #E9B75D;border-radius:11px;background:#FFF8E8;color:#704D13;font-size:13px;line-height:1.4}
+      .matrix-bond-symbol{position:relative;display:inline-block;flex:0 0 46px;height:18px}
+      .matrix-bond-symbol::before,.matrix-bond-symbol::after{content:'';position:absolute;left:3px;width:39px;height:3px;border-radius:3px;transform:rotate(-24deg)}
+      .matrix-bond-symbol::before{top:5px;background:#1A3A46}
+      .matrix-bond-symbol::after{top:11px;background:#E29A2D}
+      .matrix-acid-groups{display:grid;gap:13px}
+      .matrix-acid-group{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:#F8FAFB}
+      .matrix-acid-group-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;border-bottom:1px solid var(--line)}
+      .matrix-acid-group-head.sat{background:#E8F1F6;color:#2B6880}
+      .matrix-acid-group-head.mono{background:#EAF7F1;color:#246F58}
+      .matrix-acid-group-head.poly{background:#FFF1D9;color:#845611}
+      .matrix-acid-group-head b{font-size:15px}
+      .matrix-acid-group-head span{font-size:12px;font-weight:700;text-align:right}
+      .matrix-acid-group .matrix-acid-grid{padding:10px}
       .matrix-acid-card{border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden}
       .matrix-acid-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;background:#F2F7F9;border-bottom:1px solid var(--line)}
       .matrix-acid-card-head b{color:var(--blue-1);font-size:14px}
@@ -440,9 +454,9 @@
   };
 
   const acidStructureCard=({name,code,formula,structure,productStructure,product,kind,kindClass,meaning,doubleBonds=0})=>{
-    const doubleLines=doubleBonds>=1?'<path class="double" d="M72 15 L91 26"/>':'';
-    const secondDouble=doubleBonds>=2?'<path class="double" d="M109 37 L128 26"/>':'';
-    const thirdDouble=doubleBonds>=3?'<path class="double" d="M35 37 L54 26"/>':'';
+    const doubleLines=doubleBonds>=1?'<path class="double" d="M66 37 L84 17"/>':'';
+    const secondDouble=doubleBonds>=2?'<path class="double" d="M104 37 L122 17"/>':'';
+    const thirdDouble=doubleBonds>=3?'<path class="double" d="M28 31 L46 19"/>':'';
     return `<article class="matrix-acid-card">
       <div class="matrix-acid-card-head"><b>${name} · ${code}</b><span class="matrix-acid-kind ${kindClass}">${kind}</span></div>
       <div class="matrix-acid-visual">
@@ -476,6 +490,11 @@
       {name:'Ácido linoleico',code:'C18:2',formula:'C₁₈H₃₂O₂',structure:'CH₃–(CH₂)₄–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:2,meaning:'Conserva 18 carbonos, pero tiene dos dobles enlaces. Es más fluido y más sensible a oxidación; demanda más hidrógeno para saturarse.'},
       {name:'Ácido linolénico',code:'C18:3',formula:'C₁₈H₃₀O₂',structure:'CH₃–CH₂–CH=CH–CH₂–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:3,meaning:'Tiene tres dobles enlaces. Puede producir la misma cadena C18 saturada, pero requiere todavía más hidrógeno y presenta mayor sensibilidad a oxidación.'}
     ];
+    const acidGroups=[
+      {kindClass:'sat',title:'1 · Saturados',explanation:'0 barras amarillas · no tienen dobles enlaces'},
+      {kindClass:'mono',title:'2 · Monoinsaturados',explanation:'1 barra amarilla · tienen un doble enlace'},
+      {kindClass:'poly',title:'3 · Poliinsaturados',explanation:'2 o 3 barras amarillas · tienen varios dobles enlaces'}
+    ];
     const card=document.createElement('section');
     card.className='matrix-learning-card';
     card.setAttribute('aria-label','Explicación visual del perfil de ácidos grasos y su conversión en HEFA');
@@ -493,7 +512,8 @@
             <div class="matrix-profile-species"><b>Grasa aviar</b><span>Más oleico y linoleico; perfil generalmente más insaturado y fluido.</span></div>
           </div>
         </div>
-        <div><h4>Estructura química antes y después de retirar el oxígeno</h4><div class="matrix-acid-grid">${acids.map(acidStructureCard).join('')}</div></div>
+        <div class="matrix-bond-legend"><span class="matrix-bond-symbol" aria-hidden="true"></span><span><strong>¿Qué significa una barra amarilla?</strong> Es la segunda línea de un doble enlace entre dos carbonos. La línea negra + la línea amarilla forman un enlace <strong>C=C</strong>. Cuando se agrega H₂, la barra amarilla desaparece y queda un enlace sencillo.</span></div>
+        <div><h4>Estructura química antes y después de retirar el oxígeno</h4><div class="matrix-acid-groups">${acidGroups.map(group=>`<section class="matrix-acid-group"><div class="matrix-acid-group-head ${group.kindClass}"><b>${group.title}</b><span>${group.explanation}</span></div><div class="matrix-acid-grid">${acids.filter(acid=>acid.kindClass===group.kindClass).map(acidStructureCard).join('')}</div></section>`).join('')}</div></div>
         <div class="matrix-carbon-note">
           <div class="matrix-carbon-route"><b>Ruta 1 · Se conserva el carbono</b>Si el oxígeno se retira principalmente como agua, un ácido C18 puede convertirse en una parafina C18.</div>
           <div class="matrix-carbon-route"><b>Ruta 2 · Se pierde un carbono</b>Si el oxígeno sale como CO o CO₂, un ácido C18 puede producir una parafina C17. Después, el hidrocracking puede cortar todavía más las cadenas.</div>
@@ -660,9 +680,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v61 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v62 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v61';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v62';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
