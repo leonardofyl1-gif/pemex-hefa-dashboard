@@ -145,11 +145,12 @@
       .matrix-molecule-side{display:grid;align-content:start;gap:6px;padding:9px;border-radius:10px;background:#F8FAFB;min-width:0}
       .matrix-molecule-side.after{background:#EAF7F1}
       .matrix-molecule-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.035em;color:var(--blue-6)}
-      .matrix-chain-svg{width:100%;height:48px;display:block}
+      .matrix-chain-svg{width:100%;height:86px;display:block;overflow:visible}
       .matrix-chain-svg .chain{fill:none;stroke:#1A3A46;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
       .matrix-chain-svg .double{fill:none;stroke:#E29A2D;stroke-width:3;stroke-linecap:round}
       .matrix-chain-svg .oxygen{fill:#B6412E;font:900 12px/1 var(--font-body)}
       .matrix-chain-svg .terminal{fill:#1A3A46;font:800 10px/1 var(--font-body)}
+      .matrix-chain-svg .guide{fill:#63808C;font:700 9px/1 var(--font-body)}
       .matrix-formula-chain{display:flex;align-items:center;flex-wrap:wrap;gap:10px;min-height:48px;padding:7px 0}
       .matrix-formula-token{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:6px 8px;border:1px solid #AFC7D1;border-radius:8px;background:#fff;color:#1A3A46;font:900 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace}
       .matrix-formula-token:not(:last-child)::after{content:'—';position:absolute;left:calc(100% + 2px);color:#63808C;font-weight:900}
@@ -163,6 +164,14 @@
       .matrix-reaction-arrow small{display:block;margin-bottom:6px;padding:8px 6px;border-radius:9px;background:#E7F4F8;font-size:11px;line-height:1.35;color:var(--text-soft)}
       .matrix-reaction-arrow small b{display:block;margin-bottom:3px;color:var(--blue-1)}
       .matrix-acid-meaning{padding:0 11px 11px;font-size:12px;line-height:1.45;color:var(--text-soft)}
+      .matrix-property-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0 11px 9px;padding:8px;border:1px solid #D5E1E6;border-radius:10px;background:#F8FAFB}
+      .matrix-property{display:grid;gap:2px;padding:7px 8px;border-radius:8px;background:#fff;font-size:11px;line-height:1.3;color:var(--text-soft)}
+      .matrix-property b{color:var(--blue-1);font-size:11px}
+      .matrix-property strong{font-size:12px}
+      .matrix-property.high strong{color:#2B6880}.matrix-property.medium strong{color:#8A6619}.matrix-property.low strong{color:#A64B36}
+      .matrix-reading-key{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:11px}
+      .matrix-reading-key span{padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:#F8FAFB;font-size:11px;line-height:1.35;color:var(--text-soft)}
+      .matrix-reading-key b{display:block;color:var(--blue-1);margin-bottom:2px}
       .matrix-carbon-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;background:#FFF9EF;border-color:var(--alm-soft)}
       .matrix-carbon-route{padding:9px;border-radius:9px;background:#fff;font-size:12px;line-height:1.45}
       .matrix-carbon-route b{display:block;color:var(--blue-1);margin-bottom:3px}
@@ -172,7 +181,7 @@
       .matrix-count{font-size:12px;color:var(--text-soft);font-weight:700}
       .ecofining-board .eco-canvas.eco-v55-canvas{min-width:4510px!important}
       .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(11,minmax(410px,1fr))!important}
-      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom,.matrix-t02-intro,.matrix-carbon-note{grid-template-columns:1fr}.matrix-acid-grid{grid-template-columns:1fr}.matrix-profile-guide{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
+      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom,.matrix-t02-intro,.matrix-carbon-note,.matrix-reading-key{grid-template-columns:1fr}.matrix-acid-grid{grid-template-columns:1fr}.matrix-profile-guide{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-acid-visual{grid-template-columns:1fr}.matrix-reaction-arrow{min-height:72px}.matrix-property-box{grid-template-columns:1fr}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
     `;
     document.head.appendChild(style);
   };
@@ -462,12 +471,35 @@
     return card;
   };
 
-  const formulaChain=value=>value.split('–').map((token,index,all)=>{
-    const tokenClass=token.includes('COOH')?'oxygen':token.includes('=')?'double':(index===0||index===all.length-1)?'end':'';
-    return `<span class="matrix-formula-token ${tokenClass}">${token}</span>`;
-  }).join('');
+  const skeletalMolecule=({carbons,doublePositions=[],acid=false,name})=>{
+    const chainCarbons=acid?carbons-1:carbons;
+    const left=26;
+    const right=acid?294:334;
+    const step=(right-left)/(chainCarbons-1);
+    const points=Array.from({length:chainCarbons},(_,index)=>({x:left+(index*step),y:index%2?48:25}));
+    const doubleIndexes=new Set(doublePositions.map(position=>carbons-1-position));
+    const bonds=points.slice(0,-1).map((point,index)=>{
+      const next=points[index+1];
+      const dx=next.x-point.x;
+      const dy=next.y-point.y;
+      const length=Math.hypot(dx,dy);
+      const ox=(-dy/length)*3.2;
+      const oy=(dx/length)*3.2;
+      if(doubleIndexes.has(index)){
+        return `<line class="chain" x1="${(point.x+ox).toFixed(1)}" y1="${(point.y+oy).toFixed(1)}" x2="${(next.x+ox).toFixed(1)}" y2="${(next.y+oy).toFixed(1)}"/><line class="double" x1="${(point.x-ox).toFixed(1)}" y1="${(point.y-oy).toFixed(1)}" x2="${(next.x-ox).toFixed(1)}" y2="${(next.y-oy).toFixed(1)}"/>`;
+      }
+      return `<line class="chain" x1="${point.x.toFixed(1)}" y1="${point.y.toFixed(1)}" x2="${next.x.toFixed(1)}" y2="${next.y.toFixed(1)}"/>`;
+    }).join('');
+    const last=points[points.length-1];
+    const acidEnd=acid?`<line class="chain" x1="${last.x.toFixed(1)}" y1="${last.y.toFixed(1)}" x2="315" y2="36"/><text class="oxygen" x="318" y="40">COOH</text>`:'';
+    const rightTerminal=acid?'':`<text class="terminal" x="326" y="18">CH₃</text>`;
+    const label=acid?'Cada esquina/extremo de la cadena es un carbono; COOH contiene el carbono final.':'Cada esquina o extremo de la cadena representa un carbono.';
+    return `<svg class="matrix-chain-svg" viewBox="0 0 370 82" role="img" aria-label="Estructura de líneas de ${name}: ${carbons} carbonos y ${doublePositions.length} enlaces dobles"><text class="terminal" x="2" y="18">CH₃</text>${bonds}${acidEnd}${rightTerminal}<text class="guide" x="185" y="76" text-anchor="middle">${label}</text></svg>`;
+  };
 
-  const acidStructureCard=({name,code,formula,structure,productStructure,product,kind,kindClass,meaning,doubleBonds=0})=>{
+  const levelClass=value=>value==='Alta'||value==='Alto'?'high':value==='Media'||value==='Medio'?'medium':'low';
+
+  const acidStructureCard=({name,code,formula,structure,productStructure,product,kind,kindClass,meaning,doubleBonds=0,doublePositions=[],melting,oxidativeStability,physicalReading})=>{
     const carbonCount=code.match(/C(\d+):/)?.[1]||'';
     const bondLabel=doubleBonds===0?'ningún doble enlace':doubleBonds===1?'1 doble enlace C=C':`${doubleBonds} dobles enlaces C=C`;
     return `<article class="matrix-acid-card">
@@ -475,17 +507,21 @@
       <div class="matrix-acid-visual">
         <div class="matrix-molecule-side">
           <span class="matrix-molecule-label">Antes · ácido graso</span>
-          <div class="matrix-formula-chain" role="img" aria-label="Estructura condensada de ${name}">${formulaChain(structure)}</div>
+          ${skeletalMolecule({carbons:Number(carbonCount),doublePositions,acid:true,name})}
           <div class="matrix-molecule-summary">${carbonCount} carbonos en total · ${bondLabel} · termina en COOH (parte con oxígeno)</div>
           <code>${structure}</code><code>Fórmula: ${formula}</code>
         </div>
         <div class="matrix-reaction-arrow"><div><small><b>PROCESO HEFA</b><br>Entra H₂<br>Sale O como<br>H₂O / CO / CO₂</small>→</div></div>
         <div class="matrix-molecule-side after">
           <span class="matrix-molecule-label">Después · parafina</span>
-          <div class="matrix-formula-chain" role="img" aria-label="Estructura condensada de ${product}">${formulaChain(productStructure)}</div>
+          ${skeletalMolecule({carbons:Number(carbonCount),name:product})}
           <div class="matrix-molecule-summary">${carbonCount} carbonos en esta ruta · 0 dobles enlaces · 0 oxígenos</div>
           <code>${productStructure}</code><code>${product}</code>
         </div>
+      </div>
+      <div class="matrix-property-box" aria-label="Lectura práctica de ${name}">
+        <div class="matrix-property ${levelClass(melting)}"><b>Punto de fusión relativo</b><strong>${melting}</strong><span>${physicalReading}</span></div>
+        <div class="matrix-property ${levelClass(oxidativeStability)}"><b>Estabilidad oxidativa relativa</b><strong>${oxidativeStability}</strong><span>Más dobles enlaces = mayor facilidad de oxidación.</span></div>
       </div>
       <div class="matrix-acid-meaning">${meaning}</div>
     </article>`;
@@ -493,18 +529,18 @@
 
   const t02LearningCard=()=>{
     const acids=[
-      {name:'Ácido mirístico',code:'C14:0',formula:'C₁₄H₂₈O₂',structure:'CH₃–(CH₂)₁₂–COOH',productStructure:'CH₃–(CH₂)₁₂–CH₃',product:'Tetradecano · C₁₄H₃₀',kind:'Saturado',kindClass:'sat',meaning:'Cadena de 14 carbonos. Es menos abundante, pero su longitud está más cerca del intervalo de hidrocarburos aprovechable para combustible de aviación.'},
-      {name:'Ácido palmítico',code:'C16:0',formula:'C₁₆H₃₂O₂',structure:'CH₃–(CH₂)₁₄–COOH',productStructure:'CH₃–(CH₂)₁₄–CH₃',product:'Hexadecano · C₁₆H₃₄',kind:'Saturado',kindClass:'sat',meaning:'Cadena de 16 carbonos sin dobles enlaces. Aporta una cadena larga convertible y requiere menos hidrógeno para saturación que un ácido C16 insaturado.'},
-      {name:'Ácido palmitoleico',code:'C16:1',formula:'C₁₆H₃₀O₂',structure:'CH₃–(CH₂)₅–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₄–CH₃',product:'Hexadecano · C₁₆H₃₄',kind:'Monoinsaturado',kindClass:'mono',doubleBonds:1,meaning:'También tiene 16 carbonos, pero un doble enlace. Al procesarse, ese doble enlace recibe hidrógeno y desaparece.'},
-      {name:'Ácido esteárico',code:'C18:0',formula:'C₁₈H₃₆O₂',structure:'CH₃–(CH₂)₁₆–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Saturado',kindClass:'sat',meaning:'Es común en sebo bovino. Su cadena C18 es convertible, pero normalmente requiere corte posterior para aumentar la fracción en rango SAF.'},
-      {name:'Ácido oleico',code:'C18:1',formula:'C₁₈H₃₄O₂',structure:'CH₃–(CH₂)₇–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Monoinsaturado',kindClass:'mono',doubleBonds:1,meaning:'Tiene los mismos 18 carbonos que el esteárico, pero un doble enlace. Puede llegar al mismo hidrocarburo después de consumir hidrógeno adicional.'},
-      {name:'Ácido linoleico',code:'C18:2',formula:'C₁₈H₃₂O₂',structure:'CH₃–(CH₂)₄–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:2,meaning:'Conserva 18 carbonos, pero tiene dos dobles enlaces. Es más fluido y más sensible a oxidación; demanda más hidrógeno para saturarse.'},
-      {name:'Ácido linolénico',code:'C18:3',formula:'C₁₈H₃₀O₂',structure:'CH₃–CH₂–CH=CH–CH₂–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:3,meaning:'Tiene tres dobles enlaces. Puede producir la misma cadena C18 saturada, pero requiere todavía más hidrógeno y presenta mayor sensibilidad a oxidación.'}
+      {name:'Ácido mirístico',code:'C14:0',formula:'C₁₄H₂₈O₂',structure:'CH₃–(CH₂)₁₂–COOH',productStructure:'CH₃–(CH₂)₁₂–CH₃',product:'Tetradecano · C₁₄H₃₀',kind:'Saturado',kindClass:'sat',melting:'Medio',oxidativeStability:'Alta',physicalReading:'Tiende a solidificar antes que los insaturados.',meaning:'Cadena de 14 carbonos. Es menos abundante, pero su longitud está más cerca del intervalo de hidrocarburos aprovechable para combustible de aviación.'},
+      {name:'Ácido palmítico',code:'C16:0',formula:'C₁₆H₃₂O₂',structure:'CH₃–(CH₂)₁₄–COOH',productStructure:'CH₃–(CH₂)₁₄–CH₃',product:'Hexadecano · C₁₆H₃₄',kind:'Saturado',kindClass:'sat',melting:'Alto',oxidativeStability:'Alta',physicalReading:'Favorece una grasa más sólida a temperatura ambiente.',meaning:'Cadena de 16 carbonos sin dobles enlaces. Aporta una cadena larga convertible y requiere menos hidrógeno para saturación que un ácido C16 insaturado.'},
+      {name:'Ácido palmitoleico',code:'C16:1',formula:'C₁₆H₃₀O₂',structure:'CH₃–(CH₂)₅–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₄–CH₃',product:'Hexadecano · C₁₆H₃₄',kind:'Monoinsaturado',kindClass:'mono',doubleBonds:1,doublePositions:[9],melting:'Bajo',oxidativeStability:'Media',physicalReading:'El doble enlace dificulta el empaquetamiento y aumenta la fluidez.',meaning:'También tiene 16 carbonos, pero un doble enlace. Al procesarse, ese doble enlace recibe hidrógeno y desaparece.'},
+      {name:'Ácido esteárico',code:'C18:0',formula:'C₁₈H₃₆O₂',structure:'CH₃–(CH₂)₁₆–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Saturado',kindClass:'sat',melting:'Alto',oxidativeStability:'Alta',physicalReading:'Cadena larga y recta: favorece mayor solidez.',meaning:'Es común en sebo bovino. Su cadena C18 es convertible, pero normalmente requiere corte posterior para aumentar la fracción en rango SAF.'},
+      {name:'Ácido oleico',code:'C18:1',formula:'C₁₈H₃₄O₂',structure:'CH₃–(CH₂)₇–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Monoinsaturado',kindClass:'mono',doubleBonds:1,doublePositions:[9],melting:'Bajo',oxidativeStability:'Media',physicalReading:'Su doble enlace hace la cadena menos compacta y más fluida.',meaning:'Tiene los mismos 18 carbonos que el esteárico, pero un doble enlace. Puede llegar al mismo hidrocarburo después de consumir hidrógeno adicional.'},
+      {name:'Ácido linoleico',code:'C18:2',formula:'C₁₈H₃₂O₂',structure:'CH₃–(CH₂)₄–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:2,doublePositions:[9,12],melting:'Bajo',oxidativeStability:'Baja',physicalReading:'Dos dobles enlaces aumentan la fluidez.',meaning:'Conserva 18 carbonos, pero tiene dos dobles enlaces. Es más fluido y más sensible a oxidación; demanda más hidrógeno para saturarse.'},
+      {name:'Ácido linolénico',code:'C18:3',formula:'C₁₈H₃₀O₂',structure:'CH₃–CH₂–CH=CH–CH₂–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:3,doublePositions:[9,12,15],melting:'Bajo',oxidativeStability:'Baja',physicalReading:'Tres dobles enlaces favorecen alta fluidez.',meaning:'Tiene tres dobles enlaces. Puede producir la misma cadena C18 saturada, pero requiere todavía más hidrógeno y presenta mayor sensibilidad a oxidación.'}
     ];
     const acidGroups=[
-      {kindClass:'sat',title:'1 · Saturados',explanation:'0 barras amarillas · no tienen dobles enlaces'},
-      {kindClass:'mono',title:'2 · Monoinsaturados',explanation:'1 barra amarilla · tienen un doble enlace'},
-      {kindClass:'poly',title:'3 · Poliinsaturados',explanation:'2 o 3 barras amarillas · tienen varios dobles enlaces'}
+      {kindClass:'sat',title:'1 · Saturados',explanation:'0 enlaces dobles · cadena más recta'},
+      {kindClass:'mono',title:'2 · Monoinsaturados',explanation:'1 enlace doble C=C'},
+      {kindClass:'poly',title:'3 · Poliinsaturados',explanation:'2 o 3 enlaces dobles C=C'}
     ];
     const card=document.createElement('section');
     card.className='matrix-learning-card';
@@ -523,7 +559,8 @@
             <div class="matrix-profile-species"><b>Grasa aviar</b><span>Más oleico y linoleico; perfil generalmente más insaturado y fluido.</span></div>
           </div>
         </div>
-        <div class="matrix-bond-legend"><span class="matrix-bond-symbol" aria-hidden="true"></span><span><strong>¿Qué significa una barra amarilla?</strong> Es la segunda línea de un doble enlace entre dos carbonos. La línea negra + la línea amarilla forman un enlace <strong>C=C</strong>. Cuando se agrega H₂, la barra amarilla desaparece y queda un enlace sencillo.</span></div>
+        <div class="matrix-bond-legend"><span class="matrix-bond-symbol" aria-hidden="true"></span><span><strong>¿Qué significan las dos líneas?</strong> La línea negra y la línea amarilla, juntas, representan un enlace doble <strong>C=C</strong>. Al agregar H₂ se convierte en enlace sencillo; por eso la parafina de la derecha ya no muestra líneas dobles.</span></div>
+        <div class="matrix-reading-key"><span><b>Esquina o extremo</b>Cada vértice de la figurita representa un átomo de carbono, aunque no aparezca la letra C.</span><span><b>COOH en rojo</b>Es el extremo ácido que contiene oxígeno y se transforma durante HEFA.</span><span><b>Recuadros de propiedades</b>Son comparaciones entre estos ácidos puros; la grasa real debe medirse porque contiene una mezcla.</span></div>
         <div><h4>Estructura química antes y después de retirar el oxígeno</h4><div class="matrix-acid-groups">${acidGroups.map(group=>`<section class="matrix-acid-group"><div class="matrix-acid-group-head ${group.kindClass}"><b>${group.title}</b><span>${group.explanation}</span></div><div class="matrix-acid-grid">${acids.filter(acid=>acid.kindClass===group.kindClass).map(acidStructureCard).join('')}</div></section>`).join('')}</div></div>
         <div class="matrix-carbon-note">
           <div class="matrix-carbon-route"><b>Ruta 1 · Se conserva el carbono</b>Si el oxígeno se retira principalmente como agua, un ácido C18 puede convertirse en una parafina C18.</div>
