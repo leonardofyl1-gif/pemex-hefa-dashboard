@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-04T19:21:11.370617+00:00",
+  "generated_at": "2026-09-04T20:25:00.414153+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -163,7 +163,7 @@
       "name": "matrix-sync-v55.js",
       "technical_type": "JavaScript",
       "extension": "js",
-      "size_bytes": 50810,
+      "size_bytes": 58187,
       "last_modified": null,
       "purpose": "Componentes que construyen el dashboard público vigente.",
       "for_dummies": "Son las piezas de código que hacen funcionar y verse bien el dashboard de procesos.",
@@ -398,7 +398,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 41864,
-      "last_modified": "2026-09-04T18:26:34Z",
+      "last_modified": "2026-09-04T19:21:11Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
