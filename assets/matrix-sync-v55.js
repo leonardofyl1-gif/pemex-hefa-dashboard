@@ -1,4 +1,4 @@
-/* v58 — Comparative Master Matrix + corrected process-step mapping (2026-09-04). */
+/* v59 — Comparative Master Matrix + single-row Ecofining flow (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -81,8 +81,8 @@
       .matrix-detail-grid .matrix-field{margin:0}
       .matrix-group-row td{position:static!important;background:#EAF3F6!important;color:var(--blue-1)!important;font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 12px!important}
       .matrix-count{font-size:12px;color:var(--text-soft);font-weight:700}
-      .ecofining-board .eco-canvas.eco-v55-canvas{min-width:3690px!important}
-      .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(9,minmax(410px,1fr))!important}
+      .ecofining-board .eco-canvas.eco-v55-canvas{min-width:4510px!important}
+      .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(11,minmax(410px,1fr))!important}
       @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
     `;
     document.head.appendChild(style);
@@ -433,12 +433,25 @@
     canvas?.classList.add('eco-v55-canvas');
     strip?.classList.add('eco-v55-strip');
     strip2?.classList.add('eco-v55-strip2');
+    const stepCount=strip?[...strip.children].filter(node=>node.classList.contains('col')).length:0;
+    const stageCount=strip2?[...strip2.children].filter(node=>node.classList.contains('stage')).length:0;
+    if(canvas&&strip&&strip2&&stepCount){
+      const columns=`repeat(${stepCount},minmax(410px,1fr))`;
+      strip.style.setProperty('grid-template-columns',columns,'important');
+      strip2.style.setProperty('grid-template-columns',columns,'important');
+      canvas.style.setProperty('min-width',`${stepCount*410}px`,'important');
+      canvas.dataset.ecoColumnCount=String(stepCount);
+      requestAnimationFrame(()=>{
+        const topTrack=eco.querySelector('.flow-top-scroll-track');
+        if(topTrack) topTrack.style.width=`${canvas.scrollWidth}px`;
+      });
+    }
     const intro=eco.querySelector('.board-head p');
     if(intro) intro.innerHTML='La ruta se lee de izquierda a derecha. <strong>03b</strong> libera comercialmente cada lote en Tula; <strong>03c</strong> permite la mezcla controlada dentro de Tula y exige volver a muestrear el blend; <strong>05b</strong> confirma la aptitud técnica antes del HDO.';
     const blend=[...eco.querySelectorAll('.eco-strip>.col')].find(col=>col.querySelector('.step-no')?.textContent.trim()==='03c');
     const physical=blend?.querySelector('.desc-point');
     if(physical) physical.innerHTML='<b>Proceso físico:</b> Después de liberar cada lote en 03b, grasas renderizadas de distintas especies pueden dosificarse y homogeneizarse <strong>dentro de Tula</strong> en un tanque controlado. Las categorías sanitarias se mantienen segregadas; una mezcla excepcional entre categorías adopta la categoría de mayor riesgo.';
-    return Boolean(step02&&blend);
+    return Boolean(step02&&blend&&stepCount===11&&stageCount===11);
   };
 
   fetch('./assets/matrix-v55.json',{cache:'no-store'})
@@ -462,9 +475,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v58 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v59 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v58';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v59';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })

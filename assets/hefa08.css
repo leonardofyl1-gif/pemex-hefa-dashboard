@@ -9,8 +9,8 @@ section.board:not(.ecofining-board){display:none}
 .checkpoint-chip.technical{background:#F2F9FC;border-color:var(--proc-soft)}
 .checkpoint-chip b{color:var(--blue-1)}
 .eco-scroll{margin-top:14px}
-.eco-canvas{min-width:3690px}
-.eco-strip,.eco-strip2{display:grid;grid-template-columns:repeat(9,minmax(410px,1fr))}
+.eco-canvas{min-width:4510px}
+.eco-strip,.eco-strip2{display:grid;grid-template-columns:repeat(11,minmax(410px,1fr))}
 .eco-strip2{border-top:1px solid var(--line)}
 .checkpoint-col{background:linear-gradient(180deg,var(--surface),#F1FAF5 260%)}
 .commercial-col{box-shadow:inset 0 5px 0 var(--sel)}
@@ -38,4 +38,4 @@ section.board:not(.ecofining-board){display:none}
 .checkpoint-decision b{color:var(--blue-1)}
 .ecofining-board .valchip::before{content:'⏳ '}
 .ecofining-board .foot{border-top:1px solid var(--line);padding-top:16px}
-@media(max-width:900px){.eco-canvas{min-width:3690px}}
+@media(max-width:900px){.eco-canvas{min-width:4510px}}
