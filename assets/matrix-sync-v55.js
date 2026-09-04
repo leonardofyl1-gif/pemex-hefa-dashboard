@@ -1,4 +1,4 @@
-/* v60 — T01 educational dropdown + Comparative Master Matrix (2026-09-04). */
+/* v61 — T01–T02 educational dropdowns + Comparative Master Matrix (2026-09-04). */
 (()=>{
   const PROCESS_FIELD={ecofining:'ecofining',hydroflex:'hydroflex',vegan:'vegan'};
   const GROUPS=[
@@ -111,11 +111,45 @@
       .matrix-equation p,.matrix-decision p{margin:5px 0 0;font-size:11px;line-height:1.45}
       .matrix-decision{background:#FFF9EF;border-color:var(--alm-soft)}
       .matrix-decision strong{color:var(--blue-1)}
+      .matrix-t02-intro{display:grid;grid-template-columns:minmax(250px,.75fr) minmax(430px,1.25fr);gap:10px}
+      .matrix-notation,.matrix-profile-guide,.matrix-carbon-note{border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px 13px}
+      .matrix-notation-code{display:flex;align-items:center;justify-content:center;gap:9px;min-height:76px;border-radius:10px;background:#E7F4F8;color:var(--blue-1);font:900 26px/1 var(--font-display)}
+      .matrix-notation-code span{display:grid;gap:2px;text-align:center;font:800 11px/1.3 var(--font-body);color:var(--text-soft)}
+      .matrix-profile-guide{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+      .matrix-profile-species{padding:9px;border-radius:9px;background:var(--surface-2);font-size:13px;line-height:1.4}
+      .matrix-profile-species b{display:block;color:var(--blue-1);margin-bottom:3px}
+      .matrix-profile-species span{display:block;color:var(--text-soft)}
+      .matrix-acid-grid{display:grid;grid-template-columns:repeat(2,minmax(380px,1fr));gap:9px}
+      .matrix-acid-card{border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden}
+      .matrix-acid-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;background:#F2F7F9;border-bottom:1px solid var(--line)}
+      .matrix-acid-card-head b{color:var(--blue-1);font-size:14px}
+      .matrix-acid-kind{padding:4px 7px;border-radius:999px;font-size:11px;font-weight:900;white-space:nowrap}
+      .matrix-acid-kind.sat{background:#E8F1F6;color:#2B6880}
+      .matrix-acid-kind.mono{background:#EAF7F1;color:#246F58}
+      .matrix-acid-kind.poly{background:#FFF1D9;color:#845611}
+      .matrix-acid-visual{display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr);align-items:stretch;padding:10px;gap:7px}
+      .matrix-molecule-side{display:grid;align-content:start;gap:6px;padding:9px;border-radius:10px;background:#F8FAFB;min-width:0}
+      .matrix-molecule-side.after{background:#EAF7F1}
+      .matrix-molecule-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.035em;color:var(--blue-6)}
+      .matrix-chain-svg{width:100%;height:48px;display:block}
+      .matrix-chain-svg .chain{fill:none;stroke:#1A3A46;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .matrix-chain-svg .double{fill:none;stroke:#E29A2D;stroke-width:3;stroke-linecap:round}
+      .matrix-chain-svg .oxygen{fill:#B6412E;font:900 12px/1 var(--font-body)}
+      .matrix-chain-svg .terminal{fill:#1A3A46;font:800 10px/1 var(--font-body)}
+      .matrix-molecule-side code{display:block;overflow-wrap:anywhere;color:var(--blue-1);font:800 12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace}
+      .matrix-reaction-arrow{display:grid;place-content:center;text-align:center;color:var(--blue-6);font-size:18px;font-weight:900}
+      .matrix-reaction-arrow small{display:block;margin-bottom:3px;font-size:10px;line-height:1.25;color:var(--text-soft)}
+      .matrix-acid-meaning{padding:0 11px 11px;font-size:12px;line-height:1.45;color:var(--text-soft)}
+      .matrix-carbon-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;background:#FFF9EF;border-color:var(--alm-soft)}
+      .matrix-carbon-route{padding:9px;border-radius:9px;background:#fff;font-size:12px;line-height:1.45}
+      .matrix-carbon-route b{display:block;color:var(--blue-1);margin-bottom:3px}
+      .matrix-t02-conclusion{padding:11px 12px;border-radius:12px;background:var(--blue-1);color:#fff;font-size:13px;line-height:1.5}
+      .matrix-t02-conclusion strong{color:#FFE38A}
       .matrix-group-row td{position:static!important;background:#EAF3F6!important;color:var(--blue-1)!important;font-weight:900;text-transform:uppercase;letter-spacing:.04em;padding:8px 12px!important}
       .matrix-count{font-size:12px;color:var(--text-soft);font-weight:700}
       .ecofining-board .eco-canvas.eco-v55-canvas{min-width:4510px!important}
       .ecofining-board .eco-strip.eco-v55-strip,.ecofining-board .eco-strip2.eco-v55-strip2{grid-template-columns:repeat(11,minmax(410px,1fr))!important}
-      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
+      @media(max-width:800px){.matrix-sync-hub{padding:15px}.matrix-sync-group>summary{align-items:flex-start;flex-direction:column}.matrix-sync-group>summary span{text-align:left}.matrix-variable-card>summary{align-items:flex-start;flex-direction:column}.matrix-classification{max-width:100%}.matrix-table-wrap{max-height:none}.matrix-detail-grid{grid-template-columns:1fr}.matrix-lipid-layout,.matrix-learning-bottom,.matrix-t02-intro,.matrix-carbon-note{grid-template-columns:1fr}.matrix-acid-grid{grid-template-columns:1fr}.matrix-profile-guide{grid-template-columns:1fr}.matrix-learning-head{flex-direction:column}.matrix-compare-table th:first-child,.matrix-compare-table td:first-child{position:static}.matrix-compare-table{min-width:860px}}
     `;
     document.head.appendChild(style);
   };
@@ -336,6 +370,7 @@
     const cell=document.createElement('td');
     cell.colSpan=4;
     if(item.id==='T01') cell.appendChild(t01LearningCard());
+    if(item.id==='T02') cell.appendChild(t02LearningCard());
     const grid=document.createElement('div');
     grid.className='matrix-detail-grid';
     [
@@ -400,6 +435,70 @@
           <div class="matrix-equation"><h4>Ejemplo muy simplificado</h4><code>C₁₈H₃₆O₂ + 3 H₂ → C₁₈H₃₈ + 2 H₂O</code><p>Después, una parafina lineal puede convertirse en una parafina ramificada: conserva la fórmula, pero cambia su forma.</p></div>
           <div class="matrix-decision"><h4>¿Qué significa para evaluar a un proveedor?</h4><p><strong>Más contenido lipídico suele significar más material convertible y menos agua o sólidos transportados.</strong> No basta por sí solo para aceptar el lote: también deben revisarse humedad, sólidos, FFA, fósforo, metales, trazabilidad y requisitos regulatorios. La especie animal cambia el perfil de ácidos grasos y propiedades como punto de fusión y viscosidad.</p></div>
         </div>
+      </div>`;
+    return card;
+  };
+
+  const acidStructureCard=({name,code,formula,structure,productStructure,product,kind,kindClass,meaning,doubleBonds=0})=>{
+    const doubleLines=doubleBonds>=1?'<path class="double" d="M72 15 L91 26"/>':'';
+    const secondDouble=doubleBonds>=2?'<path class="double" d="M109 37 L128 26"/>':'';
+    const thirdDouble=doubleBonds>=3?'<path class="double" d="M35 37 L54 26"/>':'';
+    return `<article class="matrix-acid-card">
+      <div class="matrix-acid-card-head"><b>${name} · ${code}</b><span class="matrix-acid-kind ${kindClass}">${kind}</span></div>
+      <div class="matrix-acid-visual">
+        <div class="matrix-molecule-side">
+          <span class="matrix-molecule-label">Antes · ácido graso</span>
+          <svg class="matrix-chain-svg" viewBox="0 0 190 52" role="img" aria-label="Estructura simplificada de ${name}">
+            <text class="terminal" x="1" y="31">CH₃</text><polyline class="chain" points="25,27 44,15 63,37 82,15 101,37 120,15 139,37 154,27"/>${doubleLines}${secondDouble}${thirdDouble}<text class="oxygen" x="158" y="31">COOH</text>
+          </svg>
+          <code>${structure}</code><code>Fórmula: ${formula}</code>
+        </div>
+        <div class="matrix-reaction-arrow"><div><small>+ H₂<br>− oxígeno</small>→</div></div>
+        <div class="matrix-molecule-side after">
+          <span class="matrix-molecule-label">Después · parafina</span>
+          <svg class="matrix-chain-svg" viewBox="0 0 190 52" role="img" aria-label="Estructura simplificada de ${product}">
+            <text class="terminal" x="1" y="31">CH₃</text><polyline class="chain" points="25,27 44,15 63,37 82,15 101,37 120,15 139,37 158,27"/><text class="terminal" x="162" y="31">CH₃</text>
+          </svg>
+          <code>${productStructure}</code><code>${product}</code>
+        </div>
+      </div>
+      <div class="matrix-acid-meaning">${meaning}</div>
+    </article>`;
+  };
+
+  const t02LearningCard=()=>{
+    const acids=[
+      {name:'Ácido mirístico',code:'C14:0',formula:'C₁₄H₂₈O₂',structure:'CH₃–(CH₂)₁₂–COOH',productStructure:'CH₃–(CH₂)₁₂–CH₃',product:'Tetradecano · C₁₄H₃₀',kind:'Saturado',kindClass:'sat',meaning:'Cadena de 14 carbonos. Es menos abundante, pero su longitud está más cerca del intervalo de hidrocarburos aprovechable para combustible de aviación.'},
+      {name:'Ácido palmítico',code:'C16:0',formula:'C₁₆H₃₂O₂',structure:'CH₃–(CH₂)₁₄–COOH',productStructure:'CH₃–(CH₂)₁₄–CH₃',product:'Hexadecano · C₁₆H₃₄',kind:'Saturado',kindClass:'sat',meaning:'Cadena de 16 carbonos sin dobles enlaces. Aporta una cadena larga convertible y requiere menos hidrógeno para saturación que un ácido C16 insaturado.'},
+      {name:'Ácido palmitoleico',code:'C16:1',formula:'C₁₆H₃₀O₂',structure:'CH₃–(CH₂)₅–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₄–CH₃',product:'Hexadecano · C₁₆H₃₄',kind:'Monoinsaturado',kindClass:'mono',doubleBonds:1,meaning:'También tiene 16 carbonos, pero un doble enlace. Al procesarse, ese doble enlace recibe hidrógeno y desaparece.'},
+      {name:'Ácido esteárico',code:'C18:0',formula:'C₁₈H₃₆O₂',structure:'CH₃–(CH₂)₁₆–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Saturado',kindClass:'sat',meaning:'Es común en sebo bovino. Su cadena C18 es convertible, pero normalmente requiere corte posterior para aumentar la fracción en rango SAF.'},
+      {name:'Ácido oleico',code:'C18:1',formula:'C₁₈H₃₄O₂',structure:'CH₃–(CH₂)₇–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Monoinsaturado',kindClass:'mono',doubleBonds:1,meaning:'Tiene los mismos 18 carbonos que el esteárico, pero un doble enlace. Puede llegar al mismo hidrocarburo después de consumir hidrógeno adicional.'},
+      {name:'Ácido linoleico',code:'C18:2',formula:'C₁₈H₃₂O₂',structure:'CH₃–(CH₂)₄–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:2,meaning:'Conserva 18 carbonos, pero tiene dos dobles enlaces. Es más fluido y más sensible a oxidación; demanda más hidrógeno para saturarse.'},
+      {name:'Ácido linolénico',code:'C18:3',formula:'C₁₈H₃₀O₂',structure:'CH₃–CH₂–CH=CH–CH₂–CH=CH–CH₂–CH=CH–(CH₂)₇–COOH',productStructure:'CH₃–(CH₂)₁₆–CH₃',product:'Octadecano · C₁₈H₃₈',kind:'Poliinsaturado',kindClass:'poly',doubleBonds:3,meaning:'Tiene tres dobles enlaces. Puede producir la misma cadena C18 saturada, pero requiere todavía más hidrógeno y presenta mayor sensibilidad a oxidación.'}
+    ];
+    const card=document.createElement('section');
+    card.className='matrix-learning-card';
+    card.setAttribute('aria-label','Explicación visual del perfil de ácidos grasos y su conversión en HEFA');
+    card.innerHTML=`
+      <div class="matrix-learning-head">
+        <div><h3>T02 en sencillo · Qué cadenas de carbono trae la grasa</h3><p>El perfil de ácidos grasos indica <strong>cuántos carbonos tiene cada cadena y cuántos dobles enlaces contiene</strong>. No mide solamente “cuánto carbono” existe: muestra cómo está organizado y permite anticipar consumo de hidrógeno, comportamiento físico y distribución de productos.</p></div>
+        <span class="matrix-learning-chip">Antes → después</span>
+      </div>
+      <div class="matrix-learning-body">
+        <div class="matrix-t02-intro">
+          <div class="matrix-notation"><h4>Cómo leer C18:2</h4><div class="matrix-notation-code">C18:2 <span><b>18</b>átomos de carbono</span><span><b>2</b>dobles enlaces</span></div></div>
+          <div class="matrix-profile-guide">
+            <div class="matrix-profile-species"><b>Sebo bovino</b><span>Más palmítico y esteárico; perfil generalmente más saturado y sólido.</span></div>
+            <div class="matrix-profile-species"><b>Grasa porcina</b><span>Perfil intermedio; suele destacar el ácido oleico.</span></div>
+            <div class="matrix-profile-species"><b>Grasa aviar</b><span>Más oleico y linoleico; perfil generalmente más insaturado y fluido.</span></div>
+          </div>
+        </div>
+        <div><h4>Estructura química antes y después de retirar el oxígeno</h4><div class="matrix-acid-grid">${acids.map(acidStructureCard).join('')}</div></div>
+        <div class="matrix-carbon-note">
+          <div class="matrix-carbon-route"><b>Ruta 1 · Se conserva el carbono</b>Si el oxígeno se retira principalmente como agua, un ácido C18 puede convertirse en una parafina C18.</div>
+          <div class="matrix-carbon-route"><b>Ruta 2 · Se pierde un carbono</b>Si el oxígeno sale como CO o CO₂, un ácido C18 puede producir una parafina C17. Después, el hidrocracking puede cortar todavía más las cadenas.</div>
+        </div>
+        <div class="matrix-t02-conclusion"><strong>Para evaluar al proveedor:</strong> solicitar el porcentaje de C14:0, C16:0, C16:1, C18:0, C18:1, C18:2, C18:3 y el total de saturados/insaturados. Un perfil alto en C16–C18 aporta cadenas convertibles, pero la insaturación cambia el consumo de H₂, la oxidación y el manejo. T02 sirve para caracterizar y diseñar mezclas; no debe convertirse en descarte automático sin una ventana aprobada por el licenciador.</div>
       </div>`;
     return card;
   };
@@ -561,9 +660,9 @@
           }
         });
         const mappedProcesses=updateComparisonPlacements(matrix,byId);
-        document.title='Feedstock Process Dashboard BIARAI v60 — Matriz comparativa';
+        document.title='Feedstock Process Dashboard BIARAI v61 — Matriz comparativa';
         const eyebrow=document.querySelector('.eyebrow');
-        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v60';
+        if(eyebrow) eyebrow.textContent='Criterios técnicos, logísticos y regulatorios · v61';
         if((hubReady&&sequenceReady&&processCount===3&&mappedProcesses===3)||attempts>=200) clearInterval(timer);
       },150);
     })
