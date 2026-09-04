@@ -24,7 +24,7 @@
     html=html.replace('</style>',css+'\n</style>');
     const closing='\n</div>\n</div>\n</body>';
     if(!html.includes(closing)) throw new Error('No se encontró el punto de inserción del bloque Ecofining.');
-    html=html.replace(closing,'\n'+stage+'\n<script src="./assets/dashboard-core.js?v=65"><\/script>\n<script src="./assets/dashboard-content.js?v=71"><\/script>\n<script src="./assets/dashboard-priorities.js?v=65"><\/script>\n<script src="./assets/matrix-sync-v55.js?v=65"><\/script>\n\n</div>\n</div>\n</body>');
+    html=html.replace(closing,'\n'+stage+'\n<script src="./assets/dashboard-core.js?v=65"><\/script>\n<script src="./assets/dashboard-content.js?v=72"><\/script>\n<script src="./assets/dashboard-priorities.js?v=65"><\/script>\n<script src="./assets/matrix-sync-v55.js?v=65"><\/script>\n\n</div>\n</div>\n</body>');
 
     const controlIaButton=`<a href="./control-ia/" title="Abrir inventario y control del proyecto" style="position:fixed;right:20px;top:18px;z-index:99999;display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:999px;background:#263f64;color:#fff;text-decoration:none;font:700 13px/1 system-ui,-apple-system,Segoe UI,sans-serif;box-shadow:0 5px 16px rgba(25,46,73,.20);border:1px solid rgba(255,255,255,.25)">🧭 Control IA</a>`;
     html=html.replace('</body>',controlIaButton+'\n</body>');
