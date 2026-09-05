@@ -622,3 +622,106 @@ section.board:not(.ecofining-board){display:none}
   color:#B04A38;
   font-weight:850;
 }
+
+
+/* v74 · Explicación visual de Separation y Fractionation */
+.separation-stage{background:linear-gradient(180deg,#F7FAFD,#F0F5F8)}
+.separation-summary{display:grid;gap:9px}
+.separation-summary-action{
+  background:linear-gradient(135deg,#EEF7FF,#F8FBFF);
+  border-color:#C9DFF0;
+  border-left:4px solid #397CC1;
+}
+.separation-summary-action .correction-flow-icon{
+  background:#DCEBFA;
+  color:#28669F;
+}
+.separation-card.separation-input{background:#FFF9E9;border-left-color:#D49A20}
+.separation-card.separation-problem{background:#FFF1EE;border-left-color:#D45745}
+.separation-card.separation-steps{background:#F2F8FC;border-left-color:#3B82A0}
+.separation-card.separation-tower-card{background:#F5F1FF;border-left-color:#8B5CF6}
+.separation-card.separation-physical{background:#EEF7FF;border-left-color:#397CC1}
+.separation-card.separation-output{background:#F1FAF5;border-left-color:#15936B}
+.separation-card.separation-example{background:#FFF9E9;border-left-color:#D49A20}
+.separation-card.separation-certify{background:#F0F9F8;border-left-color:#0F8A83}
+.separation-two-step{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.separation-step-box{
+  display:grid;
+  gap:4px;
+  padding:7px 8px;
+  border:1px solid #D5E2E7;
+  border-radius:8px;
+  background:#fff;
+  color:var(--text-soft);
+  font-size:9px;
+  line-height:1.35;
+}
+.separation-step-box b{color:var(--blue-1)}
+.separation-tower{
+  display:grid;
+  gap:2px;
+  padding:8px 10px;
+  border:1px solid #D5E2E7;
+  border-radius:10px;
+  background:linear-gradient(180deg,#F5FBFF,#FFF8ED);
+  text-align:center;
+}
+.separation-tower .tower-direction{
+  color:#6B7F88;
+  font-size:8px;
+  font-weight:850;
+}
+.separation-tower .tower-cut{
+  padding:5px 7px;
+  border:1px solid rgba(90,117,128,.18);
+  border-radius:7px;
+  background:rgba(255,255,255,.82);
+  color:var(--blue-1);
+  font-size:9px;
+  font-weight:900;
+}
+.separation-product-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.separation-product{
+  display:grid;
+  gap:3px;
+  padding:7px 8px;
+  border:1px solid #CFE2DA;
+  border-radius:8px;
+  background:#fff;
+  color:var(--text-soft);
+  font-size:9px;
+  line-height:1.35;
+}
+.separation-product b{color:#0D674C}
+.separation-carbon-map{
+  display:grid;
+  gap:5px;
+  padding:8px;
+  border:1px dashed #C7D9E0;
+  border-radius:9px;
+  background:#fff;
+  color:var(--blue-1);
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:9px;
+  line-height:1.4;
+}
+.separation-carbon-row{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:6px;
+  align-items:center;
+}
+.separation-carbon-row b{
+  padding:3px 5px;
+  border-radius:6px;
+  background:#EEF4F7;
+  text-align:center;
+}
