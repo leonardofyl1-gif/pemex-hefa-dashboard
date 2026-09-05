@@ -699,14 +699,17 @@
     canvas?.classList.add('eco-v55-canvas');
     strip?.classList.add('eco-v55-strip');
     strip2?.classList.add('eco-v55-strip2');
+    const externalPretreatment=eco.querySelector('.eco-external-pretreatment-group');
     const stepCount=strip?[...strip.children].filter(node=>node.classList.contains('col')).length:0;
     const stageCount=strip2?[...strip2.children].filter(node=>node.classList.contains('stage')).length:0;
     if(canvas&&strip&&strip2&&stepCount){
-      const columns=`repeat(${stepCount},minmax(410px,1fr))`;
+      const columns=externalPretreatment
+        ? 'repeat(15,minmax(410px,1fr))'
+        : `repeat(${stepCount},minmax(410px,1fr))`;
       strip.style.setProperty('grid-template-columns',columns,'important');
       strip2.style.setProperty('grid-template-columns',columns,'important');
-      canvas.style.setProperty('min-width',`${stepCount*410}px`,'important');
-      canvas.dataset.ecoColumnCount=String(stepCount);
+      canvas.style.setProperty('min-width',externalPretreatment?'6150px':`${stepCount*410}px`,'important');
+      canvas.dataset.ecoColumnCount=externalPretreatment?'15':String(stepCount);
       requestAnimationFrame(()=>{
         const topTrack=eco.querySelector('.flow-top-scroll-track');
         if(topTrack) topTrack.style.width=`${canvas.scrollWidth}px`;
