@@ -975,6 +975,10 @@
     canvas.classList.add('eco-external-v76-canvas');
     strip.classList.add('eco-external-v76-strip');
     strip2.classList.add('eco-external-v76-strip2');
+    /* Legacy v55 adds inline sizing; override it only after this optional group exists. */
+    canvas.style.setProperty('min-width','6150px','important');
+    strip.style.setProperty('grid-template-columns','repeat(15,minmax(410px,1fr))','important');
+    strip2.style.setProperty('grid-template-columns','repeat(15,minmax(410px,1fr))','important');
     eco.dataset.externalPretreatmentV76='true';
     requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
     return true;
