@@ -725,3 +725,119 @@ section.board:not(.ecofining-board){display:none}
   background:#EEF4F7;
   text-align:center;
 }
+
+
+/* v75 · Normalización tipográfica global del dashboard (solo tamaños) */
+.app,
+.app *{font-size:13.4px!important}
+
+/* 18 px · títulos principales y etapas */
+.app h1,
+.app h2,
+.app h3,
+.app .process-placeholder-card h2{font-size:18px!important}
+
+/* 15 px · subtítulos y encabezados internos */
+.app h4,
+.app .process-tab,
+.app .panel-title,
+.app .macro-subtitle,
+.app .desc-point b,
+.app .var > strong,
+.app .correction-card-title,
+.app .hdo-card-title,
+.app .hdo-stream b,
+.app .isom-distinction b,
+.app .isom-property b,
+.app .isom-variable b,
+.app .separation-step-box b,
+.app .separation-product b,
+.app .separation-tower .tower-cut,
+.app .checkpoint-decision b,
+.app .explainer-detail summary,
+.app .explainer-section h4,
+.app .guard-monitor-card strong{font-size:15px!important}
+
+/* 13.4 px · texto principal y explicativo */
+.app .subtitle,
+.app .board-head p,
+.app .checkpoint-chip,
+.app .desc,
+.app .desc-point,
+.app .stage-explain,
+.app .var,
+.app .checkpoint-decision,
+.app .technology-description,
+.app .explainer-section p,
+.app .explainer-section li,
+.app .explainer-note,
+.app .explainer-memory,
+.app .explainer-source,
+.app .hdo-card,
+.app .hdo-callout,
+.app .hdo-stream,
+.app .isom-property,
+.app .isom-variable,
+.app .isom-severity-map,
+.app .separation-step-box,
+.app .separation-product,
+.app .process-additive,
+.app .guard-monitor-card{font-size:13.4px!important}
+
+/* 12 px · texto de apoyo, notas, etiquetas y chips */
+.app .logo-word,
+.app .eyebrow,
+.app .process-kicker,
+.app .step-no,
+.app .parent-no,
+.app .tag,
+.app .type-tag,
+.app .checkpoint-chip b,
+.app .technology-description-label,
+.app .tab-no,
+.app .valchip,
+.app .refchip,
+.app .nogochip,
+.app .hydro-priority-chip,
+.app .vegan-priority-chip,
+.app .chem-chip,
+.app .chem-chip b,
+.app .molecule-card,
+.app .hdo-tag,
+.app .hdo-number,
+.app .hdo-caption,
+.app .hdo-equation,
+.app .hdo-arrow,
+.app .hdo-molecule-line,
+.app .hdo-next-flow,
+.app .hdo-key,
+.app .mini-key-title,
+.app .mini-key-item,
+.app .correction-destination,
+.app .explainer-source,
+.app .foot,
+.app .rangerow,
+.app .monitor-var,
+.app .process-additive,
+.app .isom-packing-box code,
+.app .isom-branch,
+.app .separation-tower .tower-direction,
+.app .separation-carbon-map,
+.app .separation-carbon-row b,
+.app .blend-matrix-heading,
+.app .blend-matrix-table,
+.app .blend-formula,
+.app .blend-source,
+.app .pending-tab{font-size:12px!important}
+
+/* Keep the expanded guided-explanation headings on the 15 px tier. */
+.app .explainer-section h4{font-size:15px!important}
+
+/* Support-size decorative controls inherit the same scale. */
+.app .explainer-detail summary::before,
+.app .explainer-detail summary::after,
+.app .correction-flow-icon,
+.app .hdo-element,
+.app .hdo-arrow,
+.app .isom-branch,
+.app .separation-tower .tower-direction{font-size:12px!important}
