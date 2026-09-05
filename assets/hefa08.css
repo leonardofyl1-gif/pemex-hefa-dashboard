@@ -841,3 +841,53 @@ section.board:not(.ecofining-board){display:none}
 .app .hdo-arrow,
 .app .isom-branch,
 .app .separation-tower .tower-direction{font-size:12px!important}
+
+
+/* v76 · Ecofining optional external pretreatment layout */
+.ecofining-board .eco-external-pretreatment-group{
+  grid-column:span 4;
+  display:grid;
+  grid-template-rows:auto 1fr;
+  background:linear-gradient(180deg,var(--surface),var(--pre-soft) 260%);
+  box-shadow:inset 0 4px 0 var(--pre);
+  border-right:1px solid var(--line)
+}
+.eco-external-pretreatment-parent{
+  padding:14px 16px 13px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(90deg,var(--surface),var(--pre-soft),var(--surface))
+}
+.eco-external-pretreatment-parent .parent-head{display:flex;align-items:flex-start;gap:12px}
+.eco-external-pretreatment-parent h3{
+  font-family:var(--font-display);
+  color:var(--blue-1);
+  margin:2px 0 6px
+}
+.eco-external-pretreatment-parent p{
+  color:var(--text-soft);
+  margin:0;
+  max-width:120ch;
+  line-height:1.45
+}
+.eco-external-pretreatment-subgrid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(410px,1fr))
+}
+.eco-external-pretreatment-subgrid .col{
+  min-width:0;
+  background:linear-gradient(180deg,var(--surface),var(--pre-soft) 310%);
+  box-shadow:inset 0 4px 0 var(--pre)
+}
+.eco-external-pretreatment-subgrid .col:not(:last-child){border-right:1px solid var(--line)}
+.eco-external-pretreatment-stage{
+  grid-column:span 4;
+  background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%)
+}
+.ecofining-board .eco-canvas.eco-external-v76-canvas{min-width:6150px!important}
+.ecofining-board .eco-strip.eco-external-v76-strip,
+.ecofining-board .eco-strip2.eco-external-v76-strip2{
+  grid-template-columns:repeat(15,minmax(410px,1fr))!important
+}
+@media(max-width:900px){
+  .ecofining-board .eco-canvas.eco-external-v76-canvas{min-width:6150px!important}
+}
