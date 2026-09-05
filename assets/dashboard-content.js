@@ -892,3 +892,96 @@
 
   eco.dataset.separationVisualV74='true';
 })();
+
+
+/* v76 · Ecofining external pretreatment as an explicit alternative configuration */
+(()=>{
+  const run=()=>{
+    const eco=document.querySelector('.ecofining-board');
+    const strip=eco?.querySelector('.eco-strip');
+    const strip2=eco?.querySelector('.eco-strip2');
+    const canvas=eco?.querySelector('.eco-canvas');
+    if(!eco||!strip||!strip2||!canvas) return false;
+    if(eco.dataset.externalPretreatmentV76==='true') return true;
+
+    const step02=[...strip.children].find(el=>el.querySelector?.('.step-no')?.textContent.trim()==='02');
+    const lower02=[...strip2.children][1];
+    if(!step02||!lower02) return false;
+
+    const group=document.createElement('div');
+    group.className='eco-external-pretreatment-group';
+    group.innerHTML=`
+      <div class="eco-external-pretreatment-parent">
+        <div class="parent-head">
+          <span class="parent-no">02A</span>
+          <div>
+            <h3>Pretratamiento HVO/HEFA externo (configuración opcional)</h3>
+            <p>Si el proyecto define que parte del acondicionamiento se realiza antes de Tula, este tren puede incluir degumming, bleaching, secado y filtración de pulido. <strong>No se suma a 04–05:</strong> si se ejecuta aquí, esas operaciones deben considerarse cubiertas y la ubicación final debe confirmarse con la ingeniería.</p>
+          </div>
+        </div>
+      </div>
+      <div class="eco-external-pretreatment-subgrid">
+        <article class="col type-pre">
+          <div class="macro-subtitle">02A · Pretratamiento externo</div>
+          <div class="step-no">02A.1</div>
+          <h3>Degumming (desgomado)</h3>
+          <div class="desc dual-desc">
+            <div class="desc-point"><b>Proceso físico:</b> La grasa se mezcla con agua y/o ácido y después pasa por separación o centrifugación para retirar una fase que concentra gomas y fosfolípidos.</div>
+            <div class="desc-point"><b>Proceso químico:</b> Los fosfolípidos se hidratan o acondicionan para facilitar su separación, reduciendo gomas, fosfolípidos y parte del fósforo.</div>
+          </div>
+          <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento externo · 1/4</span></div>
+        </article>
+        <article class="col type-pre">
+          <div class="macro-subtitle">02A · Pretratamiento externo</div>
+          <div class="step-no">02A.2</div>
+          <h3>Bleaching (blanqueo)</h3>
+          <div class="desc dual-desc">
+            <div class="desc-point"><b>Proceso físico:</b> La grasa entra en contacto con tierras o arcillas activadas; después el adsorbente cargado de contaminantes se retira mediante filtración.</div>
+            <div class="desc-point"><b>Proceso químico:</b> Predomina la adsorción de fósforo residual, metales y otros contaminantes sobre la superficie del adsorbente.</div>
+          </div>
+          <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento externo · 2/4</span></div>
+        </article>
+        <article class="col type-pre">
+          <div class="macro-subtitle">02A · Pretratamiento externo</div>
+          <div class="step-no">02A.3</div>
+          <h3>Drying (secado)</h3>
+          <div class="desc dual-desc">
+            <div class="desc-point"><b>Proceso físico:</b> Se reduce la humedad residual mediante temperatura, vacío u otra configuración de ingeniería.</div>
+            <div class="desc-point"><b>Proceso químico:</b> No se busca una reacción; el objetivo es retirar agua y entregar una corriente más seca y estable.</div>
+          </div>
+          <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento externo · 3/4</span></div>
+        </article>
+        <article class="col type-pre">
+          <div class="macro-subtitle">02A · Pretratamiento externo</div>
+          <div class="step-no">02A.4</div>
+          <h3>Polishing filtration (filtración de pulido)</h3>
+          <div class="desc dual-desc">
+            <div class="desc-point"><b>Proceso físico:</b> El feedstock atraviesa una filtración fina final para retirar partículas pequeñas y finos residuales.</div>
+            <div class="desc-point"><b>Proceso químico:</b> No se busca una reacción; la función es física y consiste en reducir los sólidos residuales.</div>
+          </div>
+          <div class="type-tags"><span class="type-tag pre"><i></i>Pretratamiento externo · 4/4</span></div>
+        </article>
+      </div>`;
+    step02.insertAdjacentElement('afterend',group);
+
+    const lower=document.createElement('section');
+    lower.className='stage muted-stage eco-external-pretreatment-stage';
+    lower.innerHTML=`
+      <div class="panel-title">02A · Punto de control del pretratamiento externo</div>
+      <div class="stage-explain">Esta es una <strong>configuración alternativa</strong>: si el degumming y el bleaching se realizan antes de Tula, no deben repetirse como una segunda operación en 04–05. La ubicación, el alcance y la responsabilidad operativa deben confirmarse con la ingeniería del proyecto.</div>
+    `;
+    lower02.insertAdjacentElement('afterend',lower);
+
+    canvas.classList.add('eco-external-v76-canvas');
+    strip.classList.add('eco-external-v76-strip');
+    strip2.classList.add('eco-external-v76-strip2');
+    eco.dataset.externalPretreatmentV76='true';
+    requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+    return true;
+  };
+  let attempts=0;
+  const timer=setInterval(()=>{
+    attempts+=1;
+    if(run()||attempts>=120) clearInterval(timer);
+  },100);
+})();
