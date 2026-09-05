@@ -562,3 +562,63 @@ section.board:not(.ecofining-board){display:none}
   background:#fff;
 }
 .isom-distinction b{display:block;margin-bottom:3px;color:var(--blue-1)}
+
+
+/* v73 · Propiedades SAF y variables operativas de Stage 2 */
+.isom-saf-properties{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.isom-property{
+  display:grid;
+  gap:3px;
+  padding:7px 8px;
+  border:1px solid #D5E2E7;
+  border-radius:8px;
+  background:#fff;
+  color:var(--text-soft);
+  font-size:9px;
+  line-height:1.35;
+}
+.isom-property b{color:var(--blue-1);font-size:9px}
+.isom-property.cold{border-left:3px solid #3B82F6}
+.isom-property.flow{border-left:3px solid #0F8A83}
+.isom-property.range{border-left:3px solid #8B5CF6}
+.isom-property.density{border-left:3px solid #D49A20}
+.isom-variable-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+}
+.isom-variable{
+  display:grid;
+  gap:3px;
+  padding:7px 8px;
+  border:1px solid #D5E2E7;
+  border-radius:8px;
+  background:#fff;
+  color:var(--text-soft);
+  font-size:9px;
+  line-height:1.35;
+}
+.isom-variable b{color:var(--blue-1);font-size:9px}
+.isom-severity-map{
+  display:grid;
+  gap:4px;
+  padding:8px;
+  border:1px dashed #C7D9E0;
+  border-radius:9px;
+  background:#fff;
+  color:var(--blue-1);
+  font-size:9px;
+  line-height:1.35;
+  text-align:center;
+}
+.isom-severity-map .main{
+  font-weight:900;
+}
+.isom-severity-map .tradeoff{
+  color:#B04A38;
+  font-weight:850;
+}
