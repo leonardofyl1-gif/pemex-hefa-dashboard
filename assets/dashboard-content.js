@@ -902,7 +902,12 @@
     const strip2=eco?.querySelector('.eco-strip2');
     const canvas=eco?.querySelector('.eco-canvas');
     if(!eco||!strip||!strip2||!canvas) return false;
-    if(eco.dataset.externalPretreatmentV76==='true') return true;
+    if(eco.dataset.externalPretreatmentV76==='true'){
+      canvas.style.setProperty('min-width','6150px','important');
+      strip.style.setProperty('grid-template-columns','repeat(15,minmax(410px,1fr))','important');
+      strip2.style.setProperty('grid-template-columns','repeat(15,minmax(410px,1fr))','important');
+      return true;
+    }
 
     const step02=[...strip.children].find(el=>el.querySelector?.('.step-no')?.textContent.trim()==='02');
     const lower02=[...strip2.children][1];
@@ -984,8 +989,14 @@
     return true;
   };
   let attempts=0;
+  let appliedTicks=0;
   const timer=setInterval(()=>{
     attempts+=1;
-    if(run()||attempts>=120) clearInterval(timer);
+    const done=run();
+    if(done){
+      appliedTicks+=1;
+      /* Keep the explicit 15-column sizing after legacy scripts finish. */
+      if(appliedTicks>=200||attempts>=240) clearInterval(timer);
+    }else if(attempts>=240) clearInterval(timer);
   },100);
 })();
