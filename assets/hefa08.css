@@ -891,3 +891,11 @@ section.board:not(.ecofining-board){display:none}
 @media(max-width:900px){
   .ecofining-board .eco-canvas.eco-external-v76-canvas{min-width:6150px!important}
 }
+
+
+/* v76b · Ensure the optional group wins over legacy Ecofining sizing hooks */
+.ecofining-board .eco-canvas.eco-v55-canvas.eco-external-v76-canvas{min-width:6150px!important}
+.ecofining-board .eco-strip.eco-v55-strip.eco-external-v76-strip,
+.ecofining-board .eco-strip2.eco-v55-strip2.eco-external-v76-strip2{
+  grid-template-columns:repeat(15,minmax(410px,1fr))!important
+}
