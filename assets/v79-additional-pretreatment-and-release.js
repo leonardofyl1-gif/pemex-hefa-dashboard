@@ -1,12 +1,39 @@
-/* v80 · Tratamientos adicionales compactos + liberación técnica antes de envío a Tula */
+/* v81 · Tratamientos adicionales compactos + liberación técnica + layout horizontal robusto */
 (()=>{
+  const spanOf=(el)=>{
+    try{
+      const cs=getComputedStyle(el);
+      const raw=`${cs.gridColumn} ${cs.gridColumnEnd} ${el.style.gridColumn||''}`;
+      const m=raw.match(/span\s+(\d+)/i);
+      return m ? Number(m[1]) : 1;
+    }catch(_){return 1;}
+  };
+
+  const syncLayout=(eco,strip,strip2,canvas)=>{
+    const topUnits=[...strip.children].reduce((sum,el)=>sum+spanOf(el),0);
+    const lowerUnits=[...strip2.children].reduce((sum,el)=>sum+spanOf(el),0);
+    const units=Math.max(topUnits,lowerUnits,19);
+    const template=`repeat(${units},minmax(410px,1fr))`;
+
+    strip.style.setProperty('grid-template-columns',template,'important');
+    strip2.style.setProperty('grid-template-columns',template,'important');
+    strip.style.setProperty('grid-auto-flow','row','important');
+    strip2.style.setProperty('grid-auto-flow','row','important');
+    canvas.style.setProperty('min-width',`${units*410}px`,'important');
+    eco.dataset.ecoGridUnits=String(units);
+  };
+
   const run=()=>{
     const eco=document.querySelector('.ecofining-board');
     const strip=eco?.querySelector('.eco-strip');
     const strip2=eco?.querySelector('.eco-strip2');
     const canvas=eco?.querySelector('.eco-canvas');
     if(!eco||!strip||!strip2||!canvas) return false;
-    if(eco.dataset.additionalPretreatmentV79==='true') return true;
+
+    if(eco.dataset.additionalPretreatmentV79==='true'){
+      syncLayout(eco,strip,strip2,canvas);
+      return true;
+    }
 
     const externalGroup=strip.querySelector('.eco-external-pretreatment-group');
     const lowerExternal=strip2.querySelector('.eco-external-pretreatment-stage');
@@ -104,12 +131,17 @@
       <div class="checkpoint-decision"><b>Variables por validar:</b> identificar cuáles se miden para liberar el producto después del pretratamiento, quién certifica el lote y cuáles deben volver a verificarse en la recepción de Tula.</div>`;
     additionalStage.insertAdjacentElement('afterend',releaseStage);
 
-    /* v76 usa 15 columnas. Se agregan 02A.5 y 02B como dos columnas adicionales. */
-    canvas.style.setProperty('min-width','6970px','important');
-    strip.style.setProperty('grid-template-columns','repeat(17,minmax(410px,1fr))','important');
-    strip2.style.setProperty('grid-template-columns','repeat(17,minmax(410px,1fr))','important');
-
     eco.dataset.additionalPretreatmentV79='true';
+
+    const refresh=()=>syncLayout(eco,strip,strip2,canvas);
+    refresh();
+    [0,50,150,350,800,1500].forEach(ms=>setTimeout(refresh,ms));
+
+    const observer=new MutationObserver(()=>requestAnimationFrame(refresh));
+    observer.observe(strip,{childList:true});
+    observer.observe(strip2,{childList:true});
+
+    requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
     return true;
   };
 
