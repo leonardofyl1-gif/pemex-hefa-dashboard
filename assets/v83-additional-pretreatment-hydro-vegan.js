@@ -1,4 +1,4 @@
-/* v83 · Tratamientos adicionales según feedstock en HydroFlex y Vegan + layout horizontal robusto */
+/* v84 · Tratamientos adicionales según feedstock en HydroFlex y Vegan + alineación 4+1 correcta */
 (()=>{
   const TRACK=410;
 
@@ -40,9 +40,12 @@
   };
 
   const installStyles=()=>{
-    if(document.getElementById('v83-additional-pretreatment-style')) return;
+    if(document.getElementById('v84-additional-pretreatment-style')) return;
+    const old=document.getElementById('v83-additional-pretreatment-style');
+    if(old) old.remove();
+
     const style=document.createElement('style');
-    style.id='v83-additional-pretreatment-style';
+    style.id='v84-additional-pretreatment-style';
     style.textContent=`
       .hydroflex-board .feedstock-extra-treatment-col,
       .vegan-board .feedstock-extra-treatment-col{
@@ -58,6 +61,11 @@
         display:inline-flex;align-items:center;padding:5px 8px;border:1px solid var(--line);
         border-radius:999px;background:rgba(255,255,255,.78);font-size:12px!important;
         font-weight:700;line-height:1.15;color:var(--text-soft);white-space:nowrap;
+      }
+      .hydroflex-board .hydro-extra-treatment-stage,
+      .vegan-board .vegan-extra-treatment-stage{
+        background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 350%);
+        box-shadow:inset 0 4px 0 var(--pre);
       }
       .hydroflex-board .feedstock-extra-treatment-detail,
       .vegan-board .feedstock-extra-treatment-detail{
@@ -93,8 +101,8 @@
     </article>`;
 
   const detailHtml=(prefix)=>`
-    <div class="panel-title feedstock-extra-treatment-title">${prefix}.5 · Tratamientos adicionales según feedstock · aplicación condicionada</div>
-    <div class="stage-explain"><strong>No todos los feedstocks requieren estas operaciones.</strong> La tecnología, ubicación y secuencia dependen de la calidad de entrada, de los contaminantes presentes y de la especificación exigida por el productor HVO/HEFA.</div>
+    <div class="panel-title feedstock-extra-treatment-title">${prefix}.5 · Tratamientos adicionales · sólo para este paso</div>
+    <div class="stage-explain"><strong>No todos los feedstocks requieren estas operaciones.</strong> Esta columna corresponde exclusivamente al paso ${prefix}.5; no modifica ni sustituye las etapas ${prefix}.1–${prefix}.4.</div>
     <div class="feedstock-extra-treatment-detail">
       <div><b>Heat treatment:</b> tratamiento térmico para facilitar la remoción de contaminantes difíciles.</div>
       <div><b>Chloride removal:</b> reduce compuestos de cloro que pueden generar corrosión o afectar el procesamiento posterior.</div>
@@ -103,6 +111,18 @@
       <div><b>Otros tratamientos específicos:</b> operaciones adicionales definidas según composición y especificación del feedstock.</div>
     </div>
     <div class="checkpoint-decision"><b>Validar con proveedor / tecnólogo:</b> cuáles se usan realmente, para qué feedstocks, quién los realiza y en qué punto del tren se integran.</div>`;
+
+  const ensureSeparateStage=(control,className,prefix)=>{
+    const strip2=control.parentElement;
+    let stage=strip2?.querySelector(`.${className}`);
+    if(!stage){
+      stage=document.createElement('section');
+      stage.className=`stage ${className}`;
+      stage.innerHTML=detailHtml(prefix);
+      control.insertAdjacentElement('afterend',stage);
+    }
+    return stage;
+  };
 
   const patchHydro=()=>{
     const board=document.querySelector('.hydroflex-board');
@@ -116,14 +136,19 @@
 
     if(!subgrid.querySelector('.feedstock-extra-treatment-col')){
       subgrid.insertAdjacentHTML('beforeend',cardHtml('02'));
-      control.insertAdjacentHTML('beforeend',detailHtml('02'));
     }
 
+    /* 02.1–02.4 conservan su punto de control original en 4 tracks. */
     group.style.setProperty('grid-column','span 5','important');
     subgrid.style.setProperty('grid-template-columns','repeat(5,minmax(410px,1fr))','important');
-    control.style.setProperty('grid-column','span 5','important');
+    control.style.setProperty('grid-column','span 4','important');
+
+    /* 02.5 recibe su propio panel inferior, exactamente debajo de la quinta columna. */
+    const extraStage=ensureSeparateStage(control,'hydro-extra-treatment-stage','02');
+    extraStage.style.setProperty('grid-column','span 1','important');
+
     forceSingleRow(strip,strip2,canvas);
-    board.dataset.extraPretreatmentV83='true';
+    board.dataset.extraPretreatmentV84='true';
     return true;
   };
 
@@ -139,14 +164,17 @@
 
     if(!subgrid.querySelector('.feedstock-extra-treatment-col')){
       subgrid.insertAdjacentHTML('beforeend',cardHtml('02'));
-      control.insertAdjacentHTML('beforeend',detailHtml('02'));
     }
 
     group.style.setProperty('grid-column','span 5','important');
     subgrid.style.setProperty('grid-template-columns','repeat(5,minmax(410px,1fr))','important');
-    control.style.setProperty('grid-column','span 5','important');
+    control.style.setProperty('grid-column','span 4','important');
+
+    const extraStage=ensureSeparateStage(control,'vegan-extra-treatment-stage','02');
+    extraStage.style.setProperty('grid-column','span 1','important');
+
     forceSingleRow(strip,strip2,canvas);
-    board.dataset.extraPretreatmentV83='true';
+    board.dataset.extraPretreatmentV84='true';
     return true;
   };
 
