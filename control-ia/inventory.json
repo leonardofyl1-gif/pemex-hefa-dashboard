@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-11T07:26:47.299069+00:00",
+  "generated_at": "2026-09-11T08:28:07.968207+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -307,7 +307,7 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 32023,
+      "size_bytes": 44003,
       "last_modified": null,
       "purpose": "Archivo técnico del dashboard público.",
       "for_dummies": "Es una de las piezas que hacen funcionar el dashboard público.",
@@ -451,8 +451,8 @@
       "name": "inventory.json",
       "technical_type": "JSON",
       "extension": "json",
-      "size_bytes": 32023,
-      "last_modified": "2026-09-11T06:31:58Z",
+      "size_bytes": 44003,
+      "last_modified": "2026-09-11T07:26:47Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
