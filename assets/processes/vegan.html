@@ -67,6 +67,12 @@
   .vegan-board .vegan-branches{grid-template-columns:1fr}
 }
 
+
+.vegan-board .vegan-secondary-equation{margin-top:8px}
+.vegan-board .separation-summary .vegan-branches{margin-top:8px}
+.vegan-board .separation-summary .vegan-branch{background:#fff}
+.vegan-board .correction-card > p{font-size:13.4px!important;line-height:1.4;color:var(--text-soft);margin:4px 0}
+
 </style>
 
 <div class="board-head">
@@ -176,28 +182,21 @@
         <div class="step-no">05</div>
         <h3>Hydrotreatment y desoxigenación</h3>
         <div class="vegan-stage-kicker">Vegan® · Stage catalítico 1</div>
-        <div class="vegan-flow">
-          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">Feedstock lipídico pretratado + H₂</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">OCURRE</span><div class="vegan-flow-text">Saturación + conversión de triglicéridos + desoxigenación</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">SALE</span><div class="vegan-flow-text">Principalmente n-parafinas + H₂O + gases/coproductos</div></div>
+        <div class="desc dual-desc">
+          <div class="desc-point"><b>Proceso físico:</b> El feedstock lipídico pretratado se mezcla con H₂ y entra en contacto con un sistema catalítico bajo condiciones controladas.</div>
+          <div class="desc-point"><b>Proceso químico:</b> Se saturan dobles enlaces, se transforma la estructura de los triglicéridos y se retira el oxígeno para formar principalmente n-parafinas.</div>
         </div>
-        <div class="vegan-stage-message">La grasa deja de comportarse como un lípido oxigenado y se transforma principalmente en cadenas de hidrocarburos lineales.</div>
         <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HEFA</span></div>
       </article>
 
       <article class="col vegan-physical-col vegan-process-col">
         <div class="step-no">05b</div>
         <h3>Separación y acondicionamiento intermedio</h3>
-        <div class="vegan-stage-kicker">OPERACIÓN FÍSICA INTERMEDIA</div>
+        <div class="vegan-stage-kicker">Operación física intermedia</div>
         <div class="vegan-evidence-tag">Configuración conceptual HEFA · validar con Axens</div>
-        <div class="vegan-flow">
-          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">Efluente completo del Hydrotreatment</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">SE SEPARA</span><div class="vegan-flow-text">Gas + agua + líquido parafínico</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">CONTINÚA</span><div class="vegan-flow-text">Corriente rica en n-parafinas acondicionada</div></div>
+        <div class="desc dual-desc">
+          <div class="desc-point"><b>Proceso físico:</b> El efluente del Hydrotreatment se acondiciona para separar gas, agua y una corriente líquida rica en n-parafinas.</div>
+          <div class="desc-point"><b>Proceso químico:</b> No se busca una conversión principal; se retiran coproductos antes del siguiente stage catalítico.</div>
         </div>
         <div class="type-tags"><span class="type-tag finish"><i></i>Separación física</span></div>
       </article>
@@ -206,14 +205,10 @@
         <div class="step-no">06</div>
         <h3>Hydroisomerization y hydrocracking selectivo</h3>
         <div class="vegan-stage-kicker">Vegan® · Stage catalítico 2</div>
-        <div class="vegan-flow">
-          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">n-parafinas + H₂</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">OCURRE</span><div class="vegan-flow-text">Ramificación + cracking selectivo</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">SALE</span><div class="vegan-flow-text">Mezcla de isoparafinas orientada a rangos jet / diesel / ligeros</div></div>
+        <div class="desc dual-desc">
+          <div class="desc-point"><b>Proceso físico:</b> La corriente parafínica acondicionada opera en presencia de H₂ y entra en contacto con un sistema catalítico bifuncional.</div>
+          <div class="desc-point"><b>Proceso químico:</b> Las cadenas lineales se ramifican y parte de las cadenas largas puede acortarse selectivamente para ajustar propiedades de frío y distribución de producto.</div>
         </div>
-        <div class="vegan-stage-message"><strong>LINEAL → RAMIFICADA:</strong> mejora el comportamiento en frío; algunas cadenas también se acortan selectivamente.</div>
         <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HEFA</span></div>
       </article>
 
@@ -221,12 +216,9 @@
         <div class="step-no">07</div>
         <h3>Estabilización y separación de livianos</h3>
         <div class="vegan-evidence-tag">Separación física · configuración específica por validar</div>
-        <div class="vegan-flow">
-          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">Efluente de Hydroisomerization</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">SE RETIRA</span><div class="vegan-flow-text">Gases / H₂ / componentes muy ligeros</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">CONTINÚA</span><div class="vegan-flow-text">Corriente líquida estabilizada</div></div>
+        <div class="desc dual-desc">
+          <div class="desc-point"><b>Proceso físico:</b> El efluente de Hydroisomerization se enfría y estabiliza para retirar H₂, gases y componentes muy ligeros.</div>
+          <div class="desc-point"><b>Proceso químico:</b> No se busca una nueva conversión; continúa una corriente líquida estable hacia el fraccionamiento.</div>
         </div>
         <div class="type-tags"><span class="type-tag finish"><i></i>Separación física</span></div>
       </article>
@@ -235,12 +227,9 @@
         <div class="step-no">08</div>
         <h3>Fraccionamiento de productos</h3>
         <div class="vegan-evidence-tag">Separación física</div>
-        <div class="vegan-flow">
-          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">“Sopa” de hidrocarburos de diferentes tamaños</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">SE SEPARA</span><div class="vegan-flow-text">Por rangos de ebullición</div></div>
-          <div class="vegan-flow-arrow">↓</div>
-          <div class="vegan-flow-box"><span class="vegan-flow-label">SALE</span><div class="vegan-flow-text">Naphtha | Jet-range / SAF | Renewable diesel</div></div>
+        <div class="desc dual-desc">
+          <div class="desc-point"><b>Proceso físico:</b> La mezcla líquida estabilizada se separa en corrientes de producto según sus rangos de ebullición.</div>
+          <div class="desc-point"><b>Proceso químico:</b> La conversión ya terminó; aquí se clasifican físicamente los hidrocarburos en distintos cortes.</div>
         </div>
         <div class="type-tags"><span class="type-tag finish"><i></i>Fraccionamiento</span></div>
       </article>
@@ -295,11 +284,49 @@
       </section>
 
       
-      <section class="stage vegan-detail-stage">
-        <div class="panel-title">05 · Hydrotreatment y desoxigenación</div>
-        <div class="stage-explain"><strong>Primera lectura:</strong> feedstock pretratado + H₂ → conversión catalítica → n-parafinas + agua y gases.</div>
-        <details class="explainer-detail">
-          <summary>Ver explicación guiada · ¿cómo se transforma la grasa?</summary>
+      <section class="stage vegan-detail-stage hdo-stage">
+        <div class="panel-title">Conversión química</div>
+        <div class="stage-explain">
+          <div class="pretreatment-explainer hdo-summary">
+            <p class="explainer-lead">En Stage 1, la grasa animal acondicionada reacciona con hidrógeno para retirar el oxígeno de sus moléculas y convertir el feedstock lipídico principalmente en hidrocarburos parafínicos.</p>
+
+            <div class="correction-card hdo-summary-input">
+              <div class="correction-card-title"><span class="correction-flow-icon">+</span><strong>Entra al Hydrotreatment</strong></div>
+              <ul class="correction-list">
+                <li>Feedstock lipídico pretratado</li>
+                <li>Triglicéridos y FFA</li>
+                <li>Hidrógeno (H₂)</li>
+              </ul>
+            </div>
+
+            <div class="correction-card hdo-summary-transform">
+              <div class="correction-card-title"><span class="correction-flow-icon">↓</span><strong>Se transforma / se retira de la molécula</strong></div>
+              <ul class="correction-list">
+                <li>Se saturan dobles enlaces.</li>
+                <li>Se transforma la estructura de los triglicéridos.</li>
+                <li>Se elimina el oxígeno presente en las moléculas.</li>
+                <li>El oxígeno sale principalmente como H₂O y, por rutas alternativas, como CO / CO₂.</li>
+              </ul>
+              <div class="hdo-equation">
+                <div>Feedstock lipídico (C + H + O) + H₂</div>
+                <div class="hdo-arrow">↓ Hydrotreatment / deoxygenation</div>
+                <div>n-parafinas + H₂O / CO / CO₂</div>
+              </div>
+            </div>
+
+            <div class="correction-card correction-keep">
+              <div class="correction-card-title"><span class="correction-flow-icon">→</span><strong>Se convierte y continúa</strong></div>
+              <ul class="correction-list">
+                <li>n-parafinas lineales</li>
+                <li>Otros hidrocarburos renovables</li>
+                <li>Corriente hidrocarbonada que continúa al acondicionamiento intermedio</li>
+              </ul>
+              <div class="correction-destination">Las parafinas lineales todavía necesitan acondicionarse y posteriormente ramificarse para mejorar su comportamiento en frío.</div>
+            </div>
+
+            <p class="process-additive"><strong>Reactivo y medio de reacción:</strong> se alimenta H₂ y la corriente entra en contacto con un sistema catalítico bajo condiciones controladas. Las condiciones específicas de Vegan® deben validarse con Axens.</p>
+            <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿cómo se transforma la grasa en hidrocarburos?</summary>
           <div class="explainer-body vegan-guide">
             <div class="explainer-section">
               <h4>1 · ¿Qué entra?</h4>
@@ -345,14 +372,49 @@
             </div>
           </div>
         </details>
+          </div>
+        </div>
       </section>
 
-      <section class="stage vegan-detail-stage physical">
-        <div class="panel-title">05b · Separación y acondicionamiento intermedio</div>
-        <div class="vegan-evidence-tag">Configuración conceptual HEFA · validar con Axens</div>
-        <div class="stage-explain">Del Hydrotreatment no sale únicamente “parafina limpia”. También salen agua, hidrógeno no reaccionado y gases de reacción que deben separarse antes del siguiente stage catalítico.</div>
-        <details class="explainer-detail">
-          <summary>Ver explicación guiada · ¿qué se separa y qué continúa?</summary>
+      <section class="stage vegan-detail-stage physical separation-stage">
+        <div class="panel-title">Separación física</div>
+        <div class="stage-explain">
+          <div class="pretreatment-explainer separation-summary">
+            <div class="vegan-evidence-tag">Configuración conceptual HEFA · validar con Axens</div>
+            <p class="explainer-lead">Del Hydrotreatment no sale únicamente una corriente de parafinas. También salen agua, H₂ no reaccionado y gases de reacción que deben separarse antes del siguiente stage catalítico.</p>
+
+            <div class="correction-card hdo-summary-input">
+              <div class="correction-card-title"><span class="correction-flow-icon">+</span><strong>Entra</strong></div>
+              <ul class="correction-list">
+                <li>n-parafinas</li>
+                <li>H₂ no reaccionado</li>
+                <li>H₂O</li>
+                <li>CO / CO₂</li>
+                <li>Propano y otros gases ligeros</li>
+              </ul>
+            </div>
+
+            <div class="correction-card separation-summary-action">
+              <div class="correction-card-title"><span class="correction-flow-icon">↧</span><strong>Se separa físicamente</strong></div>
+              <div class="hdo-equation">
+                <div>Efluente del Hydrotreatment</div>
+                <div class="hdo-arrow">↓</div>
+                <div>GAS　|　AGUA　|　LÍQUIDO PARAFÍNICO</div>
+              </div>
+              <div class="vegan-branches">
+                <div class="vegan-branch"><strong>GAS</strong>H₂ + gases de reacción</div>
+                <div class="vegan-branch"><strong>AGUA</strong>H₂O formada durante la conversión</div>
+                <div class="vegan-branch"><strong>LÍQUIDO</strong>Corriente rica en n-parafinas</div>
+              </div>
+            </div>
+
+            <div class="correction-card correction-keep">
+              <div class="correction-card-title"><span class="correction-flow-icon">→</span><strong>Continúa</strong></div>
+              <p><strong>Corriente parafínica acondicionada.</strong></p>
+              <div class="correction-destination">Esta corriente continúa hacia Stage 2 · Hydroisomerization.</div>
+            </div>
+            <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿qué se separa y por qué?</summary>
           <div class="explainer-body vegan-guide">
             <div class="explainer-section">
               <h4>1 · ¿Qué contiene realmente el efluente?</h4>
@@ -377,12 +439,56 @@
             </div>
           </div>
         </details>
+          </div>
+        </div>
       </section>
 
-      <section class="stage vegan-detail-stage">
-        <div class="panel-title">06 · Hydroisomerization y hydrocracking selectivo</div>
-        <div class="stage-explain"><strong>Primera lectura:</strong> n-parafinas + H₂ → ramificación y cracking selectivo → mezcla orientada a rangos jet, diesel y ligeros.</div>
-        <details class="explainer-detail">
+      <section class="stage vegan-detail-stage isom-stage">
+        <div class="panel-title">Conversión química</div>
+        <div class="stage-explain">
+          <div class="pretreatment-explainer isom-summary">
+            <p class="explainer-lead">Las parafinas producidas anteriormente son principalmente cadenas lineales. En Stage 2 se modifica su estructura para mejorar su desempeño en frío y ajustar parte de la distribución molecular hacia el rango jet.</p>
+
+            <div class="correction-card hdo-summary-input">
+              <div class="correction-card-title"><span class="correction-flow-icon">+</span><strong>Entra a Stage 2</strong></div>
+              <ul class="correction-list">
+                <li>n-parafinas lineales</li>
+                <li>H₂</li>
+                <li>Corriente parafínica acondicionada</li>
+              </ul>
+            </div>
+
+            <div class="correction-card isom-summary-transform">
+              <div class="correction-card-title"><span class="correction-flow-icon">↝</span><strong>Se transforma</strong></div>
+              <ul class="correction-list">
+                <li>Las cadenas lineales se reorganizan y se ramifican.</li>
+                <li>La isomerización cambia principalmente la forma de la molécula.</li>
+                <li>Parte de las cadenas largas puede acortarse mediante <em>selective hydrocracking</em>.</li>
+              </ul>
+              <div class="hdo-equation">
+                <div>n-parafina lineal</div>
+                <div class="hdo-arrow">↓ ISOMERIZATION</div>
+                <div>isoparafina ramificada</div>
+              </div>
+              <div class="hdo-equation vegan-secondary-equation">
+                <div>Cadena larga</div>
+                <div class="hdo-arrow">↓ SELECTIVE HYDROCRACKING</div>
+                <div>Cadenas más cortas</div>
+              </div>
+            </div>
+
+            <div class="correction-card correction-keep">
+              <div class="correction-card-title"><span class="correction-flow-icon">→</span><strong>Sale y continúa</strong></div>
+              <ul class="correction-list">
+                <li>Isoparafinas / parafinas ramificadas</li>
+                <li>Parte de hidrocarburos más cortos</li>
+                <li>Mezcla distribuida entre rangos jet, diesel y ligeros</li>
+              </ul>
+              <div class="correction-destination">Esta mezcla continúa a 07 · Estabilización y separación de livianos.</div>
+            </div>
+
+            <p class="process-additive"><strong>Reactivo y medio de reacción:</strong> la corriente opera en presencia de H₂ y entra en contacto con un sistema catalítico bifuncional. La configuración y condiciones específicas deben validarse con Axens.</p>
+            <details class="explainer-detail">
           <summary>Ver explicación guiada · ¿por qué se ramifican y cuándo se acortan?</summary>
           <div class="explainer-body vegan-guide">
             <div class="explainer-section">
@@ -421,13 +527,51 @@
             </div>
           </div>
         </details>
+          </div>
+        </div>
       </section>
 
-      <section class="stage vegan-detail-stage physical">
-        <div class="panel-title">07 · Estabilización y separación de livianos</div>
-        <div class="vegan-evidence-tag">Separación física · configuración específica por validar</div>
-        <div class="stage-explain">Efluente de Hydroisomerization → enfriamiento / estabilización → gases, H₂ y livianos + corriente líquida estabilizada.</div>
-        <details class="explainer-detail">
+      <section class="stage vegan-detail-stage physical separation-stage">
+        <div class="panel-title">Separación física</div>
+        <div class="stage-explain">
+          <div class="pretreatment-explainer separation-summary">
+            <div class="vegan-evidence-tag">Separación física · configuración específica por validar</div>
+            <p class="explainer-lead">Después de Stage 2 todavía existe una mezcla de hidrocarburos, H₂ y componentes ligeros. Antes del fraccionamiento final se retiran gases y livianos para obtener una corriente líquida estable.</p>
+
+            <div class="correction-card hdo-summary-input">
+              <div class="correction-card-title"><span class="correction-flow-icon">+</span><strong>Entra</strong></div>
+              <ul class="correction-list">
+                <li>Efluente de Hydroisomerization</li>
+                <li>Hidrocarburos líquidos</li>
+                <li>H₂</li>
+                <li>Gases / componentes ligeros</li>
+              </ul>
+            </div>
+
+            <div class="correction-card separation-summary-action">
+              <div class="correction-card-title"><span class="correction-flow-icon">↧</span><strong>Se separa físicamente</strong></div>
+              <ul class="correction-list">
+                <li>Enfriamiento</li>
+                <li>Separación de gases</li>
+                <li>Retiro de H₂ y componentes ligeros</li>
+                <li>No se busca una nueva conversión química</li>
+              </ul>
+              <div class="hdo-equation">
+                <div>Efluente</div>
+                <div class="hdo-arrow">↓ enfriamiento / estabilización</div>
+                <div>GASES + H₂　|　LÍQUIDO ESTABILIZADO</div>
+              </div>
+            </div>
+
+            <div class="correction-card correction-keep">
+              <div class="correction-card-title"><span class="correction-flow-icon">→</span><strong>Sale y continúa</strong></div>
+              <ul class="correction-list">
+                <li>Gases / livianos separados</li>
+                <li>Corriente líquida estabilizada</li>
+              </ul>
+              <div class="correction-destination">Esta corriente líquida pasa a 08 · Fraccionamiento de productos.</div>
+            </div>
+            <details class="explainer-detail">
           <summary>Ver explicación guiada · ¿qué se retira antes del fraccionamiento?</summary>
           <div class="explainer-body vegan-guide">
             <div class="explainer-section"><h4>1 · ¿Qué entra?</h4><p>Entra el efluente completo de Hydroisomerization, con hidrocarburos líquidos, H₂ y componentes gaseosos o muy ligeros.</p></div>
@@ -436,13 +580,52 @@
             <div class="explainer-section"><h4>4 · ¿Qué continúa?</h4><div class="correction-destination">Corriente líquida estabilizada → 08 · Fraccionamiento de productos.</div></div>
           </div>
         </details>
+          </div>
+        </div>
       </section>
 
-      <section class="stage vegan-detail-stage physical">
-        <div class="panel-title">08 · Fraccionamiento de productos</div>
-        <div class="vegan-evidence-tag">Separación física</div>
-        <div class="stage-explain">Después de las reacciones, la corriente contiene una “sopa” de hidrocarburos de diferentes tamaños. El fraccionamiento los separa principalmente según sus rangos de ebullición.</div>
-        <details class="explainer-detail">
+      <section class="stage vegan-detail-stage physical separation-stage">
+        <div class="panel-title">Separación física</div>
+        <div class="stage-explain">
+          <div class="pretreatment-explainer separation-summary">
+            <p class="explainer-lead">La conversión química ya terminó. Ahora existe una “sopa” de hidrocarburos de diferentes tamaños que debe separarse físicamente en corrientes de producto.</p>
+
+            <div class="correction-card hdo-summary-input">
+              <div class="correction-card-title"><span class="correction-flow-icon">+</span><strong>Entra a Fractionation</strong></div>
+              <ul class="correction-list">
+                <li>Mezcla líquida estabilizada</li>
+                <li>Hidrocarburos de diferentes tamaños y rangos de ebullición</li>
+              </ul>
+            </div>
+
+            <div class="correction-card separation-summary-action">
+              <div class="correction-card-title"><span class="correction-flow-icon">↧</span><strong>Se separa físicamente</strong></div>
+              <ul class="correction-list">
+                <li>Separación por rangos de ebullición</li>
+                <li>No ocurre una nueva reacción química</li>
+                <li>Los hidrocarburos se clasifican en distintos cortes</li>
+              </ul>
+              <div class="vegan-fraction-tower">
+                <span class="vegan-caption">↑ MÁS LIGEROS</span>
+                <div class="light">Gases / LPG</div>
+                <div class="naphtha">Renewable naphtha</div>
+                <div class="jet">Jet-range / SAF</div>
+                <div class="diesel">Renewable diesel</div>
+                <span class="vegan-caption">↓ MÁS PESADOS</span>
+              </div>
+            </div>
+
+            <div class="correction-card correction-keep">
+              <div class="correction-card-title"><span class="correction-flow-icon">→</span><strong>Salen corrientes separadas</strong></div>
+              <ul class="correction-list">
+                <li>Gases / LPG</li>
+                <li>Renewable naphtha</li>
+                <li>Jet-range / SAF</li>
+                <li>Renewable diesel</li>
+              </ul>
+              <div class="correction-destination">El corte jet todavía debe cumplir las especificaciones y requisitos de certificación aplicables; estar dentro del rango jet no significa automáticamente que ya sea combustible comercial certificado.</div>
+            </div>
+            <details class="explainer-detail">
           <summary>Ver explicación guiada · ¿cómo se separa la “sopa” de hidrocarburos?</summary>
           <div class="explainer-body vegan-guide">
             <div class="explainer-section">
@@ -469,6 +652,8 @@
             <div class="vegan-stage-note">Etapas posteriores de certificación y blending comercial quedan fuera de la conversión propietaria Vegan® representada en este diagrama.</div>
           </div>
         </details>
+          </div>
+        </div>
       </section>
     </div>
   </div>
