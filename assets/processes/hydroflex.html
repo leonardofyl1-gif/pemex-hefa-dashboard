@@ -76,6 +76,27 @@
 
 
 
+/* HydroFlex 05 · cuatro unidades independientes */
+.hydroflex-board .hydro-canvas{min-width:6970px!important}
+.hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{grid-template-columns:repeat(17,minmax(410px,1fr))!important}
+.hydroflex-board .hydro-guard-intro-col{background:linear-gradient(180deg,#FBFDFE,#F8FAFB 330%);box-shadow:inset 0 4px 0 var(--blue-3)}
+.hydroflex-board .hydro-guard-card-col{background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 360%);box-shadow:inset 0 4px 0 var(--pre)}
+.hydroflex-board .hydro-guard-card-col .chem-symbols{margin:9px 0 0}.hydroflex-board .hydro-guard-card-col .chem-chip b{font-size:15px!important}
+.hydroflex-board .hydro-guard-lower-group{grid-column:span 4;display:grid;grid-template-columns:repeat(4,minmax(410px,1fr));align-items:stretch}
+.hydroflex-board .hydro-guard-lower-group>.stage{min-width:0}
+.hydroflex-board .hydro-guard-lower-group>.stage:not(:last-of-type){border-right:1px solid var(--line)}
+.hydroflex-board .hydro-guard-intro-stage{background:linear-gradient(180deg,#FBFDFE,#F7FAFC 350%)}
+.hydroflex-board .hydro-guard-function-stage{background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 430%)}
+.hydroflex-board .hydro-guard-function-stage .chem-symbols{margin:0 0 10px}
+.hydroflex-board .hydro-guard-function-stage .chem-chip{font-size:13.4px!important}.hydroflex-board .hydro-guard-function-stage .chem-chip b{font-size:15px!important}
+.hydroflex-board .hydro-guard-function-stage .stage-explain{display:flex;flex-direction:column;gap:9px}
+.hydroflex-board .hydro-guard-function-stage .guard-why{padding:9px;border-left:4px solid var(--pre);border-radius:8px;background:#fff;line-height:1.42}
+.hydroflex-board .hydro-guard-common-life{grid-column:1/-1;padding:10px 14px;border-top:1px solid var(--line);background:#F5F9FC}
+.hydroflex-board .hydro-guard-common-life h4{font-size:15px!important;margin:0 0 7px;color:var(--blue-1)}
+.hydroflex-board .hydro-guard-common-life .hydro-life-line{max-width:1200px}
+.hydroflex-board .hydro-guard-common-life details{margin-top:8px;max-width:1200px}
+.hydroflex-board .hydro-guard-connection{grid-column:1/-1;padding:10px 14px;border-top:1px solid var(--line);background:#fff;text-align:center;line-height:1.5}
+@media(max-width:900px){.hydroflex-board .hydro-canvas{min-width:6970px!important}}
 /* HydroFlex 05 · rediseño visual comparativo */
 .hydroflex-board .hydro-guard-summary{display:flex;grid-template-rows:none}
 .hydroflex-board .hydro-guard-summary .hydro-guard-parent{display:flex;align-items:center;flex:1;border-bottom:0}
@@ -194,9 +215,32 @@
         <div class="type-tags"><span class="type-tag pre"><i></i>Degumming (desgomado)</span></div>
       </article>
 
-      <div class="hydro-guard-group hydro-guard-summary">
-        <div class="hydro-guard-parent"><div class="parent-head"><span class="parent-no">05</span><div><h3>Protección catalítica · Guard system</h3><p><strong>Última barrera antes del catalizador principal.</strong> El pretratamiento elimina la mayor parte de los contaminantes, pero pequeñas trazas todavía pueden pasar. La grasa atraviesa materiales sólidos que retienen esas trazas antes de que lleguen al catalizador.</p></div></div></div>
-      </div>
+      <article class="col hydro-guard-intro-col">
+        <div class="step-no">05</div><h3>Protección catalítica · Guard system</h3>
+        <div class="desc dual-desc"><div class="desc-point"><b>Última barrera:</b> El pretratamiento elimina la mayor parte de los contaminantes, pero pequeñas trazas todavía pueden pasar.</div><div class="desc-point"><b>¿Qué hace?</b> Los guard materials retienen esas trazas antes del catalizador principal.</div></div>
+        <div class="type-tags"><span class="type-tag pre"><i></i>Introducción compacta</span></div>
+      </article>
+
+      <article class="col hydro-guard-card-col">
+        <div class="step-no">05.1</div><h3>Protección frente a fósforo</h3>
+        <div class="chem-symbols"><span class="chem-chip"><b>P</b> Fósforo</span></div>
+        <div class="desc dual-desc"><div class="desc-point"><b>Qué detenemos:</b> fósforo residual.</div><div class="desc-point"><b>Por qué:</b> puede depositarse sobre el catalizador y reducir su actividad.</div></div>
+        <div class="type-tags"><span class="type-tag pre"><i></i>P guard / PhosTrap™</span></div>
+      </article>
+
+      <article class="col hydro-guard-card-col">
+        <div class="step-no">05.2</div><h3>Protección frente a Na, K, Ca y Mg</h3>
+        <div class="chem-symbols"><span class="chem-chip"><b>Na</b></span><span class="chem-chip"><b>K</b></span><span class="chem-chip"><b>Ca</b></span><span class="chem-chip"><b>Mg</b></span></div>
+        <div class="desc dual-desc"><div class="desc-point"><b>Qué detenemos:</b> sales y metales ligeros.</div><div class="desc-point"><b>Por qué:</b> pueden formar depósitos o ensuciar superficies.</div></div>
+        <div class="type-tags"><span class="type-tag pre"><i></i>Configuración según diseño</span></div>
+      </article>
+
+      <article class="col hydro-guard-card-col">
+        <div class="step-no">05.3</div><h3>Protección frente a Fe, Ni, V, Si y otros venenos</h3>
+        <div class="chem-symbols"><span class="chem-chip"><b>Fe</b></span><span class="chem-chip"><b>Ni</b></span><span class="chem-chip"><b>V</b></span><span class="chem-chip"><b>Si</b></span></div>
+        <div class="desc dual-desc"><div class="desc-point"><b>Qué detenemos:</b> metales traza y otros venenos.</div><div class="desc-point"><b>Por qué:</b> pueden ensuciar o reducir la actividad catalítica.</div></div>
+        <div class="type-tags"><span class="type-tag pre"><i></i>Configuración según diseño</span></div>
+      </article>
 
       <article class="col checkpoint-col technical-col">
         <div class="step-no">06</div><h3>Control técnico del feedstock acondicionado</h3>
@@ -251,68 +295,61 @@
         </div></div>
       </section>
 
-      <section class="stage hydro-guard-simple">
-        <div class="panel-title">05 · Protección catalítica · Guard system</div>
-        <div class="stage-explain">
-          <p class="hydro-guard-lead"><strong>Última barrera antes del catalizador principal.</strong> El pretratamiento elimina la mayor parte de los contaminantes, pero pequeñas trazas todavía pueden pasar. Los guard materials funcionan como una última barrera: la grasa atraviesa un material sólido que retiene ciertos contaminantes antes de que lleguen al catalizador principal.</p>
-
-          <div class="hydro-guard-master-flow">
-            FEEDSTOCK + TRAZAS<br>↓<br>
-            [ GUARD MATERIAL · <span class="retained">CONTAMINANTES RETENIDOS</span> ]<br>↓<br>
-            FEEDSTOCK MÁS PROTEGIDO<br>↓<br>
-            CATALIZADOR PRINCIPAL
+      <div class="hydro-guard-lower-group">
+        <section class="stage hydro-guard-intro-stage">
+          <div class="panel-title">05 · Protección catalítica · Guard system</div>
+          <div class="stage-explain">
+            <p><strong>Última barrera antes del catalizador principal.</strong></p>
+            <p>El pretratamiento elimina la mayor parte de los contaminantes, pero pequeñas trazas todavía pueden pasar. Los guard materials funcionan como una última barrera antes del catalizador principal.</p>
+            <div class="hydro-guard-master-flow">FEEDSTOCK + TRAZAS<br>↓<br>[ GUARD MATERIAL ]<br><span class="retained">CONTAMINANTES RETENIDOS</span><br>↓<br>FEEDSTOCK MÁS PROTEGIDO<br>↓<br>CATALIZADOR PRINCIPAL</div>
           </div>
+        </section>
 
-          <div class="hydro-guard-cards">
-            <article class="hydro-guard-card">
-              <span class="step">05.1</span>
-              <h4>Fósforo</h4>
-              <div class="chem-symbols" aria-label="Fósforo"><span class="chem-chip"><b>P</b> Fósforo</span></div>
-              <p class="guard-intro">Aunque Degumming elimina gran parte del fósforo, pequeñas cantidades pueden seguir presentes en la grasa.</p>
-              <div class="guard-question"><strong>¿Qué queremos detener?</strong><span>Fósforo residual procedente de fosfolípidos u otras especies que atravesaron el pretratamiento.</span></div>
-              <div class="guard-question"><strong>¿Qué hace el guard?</strong><span>La grasa atraviesa un material diseñado para capturar P. El fósforo queda retenido y la grasa continúa con una concentración menor.</span><div class="hydro-protection-flow">FEEDSTOCK + P<br>↓<br>[ P GUARD / PhosTrap™ · P RETENIDO ]<br>↓<br>FEEDSTOCK CON MENOS P</div></div>
-              <div class="guard-question"><strong>¿Por qué importa?</strong><span>El fósforo puede pegarse o acumularse donde necesitamos que trabaje el catalizador y reducir su actividad.</span><div class="hydro-note">Técnicamente: catalyst poisoning / deactivation.</div></div>
-              <div class="guard-question"><strong>¿Qué continúa?</strong><span>Feedstock con menor fósforo residual.</span></div>
-              <details class="explainer-detail"><summary>Ver explicación guiada · ¿por qué el fósforo daña al catalizador y cómo lo detiene el guard?</summary><div class="explainer-body hydro-guide"><p>El catalizador necesita superficies activas libres. El fósforo puede acumularse sobre ellas y disminuir su actividad. El material de guarda actúa antes: captura P en el sólido para que llegue menos al catalizador principal.</p><p>PhosTrap™ identifica la función de protección frente a fósforo; la arquitectura y condiciones específicas deben validarse con Topsoe.</p></div></details>
-            </article>
-
-            <article class="hydro-guard-card">
-              <span class="step">05.2</span>
-              <h4>Sales y metales</h4>
-              <div class="chem-symbols" aria-label="Sodio, potasio, calcio y magnesio"><span class="chem-chip"><b>Na</b></span><span class="chem-chip"><b>K</b></span><span class="chem-chip"><b>Ca</b></span><span class="chem-chip"><b>Mg</b></span></div>
-              <div class="hydro-evidence-tag">Configuración específica según diseño</div>
-              <p class="guard-intro">También pueden quedar pequeñas trazas de sales y metales provenientes de la materia prima o del procesamiento previo.</p>
-              <div class="guard-question"><strong>¿Qué queremos detener?</strong><span>Na, K, Ca, Mg y sus sales asociadas.</span></div>
-              <div class="guard-question"><strong>¿Qué hace el guard?</strong><span>Materiales de guarda ayudan a retener estas trazas antes de que lleguen al catalizador principal.</span><div class="hydro-protection-flow">FEEDSTOCK + Na / K / Ca / Mg<br>↓<br>[ GUARD MATERIAL ]<br>↓<br>FEEDSTOCK CON MENOS SALES / METALES</div></div>
-              <div class="guard-question"><strong>¿Por qué importa?</strong><span>Estas especies pueden pegarse o acumularse, ensuciar superficies o bloquear zonas donde necesitamos que ocurra la reacción.</span><div class="hydro-note">Técnicamente: deposition / fouling / pore blockage, según la especie.</div></div>
-              <div class="guard-question"><strong>¿Qué continúa?</strong><span>Feedstock con menor carga de sales y metales.</span></div>
-              <details class="explainer-detail"><summary>Ver explicación guiada · ¿de dónde vienen estos metales y por qué queremos detenerlos?</summary><div class="explainer-body hydro-guide"><p>Pueden acompañar naturalmente al feedstock o incorporarse como sales durante su manejo, procesamiento y acondicionamiento.</p><p>La función de protección busca reducir estas trazas; no implica necesariamente un vessel independiente ni una secuencia física universal.</p></div></details>
-            </article>
-
-            <article class="hydro-guard-card">
-              <span class="step">05.3</span>
-              <h4>Metales traza y otros venenos</h4>
-              <div class="chem-symbols" aria-label="Hierro, níquel, vanadio y silicio"><span class="chem-chip"><b>Fe</b></span><span class="chem-chip"><b>Ni</b></span><span class="chem-chip"><b>V</b></span><span class="chem-chip"><b>Si</b></span></div>
-              <div class="hydro-evidence-tag">Configuración específica según diseño</div>
-              <p class="guard-intro">Algunos contaminantes están presentes en cantidades muy pequeñas, pero aun así pueden dañar el catalizador.</p>
-              <div class="guard-question"><strong>¿Qué queremos detener?</strong><span>Fe, Ni, V, Si y otros contaminantes traza cuando aplique.</span></div>
-              <div class="guard-question"><strong>¿Qué hace el guard?</strong><span>Materiales de protección capturan o retienen estas especies antes de la sección catalítica principal.</span><div class="hydro-protection-flow">FEEDSTOCK + Fe / Ni / V / Si<br>↓<br>[ GUARD SYSTEM ]<br>↓<br>FEEDSTOCK MÁS PROTEGIDO</div></div>
-              <div class="guard-question"><strong>¿Por qué importa?</strong><span>Estas trazas pueden acumularse sobre el catalizador, ensuciarlo o reducir su actividad. El silicio puede formar depósitos particularmente difíciles de remover.</span><div class="hydro-note">El mecanismo específico depende del contaminante y debe confirmarse para el diseño.</div></div>
-              <div class="guard-question"><strong>¿Qué continúa?</strong><span>Feedstock con menor concentración de contaminantes traza.</span></div>
-              <details class="explainer-detail"><summary>Ver explicación guiada · ¿cómo pueden cantidades tan pequeñas afectar al catalizador?</summary><div class="explainer-body hydro-guide"><p>El catalizador depende de superficies activas y poros accesibles. Aunque la concentración sea pequeña, las trazas pueden acumularse durante la operación y cubrir o bloquear esas zonas.</p><p>Los materiales, el orden y la arquitectura física exactos del guard system dependen de la configuración y deben validarse con Topsoe.</p></div></details>
-            </article>
+        <section class="stage hydro-guard-function-stage">
+          <div class="panel-title">05.1 · Protección frente a fósforo</div>
+          <div class="stage-explain">
+            <div class="chem-symbols"><span class="chem-chip"><b>P</b> Fósforo</span></div>
+            <p><strong>Fósforo residual</strong></p>
+            <p>Aunque el degumming elimina gran parte del fósforo, pequeñas trazas todavía pueden seguir presentes. Aquí usamos un material de guarda para atraparlas antes de que lleguen al catalizador.</p>
+            <div class="hydro-protection-flow">FEEDSTOCK + P<br>↓<br>[ P GUARD / PhosTrap™ ]<br><strong>P QUEDA RETENIDO</strong><br>↓<br>FEEDSTOCK CON MENOS P</div>
+            <div class="guard-why"><strong>¿Por qué importa?</strong><br>El fósforo puede depositarse sobre el catalizador y reducir su actividad.</div>
+            <details class="explainer-detail"><summary>Ver explicación guiada · ¿por qué el fósforo daña al catalizador?</summary><div class="explainer-body hydro-guide"><p>El material funciona como una última barrera: la grasa lo atraviesa y el fósforo queda atrapado antes de llegar al catalizador.</p><p><strong>Técnicamente:</strong> guard material / adsorption / catalyst protection. PhosTrap™ identifica la función de protección frente a P; la configuración exacta debe validarse con Topsoe.</p></div></details>
           </div>
+        </section>
 
-          <section class="hydro-guard-timeline">
-            <h4>¿Qué pasa con el guard con el tiempo?</h4>
-            <div class="hydro-life-line"><div class="hydro-life-step">GUARD NUEVO</div><div class="hydro-life-arrow">→</div><div class="hydro-life-step">CAPTURANDO CONTAMINANTES</div><div class="hydro-life-arrow">→</div><div class="hydro-life-step">CERCA DE SATURACIÓN</div><div class="hydro-life-arrow">→</div><div class="hydro-life-step">BREAKTHROUGH</div></div>
-            <p>El material tiene capacidad limitada. Cuando se acerca a saturación, el contaminante puede empezar a aparecer nuevamente a la salida.</p>
-            <details class="explainer-detail"><summary>Ver explicación · ¿cómo sabemos cuándo un guard se está agotando?</summary><div class="explainer-body hydro-guide"><ul><li>Concentración del contaminante a la entrada y salida</li><li>Caída de presión (ΔP), cuando sea operacionalmente relevante</li><li>Capacidad y saturación del material</li><li>Aparición de breakthrough</li><li>Run length o tiempo útil de operación</li></ul><p>Estos son controles operativos; no crean nuevas variables T.</p></div></details>
-          </section>
+        <section class="stage hydro-guard-function-stage">
+          <div class="panel-title">05.2 · Protección frente a Na, K, Ca y Mg</div>
+          <div class="stage-explain">
+            <div class="chem-symbols"><span class="chem-chip"><b>Na</b></span><span class="chem-chip"><b>K</b></span><span class="chem-chip"><b>Ca</b></span><span class="chem-chip"><b>Mg</b></span></div>
+            <p><strong>Sales y metales ligeros</strong></p>
+            <p>También pueden quedar pequeñas trazas de sales y metales provenientes de la materia prima o del procesamiento previo. Aquí buscamos reducirlas antes de la sección catalítica.</p>
+            <div class="hydro-protection-flow">FEEDSTOCK + Na / K / Ca / Mg<br>↓<br>[ GUARD MATERIAL ]<br>↓<br>FEEDSTOCK CON MENOS SALES / METALES</div>
+            <div class="guard-why"><strong>¿Por qué importa?</strong><br>Estas especies pueden formar depósitos, ensuciar superficies o afectar el desempeño del catalizador.</div>
+            <details class="explainer-detail"><summary>Ver explicación guiada · ¿de dónde vienen estas sales y metales?</summary><div class="explainer-body hydro-guide"><p>Pueden acompañar a la materia prima o incorporarse durante el procesamiento previo. El material de guarda ayuda a retenerlas antes de la sección catalítica.</p><p><strong>Técnicamente:</strong> deposition / fouling / pore blockage, según la especie. Esta función no implica necesariamente un vessel independiente; la configuración debe validarse con Topsoe.</p></div></details>
+          </div>
+        </section>
 
-          <div class="hydro-to-06">Después de esta última barrera de protección, verificamos que el feedstock esté realmente apto para entrar a la sección catalítica.<br>↓<br><strong>06 · Control técnico del feedstock acondicionado</strong></div>
-        </div>
-      </section>
+        <section class="stage hydro-guard-function-stage">
+          <div class="panel-title">05.3 · Protección frente a Fe, Ni, V, Si y otros venenos</div>
+          <div class="stage-explain">
+            <div class="chem-symbols"><span class="chem-chip"><b>Fe</b></span><span class="chem-chip"><b>Ni</b></span><span class="chem-chip"><b>V</b></span><span class="chem-chip"><b>Si</b></span></div>
+            <p><strong>Metales traza / otros venenos</strong></p>
+            <p>Algunos contaminantes aparecen en cantidades muy pequeñas, pero aun así pueden dañar el catalizador. Aquí buscamos detener esas trazas antes de que lleguen a la sección principal.</p>
+            <div class="hydro-protection-flow">FEEDSTOCK + Fe / Ni / V / Si<br>↓<br>[ GUARD SYSTEM ]<br>↓<br>FEEDSTOCK MÁS PROTEGIDO</div>
+            <div class="guard-why"><strong>¿Por qué importa?</strong><br>Estas trazas pueden ensuciar, depositarse o reducir la actividad del catalizador. El silicio es especialmente problemático por los depósitos que puede formar.</div>
+            <details class="explainer-detail"><summary>Ver explicación guiada · ¿cómo pueden cantidades tan pequeñas afectar tanto?</summary><div class="explainer-body hydro-guide"><p>Las trazas pueden acumularse con el tiempo justo donde necesitamos que trabaje el catalizador. Por eso se busca detenerlas antes.</p><p><strong>Técnicamente:</strong> deposition, fouling o catalyst deactivation, según el contaminante. Los materiales y la arquitectura exacta deben validarse con Topsoe.</p></div></details>
+          </div>
+        </section>
+
+        <section class="hydro-guard-common-life">
+          <h4>¿Qué pasa con el guard con el tiempo?</h4>
+          <div class="hydro-life-line"><div class="hydro-life-step">GUARD NUEVO</div><div class="hydro-life-arrow">→</div><div class="hydro-life-step">GUARD EN USO</div><div class="hydro-life-arrow">→</div><div class="hydro-life-step">CERCA DE SATURACIÓN</div><div class="hydro-life-arrow">→</div><div class="hydro-life-step">BREAKTHROUGH</div></div>
+          <p>El material tiene capacidad limitada. Cuando se acerca a saturación, el contaminante puede empezar a aparecer nuevamente a la salida.</p>
+          <details class="explainer-detail"><summary>Ver explicación · ¿cómo sabemos cuándo un guard se está agotando?</summary><div class="explainer-body hydro-guide"><ul><li>Concentración del contaminante a la entrada y salida</li><li>Caída de presión (ΔP), cuando sea relevante</li><li>Capacidad y saturación</li><li>Breakthrough</li><li>Run length</li></ul><p>Son controles operativos y no crean nuevas variables T.</p></div></details>
+        </section>
+
+        <div class="hydro-guard-connection">Después de esta última barrera de protección verificamos que el feedstock realmente esté listo para entrar a la sección catalítica.<br>↓<br><strong>06 · Control técnico del feedstock acondicionado</strong></div>
+      </div>
 
       <section class="stage technical-stage hydro-technical-stage"><div class="panel-title">06 · Control técnico de feedstock acondicionado · apto para HydroFlex</div><div class="stage-explain">Variables que se revisan sobre el <strong>feedstock ya pretratado/acondicionado</strong> para decidir si puede entrar a la sección catalítica HydroFlex sin dañar guard beds ni catalizador.</div><div class="varlist">
         <div class="var proc"><strong>T10 · Fósforo</strong>Contaminante crítico para protección catalítica y de los guard beds.<div class="rangerow"><span class="valchip">Referencia industrial preliminar ≈ ≤3 ppm · validar HydroFlex</span></div></div>
