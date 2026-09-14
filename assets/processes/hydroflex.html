@@ -224,9 +224,28 @@
 }
 .hydroflex-board .hydro-guard-common-life .hydro-life-line{
   grid-column:2!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
   max-width:none!important;
   margin:0!important;
   align-self:center!important;
+}
+.hydroflex-board .hydro-guard-common-life .hydro-life-step{
+  flex:1 1 0!important;
+  padding:7px 8px!important;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:#fff;
+  text-align:center;
+  font-size:12px!important;
+  font-weight:850;
+  color:var(--blue-1);
+}
+.hydroflex-board .hydro-guard-common-life .hydro-life-arrow{
+  flex:0 0 auto!important;
+  color:var(--pre);
+  font-weight:900;
 }
 .hydroflex-board .hydro-guard-common-life>p,
 .hydroflex-board .hydro-guard-common-life>details{grid-column:1/-1!important}
