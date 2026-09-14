@@ -76,68 +76,6 @@
 
 
 
-/* HydroFlex 05 · padre común sobre tres funciones */
-.hydroflex-board .hydro-canvas{min-width:6560px!important}
-.hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{grid-template-columns:repeat(16,minmax(410px,1fr))!important}
-.hydroflex-board .hydro-guard-parent-group{grid-column:span 3;align-self:start;background:linear-gradient(90deg,#FBFDFE,var(--pre-soft),#FBFDFE);box-shadow:inset 0 4px 0 var(--pre);border-right:1px solid var(--line)}
-.hydroflex-board .hydro-guard-parent-group .hydro-guard-parent{border-bottom:0;padding:14px 16px}
-.hydroflex-board .hydro-guard-parent-group .parent-flow{margin-top:8px;font-weight:800;color:var(--blue-2);font-size:12px!important}
-.hydroflex-board .hydro-guard-parent-group .parent-disclaimer{margin-top:6px;color:var(--text-soft);font-size:12px!important}
-.hydroflex-board .hydro-guard-lower-group{grid-column:span 3!important;grid-template-columns:repeat(3,minmax(410px,1fr))!important;align-self:start!important;grid-auto-rows:auto!important;background:transparent!important}
-.hydroflex-board .hydro-guard-common-life{padding:8px 12px!important;min-height:0!important;height:auto!important;align-self:start!important}
-.hydroflex-board .hydro-guard-common-life h4{margin-bottom:5px!important}
-.hydroflex-board .hydro-guard-common-life p{margin:6px 0 0!important}
-.hydroflex-board .hydro-guard-common-life details{margin-top:6px!important}
-.hydroflex-board .hydro-guard-connection{padding:7px 12px!important;min-height:0!important}
-@media(max-width:900px){.hydroflex-board .hydro-canvas{min-width:6560px!important}}
-/* HydroFlex 05 · cuatro unidades independientes */
-.hydroflex-board .hydro-canvas{min-width:6970px!important}
-.hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{grid-template-columns:repeat(17,minmax(410px,1fr))!important}
-.hydroflex-board .hydro-guard-intro-col{background:linear-gradient(180deg,#FBFDFE,#F8FAFB 330%);box-shadow:inset 0 4px 0 var(--blue-3)}
-.hydroflex-board .hydro-guard-card-col{background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 360%);box-shadow:inset 0 4px 0 var(--pre)}
-.hydroflex-board .hydro-guard-card-col .chem-symbols{margin:9px 0 0}.hydroflex-board .hydro-guard-card-col .chem-chip b{font-size:15px!important}
-.hydroflex-board .hydro-guard-lower-group{grid-column:span 4;display:grid;grid-template-columns:repeat(4,minmax(410px,1fr));align-items:stretch}
-.hydroflex-board .hydro-guard-lower-group>.stage{min-width:0}
-.hydroflex-board .hydro-guard-lower-group>.stage:not(:last-of-type){border-right:1px solid var(--line)}
-.hydroflex-board .hydro-guard-intro-stage{background:linear-gradient(180deg,#FBFDFE,#F7FAFC 350%)}
-.hydroflex-board .hydro-guard-function-stage{background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 430%)}
-.hydroflex-board .hydro-guard-function-stage .chem-symbols{margin:0 0 10px}
-.hydroflex-board .hydro-guard-function-stage .chem-chip{font-size:13.4px!important}.hydroflex-board .hydro-guard-function-stage .chem-chip b{font-size:15px!important}
-.hydroflex-board .hydro-guard-function-stage .stage-explain{display:flex;flex-direction:column;gap:9px}
-.hydroflex-board .hydro-guard-function-stage .guard-why{padding:9px;border-left:4px solid var(--pre);border-radius:8px;background:#fff;line-height:1.42}
-.hydroflex-board .hydro-guard-common-life{grid-column:1/-1;padding:10px 14px;border-top:1px solid var(--line);background:#F5F9FC}
-.hydroflex-board .hydro-guard-common-life h4{font-size:15px!important;margin:0 0 7px;color:var(--blue-1)}
-.hydroflex-board .hydro-guard-common-life .hydro-life-line{max-width:1200px}
-.hydroflex-board .hydro-guard-common-life details{margin-top:8px;max-width:1200px}
-.hydroflex-board .hydro-guard-connection{grid-column:1/-1;padding:10px 14px;border-top:1px solid var(--line);background:#fff;text-align:center;line-height:1.5}
-@media(max-width:900px){.hydroflex-board .hydro-canvas{min-width:6970px!important}}
-/* HydroFlex 05 · rediseño visual comparativo */
-.hydroflex-board .hydro-guard-summary{display:flex;grid-template-rows:none}
-.hydroflex-board .hydro-guard-summary .hydro-guard-parent{display:flex;align-items:center;flex:1;border-bottom:0}
-.hydroflex-board .hydro-guard-simple{background:linear-gradient(180deg,#FBFDFE,#F5F9FB 360%)}
-.hydroflex-board .hydro-guard-simple>.stage-explain{padding:14px}
-.hydroflex-board .hydro-guard-lead{margin:0 0 10px;line-height:1.45}
-.hydroflex-board .hydro-guard-master-flow{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center;font-weight:900;line-height:1.65}
-.hydroflex-board .hydro-guard-master-flow .retained{display:inline-block;padding:4px 9px;border-radius:999px;background:var(--pre-soft);color:var(--pre);font-size:12px!important}
-.hydroflex-board .hydro-guard-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
-.hydroflex-board .hydro-guard-card{display:flex;flex-direction:column;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;box-shadow:0 2px 8px rgba(22,53,69,.05)}
-.hydroflex-board .hydro-guard-card .step{font-size:12px!important;font-weight:900;color:var(--blue-2);letter-spacing:.06em}
-.hydroflex-board .hydro-guard-card h4{font-size:15px!important;margin:3px 0 8px;color:var(--blue-1)}
-.hydroflex-board .hydro-guard-card .chem-symbols{margin:0 0 8px}
-.hydroflex-board .hydro-guard-card .chem-chip{font-size:13.4px!important}
-.hydroflex-board .hydro-guard-card .chem-chip b{font-size:15px!important}
-.hydroflex-board .hydro-guard-card .guard-intro{margin:0 0 9px;line-height:1.42}
-.hydroflex-board .hydro-guard-card .guard-question{margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
-.hydroflex-board .hydro-guard-card .guard-question strong{display:block;font-size:15px!important;color:var(--blue-1);margin-bottom:4px}
-.hydroflex-board .hydro-guard-card .hydro-protection-flow{margin-top:7px}
-.hydroflex-board .hydro-guard-card details{margin-top:auto;padding-top:10px}
-.hydroflex-board .hydro-guard-timeline{margin-top:12px;padding:11px;border:1px solid var(--line);border-radius:11px;background:#F5F9FC}
-.hydroflex-board .hydro-guard-timeline h4{font-size:15px!important;margin:0 0 8px;color:var(--blue-1)}
-.hydroflex-board .hydro-life-line{display:grid;grid-template-columns:repeat(7,auto);align-items:center;gap:7px}
-.hydroflex-board .hydro-life-step{padding:8px;border-radius:8px;background:#fff;border:1px solid var(--line);text-align:center;font-weight:800}
-.hydroflex-board .hydro-life-arrow{text-align:center;color:var(--blue-3);font-weight:900}
-.hydroflex-board .hydro-to-06{margin-top:12px;padding:10px;border-left:4px solid var(--blue-3);border-radius:9px;background:#fff;text-align:center;line-height:1.5}
-@media(max-width:760px){.hydroflex-board .hydro-guard-cards{grid-template-columns:1fr}.hydroflex-board .hydro-life-line{grid-template-columns:1fr}.hydroflex-board .hydro-life-arrow{transform:rotate(90deg)}}
 /* HydroFlex 04–05.3 · explicación pedagógica y funciones de protección */
 .hydroflex-board .hydro-protection-intro{padding:11px;border:1px solid var(--line);border-radius:11px;background:#fff;line-height:1.45}
 .hydroflex-board .hydro-transition{display:grid;gap:6px;margin-top:9px;padding:10px;border-left:4px solid var(--pre);border-radius:9px;background:#FFF9F2}
@@ -149,6 +87,114 @@
 .hydroflex-board .hydro-guard-life strong{display:block;font-size:15px!important;color:var(--blue-1);margin-bottom:3px}
 .hydroflex-board .hydro-protection-flow{padding:11px;border:1px dashed var(--blue-3);border-radius:10px;background:#fff;text-align:center;font-weight:900;line-height:1.6}
 @media(max-width:760px){.hydroflex-board .hydro-guard-functions,.hydroflex-board .hydro-guard-life{grid-template-columns:1fr}}
+/* HydroFlex 05 · grupo padre y tres funciones de protección */
+.hydroflex-board .hydro-canvas{min-width:6560px!important}
+.hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{grid-template-columns:repeat(16,minmax(410px,1fr))!important}
+.hydroflex-board .hydro-guard-parent-group{
+  grid-column:span 3!important;
+  align-self:start!important;
+  min-height:0!important;
+  background:linear-gradient(90deg,#FBFDFE,var(--pre-soft),#FBFDFE);
+  box-shadow:inset 0 4px 0 var(--pre);
+  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
+}
+.hydroflex-board .hydro-guard-parent-group .hydro-guard-parent{
+  padding:14px 16px 12px!important;
+  border-bottom:0!important;
+}
+.hydroflex-board .hydro-guard-parent-group .parent-flow{
+  margin-top:8px;
+  padding-top:7px;
+  border-top:1px solid var(--line);
+  font-size:12px!important;
+  font-weight:800;
+  color:var(--blue-2);
+}
+.hydroflex-board .hydro-guard-parent-group .parent-disclaimer{
+  margin-top:5px;
+  font-size:12px!important;
+  color:var(--text-soft);
+}
+.hydroflex-board .hydro-guard-lower-group{
+  grid-column:span 3!important;
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(410px,1fr))!important;
+  grid-template-rows:auto auto auto!important;
+  align-self:start!important;
+  align-items:start!important;
+  min-height:0!important;
+  height:max-content!important;
+  background:transparent!important;
+  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.hydroflex-board .hydro-guard-lower-group>.hydro-guard-function-stage{
+  min-width:0!important;
+  height:100%!important;
+  align-self:stretch!important;
+  background:linear-gradient(180deg,#FBFDFE,var(--pre-soft) 430%);
+}
+.hydroflex-board .hydro-guard-lower-group>.hydro-guard-function-stage:not(:nth-child(3)){
+  border-right:1px solid var(--line);
+}
+.hydroflex-board .hydro-guard-function-stage .chem-symbols{margin:0 0 10px}
+.hydroflex-board .hydro-guard-function-stage .chem-chip{font-size:13.4px!important}
+.hydroflex-board .hydro-guard-function-stage .chem-chip b{font-size:15px!important}
+.hydroflex-board .hydro-guard-function-stage .stage-explain{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+.hydroflex-board .hydro-guard-function-stage .guard-why{
+  padding:9px;
+  border-left:4px solid var(--pre);
+  border-radius:8px;
+  background:#fff;
+  line-height:1.42;
+}
+.hydroflex-board .hydro-guard-common-life{
+  grid-column:1/-1!important;
+  padding:8px 12px!important;
+  min-height:0!important;
+  height:max-content!important;
+  align-self:start!important;
+  border-top:1px solid var(--line);
+  background:#F5F9FC;
+}
+.hydroflex-board .hydro-guard-common-life h4{
+  margin:0 0 5px!important;
+  font-size:15px!important;
+  color:var(--blue-1);
+}
+.hydroflex-board .hydro-guard-common-life .hydro-life-line{
+  max-width:none!important;
+  margin:0!important;
+}
+.hydroflex-board .hydro-guard-common-life p{margin:6px 0 0!important}
+.hydroflex-board .hydro-guard-common-life details{
+  max-width:none!important;
+  margin-top:6px!important;
+}
+.hydroflex-board .hydro-guard-connection{
+  grid-column:1/-1!important;
+  padding:7px 12px!important;
+  min-height:0!important;
+  height:max-content!important;
+  border-top:1px solid var(--line);
+  background:#fff;
+  text-align:center;
+  line-height:1.45;
+}
+.hydroflex-board .hydro-technical-stage{
+  align-self:start!important;
+  height:max-content!important;
+}
+@media(max-width:900px){
+  .hydroflex-board .hydro-canvas{min-width:6560px!important}
+}
+
 /* HydroFlex 07–09 · reutiliza la gramática pedagógica de Ecofining */
 .hydroflex-board .hydro-process-col h3{font-size:18px!important}
 .hydroflex-board .hydro-stage-kicker,.hydroflex-board .hydro-route-title,.hydroflex-board .hydro-output-title{font-size:15px!important}
@@ -402,18 +448,4 @@
 </div>
 
 <div class="foot"><strong>Proceso canónico HydroFlex:</strong> 02 es el pretratamiento HVO/HEFA externo; 03b concentra la calidad comercial del lote; 04 es únicamente Degumming; 05 es el acondicionamiento interno mediante guard beds; 06 concentra la aptitud técnica con T10, T11, T15, T16 y T17; 07 HDO y 08 Hydroisomerization / Dewaxing realizan la conversión; 09 Separation / Fractionation termina y separa el producto. Los valores numéricos mostrados siguen siendo referencias preliminares y no requisitos PEMEX confirmados.</div>
-<style id="hydro-guard-parent-layout-final">
-/* HydroFlex 05 · jerarquía padre final */
-.hydroflex-board .hydro-canvas{min-width:6560px!important}
-.hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{grid-template-columns:repeat(16,minmax(410px,1fr))!important}
-.hydroflex-board .hydro-guard-parent-group{grid-column:span 3!important;align-self:start!important;background:linear-gradient(90deg,#FBFDFE,var(--pre-soft),#FBFDFE)!important;box-shadow:inset 0 4px 0 var(--pre);border-right:1px solid var(--line)}
-.hydroflex-board .hydro-guard-parent-group .hydro-guard-parent{border-bottom:0!important;padding:14px 16px!important}
-.hydroflex-board .hydro-guard-lower-group{grid-column:span 3!important;display:grid!important;grid-template-columns:repeat(3,minmax(410px,1fr))!important;grid-auto-rows:auto!important;align-items:start!important;align-self:start!important;background:transparent!important}
-.hydroflex-board .hydro-guard-lower-group>.stage{min-width:0!important;align-self:stretch}
-.hydroflex-board .hydro-guard-common-life{grid-column:1/-1!important;padding:8px 12px!important;min-height:0!important;height:auto!important;align-self:start!important}
-.hydroflex-board .hydro-guard-common-life h4{margin:0 0 5px!important}
-.hydroflex-board .hydro-guard-common-life p{margin:6px 0 0!important}
-.hydroflex-board .hydro-guard-common-life details{margin-top:6px!important}
-.hydroflex-board .hydro-guard-connection{grid-column:1/-1!important;padding:7px 12px!important;min-height:0!important;height:auto!important}
-@media(max-width:900px){.hydroflex-board .hydro-canvas{min-width:6560px!important}}
-</style>
+
