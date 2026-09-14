@@ -57,7 +57,7 @@
     setTitle(panel,'04.2','Bleaching (blanqueo) / Advanced filtration (filtración avanzada)');
     setTitle(panel,'04.3','Drying (secado)');
     setTitle(panel,'04.4','Polishing filtration (filtración de pulido)');
-    setTitle(panel,'05','Guard bed (lecho de guarda) + Graded bed (lecho graduado)');
+    setTitle(panel,'05','Protección catalítica · Guard system');
     setTitle(panel,'07','Hydrodeoxygenation — HDO (hidrodesoxigenación)');
     setTitle(panel,'08','Hydroisomerization (hidroisomerización) / Dewaxing (desparafinado)');
     replaceTextNodes(panel);
