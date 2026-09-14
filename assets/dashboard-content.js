@@ -69,9 +69,11 @@
     if(panel.dataset.terminologyV28==='true'||!panel.querySelector('.eco-scroll')) return false;
     setTitle(panel,'01','Rendering (procesamiento de subproductos animales)');
     setTitle(panel,'02','External feedstock pretreatment (pretratamiento externo del feedstock)');
-    setTitle(panel,'05','Hydrotreatment (hidrotratamiento) · Vegan');
-    setTitle(panel,'06','Hydroisomerization (hidroisomerización) · Vegan');
-    setTitle(panel,'07','Cooling (enfriamiento), Fractionation (fraccionamiento) y Blending (mezcla)');
+    setTitle(panel,'05','Hydrotreatment y desoxigenación');
+    setTitle(panel,'05b','Separación y acondicionamiento intermedio');
+    setTitle(panel,'06','Hydroisomerization y hydrocracking selectivo');
+    setTitle(panel,'07','Estabilización y separación de livianos');
+    setTitle(panel,'08','Fraccionamiento de productos');
     replaceTextNodes(panel);
     panel.dataset.terminologyV28='true';
     return true;
