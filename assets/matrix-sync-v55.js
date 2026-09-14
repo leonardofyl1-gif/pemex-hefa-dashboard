@@ -459,14 +459,14 @@
           <h4>Cómo se reconfigura en HEFA</h4>
           <div class="matrix-conversion" aria-label="Ruta simplificada de grasa a SAF">
             <div class="matrix-flow-step"><b>1 · Grasa</b>Cadenas con carbono, hidrógeno y oxígeno.</div>
-            <div class="matrix-flow-step"><b>2 · Hidrógeno + catalizador</b>Se agrega H₂ para acondicionar las moléculas.</div>
-            <div class="matrix-flow-step"><b>3 · Retiro de oxígeno</b>El O sale principalmente como agua; también puede salir como CO o CO₂.</div>
+            <div class="matrix-flow-step"><b>2 · Hidrógeno + catalizador</b>Se agrega H₂ (hidrógeno) para acondicionar las moléculas.</div>
+            <div class="matrix-flow-step"><b>3 · Retiro de oxígeno</b>El oxígeno (O) sale principalmente como agua; también puede salir como CO (monóxido de carbono) o CO₂ (dióxido de carbono).</div>
             <div class="matrix-flow-step"><b>4 · Isomerización</b>Las cadenas lineales se ramifican para mejorar su comportamiento en frío.</div>
             <div class="matrix-flow-step"><b>5 · Fraccionamiento</b>Se separa el corte con rango adecuado para SAF.</div>
           </div>
         </div>
         <div class="matrix-learning-bottom">
-          <div class="matrix-equation"><h4>Ejemplo muy simplificado</h4><code>C₁₈H₃₆O₂ + 3 H₂ → C₁₈H₃₈ + 2 H₂O</code><p>Después, una parafina lineal puede convertirse en una parafina ramificada: conserva la fórmula, pero cambia su forma.</p></div>
+          <div class="matrix-equation"><h4>Ejemplo muy simplificado</h4><code>C₁₈H₃₆O₂ (ácido esteárico) + 3 H₂ (hidrógeno) → C₁₈H₃₈ (octadecano) + 2 H₂O (agua)</code><p>Después, una parafina lineal puede convertirse en una parafina ramificada: conserva la fórmula, pero cambia su forma.</p></div>
           <div class="matrix-decision"><h4>¿Qué significa para evaluar a un proveedor?</h4><p><strong>Más contenido lipídico suele significar más material convertible y menos agua o sólidos transportados.</strong> No basta por sí solo para aceptar el lote: también deben revisarse humedad, sólidos, FFA, fósforo, metales, trazabilidad y requisitos regulatorios. La especie animal cambia el perfil de ácidos grasos y propiedades como punto de fusión y viscosidad.</p></div>
         </div>
       </div>`;
@@ -523,7 +523,7 @@
             <div class="matrix-property ${levelClass(oxidativeStability)}"><b>Estabilidad oxidativa (resistencia a oxidarse)</b><strong>${oxidativeStability}</strong><span>Más enlaces dobles generalmente significan mayor facilidad de degradación.</span></div>
           </div>
         </div>
-        <div class="matrix-reaction-arrow"><div><small><b>PROCESO HEFA</b><br>Entra H₂<br>Sale O como<br>H₂O / CO / CO₂</small>→</div></div>
+        <div class="matrix-reaction-arrow"><div><small><b>PROCESO HEFA</b><br>Entra H₂ (hidrógeno)<br>Sale oxígeno (O) como<br>H₂O (agua) / CO (monóxido de carbono) / CO₂ (dióxido de carbono)</small>→</div></div>
         <div class="matrix-molecule-side after">
           <span class="matrix-molecule-label">Después · parafina</span>
           ${skeletalMolecule({carbons:Number(carbonCount),name:product})}
@@ -572,14 +572,14 @@
             <div class="matrix-profile-species"><b>Grasa aviar</b><span>Más oleico y linoleico; perfil generalmente más insaturado y fluido.</span></div>
           </div>
         </div>
-        <div class="matrix-bond-legend"><span class="matrix-bond-symbol" aria-hidden="true"></span><span><strong>¿Qué significan las dos líneas?</strong> La línea negra y la línea amarilla, juntas, representan un enlace doble <strong>C=C</strong>. Al agregar H₂ se convierte en enlace sencillo; por eso la parafina de la derecha ya no muestra líneas dobles.</span></div>
+        <div class="matrix-bond-legend"><span class="matrix-bond-symbol" aria-hidden="true"></span><span><strong>¿Qué significan las dos líneas?</strong> La línea negra y la línea amarilla, juntas, representan un enlace doble <strong>C=C</strong>. Al agregar H₂ (hidrógeno) se convierte en enlace sencillo; por eso la parafina de la derecha ya no muestra líneas dobles.</span></div>
         <div class="matrix-reading-key"><span><b>Esquina o extremo</b>Cada vértice de la figurita representa un átomo de carbono, aunque no aparezca la letra C.</span><span><b>COOH en rojo</b>Es el extremo ácido que contiene oxígeno y se transforma durante HEFA.</span><span><b>¿Qué significa “relativo”?</b>Alto, medio o bajo comparado con las demás moléculas mostradas. Izquierda = antes; derecha = después.</span></div>
         <div><h4>Estructura química antes y después de retirar el oxígeno</h4><div class="matrix-acid-groups">${acidGroups.map(group=>`<section class="matrix-acid-group"><div class="matrix-acid-group-head ${group.kindClass}"><b>${group.title}</b><span>${group.explanation}</span></div><div class="matrix-acid-grid">${acids.filter(acid=>acid.kindClass===group.kindClass).map(acidStructureCard).join('')}</div></section>`).join('')}</div></div>
         <div class="matrix-carbon-note">
           <div class="matrix-carbon-route"><b>Ruta 1 · Se conserva el carbono</b>Si el oxígeno se retira principalmente como agua, un ácido C18 puede convertirse en una parafina C18.</div>
-          <div class="matrix-carbon-route"><b>Ruta 2 · Se pierde un carbono</b>Si el oxígeno sale como CO o CO₂, un ácido C18 puede producir una parafina C17. Después, el hidrocracking puede cortar todavía más las cadenas.</div>
+          <div class="matrix-carbon-route"><b>Ruta 2 · Se pierde un carbono</b>Si el oxígeno sale como CO (monóxido de carbono) o CO₂ (dióxido de carbono), un ácido C18 puede producir una parafina C17. Después, el hidrocracking puede cortar todavía más las cadenas.</div>
         </div>
-        <div class="matrix-t02-conclusion"><strong>Para evaluar al proveedor:</strong> solicitar el porcentaje de C14:0, C16:0, C16:1, C18:0, C18:1, C18:2, C18:3 y el total de saturados/insaturados. Un perfil alto en C16–C18 aporta cadenas convertibles, pero la insaturación cambia el consumo de H₂, la oxidación y el manejo. T02 sirve para caracterizar y diseñar mezclas; no debe convertirse en descarte automático sin una ventana aprobada por el licenciador.</div>
+        <div class="matrix-t02-conclusion"><strong>Para evaluar al proveedor:</strong> solicitar el porcentaje de C14:0, C16:0, C16:1, C18:0, C18:1, C18:2, C18:3 y el total de saturados/insaturados. Un perfil alto en C16–C18 aporta cadenas convertibles, pero la insaturación cambia el consumo de H₂ (hidrógeno), la oxidación y el manejo. T02 sirve para caracterizar y diseñar mezclas; no debe convertirse en descarte automático sin una ventana aprobada por el licenciador.</div>
       </div>`;
     return card;
   };
