@@ -1,6 +1,6 @@
 <style>
-.vegan-board .vegan-canvas{min-width:4100px!important}
-.vegan-board .vegan-strip,.vegan-board .vegan-strip2{display:grid;grid-template-columns:repeat(10,minmax(410px,1fr))!important}
+.vegan-board .vegan-canvas{min-width:4920px!important}
+.vegan-board .vegan-strip,.vegan-board .vegan-strip2{display:grid;grid-template-columns:repeat(12,minmax(410px,1fr))!important}
 .vegan-pretreatment-group{grid-column:span 4;display:grid;grid-template-rows:auto 1fr;background:linear-gradient(180deg,var(--surface),var(--pre-soft) 280%);box-shadow:inset 0 4px 0 var(--pre);border-right:1px solid var(--line)}
 .vegan-pretreatment-parent{padding:14px 16px 13px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,var(--surface),var(--pre-soft),var(--surface))}
 .vegan-pretreatment-parent .parent-head{display:flex;align-items:flex-start;gap:12px}
@@ -22,6 +22,51 @@
 .vegan-board .vegan-priority-control{background:#EAF6EE;border-color:#B8DEC6;color:#286140}
 .vegan-board .vegan-priority-control i{background:#469B67}
 @media(max-width:900px){.vegan-board .vegan-canvas{min-width:4100px!important}}
+
+/* Vegan 05–08 · misma gramática visual pedagógica de Ecofining */
+.vegan-board .vegan-process-col h3{font-size:18px!important}
+.vegan-board .vegan-stage-kicker,.vegan-board .vegan-mini-title,.vegan-board .vegan-flow-label,
+.vegan-board .vegan-route-title,.vegan-board .vegan-output-title{font-size:15px!important}
+.vegan-board .vegan-flow-text,.vegan-board .vegan-stage-message,.vegan-board .vegan-guide p,
+.vegan-board .vegan-guide li,.vegan-board .vegan-branch,.vegan-board .vegan-route-result{font-size:13.4px!important}
+.vegan-board .vegan-stage-kicker{font-weight:800;color:var(--blue-2);margin:0 0 8px}
+.vegan-board .vegan-evidence-tag,.vegan-board .vegan-flow-note,.vegan-board .vegan-caption,
+.vegan-board .vegan-stage-note{font-size:12px!important}
+.vegan-board .vegan-evidence-tag{display:inline-flex;align-items:center;width:max-content;max-width:100%;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.82);font-weight:800;color:var(--text-soft);line-height:1.25}
+.vegan-board .vegan-flow{display:grid;gap:7px;margin-top:6px}
+.vegan-board .vegan-flow-box{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.78)}
+.vegan-board .vegan-flow-label{display:block;font-weight:900;color:var(--blue-1);margin-bottom:3px}
+.vegan-board .vegan-flow-text{color:var(--text-soft);line-height:1.35}
+.vegan-board .vegan-flow-arrow{text-align:center;color:var(--blue-3);font-size:15px!important;font-weight:900;line-height:1}
+.vegan-board .vegan-stage-message{margin-top:8px;padding:9px 10px;border-left:4px solid var(--blue-3);border-radius:8px;background:#fff;color:var(--text-soft);line-height:1.4}
+.vegan-board .vegan-physical-col{background:linear-gradient(180deg,#FBFDFE,#EEF8F5 330%);box-shadow:inset 0 4px 0 #20A57A}
+.vegan-board .vegan-fraction-col{background:linear-gradient(180deg,#FBFDFE,#F2F5FA 330%);box-shadow:inset 0 4px 0 var(--blue-3)}
+.vegan-board .vegan-detail-stage{background:linear-gradient(180deg,#FBFDFE,#F5F9FB 360%)}
+.vegan-board .vegan-detail-stage.physical{box-shadow:inset 0 4px 0 #20A57A}
+.vegan-board .vegan-guide{display:grid;gap:9px}
+.vegan-board .vegan-guide .explainer-section{margin:0}
+.vegan-board .vegan-guide p{line-height:1.45}
+.vegan-board .vegan-guide ul{margin:6px 0 0;padding-left:20px}
+.vegan-board .vegan-guide li{margin:4px 0;line-height:1.4}
+.vegan-board .vegan-molecule{padding:11px;border:1px dashed var(--blue-3);border-radius:10px;background:#fff;text-align:center;color:var(--blue-1);font-size:15px!important;font-weight:900;line-height:1.55}
+.vegan-board .vegan-molecule .vegan-caption{display:block;color:var(--text-soft);font-weight:700;margin-top:3px}
+.vegan-board .vegan-routes,.vegan-board .vegan-branches,.vegan-board .vegan-outputs{display:grid;gap:8px}
+.vegan-board .vegan-route,.vegan-board .vegan-branch,.vegan-board .vegan-output-card{padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.vegan-board .vegan-route-title,.vegan-board .vegan-output-title{font-weight:900;color:var(--blue-1);margin-bottom:4px}
+.vegan-board .vegan-route-result{margin-top:5px;color:var(--text-soft);line-height:1.4}
+.vegan-board .vegan-branches{grid-template-columns:repeat(3,minmax(0,1fr))}
+.vegan-board .vegan-branch strong{display:block;color:var(--blue-1);font-size:15px!important;margin-bottom:4px}
+.vegan-board .vegan-tradeoff{display:grid;gap:7px}
+.vegan-board .vegan-tradeoff > div{padding:9px 10px;border-radius:9px;border:1px solid var(--line);background:#fff;font-size:13.4px!important;line-height:1.4}
+.vegan-board .vegan-fraction-tower{display:grid;gap:5px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;text-align:center}
+.vegan-board .vegan-fraction-tower > div{padding:7px;border-radius:7px;font-size:13.4px!important;font-weight:800}
+.vegan-board .vegan-fraction-tower .light{background:#EEF7FF}.vegan-board .vegan-fraction-tower .naphtha{background:#FFF5D8}
+.vegan-board .vegan-fraction-tower .jet{background:#E7F7EF}.vegan-board .vegan-fraction-tower .diesel{background:#F3ECFA}
+.vegan-board .vegan-stage-note{margin-top:8px;padding:8px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--text-soft);line-height:1.4}
+@media(max-width:760px){
+  .vegan-board .vegan-branches{grid-template-columns:1fr}
+}
+
 </style>
 
 <div class="board-head">
@@ -126,34 +171,78 @@
         <div class="type-tags"><span class="type-tag checkpoint-integrated"><i></i>Comercial + técnico</span></div>
       </article>
 
-      <article class="col conversion-col">
+      
+      <article class="col conversion-col vegan-process-col">
         <div class="step-no">05</div>
-        <h3>Sección de hydrotreatment Vegan</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> El feedstock pretratado aceptado entra a la sección catalítica junto con hidrógeno, bajo las condiciones de operación definidas para Vegan.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Los lípidos se desoxigenan y se transforman principalmente en parafinas lineales, mientras se remueven compuestos reactivos residuales durante el hidrotratamiento.</div>
+        <h3>Hydrotreatment y desoxigenación</h3>
+        <div class="vegan-stage-kicker">Vegan® · Stage catalítico 1</div>
+        <div class="vegan-flow">
+          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">Feedstock lipídico pretratado + H₂</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">OCURRE</span><div class="vegan-flow-text">Saturación + conversión de triglicéridos + desoxigenación</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">SALE</span><div class="vegan-flow-text">Principalmente n-parafinas + H₂O + gases/coproductos</div></div>
         </div>
+        <div class="vegan-stage-message">La grasa deja de comportarse como un lípido oxigenado y se transforma principalmente en cadenas de hidrocarburos lineales.</div>
         <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HEFA</span></div>
       </article>
 
-      <article class="col conversion-col">
-        <div class="step-no">06</div>
-        <h3>Sección de hidroisomerización Vegan</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> La corriente parafínica pasa a una nueva sección catalítica. Visualmente sigue siendo una corriente de hidrocarburos, pero se modifica su estructura molecular.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Parte de las parafinas lineales se reorganiza en estructuras ramificadas, mejorando propiedades de frío y permitiendo ajustar el balance hacia renewable diesel y SAF.</div>
+      <article class="col vegan-physical-col vegan-process-col">
+        <div class="step-no">05b</div>
+        <h3>Separación y acondicionamiento intermedio</h3>
+        <div class="vegan-stage-kicker">OPERACIÓN FÍSICA INTERMEDIA</div>
+        <div class="vegan-evidence-tag">Configuración conceptual HEFA · validar con Axens</div>
+        <div class="vegan-flow">
+          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">Efluente completo del Hydrotreatment</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">SE SEPARA</span><div class="vegan-flow-text">Gas + agua + líquido parafínico</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">CONTINÚA</span><div class="vegan-flow-text">Corriente rica en n-parafinas acondicionada</div></div>
         </div>
-        <div class="type-tags"><span class="type-tag conversion"><i></i>Hidroisomerización</span></div>
+        <div class="type-tags"><span class="type-tag finish"><i></i>Separación física</span></div>
       </article>
 
-      <article class="col vegan-finish-col">
-        <div class="step-no">07</div>
-        <h3>Enfriamiento, fraccionamiento y blending</h3>
-        <div class="desc dual-desc">
-          <div class="desc-point"><b>Proceso físico:</b> Las corrientes se enfrían y se separan por fracciones para obtener los cortes de producto requeridos. Después pueden mezclarse corrientes para alcanzar la especificación comercial objetivo.</div>
-          <div class="desc-point"><b>Proceso químico:</b> Predomina la separación física y el ajuste de composición mediante blending; no se busca una nueva conversión química principal de los hidrocarburos ya producidos.</div>
+      <article class="col conversion-col vegan-process-col">
+        <div class="step-no">06</div>
+        <h3>Hydroisomerization y hydrocracking selectivo</h3>
+        <div class="vegan-stage-kicker">Vegan® · Stage catalítico 2</div>
+        <div class="vegan-flow">
+          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">n-parafinas + H₂</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">OCURRE</span><div class="vegan-flow-text">Ramificación + cracking selectivo</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">SALE</span><div class="vegan-flow-text">Mezcla de isoparafinas orientada a rangos jet / diesel / ligeros</div></div>
         </div>
-        <div class="type-tags"><span class="type-tag finish"><i></i>Terminación de producto</span></div>
+        <div class="vegan-stage-message"><strong>LINEAL → RAMIFICADA:</strong> mejora el comportamiento en frío; algunas cadenas también se acortan selectivamente.</div>
+        <div class="type-tags"><span class="type-tag conversion"><i></i>Conversión HEFA</span></div>
+      </article>
+
+      <article class="col vegan-physical-col vegan-process-col">
+        <div class="step-no">07</div>
+        <h3>Estabilización y separación de livianos</h3>
+        <div class="vegan-evidence-tag">Separación física · configuración específica por validar</div>
+        <div class="vegan-flow">
+          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">Efluente de Hydroisomerization</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">SE RETIRA</span><div class="vegan-flow-text">Gases / H₂ / componentes muy ligeros</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">CONTINÚA</span><div class="vegan-flow-text">Corriente líquida estabilizada</div></div>
+        </div>
+        <div class="type-tags"><span class="type-tag finish"><i></i>Separación física</span></div>
+      </article>
+
+      <article class="col vegan-fraction-col vegan-process-col">
+        <div class="step-no">08</div>
+        <h3>Fraccionamiento de productos</h3>
+        <div class="vegan-evidence-tag">Separación física</div>
+        <div class="vegan-flow">
+          <div class="vegan-flow-box"><span class="vegan-flow-label">ENTRA</span><div class="vegan-flow-text">“Sopa” de hidrocarburos de diferentes tamaños</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">SE SEPARA</span><div class="vegan-flow-text">Por rangos de ebullición</div></div>
+          <div class="vegan-flow-arrow">↓</div>
+          <div class="vegan-flow-box"><span class="vegan-flow-label">SALE</span><div class="vegan-flow-text">Naphtha | Jet-range / SAF | Renewable diesel</div></div>
+        </div>
+        <div class="type-tags"><span class="type-tag finish"><i></i>Fraccionamiento</span></div>
       </article>
     </div>
 
@@ -205,22 +294,184 @@
         <div class="checkpoint-decision vegan-decision"><b>Decisión:</b> apto para Vegan · mezcla/corrección · rechazo</div>
       </section>
 
-      <section class="stage muted-stage">
-        <div class="panel-title">Conversión química</div>
-        <div class="stage-explain">El feedstock ya pasó el checkpoint integrado de Tula. El foco cambia a <strong>desoxigenación y formación de parafinas</strong>.</div>
+      
+      <section class="stage vegan-detail-stage">
+        <div class="panel-title">05 · Hydrotreatment y desoxigenación</div>
+        <div class="stage-explain"><strong>Primera lectura:</strong> feedstock pretratado + H₂ → conversión catalítica → n-parafinas + agua y gases.</div>
+        <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿cómo se transforma la grasa?</summary>
+          <div class="explainer-body vegan-guide">
+            <div class="explainer-section">
+              <h4>1 · ¿Qué entra?</h4>
+              <p>Entra <strong>feedstock ya acondicionado</strong>, formado principalmente por triglicéridos y FFA / ácidos grasos libres, junto con hidrógeno (H₂).</p>
+            </div>
+            <div class="explainer-section">
+              <h4>2 · ¿Qué pasa físicamente?</h4>
+              <p>El feedstock se mezcla con hidrógeno y entra a la sección catalítica bajo condiciones controladas de temperatura y presión. El número de reactores o lechos y las condiciones exactas deben validarse con Axens.</p>
+            </div>
+            <div class="explainer-section">
+              <h4>3 · ¿Qué pasa molecularmente?</h4>
+              <div class="vegan-routes">
+                <div class="vegan-route">
+                  <div class="vegan-route-title">A · Saturación</div>
+                  <div class="vegan-molecule">C=C + H₂　↓　C–C</div>
+                  <div class="vegan-route-result">El hidrógeno convierte dobles enlaces en enlaces simples, dejando las cadenas más saturadas.</div>
+                </div>
+                <div class="vegan-route">
+                  <div class="vegan-route-title">B · Ruptura de la estructura del triglicérido</div>
+                  <div class="vegan-molecule">Triglicérido　↓　cadenas grasas + fragmento de glicerol　↓　hidrocarburos + principalmente propano</div>
+                  <div class="vegan-route-result">El esqueleto del triglicérido se rompe; el backbone de glicerol genera principalmente propano.</div>
+                </div>
+                <div class="vegan-route">
+                  <div class="vegan-route-title">C · Desoxigenación · fundamento químico HEFA</div>
+                  <div class="vegan-molecule">Grasa: C + H + O　↓　Hidrocarburo: C + H</div>
+                  <div class="vegan-route-result">Estas rutas explican la química HEFA; no representan proporciones garantizadas específicas de Vegan®.</div>
+                </div>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>4 · HDO / DCO₂ / DCO</h4>
+              <div class="vegan-routes">
+                <div class="vegan-route"><div class="vegan-route-title">HDO</div><div class="vegan-molecule">ácido graso + H₂ → n-parafina + H₂O</div><div class="vegan-route-result">El oxígeno sale como agua y se conserva el número de carbonos de la cadena.</div></div>
+                <div class="vegan-route"><div class="vegan-route-title">DCO₂</div><div class="vegan-molecule">ácido graso → n-parafina + CO₂</div><div class="vegan-route-result">El oxígeno puede salir como CO₂ y la cadena pierde un carbono.</div></div>
+                <div class="vegan-route"><div class="vegan-route-title">DCO</div><div class="vegan-molecule">ácido graso → n-parafina + CO + H₂O</div><div class="vegan-route-result">Otra ruta genera CO y también produce una cadena ligeramente más corta.</div></div>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>5 · ¿Qué se genera y qué sale?</h4>
+              <p><strong>Sale una corriente rica en n-parafinas lineales</strong> que también puede contener H₂ no reaccionado, agua, CO₂, CO, propano y gases ligeros.</p>
+              <p>Estas moléculas ya son hidrocarburos, pero al ser principalmente lineales todavía presentan propiedades de frío que deben mejorarse antes de obtener el producto final.</p>
+              <div class="correction-destination">El efluente completo pasa a 05b · Separación y acondicionamiento intermedio.</div>
+            </div>
+          </div>
+        </details>
       </section>
 
-      <section class="stage muted-stage">
-        <div class="panel-title">Conversión química</div>
-        <div class="stage-explain">La estructura de las parafinas se ajusta para mejorar <strong>propiedades de frío</strong> y el balance de producto.</div>
+      <section class="stage vegan-detail-stage physical">
+        <div class="panel-title">05b · Separación y acondicionamiento intermedio</div>
+        <div class="vegan-evidence-tag">Configuración conceptual HEFA · validar con Axens</div>
+        <div class="stage-explain">Del Hydrotreatment no sale únicamente “parafina limpia”. También salen agua, hidrógeno no reaccionado y gases de reacción que deben separarse antes del siguiente stage catalítico.</div>
+        <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿qué se separa y qué continúa?</summary>
+          <div class="explainer-body vegan-guide">
+            <div class="explainer-section">
+              <h4>1 · ¿Qué contiene realmente el efluente?</h4>
+              <p>Una mezcla de hidrocarburos parafínicos, H₂ no reaccionado, agua formada durante la desoxigenación y gases/coproductos de reacción.</p>
+            </div>
+            <div class="explainer-section">
+              <h4>2 · Separación gas / agua / hidrocarburo</h4>
+              <div class="vegan-branches">
+                <div class="vegan-branch"><strong>GAS</strong>H₂ + gases de reacción</div>
+                <div class="vegan-branch"><strong>AGUA</strong>Agua formada durante la desoxigenación</div>
+                <div class="vegan-branch"><strong>LÍQUIDO</strong>Corriente rica en n-parafinas</div>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>3 · Recuperación conceptual de H₂</h4>
+              <p>Parte del H₂ puede recuperarse y reciclarse dependiendo de la configuración de la unidad. No se representa un circuito propietario confirmado.</p>
+            </div>
+            <div class="explainer-section">
+              <h4>4 · ¿Qué corriente continúa?</h4>
+              <div class="correction-destination">Corriente parafínica acondicionada → 06 · Hydroisomerization y hydrocracking selectivo.</div>
+              <div class="vegan-stage-note"><strong>Nota:</strong> operación física conceptual HEFA; la configuración específica debe validarse con Axens.</div>
+            </div>
+          </div>
+        </details>
       </section>
 
-      <section class="stage muted-stage">
-        <div class="panel-title">Producto</div>
-        <div class="stage-explain">Se separan y terminan las fracciones para obtener <strong>renewable diesel y SAF</strong> de acuerdo con la configuración y especificación comercial aplicable.</div>
+      <section class="stage vegan-detail-stage">
+        <div class="panel-title">06 · Hydroisomerization y hydrocracking selectivo</div>
+        <div class="stage-explain"><strong>Primera lectura:</strong> n-parafinas + H₂ → ramificación y cracking selectivo → mezcla orientada a rangos jet, diesel y ligeros.</div>
+        <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿por qué se ramifican y cuándo se acortan?</summary>
+          <div class="explainer-body vegan-guide">
+            <div class="explainer-section">
+              <h4>1 · n-parafina vs isoparafina</h4>
+              <div class="vegan-routes">
+                <div class="vegan-route"><div class="vegan-route-title">ANTES · n-parafina lineal</div><div class="vegan-molecule">C–C–C–C–C–C–C–C</div><div class="vegan-route-result">Las cadenas rectas se acomodan fácilmente unas junto a otras y tienden a cristalizar a temperaturas relativamente altas.</div></div>
+                <div class="vegan-flow-arrow">↓ LINEAL → RAMIFICADA ↓</div>
+                <div class="vegan-route"><div class="vegan-route-title">DESPUÉS · isoparafina</div><div class="vegan-molecule">　C<br>　│<br>C–C–C–C–C–C</div><div class="vegan-route-result">La ramificación dificulta el empaquetamiento de las moléculas y ayuda a que el combustible permanezca líquido a temperaturas más bajas.</div></div>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>2 · Isomerization vs selective hydrocracking</h4>
+              <div class="vegan-routes">
+                <div class="vegan-route"><div class="vegan-route-title">ISOMERIZATION</div><div class="vegan-molecule">cadena lineal → cadena ramificada de longitud similar</div><div class="vegan-route-result"><strong>Resultado:</strong> mejora las propiedades en frío.</div></div>
+                <div class="vegan-route"><div class="vegan-route-title">SELECTIVE HYDROCRACKING</div><div class="vegan-molecule">cadena larga → cadenas más cortas</div><div class="vegan-route-result">Parte de las moléculas se desplaza hacia rangos de ebullición más ligeros, incluido el rango jet.</div></div>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>3 · ¿Qué se busca controlar?</h4>
+              <div class="vegan-tradeoff">
+                <div><strong>Muy poco upgrading</strong> → permanecen más cadenas pesadas.</div>
+                <div><strong>Isomerización / cracking selectivo adecuado</strong> → mejores propiedades en frío + distribución más favorable al rango jet.</div>
+                <div><strong>Demasiado cracking</strong> → más naphtha y gases + pérdida de middle distillates.</div>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>4 · Flexibilidad de producto</h4>
+              <p>Axens comunica flexibilidad para orientar el middle-distillate entre renewable diesel y SAF.</p>
+              <div class="vegan-stage-note"><strong>El 0–100% se refiere a la orientación del producto middle-distillate, no al porcentaje permitido de una determinada grasa en el feedstock.</strong></div>
+              <p>Axens también ha comunicado operación Vegan® en modo 100% SAF sin incorporar una etapa adicional e independiente de hydrocracking. Esto no significa 100% de rendimiento másico total, permiso para alimentar cualquier grasa ni ausencia absoluta de cracking molecular.</p>
+            </div>
+            <div class="explainer-section">
+              <h4>5 · ¿Qué sale?</h4>
+              <p>Sale una mezcla de isoparafinas, algunas cadenas más cortas y otros hidrocarburos renovables, distribuida entre rangos ligeros, jet y diesel.</p>
+              <div class="correction-destination">La mezcla pasa a 07 · Estabilización y separación de livianos.</div>
+            </div>
+          </div>
+        </details>
+      </section>
+
+      <section class="stage vegan-detail-stage physical">
+        <div class="panel-title">07 · Estabilización y separación de livianos</div>
+        <div class="vegan-evidence-tag">Separación física · configuración específica por validar</div>
+        <div class="stage-explain">Efluente de Hydroisomerization → enfriamiento / estabilización → gases, H₂ y livianos + corriente líquida estabilizada.</div>
+        <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿qué se retira antes del fraccionamiento?</summary>
+          <div class="explainer-body vegan-guide">
+            <div class="explainer-section"><h4>1 · ¿Qué entra?</h4><p>Entra el efluente completo de Hydroisomerization, con hidrocarburos líquidos, H₂ y componentes gaseosos o muy ligeros.</p></div>
+            <div class="explainer-section"><h4>2 · ¿Qué se retira?</h4><p>Se separan H₂, gases y componentes muy ligeros de la corriente líquida principal.</p></div>
+            <div class="explainer-section"><h4>3 · ¿Por qué es una separación física?</h4><p>Aquí no se busca una nueva reacción química principal. El objetivo es retirar gases y componentes muy ligeros antes de separar los combustibles líquidos.</p></div>
+            <div class="explainer-section"><h4>4 · ¿Qué continúa?</h4><div class="correction-destination">Corriente líquida estabilizada → 08 · Fraccionamiento de productos.</div></div>
+          </div>
+        </details>
+      </section>
+
+      <section class="stage vegan-detail-stage physical">
+        <div class="panel-title">08 · Fraccionamiento de productos</div>
+        <div class="vegan-evidence-tag">Separación física</div>
+        <div class="stage-explain">Después de las reacciones, la corriente contiene una “sopa” de hidrocarburos de diferentes tamaños. El fraccionamiento los separa principalmente según sus rangos de ebullición.</div>
+        <details class="explainer-detail">
+          <summary>Ver explicación guiada · ¿cómo se separa la “sopa” de hidrocarburos?</summary>
+          <div class="explainer-body vegan-guide">
+            <div class="explainer-section">
+              <h4>1 · Separación por rangos de ebullición</h4>
+              <p>No se busca otra conversión química: las fracciones se separan físicamente de acuerdo con su volatilidad y rango de ebullición.</p>
+              <div class="vegan-fraction-tower">
+                <span class="vegan-caption">↑ MÁS LIGEROS</span>
+                <div class="light">Gases / LPG</div>
+                <div class="naphtha">Renewable naphtha</div>
+                <div class="jet">Jet-range / SAF</div>
+                <div class="diesel">Renewable diesel</div>
+                <span class="vegan-caption">↓ MÁS PESADOS</span>
+              </div>
+            </div>
+            <div class="explainer-section">
+              <h4>2 · ¿Qué sale?</h4>
+              <div class="vegan-outputs">
+                <div class="vegan-output-card"><div class="vegan-output-title">GASES / LPG</div><p>Fracciones más ligeras.</p></div>
+                <div class="vegan-output-card"><div class="vegan-output-title">RENEWABLE NAPHTHA</div><p>Fracción ligera líquida.</p></div>
+                <div class="vegan-output-card"><div class="vegan-output-title">JET-RANGE / SAF</div><p>Fracción orientada al producto de aviación.</p><div class="vegan-stage-note">Obtener una fracción dentro del rango jet no implica por sí solo que el producto esté listo para uso comercial en aviación. Debe cumplir las especificaciones y requisitos de certificación aplicables.</div></div>
+                <div class="vegan-output-card"><div class="vegan-output-title">RENEWABLE DIESEL</div><p>Fracción de mayor rango de ebullición.</p></div>
+              </div>
+            </div>
+            <div class="vegan-stage-note">Etapas posteriores de certificación y blending comercial quedan fuera de la conversión propietaria Vegan® representada en este diagrama.</div>
+          </div>
+        </details>
       </section>
     </div>
   </div>
 </div>
 
-<div class="foot"><strong>Proceso canónico Vegan®:</strong> 02 es un macroproceso de pretratamiento externo desplegado como 02.1 Degumming → 02.2 Bleaching → 02.3 Drying → 02.4 Polishing filtration; 04 sigue siendo el único checkpoint integrado comercial + técnico en Tula. No insertar 03b/05b de Ecofining o HydroFlex. Las referencias ≈3 ppm P y ≈7 ppm metales son benchmarks industriales preliminares y requieren validación específica con Axens antes de tratarlas como requisitos tecnológicos.</div>
+<div class="foot"><strong>Proceso canónico Vegan®:</strong> 02 es un macroproceso de pretratamiento externo desplegado como 02.1 Degumming → 02.2 Bleaching → 02.3 Drying → 02.4 Polishing filtration; 04 sigue siendo el único checkpoint integrado comercial + técnico en Tula. El bloque 05b mostrado es una operación física conceptual HEFA y no un reactor propietario públicamente confirmado de Vegan®. Las referencias ≈3 ppm P y ≈7 ppm metales son benchmarks industriales preliminares y requieren validación específica con Axens antes de tratarlas como requisitos tecnológicos.</div>
