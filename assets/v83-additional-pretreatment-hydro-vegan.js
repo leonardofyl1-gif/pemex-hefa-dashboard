@@ -91,7 +91,7 @@
         <div class="desc-point"><b>Cuándo aplica:</b> Sólo cuando el tren base no es suficiente para alcanzar la especificación HVO/HEFA. No todos los lotes requieren estas operaciones.</div>
         <div class="feedstock-extra-treatment-chips">
           <span class="feedstock-extra-treatment-chip">Heat treatment</span>
-          <span class="feedstock-extra-treatment-chip">Cl removal</span>
+          <span class="feedstock-extra-treatment-chip">Cl (cloro) removal</span>
           <span class="feedstock-extra-treatment-chip">Polymer removal</span>
           <span class="feedstock-extra-treatment-chip">Deacidification</span>
           <span class="feedstock-extra-treatment-chip">Otros</span>
