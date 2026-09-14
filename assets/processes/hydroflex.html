@@ -92,7 +92,9 @@
 .hydroflex-board .hydro-strip,.hydroflex-board .hydro-strip2{grid-template-columns:repeat(16,minmax(410px,1fr))!important}
 .hydroflex-board .hydro-guard-parent-group{
   grid-column:span 3!important;
-  align-self:start!important;
+  align-self:stretch!important;
+  display:flex!important;
+  position:relative;
   min-height:0!important;
   background:linear-gradient(90deg,#FBFDFE,var(--pre-soft),#FBFDFE);
   box-shadow:inset 0 4px 0 var(--pre);
@@ -100,8 +102,38 @@
   border-right:1px solid var(--line);
 }
 .hydroflex-board .hydro-guard-parent-group .hydro-guard-parent{
+  width:100%;
   padding:14px 16px 12px!important;
   border-bottom:0!important;
+  display:flex;
+}
+.hydroflex-board .hydro-guard-parent-group .parent-head{width:100%;height:100%}
+.hydroflex-board .hydro-guard-parent-copy{display:flex;flex-direction:column;width:100%;height:100%}
+.hydroflex-board .hydro-guard-parent-subtitle{
+  margin:-2px 0 8px;
+  font-size:15px!important;
+  font-weight:850;
+  color:var(--pre);
+}
+.hydroflex-board .hydro-guard-purpose{margin-bottom:9px!important}
+.hydroflex-board .guard-family-line{
+  padding:10px 12px;
+  margin:0 0 9px;
+  border:1px solid rgba(194,74,58,.28);
+  border-radius:10px;
+  background:#FFF7F3;
+  font-size:13.4px!important;
+  line-height:1.45;
+  color:var(--blue-1);
+}
+.hydroflex-board .guard-family-connector{
+  margin-top:auto;
+  padding:8px 10px;
+  border-radius:9px 9px 0 0;
+  background:var(--pre-soft);
+  color:var(--pre);
+  text-align:center;
+  font-size:12px!important;
 }
 .hydroflex-board .hydro-guard-parent-group .parent-flow{
   margin-top:8px;
@@ -139,7 +171,25 @@
 .hydroflex-board .hydro-guard-lower-group>.hydro-guard-function-stage:not(:nth-child(3)){
   border-right:1px solid var(--line);
 }
-.hydroflex-board .hydro-guard-function-stage .panel-title{text-transform:none!important}
+.hydroflex-board .hydro-guard-function-stage>.panel-title{
+  margin:-12px -12px 0!important;
+  padding:11px 12px 7px!important;
+  border-bottom:0!important;
+  background:var(--pre-soft);
+  color:var(--blue-1);
+  text-transform:none!important;
+  font-size:18px!important;
+  line-height:1.22;
+}
+.hydroflex-board .hydro-guard-function-stage>.hydro-stage-kicker{
+  margin:0 -12px 10px!important;
+  padding:0 12px 10px!important;
+  border-bottom:2px solid var(--pre);
+  background:var(--pre-soft);
+  color:var(--pre);
+  font-size:15px!important;
+  font-weight:850;
+}
 .hydroflex-board .hydro-guard-function-stage .chem-symbols{margin:0 0 10px}
 .hydroflex-board .hydro-guard-function-stage .chem-chip{font-size:13.4px!important}
 .hydroflex-board .hydro-guard-function-stage .chem-chip b{font-size:15px!important}
@@ -157,11 +207,14 @@
 }
 .hydroflex-board .hydro-guard-common-life{
   grid-column:1/-1!important;
-  padding:8px 12px!important;
+  display:grid!important;
+  grid-template-columns:240px minmax(0,1fr)!important;
+  gap:6px 12px!important;
+  padding:9px 12px!important;
   min-height:0!important;
   height:max-content!important;
   align-self:start!important;
-  border-top:1px solid var(--line);
+  border-top:2px solid var(--pre);
   background:#F5F9FC;
 }
 .hydroflex-board .hydro-guard-common-life h4{
@@ -170,9 +223,13 @@
   color:var(--blue-1);
 }
 .hydroflex-board .hydro-guard-common-life .hydro-life-line{
+  grid-column:2!important;
   max-width:none!important;
   margin:0!important;
+  align-self:center!important;
 }
+.hydroflex-board .hydro-guard-common-life>p,
+.hydroflex-board .hydro-guard-common-life>details{grid-column:1/-1!important}
 .hydroflex-board .hydro-guard-common-life p{margin:6px 0 0!important}
 .hydroflex-board .hydro-guard-common-life details{
   max-width:none!important;
@@ -277,12 +334,15 @@
       </article>
 
       <div class="hydro-guard-parent-group">
-        <div class="hydro-guard-parent"><div class="parent-head"><span class="parent-no">05</span><div>
-          <h3>Acondicionamiento interno del feedstock<br><span style="font-weight:700">(Guard system / protección catalítica HydroFlex)</span></h3>
-          <p><strong>Última barrera de protección antes del catalizador principal.</strong></p>
+        <div class="hydro-guard-parent"><div class="parent-head"><span class="parent-no">05</span><div class="hydro-guard-parent-copy">
+          <h3>Acondicionamiento interno del feedstock</h3>
+          <div class="hydro-guard-parent-subtitle">Guard system / protección catalítica HydroFlex</div>
+          <p class="hydro-guard-purpose"><strong>Última barrera de protección antes del catalizador principal.</strong></p>
+          <div class="guard-family-line"><strong>Guard beds:</strong> PhosTrap™ · Metales alcalinos y alcalinotérreos · Metales pesados y otros venenos</div>
           <p>El pretratamiento elimina la mayor parte de los contaminantes, pero pequeñas trazas todavía pueden pasar. HydroFlex utiliza funciones de protección catalítica para reducir esas trazas antes de alimentar la sección principal.</p>
-          <div class="parent-flow">Degumming y pretratamiento reducen contaminantes → guard materials capturan las trazas residuales.</div>
+          <div class="parent-flow">Degumming y el pretratamiento reducen la mayor parte de los contaminantes → los guard materials capturan las trazas residuales.</div>
           <div class="parent-disclaimer">Las tres secciones representan funciones de protección; la configuración física exacta de los guard materials depende del diseño HydroFlex.</div>
+          <div class="guard-family-connector">↓ <strong>Tres funciones de protección dentro del mismo Guard system</strong></div>
         </div></div></div>
       </div>
 
@@ -340,7 +400,7 @@
       </section>
 
       <div class="hydro-guard-lower-group"><section class="stage hydro-guard-function-stage">
-          <div class="panel-title">05.1 · Fósforo</div><div class="hydro-stage-kicker">Phosphorus protection / PhosTrap™</div>
+          <div class="panel-title">05.1 · PhosTrap™ / protección frente a fósforo</div><div class="hydro-stage-kicker">P (fósforo)</div>
           <div class="stage-explain">
             <div class="chem-symbols"><span class="chem-chip"><b>P</b> Fósforo</span></div>
             <p><strong>Fósforo residual</strong></p>
@@ -352,7 +412,7 @@
         </section>
 
         <section class="stage hydro-guard-function-stage">
-          <div class="panel-title">05.2 · Na (sodio), K (potasio), Ca (calcio) y Mg (magnesio)</div><div class="hydro-stage-kicker">Protección frente a sales y metales</div>
+          <div class="panel-title">05.2 · Metales alcalinos y alcalinotérreos</div><div class="hydro-stage-kicker">Na (sodio) · K (potasio) · Ca (calcio) · Mg (magnesio)</div>
           <div class="stage-explain">
             <div class="chem-symbols"><span class="chem-chip"><b>Na</b> Sodio</span><span class="chem-chip"><b>K</b> Potasio</span><span class="chem-chip"><b>Ca</b> Calcio</span><span class="chem-chip"><b>Mg</b> Magnesio</span></div>
             <p><strong>Sales y metales ligeros</strong></p>
@@ -364,7 +424,7 @@
         </section>
 
         <section class="stage hydro-guard-function-stage">
-          <div class="panel-title">05.3 · Fe (hierro), Ni (níquel), V (vanadio), Si (silicio) y otros venenos</div><div class="hydro-stage-kicker">Protección frente a metales traza y otros contaminantes</div>
+          <div class="panel-title">05.3 · Metales pesados y otros venenos</div><div class="hydro-stage-kicker">Fe (hierro) · Ni (níquel) · V (vanadio) · Si (silicio)</div>
           <div class="stage-explain">
             <div class="chem-symbols"><span class="chem-chip"><b>Fe</b> Hierro</span><span class="chem-chip"><b>Ni</b> Níquel</span><span class="chem-chip"><b>V</b> Vanadio</span><span class="chem-chip"><b>Si</b> Silicio</span></div>
             <p><strong>Metales traza / otros venenos</strong></p>
@@ -382,7 +442,7 @@
           <details class="explainer-detail"><summary>Ver explicación · ¿cómo sabemos cuándo un guard se está agotando?</summary><div class="explainer-body hydro-guide"><ul><li>Concentración del contaminante a la entrada y salida</li><li>Caída de presión (ΔP), cuando sea relevante</li><li>Capacidad y saturación</li><li>Breakthrough</li><li>Run length</li></ul><p>Son controles operativos y no crean nuevas variables T.</p></div></details>
         </section>
 
-        <div class="hydro-guard-connection">Después de esta última barrera de protección verificamos que el feedstock esté realmente apto para entrar a la sección catalítica. → <strong>06 · Control técnico</strong></div>
+        <div class="hydro-guard-connection">Después de estas tres funciones de protección, verificamos que el feedstock esté apto para entrar a la sección catalítica. → <strong>06 · Control técnico</strong></div>
       </div>
 
       <section class="stage technical-stage hydro-technical-stage"><div class="panel-title">06 · Control técnico de feedstock acondicionado · apto para HydroFlex</div><div class="stage-explain">Variables que se revisan sobre el <strong>feedstock ya pretratado/acondicionado</strong> para decidir si puede entrar a la sección catalítica HydroFlex sin dañar guard beds ni catalizador.</div><div class="varlist">
