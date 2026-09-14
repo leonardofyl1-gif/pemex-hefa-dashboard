@@ -428,12 +428,12 @@
     if(!step05||!step06) return false;
 
     const title05=step05.querySelector('h3');
-    if(title05) title05.textContent='Stage 1 – Hydrotreatment (hidrotratamiento) · Vegan';
+    if(title05) title05.textContent='Hydrotreatment y desoxigenación';
     const physical05=step05.querySelector('.desc-point:first-child b');
     if(physical05) physical05.textContent='Proceso físico (elimina el oxígeno de los lípidos con hidrógeno y forma parafinas lineales):';
 
     const title06=step06.querySelector('h3');
-    if(title06) title06.textContent='Stage 2 – Hydroisomerization (hidroisomerización) · Vegan';
+    if(title06) title06.textContent='Hydroisomerization y hydrocracking selectivo';
     const physical06=step06.querySelector('.desc-point:first-child b');
     if(physical06) physical06.textContent='Proceso físico (convierte parafinas lineales en parafinas ramificadas y ajusta el balance entre diésel renovable y SAF):';
 
@@ -491,10 +491,10 @@
     if(!step07) return false;
 
     const title07=step07.querySelector('h3');
-    if(title07) title07.textContent='Cooling (enfría las corrientes), Fractionation (separa en cortes de producto) y Blending (mezcla para alcanzar la especificación comercial)';
+    if(title07) title07.textContent='Estabilización y separación de livianos';
 
     const physical07=step07.querySelector('.desc-point:first-child b');
-    if(physical07) physical07.textContent='Proceso físico (enfría y separa las corrientes en cortes de producto antes del blending):';
+    if(physical07) physical07.textContent='Proceso físico (enfría y estabiliza el efluente para retirar H₂, gases y componentes muy ligeros):';
 
     vegan.dataset.finalProductLabelsV42='true';
     return true;
