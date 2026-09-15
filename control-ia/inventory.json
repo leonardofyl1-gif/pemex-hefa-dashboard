@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-14T23:23:45.141995+00:00",
+  "generated_at": "2026-09-15T00:34:36.465159+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -199,7 +199,7 @@
       "name": "hydroflex.html",
       "technical_type": "HTML",
       "extension": "html",
-      "size_bytes": 63352,
+      "size_bytes": 64482,
       "last_modified": null,
       "purpose": "Componentes que construyen el dashboard público vigente.",
       "for_dummies": "Son las piezas de código que hacen funcionar y verse bien el dashboard de procesos.",
@@ -452,7 +452,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 44003,
-      "last_modified": "2026-09-14T22:27:18Z",
+      "last_modified": "2026-09-14T23:23:45Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
