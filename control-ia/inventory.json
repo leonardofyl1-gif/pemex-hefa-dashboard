@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-24T14:31:42.512339+00:00",
+  "generated_at": "2026-10-24T18:08:17.671698+00:00",
   "principle": "Si existe en GitHub, existe en Control IA.",
   "warnings": [],
   "summary": {
@@ -452,7 +452,7 @@
       "technical_type": "JSON",
       "extension": "json",
       "size_bytes": 44003,
-      "last_modified": "2026-10-24T10:57:54Z",
+      "last_modified": "2026-10-24T14:31:42Z",
       "purpose": "Infraestructura de inventario y control del proyecto.",
       "for_dummies": "Es el sistema que nos dice qué existe en GitHub y en qué estado está.",
       "function": "Control IA",
